@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://item.tres" type="StyleBox" id=1]
+[ext_resource path="res://elements/MusicBoxMedium.gd" type="Script" id=2]
+[ext_resource path="res://Img/folder-music-symbolic.svg" type="Texture" id=3]
+[ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=4]
+
+[node name="MusicBoxMedium" type="Panel"]
+margin_right = 360.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 375, 80 )
+custom_styles/panel = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 6.80188
+margin_top = -37.154
+margin_right = 81.8019
+margin_bottom = 37.846
+rect_min_size = Vector2( 75, 75 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 7
+
+[node name="title" type="Label" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 110.0
+margin_top = -23.0
+margin_right = 325.0
+margin_bottom = -1.0
+grow_vertical = 0
+custom_fonts/font = ExtResource( 4 )
+text = "Song Title"
+valign = 1
+autowrap = true
+clip_text = true
+max_lines_visible = 2
+
+[node name="artist" type="Label" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 110.0
+margin_top = 7.0
+margin_right = 366.0
+margin_bottom = 21.0
+text = "Artist"
+valign = 1
+clip_text = true
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+[connection signal="gui_input" from="." to="." method="_on_MusicBoxMedium_gui_input"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

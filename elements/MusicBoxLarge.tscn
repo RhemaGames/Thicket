@@ -1,0 +1,128 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://item.tres" type="StyleBox" id=1]
+[ext_resource path="res://elements/MusicBoxLarge.gd" type="Script" id=2]
+[ext_resource path="res://Img/folder-music-symbolic.svg" type="Texture" id=3]
+[ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://elements/OpenSeed.tscn" type="PackedScene" id=5]
+[ext_resource path="res://elements/Thicket.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "active"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "highlight"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ) ]
+}
+
+[node name="MusicBoxLarge" type="Panel"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1.36035
+margin_right = 201.36
+margin_bottom = 200.0
+rect_min_size = Vector2( 200, 200 )
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 99.3522, 106.967 )
+custom_styles/panel = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -90.0
+margin_top = -35.0739
+margin_right = 90.0
+margin_bottom = 144.926
+rect_min_size = Vector2( 180, 180 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1
+
+[node name="title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -83.0
+margin_top = -51.0
+margin_right = 83.0
+margin_bottom = -3.0
+custom_fonts/font = ExtResource( 4 )
+text = "Title"
+align = 1
+valign = 1
+autowrap = true
+max_lines_visible = 2
+
+[node name="artist" type="Label" parent="."]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -19.0
+margin_right = -1.0
+margin_bottom = -5.0
+text = "New Artist"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+use_threads = true
+
+[node name="OpenSeed" parent="." instance=ExtResource( 5 )]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/active = SubResource( 1 )
+anims/highlight = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="highlight_timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="Thicket" parent="." instance=ExtResource( 6 )]
+[connection signal="gui_input" from="." to="." method="_on_MusicBoxLarge_gui_input"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="highlight_timer" to="." method="_on_highlight_timer_timeout"]

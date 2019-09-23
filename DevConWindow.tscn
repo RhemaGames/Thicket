@@ -1,0 +1,227 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://default.theme" type="Theme" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Item.tscn" type="PackedScene" id=3]
+
+[node name="DevConWindow" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+
+[node name="BG" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="NewGame" type="ScrollContainer" parent="."]
+editor/display_folded = true
+visible = false
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 171.0
+margin_top = -298.0
+margin_right = 1020.0
+margin_bottom = 299.0
+
+[node name="OptionsList" type="VBoxContainer" parent="NewGame"]
+
+[node name="Welcome" type="Control" parent="."]
+visible = false
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 239.0
+margin_top = -297.0
+margin_right = 1020.0
+margin_bottom = 297.0
+
+[node name="Label" type="Label" parent="Welcome"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -154.447
+margin_top = 31.5789
+margin_right = -93.4474
+margin_bottom = 45.5789
+rect_scale = Vector2( 4, 4 )
+text = "Welcome"
+align = 1
+valign = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Welcome"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -419.5
+margin_top = 96.0
+margin_right = 389.5
+bbcode_enabled = true
+bbcode_text = "OpenSeed is an Open Source distributed gaming platform that enables developers to access and uitilize cloud based services as well as various blockchain inovations without the usual hoops that are required to use such services. 
+
+[b] Account Creation: [/b]
+
+If you already have a STEEM account you may use it to create your Developer account here within Grove. If not you can go to https://steemninja.com to create an account. Once you have your STEEM account procured OpenSeed will create a unique Developer ID which OpenSeed  will use to validate transactions. "
+text = "OpenSeed is an Open Source distributed gaming platform that enables developers to access and uitilize cloud based services as well as various blockchain inovations without the usual hoops that are required to use such services. 
+
+ Account Creation: 
+
+If you already have a STEEM account you may use it to create your Developer account here within Grove. If not you can go to https://steemninja.com to create an account. Once you have your STEEM account procured OpenSeed will create a unique Developer ID which OpenSeed  will use to validate transactions. "
+
+[node name="MainMenu" type="Panel" parent="."]
+anchor_bottom = 1.0
+margin_right = 204.0
+
+[node name="UserTag" type="Control" parent="MainMenu"]
+editor/display_folded = true
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 193.0
+margin_bottom = 593.0
+rect_clip_content = true
+
+[node name="UserIcon" type="TextureRect" parent="MainMenu/UserTag"]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 2 )
+
+[node name="devName" type="Label" parent="MainMenu/UserTag"]
+anchor_right = 1.0
+margin_left = 51.0526
+margin_top = 26.0
+margin_right = 1.05261
+margin_bottom = 40.0
+rect_scale = Vector2( 0.8, 0.8 )
+text = "Developer Name"
+valign = 1
+autowrap = true
+
+[node name="comName" type="Label" parent="MainMenu/UserTag"]
+margin_left = 49.0
+margin_top = 2.0
+margin_right = 187.0
+margin_bottom = 22.0
+rect_scale = Vector2( 1.2, 1.2 )
+text = "Company Name"
+valign = 1
+autowrap = true
+
+[node name="Menu" type="VBoxContainer" parent="MainMenu"]
+anchor_right = 1.0
+margin_top = 58.0
+margin_bottom = 599.0
+
+[node name="HSeparator" type="HSeparator" parent="MainMenu/Menu"]
+margin_right = 204.0
+margin_bottom = 4.0
+
+[node name="Games" type="Button" parent="MainMenu/Menu"]
+margin_top = 8.0
+margin_right = 204.0
+margin_bottom = 28.0
+text = "Games"
+flat = true
+align = 0
+
+[node name="Applications" type="Button" parent="MainMenu/Menu"]
+margin_top = 32.0
+margin_right = 204.0
+margin_bottom = 52.0
+text = "Apps"
+flat = true
+align = 0
+
+[node name="Stats" type="Button" parent="MainMenu/Menu"]
+margin_top = 56.0
+margin_right = 204.0
+margin_bottom = 76.0
+text = "Stats"
+flat = true
+align = 0
+
+[node name="HSeparator2" type="HSeparator" parent="MainMenu/Menu"]
+margin_top = 80.0
+margin_right = 204.0
+margin_bottom = 84.0
+
+[node name="Games" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_clip_content = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TopBar" type="Panel" parent="Games"]
+anchor_right = 1.0
+margin_bottom = 34.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Games/TopBar"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Games/TopBar/HBoxContainer"]
+margin_top = 13.0
+margin_right = 45.0
+margin_bottom = 27.0
+text = "Games"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Button" type="Button" parent="Games/TopBar"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -46.7368
+margin_top = -11.0526
+margin_right = -6.73682
+margin_bottom = 8.94739
+text = "NEW"
+flat = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Games"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GridContainer" type="GridContainer" parent="Games/ScrollContainer"]
+margin_right = 860.0
+margin_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 6
+
+[node name="Item" parent="Games/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+
+[node name="Item2" parent="Games/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+margin_left = 220.0
+margin_right = 420.0
+
+[node name="Item3" parent="Games/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+margin_left = 440.0
+margin_right = 640.0
+
+[node name="Item4" parent="Games/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+margin_left = 660.0
+margin_right = 860.0

@@ -1,0 +1,414 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://default.theme" type="Theme" id=1]
+[ext_resource path="res://MainWindow.gd" type="Script" id=2]
+[ext_resource path="res://effects/leaves2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://DashBoard.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Games.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Music.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Videos.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Settings.tscn" type="PackedScene" id=8]
+[ext_resource path="res://steemWallet.tscn" type="PackedScene" id=9]
+[ext_resource path="res://DevConWindow.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Img/preferences-system-symbolic.svg" type="Texture" id=11]
+[ext_resource path="res://Img/applications-engineering-symbolic.svg" type="Texture" id=12]
+[ext_resource path="res://Img/notification-alert-symbolic.svg" type="Texture" id=13]
+[ext_resource path="res://elements/OpenSeed.tscn" type="PackedScene" id=14]
+[ext_resource path="res://elements/Thicket.tscn" type="PackedScene" id=15]
+[ext_resource path="res://NewAccount.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Login.tscn" type="PackedScene" id=17]
+[ext_resource path="res://SteemLink.tscn" type="PackedScene" id=18]
+[ext_resource path="res://DeveloperSetup.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Welcome.tscn" type="PackedScene" id=20]
+
+[sub_resource type="Animation" id=1]
+resource_name = "toggle"
+length = 0.18
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 3.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:margin_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 235.54, 0.0 ]
+}
+
+[node name="MainWindow" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -1.0
+margin_bottom = -1.0
+rect_min_size = Vector2( 1024, 600 )
+rect_clip_content = true
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BG" type="Panel" parent="."]
+editor/display_folded = true
+self_modulate = Color( 0.756863, 0.752941, 0.752941, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = -1.0
+margin_right = 1.0
+margin_bottom = -1.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="leaves2" parent="BG" instance=ExtResource( 3 )]
+modulate = Color( 1, 1, 1, 0.176471 )
+margin_left = -1.0
+margin_top = 1.0
+margin_right = -1.0
+margin_bottom = 1.0
+
+[node name="Status" type="Control" parent="."]
+editor/display_folded = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 33.0
+margin_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_clip_content = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="OpenSeed" type="Control" parent="Status"]
+editor/display_folded = true
+visible = false
+margin_left = 10.4736
+margin_top = 10.4211
+margin_right = 152.474
+margin_bottom = 77.4211
+rect_clip_content = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="username" type="Label" parent="Status/OpenSeed"]
+margin_right = 70.0
+margin_bottom = 14.0
+text = "UserName:"
+uppercase = true
+
+[node name="games" type="Label" parent="Status/OpenSeed"]
+margin_top = 16.8421
+margin_right = 105.0
+margin_bottom = 30.8421
+text = "Installed Games:"
+uppercase = true
+
+[node name="music" type="Label" parent="Status/OpenSeed"]
+margin_left = 1.05267
+margin_top = 31.6842
+margin_right = 47.0527
+margin_bottom = 45.6842
+text = "Music:"
+uppercase = true
+
+[node name="video" type="Label" parent="Status/OpenSeed"]
+margin_left = 1.05267
+margin_top = 49.0
+margin_right = 48.0527
+margin_bottom = 63.0
+text = "Videos:"
+uppercase = true
+
+[node name="Steem" type="Control" parent="Status"]
+editor/display_folded = true
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -135.842
+margin_top = -73.579
+margin_right = -13.8422
+margin_bottom = -7.57898
+rect_clip_content = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="steemaccount" type="Label" parent="Status/Steem"]
+margin_right = 82.0
+margin_bottom = 14.0
+text = "steemname:"
+uppercase = true
+
+[node name="followers" type="Label" parent="Status/Steem"]
+margin_top = 19.0
+margin_right = 65.0
+margin_bottom = 33.0
+text = "Followers:"
+uppercase = true
+
+[node name="lastpost" type="Label" parent="Status/Steem"]
+margin_top = 40.0
+margin_right = 108.0
+margin_bottom = 54.0
+text = "Last Post Date:"
+uppercase = true
+
+[node name="WindowContainer" type="Control" parent="."]
+editor/display_folded = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 29.0
+margin_bottom = -33.0
+rect_clip_content = true
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="DashBoard" parent="WindowContainer" instance=ExtResource( 4 )]
+
+[node name="Games" parent="WindowContainer" instance=ExtResource( 5 )]
+visible = false
+
+[node name="Music" parent="WindowContainer" instance=ExtResource( 6 )]
+visible = false
+
+[node name="Videos" parent="WindowContainer" instance=ExtResource( 7 )]
+visible = false
+
+[node name="Settings" parent="WindowContainer" instance=ExtResource( 8 )]
+visible = false
+anchor_right = 0.0
+margin_right = 360.0
+
+[node name="steemWallet" parent="WindowContainer" instance=ExtResource( 9 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.001
+margin_top = -200.0
+margin_right = 400.001
+margin_bottom = 200.0
+
+[node name="DevConWindow" parent="WindowContainer" instance=ExtResource( 10 )]
+visible = false
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BottomBar" type="Panel" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -36.0
+rect_clip_content = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BottomBar"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -19.0
+margin_right = 234.0
+margin_bottom = 19.0
+
+[node name="Settings" type="Button" parent="BottomBar/HBoxContainer"]
+self_modulate = Color( 0.462745, 0.462745, 0.462745, 1 )
+margin_right = 86.0
+margin_bottom = 38.0
+disabled = true
+text = "Settings"
+icon = ExtResource( 11 )
+flat = true
+
+[node name="DevCon" type="Button" parent="BottomBar/HBoxContainer"]
+self_modulate = Color( 0.462745, 0.462745, 0.462745, 1 )
+margin_left = 90.0
+margin_right = 239.0
+margin_bottom = 38.0
+disabled = true
+text = "Developer Console"
+icon = ExtResource( 12 )
+flat = true
+
+[node name="TopBar" type="Panel" parent="."]
+anchor_right = 1.0
+margin_top = 1.73131
+margin_bottom = 28.7313
+rect_clip_content = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopBar"]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -81.0
+margin_top = -20.0
+margin_right = 81.0
+margin_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Games" type="Button" parent="TopBar/HBoxContainer"]
+margin_left = 3.0
+margin_right = 50.0
+margin_bottom = 40.0
+disabled = true
+text = "Games"
+flat = true
+
+[node name="Audio" type="Button" parent="TopBar/HBoxContainer"]
+margin_left = 54.0
+margin_right = 101.0
+margin_bottom = 40.0
+text = "Music"
+flat = true
+
+[node name="Video" type="Button" parent="TopBar/HBoxContainer"]
+margin_left = 105.0
+margin_right = 159.0
+margin_bottom = 40.0
+disabled = true
+text = "Videos"
+flat = true
+
+[node name="Social" type="Button" parent="TopBar"]
+visible = false
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -74.0
+margin_top = -10.0
+margin_right = -7.0
+margin_bottom = 12.0
+text = "Social"
+icon = ExtResource( 13 )
+flat = true
+
+[node name="Social" type="PanelContainer" parent="."]
+editor/display_folded = true
+visible = false
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.0
+margin_top = 30.0
+margin_right = 235.54
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 240, 570 )
+rect_clip_content = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Social"]
+anims/toggle = SubResource( 1 )
+
+[node name="OpenSeed" parent="." instance=ExtResource( 14 )]
+
+[node name="Thicket" parent="." instance=ExtResource( 15 )]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Wizards" type="Control" parent="."]
+editor/display_folded = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="NewAccount" parent="Wizards" instance=ExtResource( 16 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.0
+margin_top = -196.5
+margin_right = 144.0
+margin_bottom = 196.5
+
+[node name="Login" parent="Wizards" instance=ExtResource( 17 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.0
+margin_top = -175.0
+margin_right = 144.0
+margin_bottom = 175.0
+
+[node name="SteemLink" parent="Wizards" instance=ExtResource( 18 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.0
+margin_top = -175.0
+margin_right = 144.0
+margin_bottom = 175.0
+
+[node name="DeveloperSetup" parent="Wizards" instance=ExtResource( 19 )]
+visible = false
+
+[node name="Welcome" parent="Wizards" instance=ExtResource( 20 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -350.0
+margin_right = 300.0
+margin_bottom = 350.0
+[connection signal="checksteem" from="." to="." method="_on_MainWindow_checksteem"]
+[connection signal="pressed" from="BottomBar/HBoxContainer/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="BottomBar/HBoxContainer/DevCon" to="." method="_on_DevCon_pressed"]
+[connection signal="gui_input" from="TopBar" to="." method="_on_TopBar_gui_input"]
+[connection signal="pressed" from="TopBar/HBoxContainer/Games" to="." method="_on_Games_pressed"]
+[connection signal="pressed" from="TopBar/HBoxContainer/Audio" to="." method="_on_Audio_pressed"]
+[connection signal="pressed" from="TopBar/HBoxContainer/Video" to="." method="_on_Video_pressed"]
+[connection signal="pressed" from="TopBar/Social" to="." method="_on_Social_pressed"]
+[connection signal="userLoaded" from="OpenSeed" to="." method="_on_OpenSeed_userLoaded"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="visibility_changed" from="Wizards/NewAccount" to="Wizards/NewAccount" method="_on_NewAccount_visibility_changed"]
+[connection signal="login" from="Wizards/Login" to="." method="_on_Login_login"]
+[connection signal="linked" from="Wizards/SteemLink" to="." method="_on_SteemLink_linked"]

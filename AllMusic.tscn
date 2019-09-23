@@ -1,0 +1,145 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://AllMusic.gd" type="Script" id=1]
+[ext_resource path="res://Img/view-grid-symbolic.svg" type="Texture" id=2]
+[ext_resource path="res://NewArtists.gd" type="Script" id=3]
+[ext_resource path="res://Img/media-playback-start-symbolic.svg" type="Texture" id=4]
+[ext_resource path="res://NewTracks.gd" type="Script" id=5]
+[ext_resource path="res://playlistGrid.gd" type="Script" id=6]
+[ext_resource path="res://elements/Thicket.tscn" type="PackedScene" id=7]
+
+[node name="AllMusic" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -5.44153
+margin_top = 2.72076
+margin_right = -5.44153
+margin_bottom = 2.72076
+rect_clip_content = true
+script = ExtResource( 1 )
+
+[node name="Main" type="ScrollContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -565.0
+margin_right = 671.0
+margin_bottom = 717.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MainView" type="VBoxContainer" parent="Main"]
+margin_right = 106.0
+margin_bottom = 408.0
+
+[node name="Control4" type="Control" parent="Main/MainView"]
+margin_right = 106.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 0, 12 )
+
+[node name="artists" type="Button" parent="Main/MainView"]
+margin_top = 16.0
+margin_right = 106.0
+margin_bottom = 38.0
+text = "ARTISTS"
+icon = ExtResource( 2 )
+flat = true
+align = 0
+
+[node name="HSeparator2" type="HSeparator" parent="Main/MainView"]
+margin_top = 42.0
+margin_right = 106.0
+margin_bottom = 46.0
+
+[node name="Control2" type="Control" parent="Main/MainView"]
+margin_top = 50.0
+margin_right = 106.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="NewArtists" type="HBoxContainer" parent="Main/MainView"]
+margin_top = 94.0
+margin_right = 106.0
+margin_bottom = 294.0
+rect_min_size = Vector2( 0, 200 )
+custom_constants/separation = 20
+alignment = 1
+script = ExtResource( 3 )
+
+[node name="Control" type="Control" parent="Main/MainView"]
+margin_top = 298.0
+margin_right = 106.0
+margin_bottom = 330.0
+rect_min_size = Vector2( 0, 32 )
+
+[node name="newMusic" type="Button" parent="Main/MainView"]
+margin_top = 334.0
+margin_right = 106.0
+margin_bottom = 356.0
+text = "NEW MUSIC"
+icon = ExtResource( 4 )
+flat = true
+align = 0
+
+[node name="HSeparator" type="HSeparator" parent="Main/MainView"]
+margin_top = 360.0
+margin_right = 106.0
+margin_bottom = 364.0
+
+[node name="NewTracks" type="GridContainer" parent="Main/MainView"]
+margin_top = 368.0
+margin_right = 106.0
+margin_bottom = 368.0
+columns = 3
+script = ExtResource( 5 )
+
+[node name="Control3" type="Control" parent="Main/MainView"]
+margin_top = 372.0
+margin_right = 106.0
+margin_bottom = 404.0
+rect_min_size = Vector2( 0, 32 )
+
+[node name="nm_label3" type="Label" parent="Main/MainView"]
+visible = false
+margin_top = 412.0
+margin_right = 84.0
+margin_bottom = 426.0
+text = "Play Lists"
+uppercase = true
+
+[node name="HSeparator3" type="HSeparator" parent="Main/MainView"]
+visible = false
+margin_top = 412.0
+margin_right = 84.0
+margin_bottom = 416.0
+
+[node name="playlistGrid" type="GridContainer" parent="Main/MainView"]
+margin_top = 408.0
+margin_right = 106.0
+margin_bottom = 408.0
+custom_constants/hseparation = 20
+columns = 2
+script = ExtResource( 6 )
+
+[node name="Thicket" parent="." instance=ExtResource( 7 )]
+
+[node name="NewArtistTimer" type="Timer" parent="."]
+wait_time = 100.0
+
+[node name="NewTrackTimer" type="Timer" parent="."]
+wait_time = 180.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="resize" type="Timer" parent="."]
+wait_time = 0.1
+[connection signal="visibility_changed" from="." to="." method="_on_AllMusic_visibility_changed"]
+[connection signal="pressed" from="Main/MainView/artists" to="." method="_on_artists_pressed"]
+[connection signal="getNew" from="Main/MainView/NewArtists" to="Main/MainView/NewArtists" method="_on_NewArtists_getNew"]
+[connection signal="pressed" from="Main/MainView/newMusic" to="." method="_on_newMusic_pressed"]
+[connection signal="getNew" from="Main/MainView/NewTracks" to="Main/MainView/NewTracks" method="_on_NewTracks_getNew"]
+[connection signal="playlist" from="Main/MainView/NewTracks" to="Main/MainView/NewTracks" method="_on_NewTracks_playlist"]
+[connection signal="timeout" from="NewArtistTimer" to="." method="_on_NewArtistTimer_timeout"]
+[connection signal="timeout" from="NewTrackTimer" to="." method="_on_NewTrackTimer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="resize" to="." method="_on_resize_timeout"]

@@ -1,0 +1,163 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://DashBoard.gd" type="Script" id=1]
+[ext_resource path="res://menu.tres" type="StyleBox" id=2]
+[ext_resource path="res://elements/NewMusic.tscn" type="PackedScene" id=3]
+[ext_resource path="res://effects/leaves2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://elements/Thicket.tscn" type="PackedScene" id=5]
+[ext_resource path="res://elements/OpenSeed.tscn" type="PackedScene" id=6]
+
+[node name="DashBoard" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="music" type="Panel" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -388.0
+margin_bottom = -7.0
+custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="music"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -383.0
+margin_top = 8.0
+margin_right = -3.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="music/VBoxContainer"]
+margin_right = 380.0
+margin_bottom = 14.0
+text = "Music"
+uppercase = true
+
+[node name="HSeparator" type="HSeparator" parent="music/VBoxContainer"]
+margin_top = 24.0
+margin_right = 380.0
+margin_bottom = 28.0
+
+[node name="Control" type="Control" parent="music/VBoxContainer"]
+margin_top = 38.0
+margin_right = 380.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 0, 32 )
+
+[node name="RecentArtist" type="Control" parent="music/VBoxContainer"]
+margin_top = 80.0
+margin_right = 380.0
+margin_bottom = 360.0
+rect_min_size = Vector2( 0, 280 )
+
+[node name="Label2" type="Label" parent="music/VBoxContainer"]
+margin_top = 370.0
+margin_right = 380.0
+margin_bottom = 384.0
+text = "New Tracks"
+uppercase = true
+
+[node name="HSeparator2" type="HSeparator" parent="music/VBoxContainer"]
+margin_top = 394.0
+margin_right = 380.0
+margin_bottom = 398.0
+
+[node name="NewMusic" parent="music/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 408.0
+margin_right = 380.0
+margin_bottom = 488.0
+
+[node name="Games" type="Panel" parent="."]
+editor/display_folded = true
+anchor_right = 1.0
+margin_left = 10.0
+margin_top = 200.0
+margin_right = -396.0
+margin_bottom = 685.0
+custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="Games"]
+margin_top = -26.0
+margin_right = 40.0
+margin_bottom = -12.0
+text = "New Games"
+
+[node name="HSeparator" type="HSeparator" parent="Games"]
+anchor_right = 1.0
+margin_top = -9.0
+margin_bottom = -5.0
+
+[node name="Label2" type="Label" parent="Games"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -33.5
+margin_top = -7.0
+margin_right = 33.5
+margin_bottom = 7.0
+text = "No Games"
+
+[node name="Social" type="Panel" parent="."]
+editor/display_folded = true
+anchor_right = 1.0
+margin_left = 8.0
+margin_top = 39.0
+margin_right = -393.0
+margin_bottom = 149.0
+custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HSeparator" type="HSeparator" parent="Social"]
+anchor_right = 1.0
+margin_left = 1.0
+margin_top = -7.99998
+margin_right = 1.0
+margin_bottom = -3.99998
+
+[node name="Label" type="Label" parent="Social"]
+margin_left = 1.0
+margin_top = -25.0
+margin_right = 41.0
+margin_bottom = -11.0
+text = "Friends / Following"
+
+[node name="Label2" type="Label" parent="Social"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.5
+margin_top = -7.0
+margin_right = 50.5
+margin_bottom = 7.0
+text = "No Connections"
+
+[node name="leaves2" parent="." instance=ExtResource( 4 )]
+modulate = Color( 1, 1, 1, 0.184314 )
+mouse_filter = 2
+
+[node name="leaves3" parent="." instance=ExtResource( 4 )]
+modulate = Color( 0.894118, 0.0666667, 0.0666667, 0.301961 )
+margin_left = -2.0
+margin_top = -3.0
+margin_right = -1310.0
+margin_bottom = -708.0
+mouse_filter = 2
+
+[node name="Thicket" parent="." instance=ExtResource( 5 )]
+
+[node name="OpenSeed" parent="." instance=ExtResource( 6 )]

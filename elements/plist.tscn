@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://elements/plist.gd" type="Script" id=1]
+[ext_resource path="res://Img/edit-delete-symbolic.svg" type="Texture" id=2]
+
+[node name="plist" type="Control"]
+margin_right = 388.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 400, 28 )
+script = ExtResource( 1 )
+
+[node name="bg" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="highlight" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 24 )
+
+[node name="title" type="Label" parent="Control"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 9.92749
+margin_top = -6.0975
+margin_right = 74.9275
+margin_bottom = 7.9025
+text = "List Name"
+align = 1
+valign = 1
+
+[node name="delete" type="Button" parent="Control"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -28.9024
+margin_top = -12.0
+margin_right = -0.902405
+margin_bottom = 12.0
+rect_pivot_offset = Vector2( 14.9514, 12.9025 )
+icon = ExtResource( 2 )
+flat = true
+[connection signal="gui_input" from="." to="." method="_on_plist_gui_input"]
+[connection signal="title" from="." to="." method="_on_plist_title"]

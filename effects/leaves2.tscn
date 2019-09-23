@@ -1,0 +1,138 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://effects/leaves2.gd" type="Script" id=1]
+[ext_resource path="res://Img/leaf.svg" type="Texture" id=2]
+
+[node name="leaves2" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource( 1 )
+
+[node name="circlet" type="Control" parent="."]
+editor/display_folded = true
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -40.0
+rect_rotation = 1.0
+rect_pivot_offset = Vector2( 20.6104, 18.6844 )
+
+[node name="leaf" type="TextureRect" parent="circlet"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -208.393
+margin_top = -189.39
+margin_right = -63.3932
+margin_bottom = -13.39
+rect_rotation = -15.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+
+[node name="leaf2" type="TextureRect" parent="circlet"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -26.1396
+margin_top = -248.257
+margin_right = 107.861
+margin_bottom = -90.257
+rect_rotation = 30.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+
+[node name="leaf3" type="TextureRect" parent="circlet"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -230.821
+margin_top = 77.0117
+margin_right = -96.821
+margin_bottom = 235.012
+rect_rotation = -74.9999
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+
+[node name="leaf4" type="TextureRect" parent="circlet"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -302.007
+margin_top = -65.629
+margin_right = -157.007
+margin_bottom = 110.371
+rect_rotation = -44.9999
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+
+[node name="leaf5" type="TextureRect" parent="circlet"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -173.47
+margin_top = -217.947
+margin_right = -28.4697
+margin_bottom = -41.9465
+rect_rotation = 162.282
+rect_pivot_offset = Vector2( 133.713, 207.641 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+
+[node name="leaf7" type="TextureRect" parent="circlet"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -214.963
+margin_top = -246.774
+margin_right = -69.9626
+margin_bottom = -70.7741
+rect_rotation = 132.282
+rect_pivot_offset = Vector2( 165.686, 225.361 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+
+[node name="leaf6" type="TextureRect" parent="circlet"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -125.754
+margin_top = -217.381
+margin_right = 8.24664
+margin_bottom = -59.381
+rect_rotation = 216.714
+rect_pivot_offset = Vector2( 112.971, 194.382 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+
+[node name="leaf8" type="TextureRect" parent="circlet"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -174.053
+margin_top = -187.399
+margin_right = -40.0535
+margin_bottom = -29.3986
+rect_rotation = 102.282
+rect_pivot_offset = Vector2( 150.164, 172.333 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5

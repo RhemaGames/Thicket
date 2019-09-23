@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://AllArtists.gd" type="Script" id=1]
+[ext_resource path="res://elements/Thicket.tscn" type="PackedScene" id=2]
+
+[node name="AllArtists" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_clip_content = true
+script = ExtResource( 1 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 25.0
+margin_top = 59.0
+rect_clip_content = false
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+custom_constants/vseparation = 60
+custom_constants/hseparation = 20
+columns = 5
+
+[node name="Thicket" parent="." instance=ExtResource( 2 )]
+[connection signal="visibility_changed" from="." to="." method="_on_AllArtists_visibility_changed"]

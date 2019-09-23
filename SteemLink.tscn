@@ -1,0 +1,153 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://SteemLink.gd" type="Script" id=1]
+[ext_resource path="res://OpenSeed.png" type="Texture" id=2]
+[ext_resource path="res://elements/OpenSeed.tscn" type="PackedScene" id=3]
+
+[node name="SteemLink" type="Control"]
+margin_left = 360.0
+margin_top = 97.0
+margin_right = 648.0
+margin_bottom = 447.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_clip_content = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -53.5
+margin_top = 149.203
+margin_right = 53.5
+margin_bottom = 163.203
+text = "Steem Account"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="about" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -113.0
+margin_top = 171.515
+margin_right = 114.0
+margin_bottom = 207.515
+text = "Please enter your steem account information below"
+autowrap = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Username" type="LineEdit" parent="."]
+anchor_left = 0.1
+anchor_top = 0.54
+anchor_right = 0.9
+anchor_bottom = 0.59
+margin_left = 1.64012
+margin_top = 37.4758
+margin_right = 1.24014
+margin_bottom = 47.9758
+placeholder_text = "Username"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="postingkey" type="LineEdit" parent="."]
+anchor_left = 0.1
+anchor_top = 0.54
+anchor_right = 0.9
+anchor_bottom = 0.59
+margin_left = 1.64012
+margin_top = 73.5662
+margin_right = 1.24014
+margin_bottom = 84.0662
+secret = true
+placeholder_text = "Private Active Key"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0.117647 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -71.5
+margin_top = 7.0
+margin_right = 889.5
+margin_bottom = 893.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Link" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -61.0
+margin_top = -24.0
+margin_right = -5.0
+margin_bottom = -5.0
+text = "Link"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Cancel" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = -24.0
+margin_right = 77.0
+margin_bottom = -4.0
+text = "Cancel"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="notification" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.52
+margin_left = -110.0
+margin_top = 105.0
+margin_right = 113.0
+margin_bottom = 112.0
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OpenSeed" parent="." instance=ExtResource( 3 )]
+[connection signal="pressed" from="Link" to="." method="_on_Link_pressed"]
+[connection signal="pressed" from="Cancel" to="." method="_on_Cancel_pressed"]
