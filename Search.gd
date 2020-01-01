@@ -9,7 +9,13 @@ signal update_playlist(list)
 # warning-ignore:unused_signal
 signal play_now(track)
 
+var OpenSeed
+var Thicket
+
 func _ready():
+	OpenSeed = get_node("/root/OpenSeed")
+	Thicket = get_node("/root/Thicket")
+	
 	$newArtist.hide()
 	pass # Replace with function body.
 
@@ -23,12 +29,11 @@ func _on_search_text_entered(new_text):
 	$AnimationPlayer.play("searching")
 	$Banner.emit_signal("retrieve",new_text)
 	var list = get_parent().get_music(new_text)
-	print(list.find("[]"))
-	if list.find("[]") == -1 and list != "{New Artist}":
+	if list.find("[]") == -1:
 		print("Showing music")
 		$newArtist.hide()
 		$doublePaneView.artist = new_text
-		emit_signal("update_playlist",$doublePaneView.create_list(list.split("}, ")))
+		emit_signal("update_playlist",$doublePaneView.create_list(list))
 		$doublePaneView.show()
 	else:
 		$newArtist.show()
@@ -50,7 +55,7 @@ func create_list(songarray):
 		listitem.replace("'s","20%s")
 		var listing = listitem.split("', '")
 		if len(listing) == 16 or len(listing) == 17 or len(listing) == 18:
-			$Thicket.local_knowledge_add("audio",listitem)
+			Thicket.local_knowledge_add("audio",listitem)
 			thesong.image = listing[3]
 			thesong.title = listing[1].replace("20%s","'s")
 			thesong.post  = listing[2]
@@ -64,7 +69,7 @@ func create_list(songarray):
 			$listView/list.add_child(thesong)
 		
 		if len(listing) == 13 or len(listing) == 14 or len(listing) == 15:
-			$Thicket.local_knowledge_add("audio",listitem)
+			Thicket.local_knowledge_add("audio",listitem)
 			thesong.image = listing[3]
 			thesong.title = listing[1].replace("20%s","'s")
 			thesong.post  = listing[2]
@@ -77,7 +82,7 @@ func create_list(songarray):
 			$listView/list.add_child(thesong)
 			
 		if len(listing) == 11 or len(listing) == 12:
-			$Thicket.local_knowledge_add("audio",listitem)
+			Thicket.local_knowledge_add("audio",listitem)
 			thesong.image = listing[3]
 			thesong.title = listing[1].replace("20%s","'s")
 			thesong.post  = listing[2]
@@ -90,7 +95,7 @@ func create_list(songarray):
 			$listView/list.add_child(thesong)
 			
 		if len(listing) == 10 :
-			$Thicket.local_knowledge_add("audio",listitem)
+			Thicket.local_knowledge_add("audio",listitem)
 			thesong.image = listing[3].split("'")[0]
 			thesong.title = listing[1].replace("20%s","'s")
 			thesong.post  = listing[2]
@@ -146,10 +151,7 @@ func _on_Search_go(artist):
 	$AnimationPlayer.play("searching")
 	$Banner.emit_signal("retrieve",artist)
 	var list = get_parent().get_music(artist)
-	if list != "please wait":
-		#create_list(list.split("},{"))
-		#$listView.show()
-		$doublePaneView.artist = artist
-		emit_signal("update_playlist",$doublePaneView.create_list(list.split("}, ")))
-		$doublePaneView.show()
+	$doublePaneView.artist = artist
+	emit_signal("update_playlist",$doublePaneView.create_list(list))
+	$doublePaneView.show()
 

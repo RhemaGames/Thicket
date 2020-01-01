@@ -1,12 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://default.theme" type="Theme" id=1]
 [ext_resource path="res://Search.gd" type="Script" id=2]
-[ext_resource path="res://effects/leaves2.tscn" type="PackedScene" id=3]
-[ext_resource path="res://elements/Banner.tscn" type="PackedScene" id=4]
-[ext_resource path="res://elements/OpenSeed.tscn" type="PackedScene" id=5]
-[ext_resource path="res://elements/Thicket.tscn" type="PackedScene" id=6]
-[ext_resource path="res://doublePaneView.tscn" type="PackedScene" id=7]
+[ext_resource path="res://doublePaneView.tscn" type="PackedScene" id=3]
+[ext_resource path="res://effects/leaves2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://elements/Banner.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "searching"
@@ -43,6 +41,7 @@ theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="Panel" type="Panel" parent="."]
+self_modulate = Color( 1, 1, 1, 0.360784 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -114,7 +113,6 @@ alignment = 1
 
 [node name="listView" type="ScrollContainer" parent="."]
 editor/display_folded = true
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
@@ -124,11 +122,15 @@ margin_bottom = -7.0
 
 [node name="list" type="VBoxContainer" parent="listView"]
 
-[node name="leaves2" parent="." instance=ExtResource( 3 )]
-modulate = Color( 0.882353, 0.298039, 0.298039, 0.32549 )
-mouse_filter = 2
+[node name="doublePaneView" parent="." instance=ExtResource( 3 )]
+visible = false
+margin_top = 101.0
 
-[node name="Banner" parent="." instance=ExtResource( 4 )]
+[node name="leaves2" parent="." instance=ExtResource( 4 )]
+visible = false
+modulate = Color( 0.882353, 0.298039, 0.298039, 0.32549 )
+
+[node name="Banner" parent="." instance=ExtResource( 5 )]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 0.0
@@ -155,7 +157,11 @@ margin_left = -21.0
 margin_top = -18.6617
 margin_right = 21.0
 margin_bottom = -4.66165
+grow_horizontal = 2
+grow_vertical = 2
 text = "Search:"
+align = 1
+valign = 1
 
 [node name="newArtist" type="Label" parent="."]
 visible = false
@@ -173,17 +179,6 @@ text = "Looks like you searched for someone not currently known to Thicket. Due 
 Please close this dialog and either run another search or browse the avialable music while we prepare."
 valign = 1
 autowrap = true
-
-[node name="OpenSeed" parent="." instance=ExtResource( 5 )]
-
-[node name="Thicket" parent="." instance=ExtResource( 6 )]
-
-[node name="doublePaneView" parent="." instance=ExtResource( 7 )]
-visible = false
-margin_left = 0.0
-margin_top = 99.0
-margin_right = 0.0
-margin_bottom = 0.0
 [connection signal="clear_search" from="." to="." method="_on_Search_clear_search"]
 [connection signal="go" from="." to="." method="_on_Search_go"]
 [connection signal="sort_children" from="listView/list" to="." method="_on_list_sort_children"]

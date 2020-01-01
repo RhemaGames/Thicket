@@ -1,0 +1,136 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://NavButton.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/NaviFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://elements/navListButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sound/piano01.ogg" type="AudioStream" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_color = Color( 1, 1, 1, 1 )
+border_blend = true
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 5
+border_width_right = 5
+border_blend = true
+
+[sub_resource type="Animation" id=3]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("background:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 128, 13 ), Vector2( 128, 446 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("background:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -3 ), Vector2( 0, -445 ) ]
+}
+
+[node name="NavButton" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1772.0
+margin_bottom = -932.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 128, 128 )
+script = ExtResource( 1 )
+
+[node name="background" type="Panel" parent="."]
+margin_top = -3.0
+margin_right = 128.0
+margin_bottom = 10.0
+grow_horizontal = 2
+rect_clip_content = true
+custom_styles/panel = SubResource( 1 )
+
+[node name="area" type="Label" parent="background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 54, 180 )
+custom_fonts/font = ExtResource( 2 )
+text = "A
+r
+e
+a"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+
+[node name="underlay" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 96, 96 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="Icon" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -22.5051
+margin_top = -21.9637
+margin_right = 25.4949
+margin_bottom = 26.0363
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 48, 48 )
+rect_pivot_offset = Vector2( 23.2248, 24.4598 )
+mouse_filter = 2
+expand = true
+stretch_mode = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 2.0
+anims/focus = SubResource( 3 )
+
+[node name="NavList" type="VBoxContainer" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -313.0
+margin_top = 1.0
+margin_right = -124.0
+margin_bottom = 66.0
+grow_horizontal = 0
+
+[node name="navListButton" parent="NavList" instance=ExtResource( 3 )]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+bus = "Interface"
+[connection signal="activeList" from="." to="." method="_on_NavButton_activeList"]
+[connection signal="activeSet" from="." to="." method="_on_NavButton_activeSet"]
+[connection signal="gui_input" from="underlay" to="." method="_on_underlay_gui_input"]
+[connection signal="mouse_entered" from="underlay" to="." method="_on_underlay_mouse_entered"]
+[connection signal="mouse_exited" from="underlay" to="." method="_on_underlay_mouse_exited"]

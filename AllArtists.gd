@@ -4,13 +4,21 @@ var artistView = preload("res://elements/MusicBoxLarge.tscn")
 var imageFile = Image.new()
 var textureFile = []
 var MusicRoot
+var thread = Thread.new()
+var artist_num = 0
+var Thicket
+var OpenSeed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if get_tree().get_root().get_child(0).name == "Loader":
-		MusicRoot = get_tree().get_root().get_child(0).get_node("MainWindow").get_node("WindowContainer").get_node("Music")
+	if get_tree().get_root().get_child(2).name == "Loader":
+		MusicRoot = get_tree().get_root().get_child(2).get_node("MainWindow").get_node("WindowContainer").get_node("Music")
 	else:
 		MusicRoot = get_tree().get_root().get_node("MainWindow").get_node("WindowContainer").get_node("Music")
+	
+	Thicket = get_node("/root/Thicket")
+	OpenSeed = get_node("/root/OpenSeed")
+	
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,7 +28,11 @@ func _ready():
 
 func _on_AllArtists_visibility_changed():
 	if visible:
-		get_artists()
+		clear_artists()
+		get_artists_new(0)
+	else:
+		artist_num = 0
+		#thread.start(self,"get_artists_new()","_got_aritsts_new")
 
 func get_artists():
 	var children = $ScrollContainer/GridContainer.get_child_count() -1
@@ -47,11 +59,29 @@ func get_artists():
 			#g.connect("pressed",self,"_on_g_pressed",[playlists.split(".")[0]])
 			artist = dir.get_next()
 
-#func fill_info(artist):
-	#var info = $Thicket.local_knowledge_load("artists/"+artist.split(".")[0])
-	#for line in info.split(", \n"):
-	#	var parsed = parse_json(line)
-	#	if parsed:
-	#		if parsed.keys()[0] == "ProfileName":
-	#			print(parsed["ProfileName"])
+func get_artists_new(anum):
+	var catalog = []
+	if anum < Thicket.artists.size():
+		textureFile.append(ImageTexture.new())
+		var artist = Thicket.artists[anum]
+		var g = artistView.instance()
+		g.title = artist
+		g.connect("search",MusicRoot,"new_artist_search")
+		g.block = imageFile
+		g.texblock = textureFile[anum]
+		$ScrollContainer/GridContainer.add_child(g)
+		$Timer.start()
+
+func _on_Timer_timeout():
+	$Timer.stop()
+	artist_num += 1
+	get_artists_new(artist_num)
+	pass # Replace with function body.
 	
+func clear_artists():
+	var children = $ScrollContainer/GridContainer.get_child_count() -1
+	while children >= 0:
+		var child = $ScrollContainer/GridContainer.get_child(children)
+		#$ScrollContainer/GridContainer.remove_child(child)
+		child.queue_free()
+		children -= 1

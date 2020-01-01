@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="96"
+   id="svg7384"
+   style="enable-background:new"
+   version="1.1"
+   width="96"
+   sodipodi:docname="playlist-symbolic.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2560"
+     inkscape:window-height="1376"
+     id="namedview23"
+     showgrid="false"
+     inkscape:zoom="3.6875"
+     inkscape:cx="131.29124"
+     inkscape:cy="-25.292186"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer14" />
+  <metadata
+     id="metadata90">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Pop Symbolic Icon Theme</dc:title>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <title
+     id="title8473">Pop Symbolic Icon Theme</title>
+  <defs
+     id="defs7386">
+    <linearGradient
+       id="linearGradient6882"
+       osb:paint="solid">
+      <stop
+         id="stop6884"
+         offset="0"
+         style="stop-color:#555555;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient5606"
+       osb:paint="solid">
+      <stop
+         id="stop5608"
+         offset="0"
+         style="stop-color:#000000;stop-opacity:1;" />
+    </linearGradient>
+    <filter
+       id="filter7554"
+       style="color-interpolation-filters:sRGB">
+      <feBlend
+         id="feBlend7556"
+         in2="BackgroundImage"
+         mode="darken" />
+    </filter>
+  </defs>
+  <g
+     id="layer9"
+     style="display:inline"
+     transform="translate(-824.99982,675)" />
+  <g
+     id="layer10"
+     style="display:inline;filter:url(#filter7554)"
+     transform="translate(-824.99982,675)" />
+  <g
+     id="layer1"
+     style="display:inline"
+     transform="translate(-583.99962,57.999996)" />
+  <g
+     id="layer14"
+     style="display:inline"
+     transform="matrix(7.621708,0,0,7.621708,-6307.7754,4522.2117)">
+    <path
+       d="m 828.72457,-592.60097 c -0.56021,0.0113 -1.00902,0.4621 -1.00902,1.0251 v 0.004 c 0,0.57013 0.45899,1.02912 1.02912,1.02912 h 8.23297 c 0.57014,0 1.02913,-0.45899 1.02913,-1.02912 v -0.004 c 0,-0.563 -0.44881,-1.01383 -1.00903,-1.0251 z m 0,4.11649 c -0.56021,0.0113 -1.00902,0.4621 -1.00902,1.0251 0,0.57013 0.45899,1.02912 1.02912,1.02912 h 4.11649 c 0.56876,0 1.02692,-0.45688 1.02912,-1.0251 v -0.004 c 0,-0.563 -0.44881,-1.01383 -1.00903,-1.0251 z m 2.07834,4.11246 -2.07431,0.004 c -0.56213,0.009 -1.01305,0.46063 -1.01305,1.02501 0,0.57013 0.45899,1.02912 1.02912,1.02912 h 2.05824 c 0.57014,0 1.02913,-0.45899 1.02913,-1.02912 0,-0.56877 -0.45689,-1.02692 -1.0251,-1.02913 -9.9e-4,-1e-5 -0.003,0 -0.004,0 z"
+       id="rect7008"
+       style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.02912164;marker:none"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 835.94853,-588.48851 c -0.57014,0 -1.02913,0.45899 -1.02913,1.02913 v 1.02912 1.02912 1.12561 c -0.15881,-0.0552 -0.33694,-0.0964 -0.51456,-0.0964 -0.85256,0 -1.54368,0.69113 -1.54368,1.54369 0,0.85255 0.69112,1.54368 1.54368,1.54368 0.85256,0 1.54369,-0.69113 1.54369,-1.54368 v -3.60193 h 3.08736 v 2.15473 c -0.15881,-0.0552 -0.33694,-0.0964 -0.51456,-0.0964 -0.85256,0 -1.54369,0.69113 -1.54369,1.54367 0,0.85256 0.69113,1.54369 1.54369,1.54369 0.85256,0 1.54369,-0.69113 1.54369,-1.54369 v -4.63104 c 0,-0.57013 -0.459,-1.02912 -1.02913,-1.02912 z"
+       id="path6113-7"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2.05824327;marker:none;enable-background:new"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     id="layer15"
+     style="display:inline"
+     transform="translate(-824.99982,675)" />
+  <g
+     id="g71291"
+     style="display:inline"
+     transform="translate(-824.99982,675)" />
+  <g
+     id="layer2"
+     style="display:inline"
+     transform="translate(-583.99962,208)" />
+  <g
+     id="layer3"
+     transform="translate(-583.99962,-52)" />
+  <g
+     id="layer12"
+     style="display:inline"
+     transform="translate(-824.99982,675)" />
+</svg>

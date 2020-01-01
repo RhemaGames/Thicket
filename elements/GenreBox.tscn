@@ -3,18 +3,20 @@
 [ext_resource path="res://elements/Genres.tscn" type="PackedScene" id=1]
 
 [node name="GenreBox" type="VBoxContainer"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 80.0
+margin_bottom = 842.0
+grow_horizontal = 2
+custom_constants/separation = 10
 
 [node name="Control" type="Control" parent="."]
-editor/display_folded = true
-margin_right = 40.0
+margin_right = 80.0
 margin_bottom = 32.0
-rect_min_size = Vector2( 0, 32 )
+rect_min_size = Vector2( 80, 32 )
 
 [node name="Label" type="Label" parent="Control"]
 anchor_top = 0.5
 anchor_bottom = 0.5
+margin_left = 10.0
 margin_top = -7.0
 margin_right = 49.0
 margin_bottom = 7.0
@@ -25,8 +27,19 @@ uppercase = true
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -4.0
+margin_left = -0.513367
+margin_top = 3.18678
+margin_right = -0.513367
+margin_bottom = 11.1868
 
-[node name="Genres" parent="." instance=ExtResource( 1 )]
-margin_top = 36.0
-margin_bottom = 36.0
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_top = 42.0
+margin_right = 80.0
+margin_bottom = 842.0
+grow_horizontal = 2
+rect_min_size = Vector2( 0, 800 )
+
+[node name="Genres" parent="ScrollContainer" instance=ExtResource( 1 )]
+margin_right = 0.0
+margin_bottom = 0.0
+columns = 2

@@ -12,6 +12,7 @@ var texblock = ""
 var img = ""
 var track = ""
 var imgfile = File.new()
+var textureList = []
 
 signal play(track)
 # Called when the node enters the scene tree for the first time.
@@ -26,11 +27,12 @@ func _ready():
 #	pass
 
 func set_box(image):
-	if !imgfile.file_exists("user://cache/"+image):
+	if !imgfile.file_exists("user://cache/Img/"+image):
 		get_timage("http://142.93.27.131","8080",image)
+		#print("No Image")
 	else:
-		$TextureRect.set_texture(get_image("user://cache/"+image))
-		get_parent().textureList.append($TextureRect.get_texture())
+		$TextureRect.set_texture(get_image("user://cache/Img/"+image))
+		textureList.append($TextureRect.get_texture())
 	
 func get_image(image):
 	var Imagedata = block
@@ -39,12 +41,13 @@ func get_image(image):
 		imgfile.open(image, File.READ)
 		var imagesize = imgfile.get_len()
 		
-		if imagesize < 999999:
-			var err = Imagedata.load_jpg_from_buffer(imgfile.get_buffer(imagesize))
-			Imagedata.compress(0,0,75)
+		if imagesize <= 3615421:
+			var buffer = imgfile.get_buffer(imagesize)
+			var err = Imagedata.load_jpg_from_buffer(buffer)
+			Imagedata.compress(0,0,90)
 			if err !=OK:
-				err = Imagedata.load_png_from_buffer(imgfile.get_buffer(imagesize))
-				Imagedata.compress(0,0,75)
+				err = Imagedata.load_png_from_buffer(buffer)
+				Imagedata.compress(0,0,90)
 				if err !=OK:
 					Imagetex = fallback_audio
 				else:
@@ -52,14 +55,17 @@ func get_image(image):
 			else:
 				Imagetex.create_from_image(Imagedata,0)
 		else:
+			print(image)
+			print("too big")
+			print(imagesize)
 			Imagetex = fallback_audio
 		imgfile.close()
 		return Imagetex
 	
 func get_timage(url,port,thefile):
 	var file = File.new()
-	if !file.file_exists("user://cache/"+thefile):
-		$HTTPRequest.set_download_file("user://cache/"+thefile)
+	if !file.file_exists("user://cache/Img/"+thefile):
+		$HTTPRequest.set_download_file("user://cache/Img/"+thefile)
 		var headers = [
 			"User-Agent: Pirulo/1.0 (Godot)",
 			"Accept: */*"

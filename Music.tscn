@@ -1,27 +1,21 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://default.theme" type="Theme" id=1]
 [ext_resource path="res://Music.gd" type="Script" id=2]
-[ext_resource path="res://menu.tres" type="StyleBox" id=3]
-[ext_resource path="res://Img/Music.png" type="Texture" id=4]
-[ext_resource path="res://playlists.gd" type="Script" id=5]
-[ext_resource path="res://Img/view-list-symbolic.svg" type="Texture" id=6]
-[ext_resource path="res://Img/view-grid-symbolic.svg" type="Texture" id=7]
-[ext_resource path="res://AllMusic.tscn" type="PackedScene" id=8]
-[ext_resource path="res://ArtistView.tscn" type="PackedScene" id=9]
-[ext_resource path="res://doublePaneView.tscn" type="PackedScene" id=10]
-[ext_resource path="res://AllArtists.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Search.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Img/media-skip-backward-symbolic.svg" type="Texture" id=13]
-[ext_resource path="res://Img/media-playback-start-symbolic.svg" type="Texture" id=14]
-[ext_resource path="res://Img/media-skip-forward-symbolic.svg" type="Texture" id=15]
-[ext_resource path="res://icon.png" type="Texture" id=16]
-[ext_resource path="res://effects/leaves2.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Img/edit-find-symbolic.svg" type="Texture" id=18]
-[ext_resource path="res://elements/OpenSeed.tscn" type="PackedScene" id=19]
-[ext_resource path="res://elements/Thicket.tscn" type="PackedScene" id=20]
-[ext_resource path="res://elements/PlaylistAdd.tscn" type="PackedScene" id=21]
-[ext_resource path="res://elements/NewPlaylist.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://menu.tres" type="StyleBox" id=4]
+[ext_resource path="res://Img/Music.png" type="Texture" id=5]
+[ext_resource path="res://playlists.gd" type="Script" id=6]
+[ext_resource path="res://Img/view-list-symbolic.svg" type="Texture" id=7]
+[ext_resource path="res://Img/view-grid-symbolic.svg" type="Texture" id=8]
+[ext_resource path="res://AllMusic.tscn" type="PackedScene" id=9]
+[ext_resource path="res://ArtistView.tscn" type="PackedScene" id=10]
+[ext_resource path="res://doublePaneView.tscn" type="PackedScene" id=11]
+[ext_resource path="res://AllArtists.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Search.tscn" type="PackedScene" id=13]
+[ext_resource path="res://elements/libraryView_Music.tscn" type="PackedScene" id=14]
+[ext_resource path="res://elements/PlaylistAdd.tscn" type="PackedScene" id=15]
+[ext_resource path="res://elements/NewPlaylist.tscn" type="PackedScene" id=16]
 
 [node name="Music" type="Control"]
 anchor_right = 1.0
@@ -40,12 +34,14 @@ __meta__ = {
 }
 
 [node name="title" type="Label" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -39.0444
 margin_top = 10.0
 margin_right = 11.9556
 margin_bottom = 25.0
+custom_fonts/font = ExtResource( 3 )
 text = "Where?"
 align = 1
 valign = 1
@@ -55,167 +51,178 @@ __meta__ = {
 }
 
 [node name="mainMenu" type="Panel" parent="."]
-editor/display_folded = true
+visible = false
 anchor_bottom = 1.0
-margin_right = 180.0
-rect_min_size = Vector2( 180, 0 )
+margin_right = 220.0
+rect_min_size = Vector2( 220, 0 )
 rect_clip_content = true
-custom_styles/panel = ExtResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
+custom_styles/panel = ExtResource( 4 )
 
 [node name="TextureRect" type="TextureRect" parent="mainMenu"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -81.108
-margin_top = 8.6759
+margin_top = 42.8678
 margin_right = 80.892
-margin_bottom = 71.6759
-texture = ExtResource( 4 )
+margin_bottom = 105.868
+texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="generalOpts" type="VBoxContainer" parent="mainMenu"]
 editor/display_folded = true
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -81.5
-margin_top = 81.974
-margin_right = 81.5
-margin_bottom = 175.974
+margin_left = -99.9503
+margin_top = 116.166
+margin_right = 63.0497
+margin_bottom = 314.166
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Title" type="Label" parent="mainMenu/generalOpts"]
 margin_right = 163.0
-margin_bottom = 15.0
+margin_bottom = 24.0
 text = "General"
 align = 1
 
 [node name="HSeparator" type="HSeparator" parent="mainMenu/generalOpts"]
-margin_top = 19.0
+margin_top = 28.0
 margin_right = 163.0
-margin_bottom = 23.0
+margin_bottom = 36.0
 
 [node name="allMusic" type="Button" parent="mainMenu/generalOpts"]
-margin_top = 27.0
+margin_top = 40.0
 margin_right = 163.0
-margin_bottom = 48.0
+margin_bottom = 74.0
 text = "Music Deck"
 flat = true
 align = 0
 
-[node name="likes" type="Button" parent="mainMenu/generalOpts"]
-margin_top = 52.0
+[node name="Control" type="Control" parent="mainMenu/generalOpts"]
+margin_top = 78.0
 margin_right = 163.0
-margin_bottom = 73.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 0, 10 )
+
+[node name="all" type="Button" parent="mainMenu/generalOpts"]
+margin_top = 92.0
+margin_right = 163.0
+margin_bottom = 126.0
+text = "All Music"
+flat = true
+align = 0
+
+[node name="likes" type="Button" parent="mainMenu/generalOpts"]
+margin_top = 130.0
+margin_right = 163.0
+margin_bottom = 164.0
 text = "Liked"
 flat = true
 align = 0
 
 [node name="favorites" type="Button" parent="mainMenu/generalOpts"]
-margin_top = 77.0
+margin_top = 168.0
 margin_right = 163.0
-margin_bottom = 98.0
+margin_bottom = 202.0
 text = "Favorites"
 flat = true
 align = 0
 
 [node name="genplaylists" type="VBoxContainer" parent="mainMenu"]
+editor/display_folded = true
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -81.5
-margin_top = 197.443
-margin_right = 81.5
-margin_bottom = 291.443
+margin_left = -102.519
+margin_top = 334.192
+margin_right = 87.4806
+margin_bottom = 518.192
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Title" type="Label" parent="mainMenu/genplaylists"]
-margin_right = 163.0
-margin_bottom = 15.0
+margin_right = 190.0
+margin_bottom = 24.0
 text = "Play Lists"
 align = 1
 
 [node name="HSeparator" type="HSeparator" parent="mainMenu/genplaylists"]
-margin_top = 19.0
-margin_right = 163.0
-margin_bottom = 23.0
+margin_top = 28.0
+margin_right = 190.0
+margin_bottom = 36.0
 
 [node name="recent" type="Button" parent="mainMenu/genplaylists"]
-margin_top = 27.0
-margin_right = 163.0
-margin_bottom = 48.0
+margin_top = 40.0
+margin_right = 190.0
+margin_bottom = 74.0
 text = "Recently Played"
 flat = true
 align = 0
 
 [node name="most" type="Button" parent="mainMenu/genplaylists"]
-margin_top = 52.0
-margin_right = 163.0
-margin_bottom = 73.0
+margin_top = 78.0
+margin_right = 190.0
+margin_bottom = 112.0
 text = "Most Played"
 flat = true
 align = 0
 
 [node name="random" type="Button" parent="mainMenu/genplaylists"]
-margin_top = 77.0
-margin_right = 163.0
-margin_bottom = 98.0
+margin_top = 116.0
+margin_right = 190.0
+margin_bottom = 150.0
 text = "Random"
 flat = true
 align = 0
 
 [node name="playlists" type="MenuButton" parent="mainMenu/genplaylists"]
-margin_top = 102.0
-margin_right = 163.0
-margin_bottom = 123.0
+margin_top = 154.0
+margin_right = 190.0
+margin_bottom = 188.0
 text = "Others"
 align = 0
 items = [ "", null, 0, false, false, -1, 0, null, "", true, "New", null, 0, false, false, -1, 0, null, "", false, "", null, 0, false, false, -1, 0, null, "", true ]
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
 [node name="curated" type="VBoxContainer" parent="mainMenu"]
 editor/display_folded = true
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -81.0
-margin_top = 350.165
-margin_right = 82.0
-margin_bottom = 443.165
+margin_left = -102.126
+margin_top = 545.262
+margin_right = 60.8742
+margin_bottom = 653.262
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Title" type="Label" parent="mainMenu/curated"]
 margin_right = 163.0
-margin_bottom = 15.0
+margin_bottom = 24.0
 text = "Curated Music"
 align = 1
 
 [node name="HSeparator" type="HSeparator" parent="mainMenu/curated"]
-margin_top = 19.0
+margin_top = 28.0
 margin_right = 163.0
-margin_bottom = 23.0
+margin_bottom = 36.0
 
 [node name="helpiecake" type="Button" parent="mainMenu/curated"]
-margin_top = 27.0
+margin_top = 40.0
 margin_right = 163.0
-margin_bottom = 48.0
+margin_bottom = 74.0
+disabled = true
 text = "Helpie Cake"
 flat = true
 align = 0
 
 [node name="curie" type="Button" parent="mainMenu/curated"]
-margin_top = 52.0
+margin_top = 78.0
 margin_right = 163.0
-margin_bottom = 73.0
+margin_bottom = 112.0
+disabled = true
 text = "C-Squared"
 flat = true
 align = 0
@@ -226,28 +233,29 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -81.0
-margin_top = -55.0
-margin_right = 82.0
+margin_left = -81.108
+margin_top = -110.0
+margin_right = 81.892
+margin_bottom = -40.0
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Title" type="Label" parent="mainMenu/sources"]
 margin_right = 163.0
-margin_bottom = 15.0
+margin_bottom = 24.0
 text = "Sources"
 align = 1
 
 [node name="HSeparator" type="HSeparator" parent="mainMenu/sources"]
-margin_top = 19.0
+margin_top = 28.0
 margin_right = 163.0
-margin_bottom = 23.0
+margin_bottom = 36.0
 
 [node name="dsound" type="Button" parent="mainMenu/sources"]
-margin_top = 27.0
+margin_top = 40.0
 margin_right = 163.0
-margin_bottom = 48.0
+margin_bottom = 74.0
 text = "dsound.audio"
 flat = true
 align = 0
@@ -268,6 +276,7 @@ columns = 2
 
 [node name="viewOpts" type="HBoxContainer" parent="."]
 editor/display_folded = true
+visible = false
 margin_left = 184.0
 margin_top = 2.3432
 margin_right = 252.0
@@ -278,21 +287,21 @@ __meta__ = {
 }
 
 [node name="listview" type="Button" parent="viewOpts"]
-margin_right = 28.0
-margin_bottom = 31.0
-icon = ExtResource( 6 )
+margin_right = 26.0
+margin_bottom = 106.0
+icon = ExtResource( 7 )
 flat = true
 
 [node name="VSeparator" type="VSeparator" parent="viewOpts"]
-margin_left = 32.0
-margin_right = 36.0
-margin_bottom = 31.0
+margin_left = 30.0
+margin_right = 38.0
+margin_bottom = 106.0
 
 [node name="iconview" type="Button" parent="viewOpts"]
-margin_left = 40.0
-margin_right = 68.0
-margin_bottom = 31.0
-icon = ExtResource( 7 )
+margin_left = 42.0
+margin_right = 148.0
+margin_bottom = 106.0
+icon = ExtResource( 8 )
 flat = true
 
 [node name="ListViewLegend" type="HBoxContainer" parent="."]
@@ -366,180 +375,56 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="AllMusic" parent="." instance=ExtResource( 8 )]
-margin_left = 179.0
-margin_top = 36.3604
-margin_right = -5.0
-margin_bottom = -44.6396
-
-[node name="ArtistView" parent="." instance=ExtResource( 9 )]
-visible = false
-margin_left = 176.0
-margin_right = -2.0
-margin_bottom = -44.0
-
-[node name="OptionView" parent="." instance=ExtResource( 10 )]
-visible = false
-
-[node name="AllArtists" parent="." instance=ExtResource( 11 )]
-visible = false
-margin_left = 178.0
-margin_top = 34.0
-margin_right = -1.0
-margin_bottom = -45.0
-
-[node name="Search" parent="." instance=ExtResource( 12 )]
-visible = false
-margin_left = 181.0
-margin_bottom = -44.0
-
-[node name="MusicBar" type="Panel" parent="."]
-editor/display_folded = true
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 180.0
-margin_top = -44.0
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MusicBar"]
-editor/display_folded = true
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -46.0
-margin_top = -20.0
-margin_right = 46.0
-margin_bottom = 20.0
-alignment = 1
-
-[node name="lasttrack" type="Button" parent="MusicBar/HBoxContainer"]
-margin_right = 28.0
-margin_bottom = 40.0
-icon = ExtResource( 13 )
-flat = true
-
-[node name="play" type="Button" parent="MusicBar/HBoxContainer"]
-margin_left = 32.0
-margin_right = 60.0
-margin_bottom = 40.0
-icon = ExtResource( 14 )
-flat = true
-
-[node name="nexttrack" type="Button" parent="MusicBar/HBoxContainer"]
-margin_left = 64.0
-margin_right = 92.0
-margin_bottom = 40.0
-icon = ExtResource( 15 )
-flat = true
-
-[node name="playing" type="TextureRect" parent="MusicBar"]
-editor/display_folded = true
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 0.568802
-margin_top = -62.844
-margin_right = 60.5688
-margin_bottom = -2.84399
-texture = ExtResource( 16 )
-expand = true
-stretch_mode = 6
-
-[node name="title" type="Label" parent="MusicBar/playing"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = 3.0
-margin_top = 21.0
-margin_right = 419.0
-margin_bottom = 35.0
-rect_min_size = Vector2( 305, 14 )
-text = "No Track Selected"
-clip_text = true
-
-[node name="artist" type="Label" parent="MusicBar/playing"]
-margin_left = 63.9963
-margin_top = 40.6903
-margin_right = 276.996
-margin_bottom = 54.6903
-rect_min_size = Vector2( 213, 14 )
-text = "No Artist"
-clip_text = true
-
-[node name="songProgress" type="ProgressBar" parent="MusicBar"]
-editor/display_folded = true
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -210.0
-margin_top = -10.0
-margin_right = -39.0
-margin_bottom = 11.0
-
-[node name="title" type="Label" parent="MusicBar/songProgress"]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_left = -41.2793
-margin_top = -7.0
-margin_right = -1.2793
-margin_bottom = 8.0
-text = "Time:"
-align = 2
-valign = 1
-
-[node name="left" type="Label" parent="MusicBar/songProgress"]
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
+[node name="AllMusic" parent="." instance=ExtResource( 9 )]
 margin_left = 1.0
-margin_top = -6.5
-margin_right = 41.0
-margin_bottom = 7.5
-text = "0.00"
-valign = 1
+margin_top = 1.0
+margin_bottom = -3.0
+
+[node name="ArtistView" parent="." instance=ExtResource( 10 )]
+visible = false
+margin_top = -1.0
+
+[node name="OptionView" parent="." instance=ExtResource( 11 )]
+visible = false
+margin_bottom = -53.0
+
+[node name="AllArtists" parent="." instance=ExtResource( 12 )]
+visible = false
+margin_left = 2.0
+margin_right = -1.0
+margin_bottom = -1.0
+
+[node name="Search" parent="." instance=ExtResource( 13 )]
+visible = false
+
+[node name="libraryView" parent="." instance=ExtResource( 14 )]
+visible = false
+margin_left = 4.0
+margin_top = -1.0
+margin_right = 4.0
+margin_bottom = -83.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 use_threads = true
 
-[node name="leaves2" parent="." instance=ExtResource( 17 )]
-modulate = Color( 1, 1, 1, 0.203922 )
-margin_left = 0.502991
-margin_right = 0.50293
-mouse_filter = 2
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 
-[node name="SearchButton" type="Button" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -85.0
-margin_top = 4.0
-margin_right = -9.0
-margin_bottom = 35.0
-rect_min_size = Vector2( 0, 31 )
-text = "Search"
-icon = ExtResource( 18 )
-flat = true
-
-[node name="OpenSeed" parent="." instance=ExtResource( 19 )]
-
-[node name="Thicket" parent="." instance=ExtResource( 20 )]
-
-[node name="PlaylistAdd" parent="." instance=ExtResource( 21 )]
+[node name="PlaylistAdd" parent="." instance=ExtResource( 15 )]
 visible = false
 
-[node name="NewPlaylist" parent="." instance=ExtResource( 22 )]
+[node name="NewPlaylist" parent="." instance=ExtResource( 16 )]
 visible = false
+[connection signal="download" from="." to="." method="_on_Music_download"]
+[connection signal="download_complete" from="." to="." method="_on_Music_download_complete"]
 [connection signal="play" from="." to="." method="_on_Music_play"]
 [connection signal="resized" from="." to="." method="_on_Music_resized"]
+[connection signal="show" from="." to="." method="_on_Music_show"]
+[connection signal="visibility_changed" from="." to="." method="_on_Music_visibility_changed"]
 [connection signal="pressed" from="mainMenu/generalOpts/allMusic" to="." method="_on_allMusic_pressed"]
+[connection signal="pressed" from="mainMenu/generalOpts/all" to="." method="_on_all_pressed"]
 [connection signal="pressed" from="mainMenu/generalOpts/likes" to="." method="_on_likes_pressed"]
 [connection signal="pressed" from="mainMenu/generalOpts/favorites" to="." method="_on_favorites_pressed"]
 [connection signal="pressed" from="mainMenu/genplaylists/recent" to="." method="_on_recent_pressed"]
@@ -549,10 +434,6 @@ visible = false
 [connection signal="pressed" from="mainMenu/curated/helpiecake" to="." method="_on_helpiecake_pressed"]
 [connection signal="pressed" from="mainMenu/curated/curie" to="." method="_on_curie_pressed"]
 [connection signal="update_playlist" from="Search" to="." method="_on_Search_update_playlist"]
-[connection signal="pressed" from="MusicBar/HBoxContainer/lasttrack" to="." method="_on_lasttrack_pressed"]
-[connection signal="pressed" from="MusicBar/HBoxContainer/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MusicBar/HBoxContainer/nexttrack" to="." method="_on_nexttrack_pressed"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="pressed" from="SearchButton" to="." method="_on_SearchButton_pressed"]

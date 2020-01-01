@@ -8,11 +8,11 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   height="16"
+   height="32"
    id="svg7384"
    style="enable-background:new"
    version="1.1"
-   width="16"
+   width="32"
    sodipodi:docname="media-playback-stop-symbolic.svg"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
   <sodipodi:namedview
@@ -29,7 +29,7 @@
      id="namedview22"
      showgrid="false"
      inkscape:zoom="14.75"
-     inkscape:cx="-4.7457628"
+     inkscape:cx="-20.474576"
      inkscape:cy="8"
      inkscape:window-x="0"
      inkscape:window-y="32"
@@ -96,41 +96,42 @@
   <g
      id="layer9"
      style="display:inline"
-     transform="translate(-305.0004,95.00336)" />
+     transform="translate(-305.0004,111.00336)" />
   <g
      id="layer10"
      style="display:inline;filter:url(#filter7554)"
-     transform="translate(-305.0004,95.00336)" />
+     transform="translate(-305.0004,111.00336)" />
   <g
      id="layer1"
      style="display:inline"
-     transform="translate(-64.0002,-521.99664)" />
+     transform="translate(-64.0002,-505.99664)" />
   <g
      id="layer14"
      style="display:inline"
-     transform="translate(-305.0004,95.00336)" />
+     transform="translate(-305.0004,111.00336)" />
   <g
      id="layer15"
      style="display:inline"
-     transform="translate(-305.0004,95.00336)" />
+     transform="translate(-305.0004,111.00336)" />
   <g
      id="g71291"
      style="display:inline"
-     transform="translate(-305.0004,95.00336)" />
+     transform="translate(-305.0004,111.00336)" />
   <g
      id="layer2"
      style="display:inline"
-     transform="translate(-64.0002,-371.99664)" />
+     transform="translate(-64.0002,-355.99664)" />
   <g
      id="layer3"
-     transform="translate(-64.0002,-631.99664)" />
+     transform="translate(-64.0002,-615.99664)" />
   <g
      id="layer12"
      style="display:inline;fill:#ffffff;fill-opacity:1"
-     transform="translate(-305.0004,95.00336)">
+     transform="matrix(2.5706215,0,0,2.5706215,-788.60524,239.51183)">
     <path
        d="m 308.0002,-93 c -0.55228,0 -1,0.44772 -1,1 v 10 a 1,1 0 0 0 1,1 h 10 c 0.55229,0 1,-0.44772 1,-1 v -10 c 0,-0.55228 -0.44771,-1 -1,-1 z"
        id="path5387"
-       style="display:inline;fill:#ffffff;fill-opacity:1;stroke:none;enable-background:new" />
+       style="display:inline;fill:#ffffff;fill-opacity:1;stroke:none;enable-background:new"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>

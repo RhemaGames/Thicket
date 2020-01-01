@@ -6,9 +6,11 @@
 [ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=4]
 
 [node name="MusicBoxMedium" type="Panel"]
-margin_right = 360.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 375, 80 )
+self_modulate = Color( 1, 1, 1, 0.352941 )
+margin_right = 375.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 375, 100 )
+rect_clip_content = true
 custom_styles/panel = ExtResource( 1 )
 script = ExtResource( 2 )
 
@@ -28,16 +30,15 @@ stretch_mode = 7
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = 110.0
-margin_top = -23.0
-margin_right = 325.0
+margin_top = -30.0
+margin_right = 363.0
 margin_bottom = -1.0
 grow_vertical = 0
 custom_fonts/font = ExtResource( 4 )
 text = "Song Title"
 valign = 1
-autowrap = true
 clip_text = true
-max_lines_visible = 2
+max_lines_visible = 1
 
 [node name="artist" type="Label" parent="."]
 anchor_top = 0.5
@@ -51,5 +52,6 @@ valign = 1
 clip_text = true
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
+use_threads = true
 [connection signal="gui_input" from="." to="." method="_on_MusicBoxMedium_gui_input"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

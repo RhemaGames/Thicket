@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://elements/gameView.gd" type="Script" id=1]
+
+[node name="gameView" type="ViewportContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_default_cursor_shape = 3
+stretch = true
+script = ExtResource( 1 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 1335, 720 )
+handle_input_locally = false
+msaa = 2
+render_target_update_mode = 0
+audio_listener_enable_2d = true
+physics_object_picking = true
+[connection signal="gui_input" from="." to="." method="_on_gameView_gui_input"]
+[connection signal="load_game" from="." to="." method="_on_gameView_load_game"]

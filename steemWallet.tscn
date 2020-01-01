@@ -213,8 +213,8 @@ margin_bottom = -65.2984
 window_title = "Open a Directory"
 mode = 2
 access = 2
-current_dir = "/mnt/extended/Games/Grove"
-current_path = "/mnt/extended/Games/Grove/"
+current_dir = "/mnt/extended/Games/Thicket"
+current_path = "/mnt/extended/Games/Thicket/"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 [connection signal="download" from="." to="." method="_on_steemWallet_download"]

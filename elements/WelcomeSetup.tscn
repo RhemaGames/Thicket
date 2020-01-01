@@ -1,0 +1,282 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://default.theme" type="Theme" id=1]
+[ext_resource path="res://elements/WelcomeSetup.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=3]
+
+[node name="WelcomeSetup" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -388.892
+margin_top = -259.0
+margin_right = 397.108
+margin_bottom = 249.0
+rect_min_size = Vector2( 786, 508 )
+rect_clip_content = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Welcome" type="Control" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -40.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="title" type="Label" parent="Panel/Welcome"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -93.5
+margin_top = 9.97229
+margin_right = 93.5
+margin_bottom = 23.9723
+text = "Welcome to Thicket"
+uppercase = true
+
+[node name="HSeparator" type="HSeparator" parent="Panel/Welcome"]
+anchor_right = 1.0
+margin_top = 39.0
+margin_bottom = 45.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/Welcome"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -378.0
+margin_top = -95.0
+margin_right = 379.0
+margin_bottom = 95.0
+rect_min_size = Vector2( 0, 220 )
+bbcode_enabled = true
+bbcode_text = "Greetings, 
+
+Thank you for downloaded Thicket, your gateway to Games, Music and more! All hosted on the Inter Planetary File System (IPFS) and cataloged on the the STEEM blockchain. Before we begin please read the next few slides so that you are aquainted with some of the ways Thicket is different than other Media distribution platforms and how the difference might be worth more than just your time.
+
+"
+text = "Greetings, 
+
+Thank you for downloaded Thicket, your gateway to Games, Music and more! All hosted on the Inter Planetary File System (IPFS) and cataloged on the the STEEM blockchain. Before we begin please read the next few slides so that you are aquainted with some of the ways Thicket is different than other Media distribution platforms and how the difference might be worth more than just your time.
+
+"
+
+[node name="General" type="Control" parent="Panel"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -40.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="title" type="Label" parent="Panel/General"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -125.0
+margin_top = 9.97229
+margin_right = 125.0
+margin_bottom = 28.9723
+custom_fonts/font = ExtResource( 3 )
+text = "Trees, Leaves, and Seeds "
+uppercase = true
+
+[node name="HSeparator" type="HSeparator" parent="Panel/General"]
+anchor_right = 1.0
+margin_top = 39.0
+margin_bottom = 45.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/General"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = 58.1311
+margin_right = -7.0
+margin_bottom = -20.8689
+bbcode_text = "Aren't extended metaphors grand?
+
+Trees: Thicket uses IPFS the \"InterPlanetary File System\"  which allows anyone to host and share files through out the world. Anyone that sets up a ipfs node on their computer is known as a Tree. Trees will get special benefits such as the ability to generate \"Seeds\" faster than others.
+
+Leaves: When available Thicket will take various forms of payment (Credit cards,STEEM,Bitcoin) from the users in exchange for leaves which can be used to purchase digital goods or tip artists within the program. Each Leaf will be worth the equvilant of 1 USD and can be purchased in  increments of 5 from within the program.
+
+Seeds: Thicket's backend services are powered by OpenSeed which connects to various serivces such as STEEM and IPFS. Seeds are non transferable \"tokens\" that are used to preform tasks on OpenSeed, and can be exchanged for special enhancements or features in the programs that use it. Though Seeds have no monetary value they help cut down on spam and other abuses of the system by limiting the number of actions the owner can make at any given time. You are rewarded Seeds by playing games, listening to music, or any else Thicket provides, and spend seeds by commenting on said content, starting new chat sessions, or uploading new content to the system. You can also earn seeds by buying Leaves or by using any other service that is connected to OpenSeed.
+
+
+"
+text = "Aren't extended metaphors grand?
+
+Trees: Thicket uses IPFS the \"InterPlanetary File System\"  which allows anyone to host and share files through out the world. Anyone that sets up a ipfs node on their computer is known as a Tree. Trees will get special benefits such as the ability to generate \"Seeds\" faster than others.
+
+Leaves: When available Thicket will take various forms of payment (Credit cards,STEEM,Bitcoin) from the users in exchange for leaves which can be used to purchase digital goods or tip artists within the program. Each Leaf will be worth the equvilant of 1 USD and can be purchased in  increments of 5 from within the program.
+
+Seeds: Thicket's backend services are powered by OpenSeed which connects to various serivces such as STEEM and IPFS. Seeds are non transferable \"tokens\" that are used to preform tasks on OpenSeed, and can be exchanged for special enhancements or features in the programs that use it. Though Seeds have no monetary value they help cut down on spam and other abuses of the system by limiting the number of actions the owner can make at any given time. You are rewarded Seeds by playing games, listening to music, or any else Thicket provides, and spend seeds by commenting on said content, starting new chat sessions, or uploading new content to the system. You can also earn seeds by buying Leaves or by using any other service that is connected to OpenSeed.
+
+
+"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="NewAccount" type="Control" parent="Panel"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.80496
+margin_bottom = -43.195
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="title2" type="Label" parent="Panel/NewAccount"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -96.5475
+margin_top = 10.8329
+margin_right = 93.4525
+margin_bottom = 29.8329
+custom_fonts/font = ExtResource( 3 )
+text = "Connect To OpenSeed"
+uppercase = true
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/NewAccount"]
+anchor_right = 1.0
+margin_top = 39.0
+margin_bottom = 45.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/NewAccount"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 48.0
+margin_right = -5.0
+margin_bottom = -6.00003
+alignment = 1
+
+[node name="NewAccount" type="RichTextLabel" parent="Panel/NewAccount/HBoxContainer"]
+margin_left = 382.0
+margin_right = 382.0
+margin_bottom = 409.0
+
+[node name="VSeparator" type="VSeparator" parent="Panel/NewAccount/HBoxContainer"]
+margin_left = 386.0
+margin_right = 390.0
+margin_bottom = 409.0
+
+[node name="ExsitingAccount" type="RichTextLabel" parent="Panel/NewAccount/HBoxContainer"]
+margin_left = 394.0
+margin_right = 394.0
+margin_bottom = 409.0
+
+[node name="Finish" type="Control" parent="Panel"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -40.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="title" type="Label" parent="Panel/Finish"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -93.5
+margin_top = 9.97229
+margin_right = 93.5
+margin_bottom = 23.9723
+text = "Well Done"
+align = 1
+uppercase = true
+
+[node name="HSeparator" type="HSeparator" parent="Panel/Finish"]
+anchor_right = 1.0
+margin_top = 39.0
+margin_bottom = 45.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/Finish"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -378.0
+margin_top = -95.0
+margin_right = 379.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 0, 220 )
+bbcode_enabled = true
+bbcode_text = "Your Developer Account has been created, and the world now knows of your existance (Well a very small part of the world).
+
+ Below is, your Developer ID keep it safe as it will be one way your games are  validated on the network as yours. Fear Not! For though you should copy and paste the code to be saved elsewhere the code will be available to you through the Developers Console within Thicket. 
+
+We look forward to your first and subsequent games.    
+
+"
+text = "Your Developer Account has been created, and the world now knows of your existance (Well a very small part of the world).
+
+ Below is, your Developer ID keep it safe as it will be one way your games are  validated on the network as yours. Fear Not! For though you should copy and paste the code to be saved elsewhere the code will be available to you through the Developers Console within Thicket. 
+
+We look forward to your first and subsequent games.    
+
+"
+
+[node name="Developer_ID" type="LineEdit" parent="Panel/Finish"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -151.608
+margin_top = 359.0
+margin_right = 148.392
+margin_bottom = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 300, 0 )
+max_length = 255
+expand_to_text_length = true
+placeholder_text = "Developer ID"
+
+[node name="nextButton" type="Button" parent="Panel"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -75.108
+margin_top = -39.0
+margin_right = -8.10803
+margin_bottom = -6.10803
+text = "Next"
+
+[node name="backButton" type="Button" parent="Panel"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 8.89197
+margin_top = -39.0
+margin_right = 76.892
+margin_bottom = -6.0
+text = "Back"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_left = 347.503
+margin_top = 74.5717
+margin_right = 696.503
+margin_bottom = 475.572
+theme = ExtResource( 1 )
+window_title = "Open a File"
+mode = 0
+access = 2
+current_dir = "/mnt/extended/Games/Thicket"
+current_path = "/mnt/extended/Games/Thicket/"
+[connection signal="pressed" from="Panel/nextButton" to="." method="_on_nextButton_pressed"]
+[connection signal="pressed" from="Panel/backButton" to="." method="_on_backButton_pressed"]

@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://default.theme" type="Theme" id=1]
+[ext_resource path="res://elements/libraryView_Music.gd" type="Script" id=2]
+[ext_resource path="res://menu.tres" type="StyleBox" id=3]
+[ext_resource path="res://elements/GenreBox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://elements/MusicInfo.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "show_info"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MusicInfo:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1905.15, 0 ), Vector2( 1500, 0 ) ]
+}
+
+[node name="libraryView" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.61002
+margin_top = 0.902527
+margin_right = 3.60999
+margin_bottom = 0.902588
+rect_clip_content = true
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Menu" type="Panel" parent="."]
+anchor_bottom = 1.0
+margin_top = 1.0
+margin_right = 312.0
+margin_bottom = 4.0
+custom_styles/panel = ExtResource( 3 )
+
+[node name="GenreBox" parent="Menu" instance=ExtResource( 4 )]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -842.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="LineEdit" type="LineEdit" parent="Menu"]
+anchor_right = 1.0
+margin_left = 4.0
+margin_top = 40.0
+margin_right = -9.0
+margin_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_clip_content = true
+placeholder_text = "Search"
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color( 1, 1, 1, 0.309804 )
+anchor_bottom = 1.0
+margin_left = 312.0
+margin_right = 1898.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="listView" type="ScrollContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="list" type="VBoxContainer" parent="Panel/listView"]
+
+[node name="MusicInfo" parent="." instance=ExtResource( 5 )]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.15381
+margin_right = 405.158
+margin_bottom = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/show_info = SubResource( 1 )
+[connection signal="visibility_changed" from="." to="." method="_on_libraryView_visibility_changed"]
+[connection signal="text_changed" from="Menu/LineEdit" to="." method="_on_LineEdit_text_changed"]
+[connection signal="loaded" from="MusicInfo" to="." method="_on_MusicInfo_loaded"]

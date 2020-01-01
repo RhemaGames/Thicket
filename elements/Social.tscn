@@ -1,0 +1,223 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://elements/Social.gd" type="Script" id=1]
+[ext_resource path="res://menu.tres" type="StyleBox" id=2]
+[ext_resource path="res://Fonts/NaviFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Fonts/subtitle.tres" type="DynamicFont" id=4]
+[ext_resource path="res://elements/Contact.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://elements/Contact_info.tscn" type="PackedScene" id=7]
+[ext_resource path="res://elements/ChatLog.tscn" type="PackedScene" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Load"
+
+[node name="Social" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="bg" type="Panel" parent="."]
+self_modulate = Color( 1, 1, 1, 0.454902 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TopBanner" type="Panel" parent="."]
+editor/display_folded = true
+anchor_right = 1.0
+margin_left = 360.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
+rect_clip_content = true
+custom_styles/panel = ExtResource( 2 )
+
+[node name="TextInfo" type="VBoxContainer" parent="TopBanner"]
+editor/display_folded = true
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 96.0
+margin_top = -46.0
+margin_right = 1513.0
+margin_bottom = 39.0
+rect_clip_content = true
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Name" type="Label" parent="TopBanner/TextInfo"]
+margin_top = 6.0
+margin_right = 1417.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 400, 0 )
+custom_fonts/font = ExtResource( 3 )
+text = "User Name"
+valign = 1
+autowrap = true
+
+[node name="TagLine" type="Label" parent="TopBanner/TextInfo"]
+margin_top = 59.0
+margin_right = 1417.0
+margin_bottom = 78.0
+grow_vertical = 0
+custom_fonts/font = ExtResource( 4 )
+text = "TagLine:"
+valign = 2
+autowrap = true
+max_lines_visible = 2
+
+[node name="Contact" parent="TopBanner" instance=ExtResource( 5 )]
+margin_left = 10.75
+margin_top = 10.35
+margin_right = 86.75
+margin_bottom = 86.35
+
+[node name="Chat" type="Panel" parent="."]
+editor/display_folded = true
+anchor_bottom = 1.0
+margin_top = 2.0
+margin_right = 300.0
+rect_min_size = Vector2( 360, 0 )
+custom_styles/panel = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Chat"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 43.0
+margin_right = -8.0
+margin_bottom = -12.0
+custom_constants/separation = 10
+
+[node name="Friends" type="Label" parent="Chat/VBoxContainer"]
+margin_right = 344.0
+margin_bottom = 29.0
+custom_fonts/font = ExtResource( 6 )
+text = "Friends:"
+
+[node name="HSeparator" type="HSeparator" parent="Chat/VBoxContainer"]
+margin_top = 39.0
+margin_right = 344.0
+margin_bottom = 47.0
+
+[node name="Online" type="PanelContainer" parent="Chat/VBoxContainer"]
+margin_top = 57.0
+margin_right = 344.0
+margin_bottom = 106.0
+grow_horizontal = 2
+custom_styles/panel = ExtResource( 2 )
+
+[node name="list" type="VBoxContainer" parent="Chat/VBoxContainer/Online"]
+margin_left = 1.0
+margin_top = 3.0
+margin_right = 343.0
+margin_bottom = 46.0
+grow_horizontal = 2
+custom_constants/separation = 10
+
+[node name="Title" type="Label" parent="Chat/VBoxContainer/Online/list"]
+margin_right = 342.0
+margin_bottom = 25.0
+text = "Online:"
+
+[node name="HSeparator" type="HSeparator" parent="Chat/VBoxContainer/Online/list"]
+margin_top = 35.0
+margin_right = 342.0
+margin_bottom = 43.0
+
+[node name="Offline" type="PanelContainer" parent="Chat/VBoxContainer"]
+margin_top = 116.0
+margin_right = 344.0
+margin_bottom = 231.0
+grow_horizontal = 2
+custom_styles/panel = ExtResource( 2 )
+
+[node name="list" type="VBoxContainer" parent="Chat/VBoxContainer/Offline"]
+margin_left = 1.0
+margin_top = 3.0
+margin_right = 343.0
+margin_bottom = 112.0
+grow_horizontal = 2
+
+[node name="Title" type="Label" parent="Chat/VBoxContainer/Offline/list"]
+margin_right = 342.0
+margin_bottom = 25.0
+text = "Offline::"
+
+[node name="HSeparator" type="HSeparator" parent="Chat/VBoxContainer/Offline/list"]
+margin_top = 33.0
+margin_right = 342.0
+margin_bottom = 41.0
+
+[node name="Contact_info" parent="Chat/VBoxContainer/Offline/list" instance=ExtResource( 7 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 49.0
+margin_right = 342.0
+margin_bottom = 109.0
+
+[node name="Main" type="VBoxContainer" parent="."]
+margin_left = 372.0
+margin_top = 107.0
+margin_right = 1888.0
+margin_bottom = 1053.0
+
+[node name="Recent" type="Panel" parent="Main"]
+editor/display_folded = true
+margin_right = 1528.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 1500, 200 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main/Recent"]
+margin_right = 1500.0
+margin_bottom = 200.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main"]
+margin_top = 208.0
+margin_right = 1528.0
+margin_bottom = 838.0
+custom_constants/separation = 20
+
+[node name="ChatLog" parent="Main/HBoxContainer" instance=ExtResource( 8 )]
+
+[node name="History" type="PanelContainer" parent="Main/HBoxContainer"]
+margin_left = 950.0
+margin_right = 1528.0
+margin_bottom = 630.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/HBoxContainer/History"]
+margin_left = 14.0
+margin_top = 14.0
+margin_right = 564.0
+margin_bottom = 616.0
+
+[node name="Label" type="Label" parent="Main/HBoxContainer/History/VBoxContainer"]
+margin_right = 550.0
+margin_bottom = 25.0
+text = "History"
+
+[node name="HSeparator" type="HSeparator" parent="Main/HBoxContainer/History/VBoxContainer"]
+margin_top = 33.0
+margin_right = 550.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Main/HBoxContainer/History/VBoxContainer"]
+margin_top = 49.0
+margin_right = 550.0
+margin_bottom = 549.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 550, 500 )
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+use_threads = true
+
+[node name="iterate_connections" type="Timer" parent="."]
+wait_time = 0.02
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Load = SubResource( 1 )
+[connection signal="done" from="." to="." method="_on_Social_done"]
+[connection signal="view" from="." to="." method="_on_Social_view"]
+[connection signal="timeout" from="iterate_connections" to="." method="_on_iterate_connections_timeout"]

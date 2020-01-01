@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Settings-icon.png-6a3a93f6ce87a86c64b3577c54ff9adb.stex"
+path="res://.import/battery-empty-symbolic.svg-c17b16a77bba0a90db01ed102e2bbf53.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Img/Settings-icon.png"
-dest_files=[ "res://.import/Settings-icon.png-6a3a93f6ce87a86c64b3577c54ff9adb.stex" ]
+source_file="res://Img/battery/battery-empty-symbolic.svg"
+dest_files=[ "res://.import/battery-empty-symbolic.svg-c17b16a77bba0a90db01ed102e2bbf53.stex" ]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
-flags/mipmaps=true
+flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true

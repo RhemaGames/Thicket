@@ -1,59 +1,240 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://default.theme" type="Theme" id=1]
 [ext_resource path="res://MainWindow.gd" type="Script" id=2]
-[ext_resource path="res://effects/leaves2.tscn" type="PackedScene" id=3]
-[ext_resource path="res://DashBoard.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Games.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Music.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Videos.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Settings.tscn" type="PackedScene" id=8]
-[ext_resource path="res://steemWallet.tscn" type="PackedScene" id=9]
-[ext_resource path="res://DevConWindow.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Img/preferences-system-symbolic.svg" type="Texture" id=11]
-[ext_resource path="res://Img/applications-engineering-symbolic.svg" type="Texture" id=12]
-[ext_resource path="res://Img/notification-alert-symbolic.svg" type="Texture" id=13]
-[ext_resource path="res://elements/OpenSeed.tscn" type="PackedScene" id=14]
-[ext_resource path="res://elements/Thicket.tscn" type="PackedScene" id=15]
-[ext_resource path="res://NewAccount.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Login.tscn" type="PackedScene" id=17]
-[ext_resource path="res://SteemLink.tscn" type="PackedScene" id=18]
-[ext_resource path="res://DeveloperSetup.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Welcome.tscn" type="PackedScene" id=20]
+[ext_resource path="res://BG/bg1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Img/Trees.svg" type="Texture" id=4]
+[ext_resource path="res://DashBoard.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Games.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Music.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Videos.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Settings.tscn" type="PackedScene" id=9]
+[ext_resource path="res://steemWallet.tscn" type="PackedScene" id=10]
+[ext_resource path="res://DevConWindow.tscn" type="PackedScene" id=11]
+[ext_resource path="res://AdvancedSearch.tscn" type="PackedScene" id=12]
+[ext_resource path="res://elements/Social.tscn" type="PackedScene" id=13]
+[ext_resource path="res://elements/Applications.tscn" type="PackedScene" id=14]
+[ext_resource path="res://elements/control_backing.tres" type="StyleBox" id=15]
+[ext_resource path="res://TopBar.gd" type="Script" id=16]
+[ext_resource path="res://button_no_border.tres" type="StyleBox" id=17]
+[ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=18]
+[ext_resource path="res://Img/notification-alert-symbolic.svg" type="Texture" id=19]
+[ext_resource path="res://Img/edit-find-symbolic.svg" type="Texture" id=20]
+[ext_resource path="res://Fonts/NaviFont.tres" type="DynamicFont" id=21]
+[ext_resource path="res://elements/control_popout.tres" type="StyleBox" id=22]
+[ext_resource path="res://icon.png" type="Texture" id=23]
+[ext_resource path="res://Img/applications-engineering-symbolic.svg" type="Texture" id=24]
+[ext_resource path="res://menu.tres" type="StyleBox" id=25]
+[ext_resource path="res://NewAccount.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Login.tscn" type="PackedScene" id=27]
+[ext_resource path="res://SteemLink.tscn" type="PackedScene" id=28]
+[ext_resource path="res://DeveloperSetup.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Welcome.tscn" type="PackedScene" id=30]
+[ext_resource path="res://elements/WelcomeSetup.tscn" type="PackedScene" id=31]
+[ext_resource path="res://elements/Navi.tscn" type="PackedScene" id=32]
+[ext_resource path="res://elements/Loading.tscn" type="PackedScene" id=33]
 
-[sub_resource type="Animation" id=1]
-resource_name = "toggle"
-length = 0.18
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Apps"
+
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:margin_left")
+tracks/0/path = NodePath("Games:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 3.0, 0.0 ]
+"update": 0,
+"values": [ Vector2( 0, 1029 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:margin_right")
+tracks/1/path = NodePath("Games:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Games:mouse_filter")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 235.54, 0.0 ]
+"values": [ 2, 0 ]
+}
+
+[sub_resource type="Animation" id=4]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Music:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1029 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Music:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Music:mouse_filter")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Settings:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1029 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Settings:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Settings:mouse_filter")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Social"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Social:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1025 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Social:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Social:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Videos:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1029 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Videos:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Videos:mouse_filter")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 0 ]
 }
 
 [node name="MainWindow" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -1.0
-margin_bottom = -1.0
+margin_bottom = 1.0
 rect_min_size = Vector2( 1024, 600 )
 rect_clip_content = true
 theme = ExtResource( 1 )
@@ -62,29 +243,60 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Spatial" parent="." instance=ExtResource( 3 )]
+
 [node name="BG" type="Panel" parent="."]
-editor/display_folded = true
-self_modulate = Color( 0.756863, 0.752941, 0.752941, 1 )
+visible = false
+self_modulate = Color( 0, 0, 0, 0.027451 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1.0
-margin_top = -1.0
-margin_right = 1.0
-margin_bottom = -1.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
-[node name="leaves2" parent="BG" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0.176471 )
-margin_left = -1.0
-margin_top = 1.0
-margin_right = -1.0
-margin_bottom = 1.0
+[node name="Control" type="Control" parent="."]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Trees" type="Sprite" parent="Control"]
+self_modulate = Color( 1, 1, 1, 0.403922 )
+position = Vector2( 1816.96, 431.383 )
+scale = Vector2( 1.42325, 1.80131 )
+texture = ExtResource( 4 )
+
+[node name="Trees2" type="Sprite" parent="Control"]
+self_modulate = Color( 1, 1, 1, 0.505882 )
+position = Vector2( 23.2161, 461.9 )
+scale = Vector2( 1.20416, 1.67226 )
+texture = ExtResource( 4 )
+flip_h = true
+
+[node name="Trees3" type="Sprite" parent="Control"]
+self_modulate = Color( 1, 1, 1, 0.215686 )
+position = Vector2( 1180.04, 356.811 )
+scale = Vector2( 0.447518, 0.476087 )
+texture = ExtResource( 4 )
+
+[node name="Trees4" type="Sprite" parent="Control"]
+self_modulate = Color( 0.945098, 0.945098, 0.945098, 0.129412 )
+position = Vector2( 555.464, 493.108 )
+scale = Vector2( 0.558984, 0.664469 )
+texture = ExtResource( 4 )
+flip_h = true
 
 [node name="Status" type="Control" parent="."]
 editor/display_folded = true
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 33.0
@@ -97,8 +309,6 @@ __meta__ = {
 }
 
 [node name="OpenSeed" type="Control" parent="Status"]
-editor/display_folded = true
-visible = false
 margin_left = 10.4736
 margin_top = 10.4211
 margin_right = 152.474
@@ -139,8 +349,6 @@ text = "Videos:"
 uppercase = true
 
 [node name="Steem" type="Control" parent="Status"]
-editor/display_folded = true
-visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -175,34 +383,54 @@ text = "Last Post Date:"
 uppercase = true
 
 [node name="WindowContainer" type="Control" parent="."]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 29.0
-margin_bottom = -33.0
-rect_clip_content = true
+margin_top = 61.0
+margin_right = 1.0
+margin_bottom = -72.0
 mouse_filter = 2
 __meta__ = {
+"_edit_group_": true,
 "_edit_lock_": true
 }
 
-[node name="DashBoard" parent="WindowContainer" instance=ExtResource( 4 )]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WindowContainer"]
+anims/Apps = SubResource( 2 )
+anims/Games = SubResource( 3 )
+anims/Music = SubResource( 4 )
+anims/Settings = SubResource( 5 )
+anims/Social = SubResource( 6 )
+anims/Videos = SubResource( 7 )
 
-[node name="Games" parent="WindowContainer" instance=ExtResource( 5 )]
+[node name="DashBoard" parent="WindowContainer" instance=ExtResource( 5 )]
 visible = false
 
-[node name="Music" parent="WindowContainer" instance=ExtResource( 6 )]
-visible = false
+[node name="Games" parent="WindowContainer" instance=ExtResource( 6 )]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 1029.0
+margin_bottom = 1053.0
+mouse_filter = 2
 
-[node name="Videos" parent="WindowContainer" instance=ExtResource( 7 )]
-visible = false
+[node name="Music" parent="WindowContainer" instance=ExtResource( 7 )]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 1029.0
+margin_bottom = 1111.0
+mouse_filter = 2
 
-[node name="Settings" parent="WindowContainer" instance=ExtResource( 8 )]
-visible = false
-anchor_right = 0.0
-margin_right = 360.0
+[node name="Videos" parent="WindowContainer" instance=ExtResource( 8 )]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 1029.0
+margin_bottom = 1029.0
+mouse_filter = 2
 
-[node name="steemWallet" parent="WindowContainer" instance=ExtResource( 9 )]
+[node name="Settings" parent="WindowContainer" instance=ExtResource( 9 )]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 1029.0
+margin_bottom = 1045.0
+rect_clip_content = true
+mouse_filter = 2
+
+[node name="steemWallet" parent="WindowContainer" instance=ExtResource( 10 )]
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
@@ -213,109 +441,194 @@ margin_top = -200.0
 margin_right = 400.001
 margin_bottom = 200.0
 
-[node name="DevConWindow" parent="WindowContainer" instance=ExtResource( 10 )]
+[node name="DevConWindow" parent="WindowContainer" instance=ExtResource( 11 )]
 visible = false
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BottomBar" type="Panel" parent="."]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -36.0
-rect_clip_content = true
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="AdvancedSearch" parent="WindowContainer" instance=ExtResource( 12 )]
+visible = false
+margin_right = -4.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="BottomBar"]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_top = -19.0
-margin_right = 234.0
-margin_bottom = 19.0
+[node name="Social" parent="WindowContainer" instance=ExtResource( 13 )]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 1025.0
+margin_bottom = 1025.0
+mouse_filter = 2
 
-[node name="Settings" type="Button" parent="BottomBar/HBoxContainer"]
-self_modulate = Color( 0.462745, 0.462745, 0.462745, 1 )
-margin_right = 86.0
-margin_bottom = 38.0
-disabled = true
-text = "Settings"
-icon = ExtResource( 11 )
-flat = true
-
-[node name="DevCon" type="Button" parent="BottomBar/HBoxContainer"]
-self_modulate = Color( 0.462745, 0.462745, 0.462745, 1 )
-margin_left = 90.0
-margin_right = 239.0
-margin_bottom = 38.0
-disabled = true
-text = "Developer Console"
-icon = ExtResource( 12 )
-flat = true
+[node name="Applications" parent="WindowContainer" instance=ExtResource( 14 )]
 
 [node name="TopBar" type="Panel" parent="."]
+editor/display_folded = true
 anchor_right = 1.0
-margin_top = 1.73131
-margin_bottom = 28.7313
-rect_clip_content = true
-__meta__ = {
-"_edit_lock_": true
-}
+margin_left = -2.0
+margin_top = -8.0
+margin_right = 5.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 64 )
+custom_styles/panel = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TopBar"]
 editor/display_folded = true
-anchor_left = 0.5
+visible = false
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -81.0
-margin_top = -20.0
-margin_right = 81.0
-margin_bottom = 20.0
+margin_left = 1.89474
+margin_top = -18.9474
+margin_right = 263.895
+margin_bottom = 21.0526
 grow_horizontal = 2
 grow_vertical = 2
+custom_constants/separation = 20
 alignment = 1
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Games" type="Button" parent="TopBar/HBoxContainer"]
-margin_left = 3.0
-margin_right = 50.0
+margin_right = 80.0
 margin_bottom = 40.0
-disabled = true
+custom_styles/focus = ExtResource( 17 )
+custom_fonts/font = ExtResource( 18 )
 text = "Games"
 flat = true
 
 [node name="Audio" type="Button" parent="TopBar/HBoxContainer"]
-margin_left = 54.0
-margin_right = 101.0
+margin_left = 100.0
+margin_right = 180.0
 margin_bottom = 40.0
+custom_styles/focus = ExtResource( 17 )
+custom_fonts/font = ExtResource( 18 )
 text = "Music"
 flat = true
 
 [node name="Video" type="Button" parent="TopBar/HBoxContainer"]
-margin_left = 105.0
-margin_right = 159.0
+margin_left = 200.0
+margin_right = 294.0
 margin_bottom = 40.0
+custom_styles/focus = ExtResource( 17 )
+custom_fonts/font = ExtResource( 18 )
 disabled = true
 text = "Videos"
 flat = true
 
-[node name="Social" type="Button" parent="TopBar"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="TopBar"]
+editor/display_folded = true
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -70.6101
+margin_top = -9.0
+margin_right = -22.6101
+margin_bottom = 9.0
+grow_horizontal = 0
+grow_vertical = 2
+rect_min_size = Vector2( 0, 18 )
+custom_constants/separation = 12
+alignment = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Social" type="TextureButton" parent="TopBar/HBoxContainer2"]
+margin_right = 18.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 18, 18 )
+texture_normal = ExtResource( 19 )
+texture_pressed = ExtResource( 19 )
+texture_hover = ExtResource( 19 )
+texture_disabled = ExtResource( 19 )
+texture_focused = ExtResource( 19 )
+expand = true
+stretch_mode = 5
+
+[node name="Search" type="TextureButton" parent="TopBar/HBoxContainer2"]
+margin_left = 30.0
+margin_right = 48.0
+margin_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 18, 18 )
+texture_normal = ExtResource( 20 )
+texture_pressed = ExtResource( 20 )
+texture_hover = ExtResource( 20 )
+texture_disabled = ExtResource( 20 )
+texture_focused = ExtResource( 20 )
+expand = true
+stretch_mode = 5
+
+[node name="Time" type="Label" parent="TopBar"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -48.0
+margin_top = -12.0
+margin_right = 48.0
+margin_bottom = 12.0
+grow_horizontal = 0
+custom_fonts/font = ExtResource( 21 )
+text = "00:00:00"
+align = 2
+valign = 1
+
+[node name="Controls" type="Panel" parent="TopBar"]
+editor/display_folded = true
+margin_left = -4.0
+margin_top = -4.0
+margin_right = 300.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 300, 100 )
+custom_styles/panel = ExtResource( 22 )
+
+[node name="Home" type="Button" parent="TopBar/Controls"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_right = -5.0
+custom_styles/hover = ExtResource( 17 )
+custom_styles/pressed = ExtResource( 17 )
+custom_styles/focus = ExtResource( 17 )
+custom_styles/normal = ExtResource( 17 )
+custom_fonts/font = ExtResource( 21 )
+text = "Thicket"
+
+[node name="icon" type="TextureRect" parent="TopBar/Controls/Home"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -22.4737
+margin_top = -32.0
+margin_right = 41.5263
+margin_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 23 )
+expand = true
+stretch_mode = 6
+
+[node name="bandaid" type="Panel" parent="TopBar/Controls"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -20.0
+margin_bottom = 71.0
+
+[node name="Settings" type="TextureRect" parent="TopBar"]
 visible = false
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -74.0
-margin_top = -10.0
-margin_right = -7.0
-margin_bottom = 12.0
-text = "Social"
-icon = ExtResource( 13 )
-flat = true
+margin_left = -52.0
+margin_top = -18.3298
+margin_right = -12.0
+margin_bottom = 21.6702
+texture = ExtResource( 24 )
+expand = true
+stretch_mode = 6
 
 [node name="Social" type="PanelContainer" parent="."]
 editor/display_folded = true
@@ -323,23 +636,32 @@ visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 3.0
-margin_top = 30.0
-margin_right = 235.54
+margin_left = -252.0
+margin_top = 63.0
+margin_bottom = -107.0
 grow_horizontal = 0
 grow_vertical = 0
-rect_min_size = Vector2( 240, 570 )
+rect_min_size = Vector2( 250, 570 )
 rect_clip_content = true
-__meta__ = {
-"_edit_lock_": true
-}
+custom_styles/panel = ExtResource( 25 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Social"]
-anims/toggle = SubResource( 1 )
+[node name="ScrollContainer" type="ScrollContainer" parent="Social"]
+margin_left = 1.0
+margin_top = 3.0
+margin_right = 275.0
+margin_bottom = 888.0
+grow_horizontal = 2
+rect_min_size = Vector2( 250, 570 )
+scroll_horizontal_enabled = false
 
-[node name="OpenSeed" parent="." instance=ExtResource( 14 )]
+[node name="Connections" type="VBoxContainer" parent="Social/ScrollContainer"]
+margin_right = 250.0
+rect_min_size = Vector2( 250, 0 )
+custom_constants/separation = 12
+alignment = 1
 
-[node name="Thicket" parent="." instance=ExtResource( 15 )]
+[node name="iterate_connections" type="Timer" parent="Social"]
+wait_time = 0.2
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
@@ -353,7 +675,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="NewAccount" parent="Wizards" instance=ExtResource( 16 )]
+[node name="NewAccount" parent="Wizards" instance=ExtResource( 26 )]
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
@@ -364,7 +686,7 @@ margin_top = -196.5
 margin_right = 144.0
 margin_bottom = 196.5
 
-[node name="Login" parent="Wizards" instance=ExtResource( 17 )]
+[node name="Login" parent="Wizards" instance=ExtResource( 27 )]
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
@@ -375,21 +697,13 @@ margin_top = -175.0
 margin_right = 144.0
 margin_bottom = 175.0
 
-[node name="SteemLink" parent="Wizards" instance=ExtResource( 18 )]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -144.0
-margin_top = -175.0
-margin_right = 144.0
-margin_bottom = 175.0
-
-[node name="DeveloperSetup" parent="Wizards" instance=ExtResource( 19 )]
+[node name="SteemLink" parent="Wizards" instance=ExtResource( 28 )]
 visible = false
 
-[node name="Welcome" parent="Wizards" instance=ExtResource( 20 )]
+[node name="DeveloperSetup" parent="Wizards" instance=ExtResource( 29 )]
+visible = false
+
+[node name="Welcome" parent="Wizards" instance=ExtResource( 30 )]
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
@@ -399,16 +713,34 @@ margin_left = -300.0
 margin_top = -350.0
 margin_right = 300.0
 margin_bottom = 350.0
+
+[node name="WelcomeSetup" parent="Wizards" instance=ExtResource( 31 )]
+visible = false
+
+[node name="Navi" parent="." instance=ExtResource( 32 )]
+margin_top = -67.0
+margin_bottom = 14.0
+
+[node name="Loading" parent="." instance=ExtResource( 33 )]
+visible = false
+mouse_default_cursor_shape = 5
 [connection signal="checksteem" from="." to="." method="_on_MainWindow_checksteem"]
-[connection signal="pressed" from="BottomBar/HBoxContainer/Settings" to="." method="_on_Settings_pressed"]
-[connection signal="pressed" from="BottomBar/HBoxContainer/DevCon" to="." method="_on_DevCon_pressed"]
+[connection signal="loading_complete" from="." to="." method="_on_MainWindow_loading_complete"]
+[connection signal="loading_start" from="." to="." method="_on_MainWindow_loading_start"]
+[connection signal="animation_finished" from="WindowContainer/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="done" from="WindowContainer/Social" to="." method="_on_Social_done"]
 [connection signal="gui_input" from="TopBar" to="." method="_on_TopBar_gui_input"]
 [connection signal="pressed" from="TopBar/HBoxContainer/Games" to="." method="_on_Games_pressed"]
 [connection signal="pressed" from="TopBar/HBoxContainer/Audio" to="." method="_on_Audio_pressed"]
 [connection signal="pressed" from="TopBar/HBoxContainer/Video" to="." method="_on_Video_pressed"]
-[connection signal="pressed" from="TopBar/Social" to="." method="_on_Social_pressed"]
-[connection signal="userLoaded" from="OpenSeed" to="." method="_on_OpenSeed_userLoaded"]
+[connection signal="pressed" from="TopBar/HBoxContainer2/Social" to="." method="_on_Social_pressed"]
+[connection signal="pressed" from="TopBar/HBoxContainer2/Search" to="." method="_on_Search_pressed"]
+[connection signal="pressed" from="TopBar/Controls/Home" to="." method="_on_Home_pressed"]
+[connection signal="gui_input" from="TopBar/Settings" to="." method="_on_Settings_gui_input"]
+[connection signal="visibility_changed" from="Social" to="Social" method="_on_Social_visibility_changed"]
+[connection signal="timeout" from="Social/iterate_connections" to="Social" method="_on_iterate_connections_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="visibility_changed" from="Wizards/NewAccount" to="Wizards/NewAccount" method="_on_NewAccount_visibility_changed"]
 [connection signal="login" from="Wizards/Login" to="." method="_on_Login_login"]
 [connection signal="linked" from="Wizards/SteemLink" to="." method="_on_SteemLink_linked"]
+[connection signal="alldone" from="Loading" to="." method="_on_Loading_alldone"]

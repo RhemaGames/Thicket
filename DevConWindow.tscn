@@ -116,31 +116,31 @@ margin_bottom = 4.0
 [node name="Games" type="Button" parent="MainMenu/Menu"]
 margin_top = 8.0
 margin_right = 204.0
-margin_bottom = 28.0
+margin_bottom = 29.0
 text = "Games"
 flat = true
 align = 0
 
 [node name="Applications" type="Button" parent="MainMenu/Menu"]
-margin_top = 32.0
+margin_top = 33.0
 margin_right = 204.0
-margin_bottom = 52.0
+margin_bottom = 54.0
 text = "Apps"
 flat = true
 align = 0
 
 [node name="Stats" type="Button" parent="MainMenu/Menu"]
-margin_top = 56.0
+margin_top = 58.0
 margin_right = 204.0
-margin_bottom = 76.0
+margin_bottom = 79.0
 text = "Stats"
 flat = true
 align = 0
 
 [node name="HSeparator2" type="HSeparator" parent="MainMenu/Menu"]
-margin_top = 80.0
+margin_top = 83.0
 margin_right = 204.0
-margin_bottom = 84.0
+margin_bottom = 87.0
 
 [node name="Games" type="Panel" parent="."]
 anchor_right = 1.0
@@ -172,8 +172,9 @@ margin_bottom = 20.0
 alignment = 1
 
 [node name="Label" type="Label" parent="Games/TopBar/HBoxContainer"]
-margin_top = 13.0
-margin_right = 45.0
+margin_left = 2.0
+margin_top = 12.0
+margin_right = 37.0
 margin_bottom = 27.0
 text = "Games"
 align = 1

@@ -23,6 +23,8 @@ func _on_AllMusic_visibility_changed():
 		$NewArtistTimer.start()
 		$NewTrackTimer.start()
 		$Main.set_v_scroll(0)
+		$Main/MainView/playlistGrid.emit_signal("loadup")
+		
 	pass # Replace with function body.
 
 
@@ -37,14 +39,14 @@ func _on_newMusic_pressed():
 
 
 func _on_NewArtistTimer_timeout():
-	if visible:
-		$Main/MainView/NewArtists.emit_signal("getNew")
+	#if visible:
+	$Main/MainView/NewArtists.emit_signal("getNew")
 	pass # Replace with function body.
 
 
 func _on_NewTrackTimer_timeout():
-	if visible:
-		$Main/MainView/NewTracks.emit_signal("getNew")
+	#if visible:
+	$Main/MainView/NewTracks.emit_signal("getNew")
 	pass # Replace with function body.
 
 
@@ -58,7 +60,7 @@ func on_resize():
 		$resize.start()
 
 func _on_resize_timeout():
-	$Main.rect_size = Vector2(get_size().x,get_size().y)
+	$Main.rect_size = Vector2(get_size().x-12,get_size().y)
 	$Main.queue_sort()
 	$resize.stop()
 
@@ -67,4 +69,5 @@ func _on_resize_timeout():
 func _on_artists_pressed():
 	get_parent().get_node("title").text = "All Artists"
 	get_parent().get_node("AllArtists").show()
+	self.hide()
 	pass # Replace with function body.

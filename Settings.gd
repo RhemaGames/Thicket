@@ -20,7 +20,7 @@ func _on_Settings_visibility_changed():
 		cf = $Panel/ScrollContainer/VBoxContainer/customFolders.is_pressed()
 		p2p = $Panel/ScrollContainer/VBoxContainer/p2p.is_pressed()
 		ipfs = $Panel/ScrollContainer/VBoxContainer/ipfs.is_pressed()
-		devMode = $Panel/ScrollContainer/VBoxContainer/devMode.is_pressed()
+		devMode = $Panel/mainMenu/VBoxContainer/devMode.is_pressed()
 		var customMusicFolder = $Panel/ScrollContainer/VBoxContainer/Music/entry.text
 		var customVideoFolder = $Panel/ScrollContainer/VBoxContainer/Video/entry.text
 		
@@ -52,4 +52,4 @@ func setup(data) :
 		$Panel/ScrollContainer/VBoxContainer/customFolders.set_pressed(cf)
 		$Panel/ScrollContainer/VBoxContainer/p2p.set_pressed(p2p)
 		$Panel/ScrollContainer/VBoxContainer/ipfs.set_pressed(ipfs)
-		$Panel/ScrollContainer/VBoxContainer/devMode.set_pressed(devMode)
+		$Panel/mainMenu/VBoxContainer/devMode.set_pressed(devMode)

@@ -8,11 +8,11 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   height="16"
+   height="32"
    id="svg7384"
    style="enable-background:new"
    version="1.1"
-   width="16"
+   width="32"
    sodipodi:docname="media-playback-start-symbolic.svg"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
   <sodipodi:namedview
@@ -29,7 +29,7 @@
      id="namedview22"
      showgrid="false"
      inkscape:zoom="14.75"
-     inkscape:cx="9.6271186"
+     inkscape:cx="-6.101695"
      inkscape:cy="8"
      inkscape:window-x="0"
      inkscape:window-y="32"
@@ -96,41 +96,42 @@
   <g
      id="layer9"
      style="display:inline"
-     transform="translate(-265.0004,95.00336)" />
+     transform="translate(-265.0004,111.00336)" />
   <g
      id="layer10"
      style="display:inline;filter:url(#filter7554)"
-     transform="translate(-265.0004,95.00336)" />
+     transform="translate(-265.0004,111.00336)" />
   <g
      id="layer1"
      style="display:inline"
-     transform="translate(-24.0002,-521.99664)" />
+     transform="translate(-24.0002,-505.99664)" />
   <g
      id="layer14"
      style="display:inline"
-     transform="translate(-265.0004,95.00336)" />
+     transform="translate(-265.0004,111.00336)" />
   <g
      id="layer15"
      style="display:inline"
-     transform="translate(-265.0004,95.00336)" />
+     transform="translate(-265.0004,111.00336)" />
   <g
      id="g71291"
      style="display:inline"
-     transform="translate(-265.0004,95.00336)" />
+     transform="translate(-265.0004,111.00336)" />
   <g
      id="layer2"
      style="display:inline"
-     transform="translate(-24.0002,-371.99664)" />
+     transform="translate(-24.0002,-355.99664)" />
   <g
      id="layer3"
-     transform="translate(-24.0002,-631.99664)" />
+     transform="translate(-24.0002,-615.99664)" />
   <g
      id="layer12"
      style="display:inline;fill:#ffffff;fill-opacity:1"
-     transform="translate(-265.0004,95.00336)">
+     transform="matrix(2.9586763,0,0,2.9586763,-791.68662,273.46287)">
     <path
-       d="m 268.99924,-92.35839 c -0.52867,0.001 -0.96511,0.41363 -0.99609,0.9414 h -0.002 v 0.0254 c -8.4e-4,0.0111 -0.002,0.0221 -0.002,0.0332 -1.7e-4,0.0234 4.3e-4,0.0469 0.002,0.0703 l -0.002,8.57618 a 1,1 0 0 0 1,1 1,1 0 0 0 0.42188,-0.0957 l 0.002,0.002 0.0254,-0.0137 0.004,-0.002 a 1,1 0 0 0 0.0879,-0.0488 l 7.84571,-4.27149 c 0.003,-0.001 0.007,-0.003 0.01,-0.004 v -0.002 c 0.32961,-0.17212 0.5365,-0.51292 0.53711,-0.88477 -3.9e-4,-0.35849 -0.19264,-0.68935 -0.50391,-0.86719 l -0.0176,-0.01 c -0.001,-6.6e-4 -0.003,-9.2e-4 -0.004,-0.002 l -7.92383,-4.32226 h -0.002 c -0.14761,-0.0808 -0.31367,-0.12428 -0.48245,-0.12457 z"
+       d="m 268.99924,-92.35839 c -0.52867,0.001 -0.96511,0.41363 -0.99609,0.9414 h -0.002 v 0.0254 c -8.4e-4,0.0111 -0.002,0.0221 -0.002,0.0332 -1.7e-4,0.0234 4.3e-4,0.0469 0.002,0.0703 l -0.002,8.57618 a 1,1 0 0 0 1,1 1,1 0 0 0 0.42188,-0.0957 l 0.002,0.002 0.0254,-0.0137 0.004,-0.002 a 1,1 0 0 0 0.0879,-0.0488 l 7.84571,-4.27149 c 0.003,-0.001 0.007,-0.003 0.01,-0.004 v -0.002 c 0.32961,-0.17212 0.5365,-0.51292 0.53711,-0.88477 -3.9e-4,-0.35849 -0.19264,-0.68935 -0.50391,-0.86719 l -0.0176,-0.01 c -10e-4,-6.6e-4 -0.003,-9.2e-4 -0.004,-0.002 l -7.92383,-4.32226 h -0.002 c -0.14761,-0.0808 -0.31367,-0.12428 -0.48245,-0.12457 z"
        id="path5383"
-       style="display:inline;fill:#ffffff;fill-opacity:1;stroke:none;enable-background:new" />
+       style="display:inline;fill:#ffffff;fill-opacity:1;stroke:none;enable-background:new"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>

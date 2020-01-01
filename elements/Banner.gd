@@ -1,14 +1,13 @@
 extends Control
-var openseed = load("res://elements/OpenSeed.gd")
-var OpenSeed = openseed.new()
+
 var imgfile = File.new()
 var MusicRoot 
 
 # warning-ignore:unused_signal
 signal retrieve(account)
 func _ready():
-	if get_tree().get_root().get_child(0).name == "Loader":
-		MusicRoot = get_tree().get_root().get_child(0).get_node("MainWindow").get_node("WindowContainer").get_node("Music")
+	if get_tree().get_root().get_child(2).name == "Loader":
+		MusicRoot = get_tree().get_root().get_child(2).get_node("MainWindow").get_node("WindowContainer").get_node("Music")
 	else:
 		MusicRoot = get_tree().get_root().get_node("MainWindow").get_node("WindowContainer").get_node("Music")
 		
@@ -17,8 +16,6 @@ func _ready():
 
 func _on_Banner_retrieve(account):
 	show()
-	
-	
 	var profile = parse_json(OpenSeed.get_steem_account(account))
 	if profile:
 		if str(profile["profile"]) != "Not found":

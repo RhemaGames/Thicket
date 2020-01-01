@@ -22,20 +22,21 @@ signal search(artist)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if get_tree().get_root().get_child(0).name == "Loader":
-		MusicRoot = get_tree().get_root().get_child(0).get_node("MainWindow").get_node("WindowContainer").get_node("Music")
+	if get_tree().get_root().get_child(2).name == "Loader":
+		MusicRoot = get_tree().get_root().get_child(2).get_node("MainWindow").get_node("WindowContainer").get_node("Music")
 	else:
 		MusicRoot = get_tree().get_root().get_node("MainWindow").get_node("WindowContainer").get_node("Music")
 # warning-ignore:return_value_discarded
 	get_parent().get_parent().connect("resized",self,"_on_Music_resized")
-	get_image("http://142.93.27.131","8080",image)
+##	get_image("http://142.93.27.131","8080",image)
 	$container/artist.text = artist
 	$container/duration.text = duration
 	$container/fileName.text = fileName
 	$container/title.text = title
+	$highlight.self_modulate = Thicket.music_color
 	$Timer.start()
 	if tracknum % 2 == 0:
-		$bg.set_self_modulate("dddddd")
+		$bg.set_self_modulate(Color(0.1,0.1,0.1,0.5))
 	if clickable == false:
 		$container/artist.disabled = true
 
@@ -58,7 +59,7 @@ func _on_Music_resized():
 
 func _on_Timer_timeout():
 	var win_size = get_parent().get_parent().get_size()
-	set_size(Vector2(win_size.x,36.0))
+	set_size(Vector2(win_size.x,48.0))
 	$Timer.stop()
 
 func _on_Music_visibility_changed():
@@ -68,15 +69,15 @@ func _clear_highlight(track):
 	if fileName != track:
 		$highlight.hide()
 	
-func get_image(url,port,thefile):
-		var file = File.new()
-		if thefile and !file.file_exists("user://cache/"+thefile):
-			$HTTPRequest.set_download_file("user://cache/"+thefile)
-			var headers = [
-				"User-Agent: Pirulo/1.0 (Godot)",
-				"Accept: */*"
-			]
-			$HTTPRequest.request(str(url)+":"+str(port)+"/ipfs/"+str(thefile),headers,false,HTTPClient.METHOD_GET)
+#func get_image(url,port,thefile):
+#		var file = File.new()
+#		if thefile and !file.file_exists("user://cache/"+thefile):
+#			$HTTPRequest.set_download_file("user://cache/"+thefile)
+#			var headers = [
+#				"User-Agent: Pirulo/1.0 (Godot)",
+#				"Accept: */*"
+#			]
+#			$HTTPRequest.request(str(url)+":"+str(port)+"/ipfs/"+str(thefile),headers,false,HTTPClient.METHOD_GET)
 
 func _on_artist_pressed():
 	emit_signal("search",artist)

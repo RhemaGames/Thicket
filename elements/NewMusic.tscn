@@ -4,8 +4,8 @@
 
 [node name="NewMusic" type="GridContainer"]
 margin_top = 336.0
-margin_right = 1080.0
-margin_bottom = 540.0
+margin_right = 375.0
+margin_bottom = 718.0
 columns = 3
 
 [node name="MusicBoxMedium" parent="." instance=ExtResource( 1 )]

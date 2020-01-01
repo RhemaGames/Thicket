@@ -1,0 +1,226 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://default.theme" type="Theme" id=1]
+[ext_resource path="res://elements/control_backing.tres" type="StyleBox" id=2]
+[ext_resource path="res://elements/MusicBar.gd" type="Script" id=3]
+[ext_resource path="res://elements/control_popout.tres" type="StyleBox" id=4]
+[ext_resource path="res://Img/media-skip-backward-symbolic.svg" type="Texture" id=5]
+[ext_resource path="res://Img/media-playback-start-symbolic.svg" type="Texture" id=6]
+[ext_resource path="res://Img/media-skip-forward-symbolic.svg" type="Texture" id=7]
+[ext_resource path="res://icon.png" type="Texture" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "ready"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlayerControls:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1548, 3.5509 ), Vector2( 1548, -92.682 ) ]
+}
+
+[node name="MusicBar" type="Panel"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -8.0
+margin_top = -76.0
+margin_right = 4.0
+margin_bottom = 6.0
+rect_min_size = Vector2( 0, 76 )
+theme = ExtResource( 1 )
+custom_styles/panel = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="PlayerControls" type="Panel" parent="."]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 588.09
+margin_top = -124.0
+margin_right = 963.09
+grow_horizontal = 2
+grow_vertical = 2
+custom_styles/panel = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayerControls"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -76.0
+margin_top = -42.4548
+margin_right = 76.0
+margin_bottom = 5.54517
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 0, 28 )
+custom_constants/separation = 20
+alignment = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="lasttrack" type="TextureButton" parent="PlayerControls/HBoxContainer"]
+margin_right = 32.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 5 )
+texture_focused = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+
+[node name="play" type="TextureButton" parent="PlayerControls/HBoxContainer"]
+margin_left = 52.0
+margin_right = 100.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 6 )
+texture_focused = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="nexttrack" type="TextureButton" parent="PlayerControls/HBoxContainer"]
+margin_left = 120.0
+margin_right = 152.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+texture_disabled = ExtResource( 7 )
+texture_focused = ExtResource( 7 )
+expand = true
+stretch_mode = 5
+
+[node name="Panel" type="Panel" parent="PlayerControls"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -15.0
+margin_right = 10.0
+margin_bottom = 57.0
+
+[node name="PlayerStatus" type="Panel" parent="."]
+editor/display_folded = true
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -35.0
+margin_right = 693.0
+margin_bottom = 36.0
+custom_styles/panel = ExtResource( 2 )
+
+[node name="playing" type="TextureRect" parent="PlayerStatus"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 18.7675
+margin_top = -35.6088
+margin_right = 78.7671
+margin_bottom = 24.3913
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
+
+[node name="title" type="Label" parent="PlayerStatus/playing"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 71.0
+margin_top = -21.0001
+margin_right = 469.0
+margin_bottom = 2.99995
+rect_min_size = Vector2( 305, 14 )
+text = "No Track Selected"
+autowrap = true
+max_lines_visible = 2
+
+[node name="artist" type="Label" parent="PlayerStatus/playing"]
+visible = false
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 450.0
+margin_top = -14.0
+margin_right = 663.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 213, 14 )
+text = "No Artist"
+clip_text = true
+
+[node name="songProgress" type="ProgressBar" parent="."]
+editor/display_folded = true
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -300.339
+margin_top = 2.5
+margin_right = -73.3389
+margin_bottom = 26.5
+
+[node name="title" type="Label" parent="songProgress"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -60.0
+margin_top = -13.0
+margin_bottom = 11.0
+text = "Time:"
+align = 2
+valign = 1
+
+[node name="left" type="Label" parent="songProgress"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 9.0
+margin_top = -13.0
+margin_right = 57.0
+margin_bottom = 11.0
+text = "0.00"
+valign = 1
+
+[node name="wait" type="Label" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -264.446
+margin_top = 2.88904
+margin_right = -96.446
+margin_bottom = 26.8891
+text = "Please Wait..."
+uppercase = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/ready = SubResource( 1 )
+[connection signal="playing" from="." to="." method="_on_MusicBar_playing"]
+[connection signal="playlist_loaded" from="." to="." method="_on_MusicBar_playlist_loaded"]
+[connection signal="playposition" from="." to="." method="_on_MusicBar_playposition"]
+[connection signal="songlength" from="." to="." method="_on_MusicBar_songlength"]
+[connection signal="timeleft" from="." to="." method="_on_MusicBar_timeleft"]
+[connection signal="trackart" from="." to="." method="_on_MusicBar_trackart"]
+[connection signal="trackartist" from="." to="." method="_on_MusicBar_trackartist"]
+[connection signal="tracktitle" from="." to="." method="_on_MusicBar_tracktitle"]
+[connection signal="wait" from="." to="." method="_on_MusicBar_wait"]
+[connection signal="pressed" from="PlayerControls/HBoxContainer/lasttrack" to="." method="_on_lasttrack_pressed"]
+[connection signal="pressed" from="PlayerControls/HBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="PlayerControls/HBoxContainer/nexttrack" to="." method="_on_nexttrack_pressed"]

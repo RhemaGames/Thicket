@@ -10,28 +10,29 @@ func _ready():
 	$Controls/title.text = title
 	fill_list($Thicket.playlist_load(title))
 	$Timer.start()
-	if get_tree().get_root().get_child(0).name == "Loader":
-		MusicRoot = get_tree().get_root().get_child(0).get_node("MainWindow").get_node("WindowContainer").get_node("Music")
+	if get_tree().get_root().get_child(2).name == "Loader":
+		MusicRoot = get_tree().get_root().get_child(2).get_node("MainWindow").get_node("WindowContainer").get_node("Music")
 	else:
 		MusicRoot = get_tree().get_root().get_node("MainWindow").get_node("WindowContainer").get_node("Music")
 	pass # Replace with function body.
 
 func fill_list(list):
 	clear_list()
-	if get_tree().get_root().get_child(0).name == "Loader":
-		MusicRoot = get_tree().get_root().get_child(0).get_node("MainWindow").get_node("WindowContainer").get_node("Music")
+	if get_tree().get_root().get_child(2).name == "Loader":
+		MusicRoot = get_tree().get_root().get_child(2).get_node("MainWindow").get_node("WindowContainer").get_node("Music")
 	else:
 		MusicRoot = get_tree().get_root().get_node("MainWindow").get_node("WindowContainer").get_node("Music")
 	var num = 0
 	if list:
 		for listing in list.split(", \n"):
+			var track = parse_json(listing)
 			if len(listing) > 3 and num <=13:
 				var Song = songlisting.instance()
-				Song.image = listing.split(", ")[3]
-				Song.title = listing.split(", ")[2]
-				Song.post  = listing.split(", ")[4]
-				Song.artist = listing.split(", ")[1]
-				Song.fileName = listing.split(", ")[0]
+				Song.image = track["img"]
+				Song.title = track["title"]
+				Song.post  = track["post"]
+				Song.artist = track["author"]
+				Song.fileName = track["ogg"]
 				Song.tracknum = num
 				Song.clickable = false
 				#Song.connect("play",MusicRoot,"_on_Music_play")

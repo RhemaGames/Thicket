@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Welcome.gd" type="Script" id=1]
+[ext_resource path="res://OpenSeed.png" type="Texture" id=2]
 
 [node name="Welcome" type="Control"]
 anchor_right = 1.0
@@ -21,6 +22,7 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = -8.0
 margin_bottom = -10.0
+custom_constants/separation = 20
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 margin_right = 617.0
@@ -30,22 +32,22 @@ align = 1
 valign = 1
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
-margin_top = 18.0
+margin_top = 34.0
 margin_right = 617.0
-margin_bottom = 22.0
+margin_bottom = 38.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
-margin_top = 26.0
+margin_top = 58.0
 margin_right = 617.0
-margin_bottom = 646.0
+margin_bottom = 608.0
 grow_horizontal = 2
-rect_min_size = Vector2( 0, 620 )
+rect_min_size = Vector2( 0, 550 )
 bbcode_enabled = true
-bbcode_text = "Thank you for downloading Thicket, before you begin exploring the application you will need to setup an account on OpenSeed the authentication service created for Thicket and the software that connects too it. This information will be stored for future use, BUT will never be sold to advertisers or data collection agencies. After setting up your OpenSeed account you will be able to access most of the basic services Thicket provides; however if you wish to support the artists or download content you will need to link a valid STEEM (not Steam) account to Thicket as many payments, donations, and social interactions will require one.
+bbcode_text = "Thank you for downloading Thicket, before you begin exploring the application you will need to setup an account on OpenSeed, the authentication service used in Thicket as well as any other software that connects too it. This information will be stored for future use, BUT will never be sold to advertisers or data collection agencies. After setting up your OpenSeed account you will be able to access to services Thicket provides; however if you wish to become a developer or an artists featured on Thicket you will need to link a valid STEEM (not Steam) account to OpenSeed. 
 
 
 For Content Creators:
-Thicket provides an easy way to discover, like, and follow Musicians, Developers, Video personalities, and possibly more thanks to STEEM's social blockchain. All payments ( including donations and tips) are awarded to the original content creator at 90% of the payment amount with the 10% either going to the OpenSeed account or split between OpenSeed and another service if the original file is shared between services. This 10% cut will be used to continue development and running any servers needed to keep the service active. 
+Thicket provides an easy way to discover, like, and follow Musicians, game developers,and possibly more thanks to STEEM's social blockchain. All payments ( including donations and tips) are awarded to the original content creator at 90% of the payment amount with the 10% either going to the OpenSeed account or split between OpenSeed and another service if the original file is shared between services. This 10% cut will be used to continue development and running any servers needed to keep the service active. 
 
 For Developers (Coming Soon):
 For those that want to develop games and applications using OpenSeed, Thicket is designed to be your gateway onto the network. With easy to use tools and management options anyone should be able to utilize the tools with ease. 
@@ -53,15 +55,13 @@ For those that want to develop games and applications using OpenSeed, Thicket is
 For Musicians:
 Currently the music provided by Thicket is gathered through Dsound's well thought out posting mechanisms. If you would like to be featured on Thicket simply upload your songs and track art to Dsound and your tracks should start showing up on Thicket within an hour or so of your upload. Once on Thicket you can start earning tips from other users right away along with the rewards you get from posting on Dsound / STEEM
 
-For Video type people (Coming Soon):
-Much like the music section videos will be gathered from some of the amazing dapps already available to STEEM, however, due to the shear amount of space videos take up over audio files it may be a while before we are able to ensure long term storage of these files. (as we do for audio)
 
 If all of this sounds good, and you're ready to proceed Click the button below and welcome to Thicket!"
-text = "Thank you for downloading Thicket, before you begin exploring the application you will need to setup an account on OpenSeed the authentication service created for Thicket and the software that connects too it. This information will be stored for future use, BUT will never be sold to advertisers or data collection agencies. After setting up your OpenSeed account you will be able to access most of the basic services Thicket provides; however if you wish to support the artists or download content you will need to link a valid STEEM (not Steam) account to Thicket as many payments, donations, and social interactions will require one.
+text = "Thank you for downloading Thicket, before you begin exploring the application you will need to setup an account on OpenSeed, the authentication service used in Thicket as well as any other software that connects too it. This information will be stored for future use, BUT will never be sold to advertisers or data collection agencies. After setting up your OpenSeed account you will be able to access to services Thicket provides; however if you wish to become a developer or an artists featured on Thicket you will need to link a valid STEEM (not Steam) account to OpenSeed. 
 
 
 For Content Creators:
-Thicket provides an easy way to discover, like, and follow Musicians, Developers, Video personalities, and possibly more thanks to STEEM's social blockchain. All payments ( including donations and tips) are awarded to the original content creator at 90% of the payment amount with the 10% either going to the OpenSeed account or split between OpenSeed and another service if the original file is shared between services. This 10% cut will be used to continue development and running any servers needed to keep the service active. 
+Thicket provides an easy way to discover, like, and follow Musicians, game developers,and possibly more thanks to STEEM's social blockchain. All payments ( including donations and tips) are awarded to the original content creator at 90% of the payment amount with the 10% either going to the OpenSeed account or split between OpenSeed and another service if the original file is shared between services. This 10% cut will be used to continue development and running any servers needed to keep the service active. 
 
 For Developers (Coming Soon):
 For those that want to develop games and applications using OpenSeed, Thicket is designed to be your gateway onto the network. With easy to use tools and management options anyone should be able to utilize the tools with ease. 
@@ -69,16 +69,15 @@ For those that want to develop games and applications using OpenSeed, Thicket is
 For Musicians:
 Currently the music provided by Thicket is gathered through Dsound's well thought out posting mechanisms. If you would like to be featured on Thicket simply upload your songs and track art to Dsound and your tracks should start showing up on Thicket within an hour or so of your upload. Once on Thicket you can start earning tips from other users right away along with the rewards you get from posting on Dsound / STEEM
 
-For Video type people (Coming Soon):
-Much like the music section videos will be gathered from some of the amazing dapps already available to STEEM, however, due to the shear amount of space videos take up over audio files it may be a while before we are able to ensure long term storage of these files. (as we do for audio)
 
 If all of this sounds good, and you're ready to proceed Click the button below and welcome to Thicket!"
 scroll_active = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 650.0
+editor/display_folded = true
+margin_top = 628.0
 margin_right = 617.0
-margin_bottom = 682.0
+margin_bottom = 660.0
 rect_min_size = Vector2( 0, 32 )
 alignment = 1
 
@@ -87,4 +86,18 @@ margin_left = 274.0
 margin_right = 343.0
 margin_bottom = 32.0
 text = "Continue"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.0470588 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -149.0
+margin_top = -178.0
+margin_right = -21.0
+margin_bottom = -50.0
+rect_min_size = Vector2( 128, 128 )
+texture = ExtResource( 2 )
+expand = true
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_Button_pressed"]

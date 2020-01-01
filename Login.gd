@@ -1,6 +1,6 @@
 extends Control
 
-var openseed 
+var OpenSeed
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -10,9 +10,7 @@ var newtoken = ""
 signal login(status)
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#openseed.loadUserData()
-	#if openseed.token:
-		#emit_signal("login",1)
+	OpenSeed = get_node("/root/OpenSeed")
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,7 +31,7 @@ func _on_New_pressed():
 	self.hide()
 
 func _on_Okay_pressed():
-	var response = openseed.verify_account(username,passphrase)
+	var response = OpenSeed.verify_account(username,passphrase)
 	match response.split("\n")[0]:
 		"denied":
 			$notification.text = response
@@ -42,15 +40,10 @@ func _on_Okay_pressed():
 		_:
 			$notification.text = "granted" 
 			emit_signal("login",1)
-			if len(openseed.token) < 2:
-				openseed.token = response.split("\n")[0]
-			openseed.username = username
-			openseed.saveUserData()
+			if len(OpenSeed.token) < 2:
+				OpenSeed.token = response.split("\n")[0]
+			OpenSeed.username = username
+			OpenSeed.saveUserData()
 			
 	pass # Replace with function body.
 
-
-func _on_Login_visibility_changed():
-	if visible:
-		openseed = get_parent().get_parent().get_node("OpenSeed")
-	pass # Replace with function body.

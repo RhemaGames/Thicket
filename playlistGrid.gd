@@ -4,10 +4,11 @@ var genres = preload("res://elements/GenreBox.tscn")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+signal loadup()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	populate_recent()
+	
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,3 +22,12 @@ func populate_recent():
 	PlayList.title = "recent"
 	add_child(PlayList)
 	add_child(Genres)
+
+func _on_playlistGrid_loadup():
+	var children = get_child_count() -1
+	while children >= 0:
+		remove_child(get_child(children))
+		children -= 1
+		
+	populate_recent()
+	pass # Replace with function body.

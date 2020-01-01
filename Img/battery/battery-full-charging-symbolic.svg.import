@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Settings-icon-32.png-5ec19fb574abbe80e75d421a07d155db.stex"
+path="res://.import/battery-full-charging-symbolic.svg-61d78014271fb6629b8cd71af9b6fd1c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Img/Settings-icon-32.png"
-dest_files=[ "res://.import/Settings-icon-32.png-5ec19fb574abbe80e75d421a07d155db.stex" ]
+source_file="res://Img/battery/battery-full-charging-symbolic.svg"
+dest_files=[ "res://.import/battery-full-charging-symbolic.svg-61d78014271fb6629b8cd71af9b6fd1c.stex" ]
 
 [params]
 

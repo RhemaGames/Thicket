@@ -8,11 +8,11 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   height="16"
+   height="96"
    id="svg7384"
    style="enable-background:new"
    version="1.1"
-   width="16"
+   width="96"
    sodipodi:docname="user-bookmarks-symbolic.svg"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
   <sodipodi:namedview
@@ -25,14 +25,14 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="2560"
-     inkscape:window-height="1378"
+     inkscape:window-height="1376"
      id="namedview22"
      showgrid="false"
-     inkscape:zoom="14.75"
-     inkscape:cx="9.6271186"
-     inkscape:cy="8"
+     inkscape:zoom="3.6875"
+     inkscape:cx="-20.247248"
+     inkscape:cy="-9.6977133"
      inkscape:window-x="0"
-     inkscape:window-y="32"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg7384" />
   <metadata
@@ -96,42 +96,43 @@
   <g
      id="layer9"
      style="display:inline;fill:#ffffff;fill-opacity:1"
-     transform="translate(-825.0002,655)" />
+     transform="translate(-825.0002,735)" />
   <g
      id="layer10"
-     style="display:inline;filter:url(#filter7554);fill:#ffffff;fill-opacity:1"
-     transform="translate(-825.0002,655)" />
+     style="display:inline;fill:#ffffff;fill-opacity:1;filter:url(#filter7554)"
+     transform="translate(-825.0002,735)" />
   <g
      id="layer1"
      style="display:inline;fill:#ffffff;fill-opacity:1"
-     transform="translate(-584,38)">
+     transform="matrix(5.8475064,0,0,5.8475064,-3413.7754,223.28905)">
     <path
        d="m 592,-37.6082 -2.11874,5.49496 -5.8812,0.31706 4.57147,3.71341 -1.5158,5.6912 4.94427,-3.20011 4.94373,3.20011 -1.51526,-5.6912 4.57147,-3.71341 -5.8812,-0.31706 z"
        id="polygon5122-0-6"
-       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:5.35943031;marker:none;enable-background:accumulate" />
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:5.35943031;marker:none;enable-background:accumulate"
+       inkscape:connector-curvature="0" />
   </g>
   <g
      id="layer14"
      style="display:inline;fill:#ffffff;fill-opacity:1"
-     transform="translate(-825.0002,655)" />
+     transform="translate(-825.0002,735)" />
   <g
      id="layer15"
      style="display:inline;fill:#ffffff;fill-opacity:1"
-     transform="translate(-825.0002,655)" />
+     transform="translate(-825.0002,735)" />
   <g
      id="g71291"
      style="display:inline;fill:#ffffff;fill-opacity:1"
-     transform="translate(-825.0002,655)" />
+     transform="translate(-825.0002,735)" />
   <g
      id="layer2"
      style="display:inline;fill:#ffffff;fill-opacity:1"
-     transform="translate(-584,188)" />
+     transform="translate(-584,268)" />
   <g
      id="layer3"
-     transform="translate(-584,-72)"
+     transform="translate(-584,8)"
      style="fill:#ffffff;fill-opacity:1" />
   <g
      id="layer12"
      style="display:inline;fill:#ffffff;fill-opacity:1"
-     transform="translate(-825.0002,655)" />
+     transform="translate(-825.0002,735)" />
 </svg>

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://elements/playList.gd" type="Script" id=1]
-[ext_resource path="res://Img/media-playback-start-symbolic.svg" type="Texture" id=2]
+[ext_resource path="res://Img/media-playback-start-symbolic-small.svg" type="Texture" id=2]
 [ext_resource path="res://elements/Thicket.tscn" type="PackedScene" id=3]
 
 [node name="playList" type="VBoxContainer"]
@@ -30,7 +30,6 @@ valign = 1
 uppercase = true
 
 [node name="buttons" type="HBoxContainer" parent="Controls"]
-editor/display_folded = true
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
