@@ -64,7 +64,7 @@ func nav_buttons(area) :
 		"apps":
 			thearea = appButtons
 			active_area = "apps"
-			Thicket.application_list()
+			#Thicket.application_list()
 		"social":
 			thearea = socialButtons
 			active_area = "social"
@@ -95,24 +95,28 @@ func set_focus(item):
 			if !get_parent().get_node("WindowContainer/AnimationPlayer").is_playing():
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Games",0.2,-5,true)
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Social",0.4,-5,true)	
+				get_parent().get_node("WindowContainer/AnimationPlayer").play("Apps",0.4,-5,true)	
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Music",0.4,3)
 			nav_buttons("music")
 		"Games":
 			if !get_parent().get_node("WindowContainer/AnimationPlayer").is_playing():
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Music",0.2,-5,true)
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Social",0.4,-5,true)
+				get_parent().get_node("WindowContainer/AnimationPlayer").play("Apps",0.4,-5,true)	
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Games",0.4,3)	
 			nav_buttons("games")
 		"Apps":
 			if !get_parent().get_node("WindowContainer/AnimationPlayer").is_playing():
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Music",0.2,-5,true)
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Games",0.4,-5,true)
-				get_parent().get_node("WindowContainer/AnimationPlayer").play("Social",0.4,-5,true)		
+				get_parent().get_node("WindowContainer/AnimationPlayer").play("Social",0.4,-5,true)	
+				get_parent().get_node("WindowContainer/AnimationPlayer").play("Apps",0.4,3)	
 			nav_buttons("apps")
 		"Social":
 			if !get_parent().get_node("WindowContainer/AnimationPlayer").is_playing():
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Music",0.2,-5,true)
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Games",0.4,-5,true)	
+				get_parent().get_node("WindowContainer/AnimationPlayer").play("Apps",0.4,-5,true)	
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Social",0.4,3)	
 			nav_buttons("social")
 		"Deck":

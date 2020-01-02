@@ -224,6 +224,7 @@ func _on_Home_pressed():
 			$WindowContainer/AnimationPlayer.play("Music",0.2,-5,true)
 			$WindowContainer/AnimationPlayer.play("Games",0.2,-5,true)
 			$WindowContainer/AnimationPlayer.play("Social",0.4,-5,true)
+			$WindowContainer/AnimationPlayer.play("Apps",0.4,-5,true)	
 			$Navi.nav_buttons("main")
 	pass # Replace with function body.
 

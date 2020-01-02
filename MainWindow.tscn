@@ -39,6 +39,30 @@ bg_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Apps"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Applications:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1000 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Applications:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 tracks/0/type = "value"
@@ -457,6 +481,10 @@ margin_bottom = 1025.0
 mouse_filter = 2
 
 [node name="Applications" parent="WindowContainer" instance=ExtResource( 14 )]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 1000.0
+margin_bottom = 1000.0
+rect_clip_content = true
 
 [node name="TopBar" type="Panel" parent="."]
 editor/display_folded = true
