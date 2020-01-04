@@ -29,7 +29,7 @@ var gameButtons = [
 ]
 
 var appButtons = [
-{"title":"Creative","icon":"res://Img/view-list-symbolic.svg","color":color_phase(Thicket.app_color,1)},
+#{"title":"Creative","icon":"res://Img/view-list-symbolic.svg","color":color_phase(Thicket.app_color,1)},
 ]
 var socialButtons = [
 #{"title":"Upload","icon":"res://Img/folder-upload-symbolic.svg","color":color_phase(Thicket.social_color,1)},

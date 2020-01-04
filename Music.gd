@@ -222,7 +222,7 @@ func _on_all_pressed():
 	playlist = $libraryView.create_list(content)
 	$AllMusic.hide()
 	$AllArtists.hide()
-	#$OptionView.show()
+	$OptionView.hide()
 	$libraryView.show()
 	$Search.hide()
 	if !playing:

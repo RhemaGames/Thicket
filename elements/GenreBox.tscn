@@ -42,4 +42,5 @@ rect_min_size = Vector2( 0, 800 )
 [node name="Genres" parent="ScrollContainer" instance=ExtResource( 1 )]
 margin_right = 0.0
 margin_bottom = 0.0
-columns = 2
+rect_clip_content = true
+columns = 1

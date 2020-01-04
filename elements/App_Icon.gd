@@ -58,8 +58,8 @@ func read_destop(path):
 func find_icon(iconname):
 	var iconpath = ""
 	var dir = Directory.new()
-	var places = ["/usr/share/icons/Pop/128x128/apps","/usr/share/app-info/icons/pop-artful-extra/64x64","/usr/share/pixmaps","/usr/share/applications/icons/hicolor/64x64/apps","/usr/share/applications/icons/hicolor/128x128/apps","/usr/share/applications/icons/hicolor/256x256/apps","/usr/share/icons/hicolor/scalable/apps",
-	"user://../../../icons/hicolor/64x64/apps","user://../../../icons/hicolor/128x128/apps","user://../../../icons/hicolor/256x256/apps","user://../../../icons/hicolor/scalable/apps","/usr/share/app-install/icons"]
+	var places = ["/usr/share/icons/hicolor/scalable/apps","/usr/share/applications/icons/hicolor/256x256/apps","/usr/share/applications/icons/hicolor/128x128/apps","/usr/share/icons/Pop/128x128/apps","/usr/share/app-info/icons/pop-artful-extra/64x64","/usr/share/pixmaps","/usr/share/applications/icons/hicolor/64x64/apps",
+	"user://../../../icons/hicolor/scalable/apps","user://../../../icons/hicolor/256x256/apps","user://../../../icons/hicolor/128x128/apps","user://../../../icons/hicolor/64x64/apps","/usr/share/app-install/icons"]
 	
 	for place in places:
 		if dir.dir_exists(place):

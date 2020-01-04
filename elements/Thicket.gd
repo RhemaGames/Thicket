@@ -287,6 +287,6 @@ func application_list():
 					#else:
 					#	print(file_name)
 					file_name = dir.get_next()
-				
+		applications.sort()
 	#print(applications)
 	pass
