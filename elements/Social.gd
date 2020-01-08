@@ -47,6 +47,11 @@ func setup_connection(person,count):
 	var perp = person.split(", ")[1]
 	var username = person.split(", ")[0].split('"')[1]
 	next.account = username
+	var current_status = {"status":"offline"}
+	var get_status = OpenSeed.get_openseed_account_status(username)
+	while !get_status:
+		print(get_status)
+	current_status = get_status
 	if parse_json(perp).keys().has("data1"):
 		var profile = parse_json(perp)["data1"]
 		var steemProfile = parse_json(perp)["data5"]
@@ -63,8 +68,13 @@ func setup_connection(person,count):
 					next.get_node("Contact").pImage = image
 					texture_count +=1
 			next.get_node("UserName").text = name
-			next.get_node("Activity").text = "Online"
-			$Chat/VBoxContainer/Online/list.add_child(next)
+			if !current_status.has("status"):
+				if current_status["data"]["chat"] != "Offline":
+					next.get_node("Activity").text = "Online"
+				else:
+					next.get_node("Activity").text = "Offline"
+				$Chat/VBoxContainer/Online/list.add_child(next)
+
 			contact_count +=1
 	$iterate_connections.start()
 
@@ -118,4 +128,9 @@ func set_view(account):
 func _on_Social_view(account):
 	$AnimationPlayer.play("Load")
 	set_view(account)
+	pass # Replace with function body.
+
+
+func _on_status_update_timeout():
+	OpenSeed.set_openseed_account_status(OpenSeed.token,'{"location":"0:1","chat":"Online"}')
 	pass # Replace with function body.

@@ -110,61 +110,71 @@ func get_openseed_account(account):
 	var profile = parse_json(get_from_socket('{"act":"openseed_profile","appID":"'+str(appId)+'","devID":"'+str(devId)+'","account":"'+account+'"}'))
 	return profile
 
+func get_openseed_account_status(account):
+	var status = parse_json(get_from_socket('{"act":"get_status","appID":"'+str(appId)+'","devID":"'+str(devId)+'","account":"'+account+'"}'))
+	return status
+	
+func set_openseed_account_status(account_id,data):
+	var status = parse_json(get_from_socket('{"act":"update_status","appID":"'+str(appId)+'","devID":"'+str(devId)+'","account":"'+account_id+'","data":'+data+'}'))
+	return status
+
 func get_from_socket(data):
 # warning-ignore:unused_variable
 	var timeout = 18000
 	var server = StreamPeerTCP.new()
 	var connect = false
-	server.connect_to_host(openseed, 8688)
-	while server.get_status() != 2:
-		connect = false
-		#if timeout == 0:
-		#	break
-		#else:
-		#	timeout -= 1
-			
-	server.put_data(data.to_utf8())
-	var fromserver = server.get_data(161920)
-	server.disconnect_from_host()
-	return (fromserver[1].get_string_from_ascii())
+	if !server.is_connected_to_host():
+		server.connect_to_host(openseed, 8688)
+		while server.get_status() != 2:
+			connect = false
+			#if timeout == 0:
+			#	break
+			#else:
+			#	timeout -= 1
+	if server.is_connected_to_host():
+		server.put_data(data.to_utf8())
+		var fromserver = server.get_data(161920)
+		#server.disconnect_from_host()
+		return (fromserver[1].get_string_from_ascii())
 	
 func get_from_socket_threaded(data):
 # warning-ignore:unused_variable
 	var timeout = 18000
 	var server = StreamPeerTCP.new()
 	var connect = false
-	server.connect_to_host(openseed, 8688)
-	while server.get_status() != 2:
-		connect = false
-		#if timeout == 0:
-		#	break
-		#else:
-		#	timeout -= 1
-			
-	server.put_data(data[0].to_utf8())
-	var fromserver = server.get_data(161920)
-	server.disconnect_from_host()
-	call_deferred("returned_from_socket",data[1])
-	return (fromserver[1].get_string_from_utf8())
+	if !server.is_connected_to_host(): 
+		server.connect_to_host(openseed, 8688)
+		while server.get_status() != 2:
+			connect = false
+			#if timeout == 0:
+			#	break
+			#else:
+			#	timeout -= 1
+	if server.is_connected_to_host():
+		server.put_data(data[0].to_utf8())
+		var fromserver = server.get_data(161920)
+		#server.disconnect_from_host()
+		call_deferred("returned_from_socket",data[1])
+		return (fromserver[1].get_string_from_utf8())
 	
 func get_from_socket_threaded_internal(data):
-# warning-ignore:unused_variable
 	var timeout = 18000
 	var server = StreamPeerTCP.new()
 	var connect = false
-	server.connect_to_host(openseed, 8688)
-	while server.get_status() != 2:
-		connect = false
-		#if timeout == 0:
-		#	break
-		#else:
-		#	timeout -= 1
-			
-	server.put_data(data[0].to_utf8())
-	var fromserver = server.get_data(161920)
-	server.disconnect_from_host()
-	call_deferred("returned_from_socket_internal",data[1])
-	return (fromserver[1].get_string_from_ascii())
+	if !server.is_connected_to_host(): 
+		server.connect_to_host(openseed, 8688)
+		while server.get_status() != 2:
+			connect = false
+			#if timeout == 0:
+			#	break
+			#else:
+			#	timeout -= 1
+	if server.is_connected_to_host():
+		server.put_data(data[0].to_utf8())
+		var fromserver = server.get_data(161920)
+		#server.disconnect_from_host()
+		call_deferred("returned_from_socket_internal",data[1])
+		return (fromserver[1].get_string_from_ascii())
 	
 func returned_from_socket_internal(type):
 	#print("From Thread type = ",type)
@@ -174,7 +184,6 @@ func returned_from_socket_internal(type):
 func returned_from_socket(type):
 	#print("From Thread type = ",type)
 	var socket = thread.wait_to_finish()
-	
 	emit_signal("socket_returns",[type,socket])
 
 func _on_OpenSeed_socket_returns(data):
@@ -267,7 +276,9 @@ func loadUserData():
 		token = content["usertoken"]
 		steem = content["steemaccount"]
 		postingkey = content["postingkey"]
-	emit_signal("userLoaded")
+		set_openseed_account_status(token,'{"location":"0:1","chat":"Online"}')
+		emit_signal("userLoaded")
+		
 	return content
 
 func _on_Timer_timeout():
@@ -336,15 +347,15 @@ func get_keys_for(users):
 
 func simp_crypt(key,raw_data):
 	key = key.replace("0","q")\
-            .replace("1","a").replace("2","b")\
-            .replace("3","c").replace("4","d")\
-            .replace("5","F").replace("6","A")\
-            .replace("7","Z").replace("8","Q")\
-            .replace("9","T").replace("#","G")\
-            .replace("!","B").replace(",","C")\
-            .replace(" ","!").replace("/","S")\
-            .replace("=","e").replace(":","c")\
-            .replace("\n","n")
+			.replace("1","a").replace("2","b")\
+			.replace("3","c").replace("4","d")\
+			.replace("5","F").replace("6","A")\
+			.replace("7","Z").replace("8","Q")\
+			.replace("9","T").replace("#","G")\
+			.replace("!","B").replace(",","C")\
+			.replace(" ","!").replace("/","S")\
+			.replace("=","e").replace(":","c")\
+			.replace("\n","n")
 	var secret = ""
 	var datanum = 0
 	var offset = 0
@@ -390,15 +401,15 @@ func simp_crypt(key,raw_data):
 
 func simp_decrypt(key,raw_data):
 	key = key.replace("0","q")\
-            .replace("1","a").replace("2","b")\
-            .replace("3","c").replace("4","d")\
-            .replace("5","F").replace("6","A")\
-            .replace("7","Z").replace("8","Q")\
-            .replace("9","T").replace("#","G")\
-            .replace("!","B").replace(",","C")\
-            .replace(" ","!").replace("/","S")\
-            .replace("=","e").replace(":","c")\
-            .replace("\n","n")
+			.replace("1","a").replace("2","b")\
+			.replace("3","c").replace("4","d")\
+			.replace("5","F").replace("6","A")\
+			.replace("7","Z").replace("8","Q")\
+			.replace("9","T").replace("#","G")\
+			.replace("!","B").replace(",","C")\
+			.replace(" ","!").replace("/","S")\
+			.replace("=","e").replace(":","c")\
+			.replace("\n","n")
 			
 	var key_stretch = key
 	var message = ""

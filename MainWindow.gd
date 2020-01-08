@@ -236,7 +236,7 @@ func _on_Settings_gui_input(event):
 				#$WindowContainer/AnimationPlayer.play("Music",0.2,-5,true)
 				#$WindowContainer/AnimationPlayer.play("Games",0.2,-5,true)
 				$Navi.nav_buttons("main")	
-		    #if !$WindowContainer/Settings.visible :
+			#if !$WindowContainer/Settings.visible :
 			#$WindowContainer/Settings.show()
 			$WindowContainer/Settings.first_launch = false
 		#else:

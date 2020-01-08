@@ -26,7 +26,7 @@ func _ready():
 
 # warning-ignore:unused_argument
 func get_new_tracks(num):
-	#OpenSeed.thread.start(OpenSeed,"get_from_socket_threaded",['{"act":"newtracks_json","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'"}',"newtracks"])
+	OpenSeed.thread.start(OpenSeed,"get_from_socket_threaded",['{"act":"newtracks_json","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'"}',"newtracks"])
 	var new_tracks = Thicket.new_tracks
 	return new_tracks
 
@@ -98,5 +98,6 @@ func _on_NewMusic_getNew():
 	pass # Replace with function body.
 	
 func socket_returned(data):
-	if data[0] != "tracks":
+	if data[0] == "tracks":
+		print(data[0])
 		pass

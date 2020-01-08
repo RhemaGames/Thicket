@@ -104,13 +104,11 @@ func gather_genres():
 	return 1
 
 func gather_all_tracks_artists(g):
-	
 	$Label.text = "Gathering Tracks ("+g+")"
 	var content = OpenSeed.get_from_socket('{"act":"genre_json","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'","genre":"'+g+'"}')
 	if content:
 		var clean_list = content.split("}, ")
 		for t in clean_list:
-		
 			var json
 			if t[0] != "[":
 				json = parse_json(t+"}")
@@ -119,10 +117,10 @@ func gather_all_tracks_artists(g):
 			Thicket.tracks.append(json)
 			if json and json.keys().has("author"):
 				if Thicket.artists:
-			 		if !Thicket.artists.has(json["author"]):
-							Thicket.artists.append(json["author"])
-				else:
-					Thicket.artists.append(json["author"])
+					if !Thicket.artists.has(json["author"]):
+						Thicket.artists.append(json["author"])
+					else:
+						Thicket.artists.append(json["author"])
 			
 	gnum += 1
 	emit_signal("next",gnum)

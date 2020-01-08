@@ -41,16 +41,16 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 margin_right = 300.0
-margin_bottom = 19.0
+margin_bottom = 29.0
 custom_fonts/font = ExtResource( 2 )
 text = "New Playlist"
 align = 1
 valign = 1
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
-margin_top = 23.0
+margin_top = 37.0
 margin_right = 300.0
-margin_bottom = 27.0
+margin_bottom = 45.0
 
 [node name="Control" type="Control" parent="."]
 anchor_top = 1.0

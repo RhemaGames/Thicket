@@ -1,8 +1,36 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://elements/App_Icon.gd" type="Script" id=1]
 [ext_resource path="res://elements/highlight_box.tres" type="StyleBox" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "OptionView"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Options:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 312.754 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Options:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 0 ]
+}
 
 [node name="App_Icon" type="Control"]
 anchor_right = 1.0
@@ -48,6 +76,64 @@ text = "App Name"
 align = 1
 valign = 2
 autowrap = true
+
+[node name="Options" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 312.754
+margin_bottom = 312.754
+mouse_filter = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 13.1494
+margin_top = 14.8506
+margin_right = -16.8506
+margin_bottom = -18.1494
+grow_horizontal = 2
+grow_vertical = 2
+custom_constants/separation = 20
+
+[node name="Label" type="Label" parent="Options/VBoxContainer"]
+margin_right = 226.0
+margin_bottom = 25.0
+grow_horizontal = 2
+align = 1
+autowrap = true
+
+[node name="HSeparator" type="HSeparator" parent="Options/VBoxContainer"]
+margin_top = 45.0
+margin_right = 226.0
+margin_bottom = 53.0
+
+[node name="add" type="Button" parent="Options/VBoxContainer"]
+margin_top = 73.0
+margin_right = 226.0
+margin_bottom = 110.0
+text = "Favorite"
+
+[node name="cancel" type="Button" parent="Options/VBoxContainer"]
+margin_top = 130.0
+margin_right = 226.0
+margin_bottom = 167.0
+text = "Cancel"
+
+[node name="Control" type="Control" parent="Options"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/OptionView = SubResource( 1 )
 [connection signal="gui_input" from="." to="." method="_on_App_Icon_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_App_Icon_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_App_Icon_mouse_exited"]
+[connection signal="pressed" from="Options/VBoxContainer/add" to="." method="_on_add_pressed"]
+[connection signal="pressed" from="Options/VBoxContainer/cancel" to="." method="_on_cancel_pressed"]
+[connection signal="mouse_exited" from="Options/Control" to="." method="_on_Control_mouse_exited"]

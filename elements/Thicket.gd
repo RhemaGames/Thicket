@@ -11,6 +11,7 @@ var new_tracks = []
 var tracks = []
 var genres = []
 var applications = []
+var favorite_apps = []
 
 #var parsed = []
 var parsing = false
@@ -283,10 +284,24 @@ func application_list():
 				var file_name = dir.get_next()
 				while (file_name != ""):
 					if !dir.current_is_dir():
-						applications.append(place+"/"+file_name)
+						var name = file_name
+						for ns in ["org.","net.","io.","com."]:
+							if file_name.substr(0,4).find(ns) != -1:
+								#print(file_name)
+								name = file_name.split(".")[2]
+								break	
+						applications.append(name+"::"+place+"/"+file_name)
 					#else:
 					#	print(file_name)
 					file_name = dir.get_next()
 		applications.sort()
 	#print(applications)
+	pass
+	
+func favorite_app_list():
+	var file = File.new()
+	if OS.get_name() == "X11":
+		if file.exists("user://database/fav_apps.dat"):
+			favorite_apps = local_knowledge_load("fav_apps")
+			
 	pass

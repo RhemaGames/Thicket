@@ -8,6 +8,7 @@ var key = ""
 # var b = "text"
 # Called when the node enters the scene tree for the first time.
 var last = 0
+
 func _ready():
 	OpenSeed.connect("chatdata",self,"update_chat")
 	OpenSeed.connect("sent_chat",self,"chatbox_reset")

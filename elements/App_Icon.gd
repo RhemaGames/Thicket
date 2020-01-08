@@ -9,17 +9,18 @@ var title = "App"
 var icon = "none"
 var path = ""
 var exec = ""
+var options = false
 signal execute(program)
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	read_destop(path)
+	read_desktop(path.split("::")[1])
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
-func read_destop(path):
+func read_desktop(path):
 	file.open(path,File.READ)
 	var info = file.get_as_text()
 	var appName = ""
@@ -41,6 +42,7 @@ func read_destop(path):
 				if appName == "":
 					appName = val
 					$Label.text = val
+					$Options/VBoxContainer/Label.text = val
 			if opt == "Icon":
 				if iconName == "":
 					iconName = val
@@ -80,6 +82,8 @@ func _on_App_Icon_mouse_entered():
 
 func _on_App_Icon_mouse_exited():
 	$highlight.visible = false
+	if options == true:
+		$AnimationPlayer.play_backwards("OptionView")
 	pass # Replace with function body.
 
 func get_pic(img) :
@@ -103,4 +107,22 @@ func get_pic(img) :
 func _on_App_Icon_gui_input(event):
 	if event is InputEventMouseButton and event.pressed and Input.is_mouse_button_pressed(1): 
 		emit_signal("execute",exec)
+		
+	if event is InputEventMouseButton and event.pressed and Input.is_mouse_button_pressed(2): 
+		#emit_signal("execute",exec)
+		$AnimationPlayer.play("OptionView")
+	pass # Replace with function body.
+
+
+func _on_add_pressed():
+	$AnimationPlayer.play_backwards("OptionView")
+	pass # Replace with function body.
+
+
+func _on_cancel_pressed():
+	$AnimationPlayer.play_backwards("OptionView")
+	pass # Replace with function body.
+
+func _on_Control_mouse_exited():
+	$AnimationPlayer.play_backwards("OptionView")
 	pass # Replace with function body.
