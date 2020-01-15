@@ -23,8 +23,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-OpenSeed="*res://elements/OpenSeed.tscn"
 Thicket="*res://elements/Thicket.tscn"
+OpenSeed="*res://OpenSeed/OpenSeed.tscn"
 
 [display]
 

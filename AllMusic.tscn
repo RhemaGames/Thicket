@@ -13,6 +13,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 rect_clip_content = true
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Main" type="ScrollContainer" parent="."]
 anchor_left = 0.5
@@ -133,7 +136,7 @@ script = ExtResource( 6 )
 wait_time = 100.0
 
 [node name="NewTrackTimer" type="Timer" parent="."]
-wait_time = 180.0
+wait_time = 360.0
 
 [node name="Timer" type="Timer" parent="."]
 

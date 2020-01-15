@@ -14,7 +14,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25 ),
+"times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 312.754 ), Vector2( 0, 0 ) ]
@@ -26,7 +26,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25 ),
+"times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 2, 0 ]
@@ -35,11 +35,14 @@ tracks/1/keys = {
 [node name="App_Icon" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -1644.0
+margin_right = -1772.0
 margin_bottom = -760.0
 rect_min_size = Vector2( 256, 300 )
 rect_clip_content = true
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="highlight" type="Panel" parent="."]
 visible = false
@@ -51,16 +54,19 @@ custom_styles/panel = ExtResource( 2 )
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -75.0
-margin_top = 35.1617
-margin_right = 75.0
-margin_bottom = 185.162
+margin_left = -64.0
+margin_top = 55.5185
+margin_right = 64.0
+margin_bottom = 183.518
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 150, 150 )
+rect_min_size = Vector2( 128, 128 )
 mouse_filter = 2
 texture = ExtResource( 3 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="."]
 anchor_top = 1.0
@@ -76,6 +82,9 @@ text = "App Name"
 align = 1
 valign = 2
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Options" type="Panel" parent="."]
 anchor_right = 1.0
@@ -84,7 +93,8 @@ margin_top = 312.754
 margin_bottom = 312.754
 mouse_filter = 2
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Options"]

@@ -25,16 +25,17 @@ __meta__ = {
 }
 
 [node name="TopBanner" type="Panel" parent="."]
-editor/display_folded = true
 anchor_right = 1.0
 margin_left = 360.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 0, 100 )
 rect_clip_content = true
 custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TextInfo" type="VBoxContainer" parent="TopBanner"]
-editor/display_folded = true
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = 96.0
@@ -73,7 +74,6 @@ margin_right = 86.75
 margin_bottom = 86.35
 
 [node name="Chat" type="Panel" parent="."]
-editor/display_folded = true
 anchor_bottom = 1.0
 margin_top = 2.0
 margin_right = 300.0
@@ -151,14 +151,12 @@ margin_right = 342.0
 margin_bottom = 41.0
 
 [node name="Main" type="VBoxContainer" parent="."]
-editor/display_folded = true
 margin_left = 372.0
 margin_top = 107.0
 margin_right = 1888.0
 margin_bottom = 1053.0
 
 [node name="Recent" type="Panel" parent="Main"]
-editor/display_folded = true
 margin_right = 1528.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 1500, 200 )

@@ -28,7 +28,7 @@ func _ready():
 
 func _on_AllArtists_visibility_changed():
 	if visible:
-		clear_artists()
+		#clear_artists()
 		get_artists_new(0)
 	else:
 		artist_num = 0

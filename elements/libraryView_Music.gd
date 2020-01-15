@@ -53,55 +53,56 @@ func create_list(songarray):
 	var tags
 	
 	for listitem in songarray:
-		var thesong = songlisting.instance()
-		#Thicket.local_knowledge_add("audio",listitem)
-		if len(listitem) >= 8: 
-			artist = listitem["author"]
-			title = listitem["title"]
-			post = listitem["post"]
-			img = listitem["img"]
-			ogg = listitem["ogg"]
-			genre = listitem["genre"]
-			tags = listitem["tags"]
+		if num < 1000:
+			var thesong = songlisting.instance()
+			#Thicket.local_knowledge_add("audio",listitem)
+			if len(listitem) >= 8: 
+				artist = listitem["author"]
+				title = listitem["title"]
+				post = listitem["post"]
+				img = listitem["img"]
+				ogg = listitem["ogg"]
+				genre = listitem["genre"]
+				tags = listitem["tags"]
 
-		if len(listitem) > 3: 
-			thesong.image = img
-			thesong.title = title
-			thesong.post  = post
-			thesong.artist = artist
-			thesong.fileName = ogg
-			thesong.tracknum = num
-			thesong.fulltrack = listitem
-			if listitem["duration"]:
-				var minutes = float(listitem["duration"]) / 60
-				var seconds = 0
-				var secs = ""
-				var mins = ""
-				if str(minutes).find(".") != -1:
-					mins = str(minutes).split(".")[0]
-					seconds = (int(str(minutes).split(".")[1]) * 0.1) * 60
-				else:
-					mins = str(minutes)
-					seconds = 0
-				if seconds < 10:
-					secs = "0"+str(seconds)
-				else:
-					secs = str(seconds)[0]+str(seconds)[1]
+			if len(listitem) > 3: 
+				thesong.image = img
+				thesong.title = title
+				thesong.post  = post
+				thesong.artist = artist
+				thesong.fileName = ogg
+				thesong.tracknum = num
+				thesong.fulltrack = listitem
+				if listitem["duration"]:
+					var minutes = float(listitem["duration"]) / 60
+					var seconds = 0
+					var secs = ""
+					var mins = ""
+					if str(minutes).find(".") != -1:
+						mins = str(minutes).split(".")[0]
+						seconds = (int(str(minutes).split(".")[1]) * 0.1) * 60
+					else:
+						mins = str(minutes)
+						seconds = 0
+					if seconds < 10:
+						secs = "0"+str(seconds)
+					else:
+						secs = str(seconds)[0]+str(seconds)[1]
 				
-				thesong.duration = str(mins)+":"+str(secs)
-			else:
-				thesong.duration = "unknown"
-			#thesong.duration = listitem["duration"]
-			$Panel/listView/list.add_child(thesong)
-			if title != "":
-				num += 1	
-				playlist.append([thesong.fileName,thesong.artist,thesong.title,thesong.image,thesong.post])
-			
-			thesong.connect("play",MusicRoot,"_on_Music_play")
-			thesong.connect("play_now",MusicRoot,"_on_play_now")
-			thesong.connect("search",MusicRoot,"_on_artist_search")
-			thesong.connect("postview",$MusicInfo,"_on_MusicInfo_postview")
-			MusicRoot.connect("clear_highlight",thesong,"_clear_highlight")
+					thesong.duration = str(mins)+":"+str(secs)
+				else:
+					thesong.duration = "unknown"
+				#if($Panel/listView/list.get_child_count() <= num):
+				$Panel/listView/list.add_child(thesong)
+				thesong.connect("play",MusicRoot,"_on_Music_play")
+				thesong.connect("play_now",MusicRoot,"_on_play_now")
+				thesong.connect("search",MusicRoot,"_on_artist_search")
+				thesong.connect("postview",$MusicInfo,"_on_MusicInfo_postview")
+				MusicRoot.connect("clear_highlight",thesong,"_clear_highlight")
+				if title != "":
+					num += 1	
+					playlist.append([thesong.fileName,thesong.artist,thesong.title,thesong.image,thesong.post])
+					
 	return(playlist)
 		
 func clear_list():

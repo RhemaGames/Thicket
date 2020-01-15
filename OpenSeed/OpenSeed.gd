@@ -43,11 +43,13 @@ signal interface(type)
 signal linked()
 signal userLoaded()
 
+# warning-ignore:unused_signal
 signal comment(info)
 
 signal socket_returns(data)
 signal chatdata(data)
 signal sent_chat(data)
+signal new_tracks(data)
 
 var dev_steem = ""
 var dev_postingkey = ""
@@ -65,9 +67,9 @@ func _ready():
 
 # Verifies the login creditials of an account on Openseed and reports back pass/fail/nouser.
 func verify_account(u,p):
-	print(u,p)
+	#print(u,p)
 	var response = get_from_socket('{"act":"accountcheck","appID":"'+str(appId)+'","devID":"'+str(devId)+'","username":"'+str(u)+'","passphrase":"'+str(p)+'"}')
-	print(response)
+	#print(response)
 	return response
 	
 # Creates user based on the provided information. This user is added to the Openseed service. 
@@ -120,17 +122,13 @@ func set_openseed_account_status(account_id,data):
 
 func get_from_socket(data):
 # warning-ignore:unused_variable
-	var timeout = 18000
+	var _timeout = 18000
 	var server = StreamPeerTCP.new()
-	var connect = false
+	#var connect = false
 	if !server.is_connected_to_host():
 		server.connect_to_host(openseed, 8688)
 		while server.get_status() != 2:
-			connect = false
-			#if timeout == 0:
-			#	break
-			#else:
-			#	timeout -= 1
+			_timeout -= 1
 	if server.is_connected_to_host():
 		server.put_data(data.to_utf8())
 		var fromserver = server.get_data(161920)
@@ -139,17 +137,13 @@ func get_from_socket(data):
 	
 func get_from_socket_threaded(data):
 # warning-ignore:unused_variable
-	var timeout = 18000
+	var _timeout = 18000
 	var server = StreamPeerTCP.new()
-	var connect = false
+	#var connect = false
 	if !server.is_connected_to_host(): 
 		server.connect_to_host(openseed, 8688)
 		while server.get_status() != 2:
-			connect = false
-			#if timeout == 0:
-			#	break
-			#else:
-			#	timeout -= 1
+			_timeout -= 1
 	if server.is_connected_to_host():
 		server.put_data(data[0].to_utf8())
 		var fromserver = server.get_data(161920)
@@ -158,17 +152,13 @@ func get_from_socket_threaded(data):
 		return (fromserver[1].get_string_from_utf8())
 	
 func get_from_socket_threaded_internal(data):
-	var timeout = 18000
+	var _timeout = 18000
 	var server = StreamPeerTCP.new()
-	var connect = false
+	#var connect = false
 	if !server.is_connected_to_host(): 
 		server.connect_to_host(openseed, 8688)
 		while server.get_status() != 2:
-			connect = false
-			#if timeout == 0:
-			#	break
-			#else:
-			#	timeout -= 1
+			_timeout -= 1
 	if server.is_connected_to_host():
 		server.put_data(data[0].to_utf8())
 		var fromserver = server.get_data(161920)
@@ -195,6 +185,8 @@ func _on_OpenSeed_socket_returns(data):
 			emit_signal("chatdata",data[1])
 		"send_chat":
 			emit_signal("sent_chat",data[1])
+		"newtracks":
+			emit_signal("new_tracks",data[1])
 		_:
 			print("unknown")
 			
@@ -213,11 +205,6 @@ func _on_link_linked():
 	
 	pass # Replace with function body.
 
-# warning-ignore:unused_argument
-func get_leaderboard(number):
-	var scores = get_from_socket('{"act":"getleaderboard","appID":"'+str(appId)+'","devID":"'+str(devId)+'"}')
-	return scores
-
 # In this function we send OpenSeed a request to add new data to the leaderboard. Taking two variables u for user and d for the data.
 # The data is then reformated into a transmitable json like format for get_leaderboard to parse.
 # Note the need for a steem account (called steem) and a postingkey. As a developer you have the choice to use your own postingKey or require the user to use theirs. 
@@ -235,6 +222,38 @@ func update_leaderboard(u,d):
 	dataformat = dataformat+'\\"}'
 	var response = get_from_socket('{"act":"toleaderboard","appID":"'+str(appId)+'","devID":"'+str(devId)+'","username":"'+str(u)+'","data":"'+str(dataformat)+'","steem":"'+str(dev_steem)+'","postingkey":"'+str(dev_postingkey)+'"}')
 	return response
+	
+# warning-ignore:unused_argument
+func get_leaderboard(number):
+	var scores = get_from_socket('{"act":"getleaderboard","appID":"'+str(appId)+'","devID":"'+str(devId)+'"}')
+	return scores
+	
+func get_history(account):
+	var history = get_from_socket('{"act":"gethistory","appID":"'+str(appId)+'","devID":"'+str(devId)+',"account":"'+str(account)+'""}')
+
+func set_history(action_type,action):
+	var act = ""
+	var act_type = ""
+	var data = "{}"
+	match action_type:
+		"program_start":
+			act_type = 1
+		"program_stop":
+			act_type = 2
+		"playing":
+			act_type = 3
+		"purchase":
+			act_type = 4
+		"download":
+			act_type = 5
+		"linked":
+			act_type = 6
+		_:
+			act_type = 0
+			
+	data ='{"'+action_type+'":"'+action+'"}'
+	get_from_socket('{"act":"update_history","appID":"'+str(appId)+'","devID":"'+str(devId)+'","type":"'+str(act_type)+'","account":"'+str(OpenSeed.token)+'","data":'+str(data)+'}')
+	pass
 
 func saveUserData():
 	var file = File.new()
@@ -242,7 +261,6 @@ func saveUserData():
 	var content = '{"usertoken":"'+str(token)+'","username":"'+str(username)+'","steemaccount":"'+str(steem)+'","postingkey":"'+str(postingkey)+'"}'
 	file.open_encrypted_with_pass("user://openseed.dat", File.WRITE,key)
 	file.store_string(content)
-	print(content)
 	file.close()
 	
 func saveUserProfile(data):
@@ -295,6 +313,7 @@ func send_like(post):
 
 func follow(user):
 	var response = get_from_socket('{"act":"follow","appID":"'+str(appId)+'","devID":"'+str(devId)+'","steemaccount":"'+str(steem)+'","follow":"'+user+'"}')
+	return response
 	
 func get_connections(account):
 	var profile = get_from_socket('{"act":"openseed_connections","appID":"'+str(appId)+'","devID":"'+str(devId)+'","account":"'+account+'"}')
@@ -327,19 +346,22 @@ func check_ipfs():
 			ipfs_path = "/snap/bin/ipfs"
 		if ipfs_path != "":
 			ipfs = ipfs_path
+# warning-ignore:return_value_discarded
 			OS.execute("ps",["-e"],true,output)
 			print(output[0].find("ipfs"))
 			if output[0].find("ipfs") == -1:
 				print(OS.execute(ipfs_path,["daemon","--routing=dhtclient"],false))
 	pass
 
-func _on_OpenSeed_comment(info):
-	print("Getting here")
+#func _on_OpenSeed_comment(info):
+#	print("Getting here")
 	#var cment = Comment.instance()
 	#cment.show()
 	#$CanvasLayer.add_child(cment)
-	$CanvasLayer/Comment.show()
-	pass # Replace with function body.
+#	$CanvasLayer/Comment.show()
+#	pass # Replace with function body.
+
+# Encryption Functions
 	
 func get_keys_for(users):
 	var response = get_from_socket('{"act":"update_key","appID":"'+str(appId)+'","devID":"'+str(devId)+'","thetype":"1","users":"'+users+'","uid":"'+token+'"}')
@@ -358,9 +380,6 @@ func simp_crypt(key,raw_data):
 			.replace("\n","n")
 	var secret = ""
 	var datanum = 0
-	var offset = 0
-	#var data = raw_data.replace(/%/g, ":percent:").replace(/&/g, ":ampersand:")
-	var tdata = raw_data
 	var digits = ""
 	#//lets turn it into integers first//
 	for t in raw_data.replace("%", ":percent:").replace("&", ":ampersand:"):
@@ -414,7 +433,6 @@ func simp_decrypt(key,raw_data):
 	var key_stretch = key
 	var message = ""
 	var datanum = 0
-	var offset = 0
 	var decoded = ""
 
 	var data = raw_data.replace("zZz"," ")
@@ -432,14 +450,11 @@ func simp_decrypt(key,raw_data):
 			datanum = datanum + 1
 			
 		for c in message.split(" "):
-			#if c < 101:
-				#decoded += fromCharCode(message.split(" ")[c])
-			if int(c) < 255:
-				decoded += char(int(c))
-			#else:
-			#	decoded += c+" "
-	else:
-		 decoded = "Unable to Decrypt"
+			if len(c) <= 4:
+				if int(c) < 255:
+					decoded += char(int(c))
+				else:
+					decoded = "Unable to Decrypt"
 	return decoded.replace(":percent:","%").replace(":ampersand:","&")
 
 

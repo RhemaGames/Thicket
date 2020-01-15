@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=1]
+
+[node name="InfoBox" type="PanelContainer"]
+margin_right = 1555.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 1555, 150 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 14.0
+margin_top = 14.0
+margin_right = 1541.0
+margin_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_constants/separation = 10
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+margin_right = 1527.0
+margin_bottom = 29.0
+custom_fonts/font = ExtResource( 1 )
+text = "Title"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 39.0
+margin_right = 1527.0
+margin_bottom = 47.0
+
+[node name="Description" type="Label" parent="VBoxContainer"]
+margin_top = 57.0
+margin_right = 1527.0
+margin_bottom = 82.0
+text = "Description"
+autowrap = true

@@ -3,7 +3,7 @@ extends Node
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+var OpenSeed
 var connections_list
 var artists = []
 var new_artists = []
@@ -23,8 +23,15 @@ var games_color = Color("#1B356A")
 
 var selected_color = Color(0.8,0.8,0.8)
 
+signal new_tracks_ready()
+
 var dev_profile = ""
 # Called when the node enters the scene tree for the first time.
+
+func _ready():
+	OpenSeed = get_node("/root/OpenSeed")
+	OpenSeed.connect("new_tracks",self,"_on_new_tracks")
+	pass
 
 func developer_save(dev):
 	var file = File.new()
@@ -179,14 +186,17 @@ func store(type):
 	file.open("user://database/"+type+".dat", File.WRITE)
 	match type:
 		"tracks":
+			#load_cache("tracks")
 			list = str(tracks.size())
 			for t in tracks:
 				list = list+", \n"+to_json(t)
 		"artists":
+			#load_cache("artists")
 			list = str(artists.size())
 			for t in artists:
 				list = list+", \n"+to_json(t)
 		"genres":
+			#load_cache("genres")
 			list = str(genres.size())
 			for t in genres:
 				list = list+", \n"+to_json(t)
@@ -267,6 +277,32 @@ func create_developer(cName,pCon,email,steemaccount,about):
 	#print(datastring)
 	dev_profile = datastring
 	return created
+	
+func _on_new_tracks(data):
+	load_cache("tracks")
+	print("Before New Tracks "+str(len(tracks)))
+	var ntracks = data.split("}, ")
+	new_tracks = []
+	if data:
+		for track in ntracks:
+			if track[0] == "[":
+				track = track.trim_prefix("[")
+			var parsed_track = parse_json(track+"}")
+			new_tracks.append(parsed_track)
+		for test in new_tracks:
+			var found = false
+			for in_library in tracks:
+				if in_library and in_library["title"] == test["title"]:
+					found = true
+					break
+			if !found:
+				#print("New Track "+test["title"])
+				tracks.append(test)
+		
+		print("After New Tracks "+str(len(tracks)))
+		#store("tracks")
+
+	emit_signal("new_tracks_ready")
 
 func ipfs_upload(file):
 	var the_hash = []

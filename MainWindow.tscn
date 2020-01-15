@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://default.theme" type="Theme" id=1]
 [ext_resource path="res://MainWindow.gd" type="Script" id=2]
@@ -9,7 +9,7 @@
 [ext_resource path="res://Music.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Videos.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Settings.tscn" type="PackedScene" id=9]
-[ext_resource path="res://steemWallet.tscn" type="PackedScene" id=10]
+[ext_resource path="res://elements/AppView.tscn" type="PackedScene" id=10]
 [ext_resource path="res://DevConWindow.tscn" type="PackedScene" id=11]
 [ext_resource path="res://AdvancedSearch.tscn" type="PackedScene" id=12]
 [ext_resource path="res://elements/Social.tscn" type="PackedScene" id=13]
@@ -25,9 +25,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=23]
 [ext_resource path="res://Img/applications-engineering-symbolic.svg" type="Texture" id=24]
 [ext_resource path="res://menu.tres" type="StyleBox" id=25]
-[ext_resource path="res://NewAccount.tscn" type="PackedScene" id=26]
-[ext_resource path="res://Login.tscn" type="PackedScene" id=27]
-[ext_resource path="res://SteemLink.tscn" type="PackedScene" id=28]
+[ext_resource path="res://OpenSeed/steemWallet.tscn" type="PackedScene" id=28]
 [ext_resource path="res://DeveloperSetup.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Welcome.tscn" type="PackedScene" id=30]
 [ext_resource path="res://elements/WelcomeSetup.tscn" type="PackedScene" id=31]
@@ -452,7 +450,7 @@ margin_bottom = 1045.0
 rect_clip_content = true
 mouse_filter = 2
 
-[node name="steemWallet" parent="WindowContainer" instance=ExtResource( 10 )]
+[node name="steemWallet" parent="WindowContainer" instance=ExtResource( 28 )]
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
@@ -484,6 +482,10 @@ margin_top = 1000.0
 margin_bottom = 1000.0
 rect_clip_content = true
 
+[node name="AppView" parent="WindowContainer" instance=ExtResource( 10 )]
+visible = false
+margin_right = -1.0
+
 [node name="TopBar" type="Panel" parent="."]
 anchor_right = 1.0
 margin_left = -2.0
@@ -493,6 +495,9 @@ margin_bottom = 64.0
 rect_min_size = Vector2( 0, 64 )
 custom_styles/panel = ExtResource( 15 )
 script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TopBar"]
 visible = false
@@ -552,10 +557,12 @@ rect_min_size = Vector2( 0, 18 )
 custom_constants/separation = 12
 alignment = 2
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_use_anchors_": false
 }
 
 [node name="Social" type="TextureButton" parent="TopBar/HBoxContainer2"]
+visible = false
 margin_right = 18.0
 margin_bottom = 18.0
 rect_min_size = Vector2( 18, 18 )
@@ -568,6 +575,7 @@ expand = true
 stretch_mode = 5
 
 [node name="Search" type="TextureButton" parent="TopBar/HBoxContainer2"]
+visible = false
 margin_left = 30.0
 margin_right = 48.0
 margin_bottom = 18.0
@@ -581,6 +589,13 @@ texture_disabled = ExtResource( 20 )
 texture_focused = ExtResource( 20 )
 expand = true
 stretch_mode = 5
+
+[node name="Nav" type="Label" parent="TopBar/HBoxContainer2"]
+margin_left = 48.0
+margin_right = 48.0
+margin_bottom = 29.0
+grow_horizontal = 0
+custom_fonts/font = ExtResource( 18 )
 
 [node name="Time" type="Label" parent="TopBar"]
 anchor_left = 0.5
@@ -616,6 +631,9 @@ custom_styles/focus = ExtResource( 17 )
 custom_styles/normal = ExtResource( 17 )
 custom_fonts/font = ExtResource( 21 )
 text = "Thicket"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="icon" type="TextureRect" parent="TopBar/Controls/Home"]
 anchor_top = 0.5
@@ -637,6 +655,9 @@ anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -20.0
 margin_bottom = 71.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Settings" type="TextureRect" parent="TopBar"]
 visible = false
@@ -695,31 +716,6 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="NewAccount" parent="Wizards" instance=ExtResource( 26 )]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -144.0
-margin_top = -196.5
-margin_right = 144.0
-margin_bottom = 196.5
-
-[node name="Login" parent="Wizards" instance=ExtResource( 27 )]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -144.0
-margin_top = -175.0
-margin_right = 144.0
-margin_bottom = 175.0
-
-[node name="SteemLink" parent="Wizards" instance=ExtResource( 28 )]
-visible = false
-
 [node name="DeveloperSetup" parent="Wizards" instance=ExtResource( 29 )]
 visible = false
 
@@ -760,7 +756,4 @@ mouse_default_cursor_shape = 5
 [connection signal="visibility_changed" from="Social" to="Social" method="_on_Social_visibility_changed"]
 [connection signal="timeout" from="Social/iterate_connections" to="Social" method="_on_iterate_connections_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="visibility_changed" from="Wizards/NewAccount" to="Wizards/NewAccount" method="_on_NewAccount_visibility_changed"]
-[connection signal="login" from="Wizards/Login" to="." method="_on_Login_login"]
-[connection signal="linked" from="Wizards/SteemLink" to="." method="_on_SteemLink_linked"]
 [connection signal="alldone" from="Loading" to="." method="_on_Loading_alldone"]

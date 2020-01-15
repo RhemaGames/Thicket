@@ -31,6 +31,10 @@ margin_bottom = 0.902588
 rect_clip_content = true
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
 
 [node name="Menu" type="Panel" parent="."]
 anchor_bottom = 1.0
@@ -38,13 +42,16 @@ margin_top = 1.0
 margin_right = 312.0
 margin_bottom = 4.0
 custom_styles/panel = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
 
 [node name="GenreBox" parent="Menu" instance=ExtResource( 4 )]
-anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 9.0
-margin_top = -842.0
+margin_top = 98.0
 margin_right = 0.0
 margin_bottom = 0.0
 
@@ -65,12 +72,16 @@ anchor_bottom = 1.0
 margin_left = 312.0
 margin_right = 1898.0
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_lock_": true
 }
 
 [node name="listView" type="ScrollContainer" parent="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="list" type="VBoxContainer" parent="Panel/listView"]
 

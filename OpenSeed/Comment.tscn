@@ -7,15 +7,14 @@
 [ext_resource path="res://Img/window-close-symbolic.svg" type="Texture" id=5]
 
 [node name="Comment" type="Control"]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -300.0
 margin_top = -150.0
-margin_right = 300.0
-margin_bottom = 150.0
+margin_right = 338.0
+margin_bottom = 165.0
 rect_min_size = Vector2( 600, 300 )
 rect_clip_content = true
 script = ExtResource( 1 )
@@ -50,17 +49,17 @@ margin_right = -10.0
 margin_bottom = -6.0
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 582.0
-margin_bottom = 19.0
+margin_right = 620.0
+margin_bottom = 29.0
 custom_fonts/font = ExtResource( 3 )
 text = "Comment"
 align = 1
 valign = 1
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
-margin_top = 23.0
-margin_right = 582.0
-margin_bottom = 27.0
+margin_top = 37.0
+margin_right = 620.0
+margin_bottom = 45.0
 
 [node name="Bottom" type="HBoxContainer" parent="."]
 anchor_top = 1.0
@@ -81,10 +80,14 @@ margin_right = -6.0
 margin_bottom = 244.0
 
 [node name="Send" type="Button" parent="."]
-margin_left = 546.5
-margin_top = 272.0
-margin_right = 589.5
-margin_bottom = 292.0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -86.5942
+margin_top = -44.3665
+margin_right = -8.59424
+margin_bottom = -7.36646
 text = "Send"
 
 [node name="Close" type="TextureButton" parent="."]

@@ -5,6 +5,7 @@ var Thicket
 var gnum = 0
 signal next(num)
 signal alldone
+signal bootup
 
 var thread = Thread.new()
 # Declare member variables here. Examples:
@@ -24,7 +25,7 @@ func _ready():
 #	pass
 
 
-func _on_Loading_visibility_changed():
+func _on_Loading_bootup():
 	if OpenSeed.online == true:
 		if visible:
 			$AnimationPlayer.play("loop")

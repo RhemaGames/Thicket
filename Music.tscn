@@ -71,7 +71,6 @@ expand = true
 stretch_mode = 6
 
 [node name="generalOpts" type="VBoxContainer" parent="mainMenu"]
-editor/display_folded = true
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -99.9503
@@ -132,7 +131,6 @@ flat = true
 align = 0
 
 [node name="genplaylists" type="VBoxContainer" parent="mainMenu"]
-editor/display_folded = true
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -102.519
@@ -188,7 +186,6 @@ items = [ "", null, 0, false, false, -1, 0, null, "", true, "New", null, 0, fals
 script = ExtResource( 6 )
 
 [node name="curated" type="VBoxContainer" parent="mainMenu"]
-editor/display_folded = true
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -102.126
@@ -229,7 +226,6 @@ flat = true
 align = 0
 
 [node name="sources" type="VBoxContainer" parent="mainMenu"]
-editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -276,7 +272,6 @@ custom_constants/hseparation = 0
 columns = 2
 
 [node name="viewOpts" type="HBoxContainer" parent="."]
-editor/display_folded = true
 visible = false
 margin_left = 184.0
 margin_top = 2.3432
@@ -306,7 +301,6 @@ icon = ExtResource( 8 )
 flat = true
 
 [node name="ListViewLegend" type="HBoxContainer" parent="."]
-editor/display_folded = true
 visible = false
 margin_left = 187.892
 margin_top = 36.6759

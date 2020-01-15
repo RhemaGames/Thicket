@@ -52,7 +52,6 @@ func _ready():
 
 
 func _on_MusicBar_playing(playing):
-	print("Music is playing "+str(playing))
 	if playing == true:
 		self.self_modulate = Thicket.music_color
 		$PlayerControls.self_modulate = Thicket.music_color
@@ -108,7 +107,6 @@ func _on_MusicBar_timeleft(time):
 
 
 func _on_play_pressed():
-	print("Play Pressed, "+str(is_playing))
 	if is_playing == false:
 		emit_signal("play_pressed",true)
 	else:

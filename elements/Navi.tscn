@@ -10,6 +10,9 @@ anchor_bottom = 1.0
 margin_top = -82.0
 margin_bottom = 7.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MusicBar" parent="." instance=ExtResource( 2 )]
 anchor_top = 0.0

@@ -22,18 +22,20 @@ func _ready():
 	OpenSeed = get_node("/root/OpenSeed")
 	Thicket = get_node("/root/Thicket")
 	OpenSeed.connect("socket_returns",self,"socket_returned")
+	Thicket.connect("new_tracks_ready",self,"set_new_tracks")
 	pass # Replace with function body.
 
 # warning-ignore:unused_argument
-func get_new_tracks(num):
-	OpenSeed.thread.start(OpenSeed,"get_from_socket_threaded",['{"act":"newtracks_json","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'"}',"newtracks"])
-	var new_tracks = Thicket.new_tracks
-	return new_tracks
+#func get_new_tracks(num):
+	#OpenSeed.thread.start(OpenSeed,"get_from_socket_threaded",['{"act":"newtracks_json","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'"}',"newtracks"])
+	#var new_tracks = Thicket.new_tracks
+	#return new_tracks
 
 func new_tracks(data):
 	pass
 
 func set_new_tracks():
+	#print("Setting new tracks")
 	playlist = []
 	#var children = get_child_count() - 1
 	#while children >= 0:
@@ -41,7 +43,7 @@ func set_new_tracks():
 	#	remove_child(track)
 	#	track.queue_free()
 	#	children -= 1
-	var list = get_new_tracks(new_num)
+	var list = Thicket.new_tracks
 	var count = 0
 	if get_child_count() < new_num:
 		for track in list:
@@ -84,8 +86,9 @@ func set_new_tracks():
 			count += 1
 
 func _on_NewTracks_getNew():
-	print("New_Tracks")
-	set_new_tracks()
+	#print("New_Tracks")
+	OpenSeed.thread.start(OpenSeed,"get_from_socket_threaded",['{"act":"newtracks_json","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'"}',"newtracks"])
+	#set_new_tracks()
 	pass # Replace with function body.
 
 
@@ -93,7 +96,7 @@ func _on_NewTracks_playlist():
 	return(playlist)
 
 func _on_NewMusic_getNew():
-	print("New_Tracks")
+	print("New_Music")
 	set_new_tracks()
 	pass # Replace with function body.
 	

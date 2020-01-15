@@ -76,6 +76,7 @@ func _on_Games_pressed():
 		$WindowContainer/Games.show()
 		$WindowContainer/Videos.hide()
 		$WindowContainer/Music.hide()
+		$TopBar/HBoxContainer2/Navgation.text = "Games"
 	#else:
 	#	$WindowContainer/Games.hide()
 
@@ -85,6 +86,7 @@ func _on_Audio_pressed():
 		$WindowContainer/Music.show()
 		$WindowContainer/Games.hide()
 		$WindowContainer/Videos.hide()
+		$TopBar/HBoxContainer2/Navgation.text = "Music"
 	#else:
 	#	$WindowContainer/Music.show()
 
@@ -93,6 +95,7 @@ func _on_Video_pressed():
 		$WindowContainer/Videos.show()
 		$WindowContainer/Games.hide()
 		$WindowContainer/Music.hide()
+		$TopBar/HBoxContainer2/Navgation.text = "Video"
 	#else:
 	#	$WindowContainer/Videos.hide()
 
@@ -161,6 +164,7 @@ func _on_MainWindow_loading_complete():
 func _on_MainWindow_loading_start(what):
 	$Loading.what = what
 	$Loading.show()
+	$Loading.emit_signal("bootup")
 	
 	pass # Replace with function body.
 
@@ -226,6 +230,7 @@ func _on_Home_pressed():
 			$WindowContainer/AnimationPlayer.play("Social",0.4,-5,true)
 			$WindowContainer/AnimationPlayer.play("Apps",0.4,-5,true)	
 			$Navi.nav_buttons("main")
+			$TopBar/HBoxContainer2/Nav.text = " "
 	pass # Replace with function body.
 
 

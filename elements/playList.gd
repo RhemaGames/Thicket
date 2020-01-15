@@ -25,8 +25,8 @@ func fill_list(list):
 	var num = 0
 	if list:
 		for listing in list.split(", \n"):
-			var track = parse_json(listing)
 			if len(listing) > 3 and num <=13:
+				var track = parse_json(listing)
 				var Song = songlisting.instance()
 				Song.image = track["img"]
 				Song.title = track["title"]

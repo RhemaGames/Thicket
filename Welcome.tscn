@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Welcome.gd" type="Script" id=1]
-[ext_resource path="res://OpenSeed.png" type="Texture" id=2]
+[ext_resource path="res://OpenSeed/OpenSeed.png" type="Texture" id=2]
 
 [node name="Welcome" type="Control"]
 anchor_right = 1.0
@@ -25,23 +25,23 @@ margin_bottom = -10.0
 custom_constants/separation = 20
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 617.0
-margin_bottom = 14.0
+margin_right = 1182.0
+margin_bottom = 25.0
 text = "Welcome"
 align = 1
 valign = 1
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
-margin_top = 34.0
-margin_right = 617.0
-margin_bottom = 38.0
+margin_top = 45.0
+margin_right = 1182.0
+margin_bottom = 53.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
-margin_top = 58.0
-margin_right = 617.0
-margin_bottom = 608.0
+margin_top = 73.0
+margin_right = 1182.0
+margin_bottom = 873.0
 grow_horizontal = 2
-rect_min_size = Vector2( 0, 550 )
+rect_min_size = Vector2( 0, 800 )
 bbcode_enabled = true
 bbcode_text = "Thank you for downloading Thicket, before you begin exploring the application you will need to setup an account on OpenSeed, the authentication service used in Thicket as well as any other software that connects too it. This information will be stored for future use, BUT will never be sold to advertisers or data collection agencies. After setting up your OpenSeed account you will be able to access to services Thicket provides; however if you wish to become a developer or an artists featured on Thicket you will need to link a valid STEEM (not Steam) account to OpenSeed. 
 
@@ -74,17 +74,16 @@ If all of this sounds good, and you're ready to proceed Click the button below a
 scroll_active = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-editor/display_folded = true
-margin_top = 628.0
-margin_right = 617.0
-margin_bottom = 660.0
+margin_top = 893.0
+margin_right = 1182.0
+margin_bottom = 930.0
 rect_min_size = Vector2( 0, 32 )
 alignment = 1
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 274.0
-margin_right = 343.0
-margin_bottom = 32.0
+margin_left = 530.0
+margin_right = 651.0
+margin_bottom = 37.0
 text = "Continue"
 
 [node name="TextureRect" type="TextureRect" parent="."]

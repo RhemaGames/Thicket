@@ -14,7 +14,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="NewGame" type="ScrollContainer" parent="."]
-editor/display_folded = true
 visible = false
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -67,10 +66,10 @@ If you already have a STEEM account you may use it to create your Developer acco
 
 [node name="MainMenu" type="Panel" parent="."]
 anchor_bottom = 1.0
+margin_top = 39.0
 margin_right = 204.0
 
 [node name="UserTag" type="Control" parent="MainMenu"]
-editor/display_folded = true
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 193.0
@@ -111,36 +110,36 @@ margin_bottom = 599.0
 
 [node name="HSeparator" type="HSeparator" parent="MainMenu/Menu"]
 margin_right = 204.0
-margin_bottom = 4.0
+margin_bottom = 8.0
 
 [node name="Games" type="Button" parent="MainMenu/Menu"]
-margin_top = 8.0
+margin_top = 12.0
 margin_right = 204.0
-margin_bottom = 29.0
+margin_bottom = 46.0
 text = "Games"
 flat = true
 align = 0
 
 [node name="Applications" type="Button" parent="MainMenu/Menu"]
-margin_top = 33.0
+margin_top = 50.0
 margin_right = 204.0
-margin_bottom = 54.0
+margin_bottom = 84.0
 text = "Apps"
 flat = true
 align = 0
 
 [node name="Stats" type="Button" parent="MainMenu/Menu"]
-margin_top = 58.0
+margin_top = 88.0
 margin_right = 204.0
-margin_bottom = 79.0
+margin_bottom = 122.0
 text = "Stats"
 flat = true
 align = 0
 
 [node name="HSeparator2" type="HSeparator" parent="MainMenu/Menu"]
-margin_top = 83.0
+margin_top = 126.0
 margin_right = 204.0
-margin_bottom = 87.0
+margin_bottom = 134.0
 
 [node name="Games" type="Panel" parent="."]
 anchor_right = 1.0
@@ -172,10 +171,9 @@ margin_bottom = 20.0
 alignment = 1
 
 [node name="Label" type="Label" parent="Games/TopBar/HBoxContainer"]
-margin_left = 2.0
-margin_top = 12.0
-margin_right = 37.0
-margin_bottom = 27.0
+margin_top = 8.0
+margin_right = 60.0
+margin_bottom = 32.0
 text = "Games"
 align = 1
 valign = 1

@@ -3,6 +3,7 @@ extends Control
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+var default_icon = preload("res://Img/leaf.svg")
 var imgfile = File.new()
 var file = File.new()
 var title = "App"
@@ -98,10 +99,11 @@ func get_pic(img) :
 		if err:
 			Imagedata.load(img)
 		imgfile.close()
+		Imagetex.create_from_image(Imagedata,0)
 	else:
-		Imagedata.load("res://Img/leaf.svg")
+		Imagetex = default_icon
 		
-	Imagetex.create_from_image(Imagedata,0)
+	
 	return Imagetex
 
 func _on_App_Icon_gui_input(event):

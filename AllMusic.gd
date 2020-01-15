@@ -7,21 +7,24 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_parent().connect("resized",self,"on_resize")
+	get_node("/root/MainWindow").connect("loading_done",self,"on_loading_done")
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
+func on_loading_done():
+	$Timer.start()
+	$NewArtistTimer.start()
+	$NewTrackTimer.start()
 
 func _on_AllMusic_visibility_changed():
 	if visible:
 		$resize.start()
 		$Main/MainView/NewArtists.emit_signal("getNew")
 		$Main/MainView/NewTracks.emit_signal("getNew")
-		#$Timer.start()
-		$NewArtistTimer.start()
-		$NewTrackTimer.start()
+		
 		$Main.set_v_scroll(0)
 		$Main/MainView/playlistGrid.emit_signal("loadup")
 		

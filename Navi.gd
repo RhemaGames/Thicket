@@ -90,6 +90,7 @@ func release_focus() :
 func set_focus(item):
 	get_parent().active = item
 	emit_signal("activeRelease",get_parent().active)
+	var navLabel = get_parent().get_node("TopBar/HBoxContainer2/Nav")
 	match(get_parent().active.replace("\n","")):
 		"Music":
 			if !get_parent().get_node("WindowContainer/AnimationPlayer").is_playing():
@@ -97,13 +98,15 @@ func set_focus(item):
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Social",0.4,-5,true)	
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Apps",0.4,-5,true)	
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Music",0.4,3)
+				navLabel.text = "Music"
 			nav_buttons("music")
 		"Games":
 			if !get_parent().get_node("WindowContainer/AnimationPlayer").is_playing():
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Music",0.2,-5,true)
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Social",0.4,-5,true)
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Apps",0.4,-5,true)	
-				get_parent().get_node("WindowContainer/AnimationPlayer").play("Games",0.4,3)	
+				get_parent().get_node("WindowContainer/AnimationPlayer").play("Games",0.4,3)
+				navLabel.text = "Games"	
 			nav_buttons("games")
 		"Apps":
 			if !get_parent().get_node("WindowContainer/AnimationPlayer").is_playing():
@@ -111,29 +114,35 @@ func set_focus(item):
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Games",0.4,-5,true)
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Social",0.4,-5,true)	
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Apps",0.4,3)	
+				navLabel.text = "Applications"
 			nav_buttons("apps")
 		"Social":
 			if !get_parent().get_node("WindowContainer/AnimationPlayer").is_playing():
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Music",0.2,-5,true)
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Games",0.4,-5,true)	
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Apps",0.4,-5,true)	
-				get_parent().get_node("WindowContainer/AnimationPlayer").play("Social",0.4,3)	
+				get_parent().get_node("WindowContainer/AnimationPlayer").play("Social",0.4,3)
+				navLabel.text = "Social"
 			nav_buttons("social")
 		"Deck":
 			if active_area == "music":
 				get_node("../WindowContainer/Music").emit_signal("show","md")
+				navLabel.text = "Music"
 				nav_buttons("music")
 		"Recent":
 			if active_area == "music":
 				get_node("../WindowContainer/Music").emit_signal("show","recent")
+				navLabel.text = "Music - Recent"
 				nav_buttons("music")
 		"Library":
 			if active_area == "music":
 				get_node("../WindowContainer/Music").emit_signal("show","library")
+				navLabel.text = "Music - Library"
 				nav_buttons("music")
 		"Search":
 			if active_area == "music":
 				get_node("../WindowContainer/Music").emit_signal("show","search")
+				navLabel.text = "Music - Search"
 				nav_buttons("music")
 	
 
