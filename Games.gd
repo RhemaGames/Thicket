@@ -28,13 +28,13 @@ func load_library():
 	if dir.open("user://games") == OK:
 		dir.list_dir_begin(true,true)
 		var thegame = dir.get_next()
-		var count = 0
+		var _count = 0
 		while thegame != "":
 			var game = GameBox.instance()
 			game.game = "user://games/"+thegame
 			game.title = thegame.split(".pck")[0]
 			$Library/PanelContainer/ScrollContainer/recent.add_child(game)
-			count += 1
+			_count += 1
 			thegame = dir.get_next()
 
 func _on_Games_visibility_changed():
@@ -48,5 +48,5 @@ func _on_Games_launch_game(game):
 	var args = ["--main-pack",thegame]
 	var runner = ProjectSettings.globalize_path("user://runners/godot_runner_linux")
 	var output = []
-	OS.execute(runner,args,true,output)
+	var _pid = OS.execute(runner,args,true,output)
 	pass # Replace with function body.

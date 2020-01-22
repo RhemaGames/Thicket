@@ -44,42 +44,43 @@ func setup_connection(person,count):
 	var next = con.instance()
 	var name = ""
 	var image = ""
-	var perp = person.split(", ")[1]
-	var username = person.split(", ")[0].split('"')[1]
-	next.account = username
-	var current_status = {"status":"offline"}
-	var get_status = OpenSeed.get_openseed_account_status(username)
-	while !get_status:
-		print(get_status)
-	current_status = get_status
-	if parse_json(perp).keys().has("data1"):
-		var profile = parse_json(perp)["data1"]
-		var steemProfile = parse_json(perp)["data5"]
-		if profile.keys().has("name"):
-			next.connect("view",self,"_on_Social_view")
-			name = profile["name"]
-			if steemProfile.keys().has("profile"):
-				if str(steemProfile["profile"]) != "Not found":
-					image = steemProfile["profile"]["profile_image"]
-					textureFile.append(ImageTexture.new())
-					next.get_node("Contact").block = imageFile
-					next.get_node("Contact").texblock = textureFile[texture_count]
-					next.get_node("Contact").title = username
-					next.get_node("Contact").pImage = image
-					texture_count +=1
-			next.get_node("UserName").text = name
-			if !current_status.has("status"):
-				if current_status["data"]["chat"] != "Offline":
-					next.get_node("Activity").text = "Online"
-				else:
-					next.get_node("Activity").text = "Offline"
-				$Chat/VBoxContainer/Online/list.add_child(next)
+	if len(person.split(", ")) > 1:
+		var perp = person.split(", ")[1]
+		var username = person.split(", ")[0].split('"')[1]
+		next.account = username
+		var current_status = {"status":"offline"}
+		var get_status = OpenSeed.get_openseed_account_status(username)
+		while !get_status:
+			print(get_status)
+		current_status = get_status
+		if parse_json(perp).keys().has("data1"):
+			var profile = parse_json(perp)["data1"]
+			var steemProfile = parse_json(perp)["data5"]
+			if profile.keys().has("name"):
+				next.connect("view",self,"_on_Social_view")
+				name = profile["name"]
+				if steemProfile.keys().has("profile"):
+					if str(steemProfile["profile"]) != "Not found":
+						image = steemProfile["profile"]["profile_image"]
+						textureFile.append(ImageTexture.new())
+						next.get_node("Contact").block = imageFile
+						next.get_node("Contact").texblock = textureFile[texture_count]
+						next.get_node("Contact").title = username
+						next.get_node("Contact").pImage = image
+						texture_count +=1
+				next.get_node("UserName").text = name
+				if !current_status.has("status"):
+					if current_status["data"]["chat"] != "Offline":
+						next.get_node("Activity").text = "Online"
+					else:
+						next.get_node("Activity").text = "Offline"
+					$Chat/VBoxContainer/Online/list.add_child(next)
 
 			contact_count +=1
 	$iterate_connections.start()
 
 func _on_iterate_connections_timeout():
-	if Thicket.connections_list.size() > 1 and connection < Thicket.connections_list.size():
+	if Thicket.connections_list and Thicket.connections_list.size() > 1 and connection < Thicket.connections_list.size():
 		$iterate_connections.stop()
 		if connection > 0:
 			setup_connection(Thicket.connections_list[connection],contact_count)

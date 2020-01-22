@@ -149,7 +149,7 @@ func _on_Music_resized():
 	pass # Replace with function body.
 
 func _on_Timer_timeout():
-	var window_size = get_size()
+	#var _window_size = get_size()
 	#$OptionView.set_split_offset(window_size.x / 4)
 	$Timer.stop()
 

@@ -39,7 +39,7 @@ func execute(program):
 	var opts = []
 	var num = 1
 	while len(prog) > num:
-		if prog[num] != "%u" or prog[num] != "%U":
+		if prog[num] != "%u" and prog[num] != "%U":
 			opts.append(prog[num])
 		num +=1
 	LoadingScreen.get_node("Label").text = "Launching "+prog[0]

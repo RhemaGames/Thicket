@@ -8,9 +8,6 @@ signal alldone
 signal bootup
 
 var thread = Thread.new()
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var what
 var connect_thread = Thread.new()
 # Called when the node enters the scene tree for the first time.
@@ -51,7 +48,7 @@ func _on_Loading_bootup():
 			
 			if !Thicket.check_cache("genres"):
 				if gather_genres():
-					Thicket.store("genres")
+					Thicket.store("genres","")
 					gather_all_tracks_artists(Thicket.genres[gnum])
 			else:
 				Thicket.load_cache("genres")
@@ -63,8 +60,13 @@ func _on_Loading_bootup():
 				emit_signal("alldone")
 	else:
 		emit_signal("alldone")
-	pass # Replace with function body.
-
+	pass
+	 
+func _on_gathering(data):
+	var returned_data
+	
+	pass
+	
 func gather_connections():
 	$Label.text = "Gathering Connections"
 	if OpenSeed.steem != "":
@@ -143,8 +145,8 @@ func _on_Loading_next(num):
 		convert_lists("favorite")
 		convert_lists("liked")
 		$Label.text = "Store Data"
-		Thicket.store("tracks")
-		Thicket.store("artists")
+		Thicket.store("tracks",Thicket.tracks)
+		Thicket.store("artists","")
 		emit_signal("alldone")
 
 func convert_lists(type):

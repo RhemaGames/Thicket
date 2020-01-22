@@ -24,9 +24,9 @@ func _ready():
 #	pass
 
 
-func set_box(image,pImage):
+func set_box(image,profileImage):
 	if !imgfile.file_exists("user://cache/Img/"+image+"Profile"):
-		get_timage(pImage,title)
+		get_timage(profileImage,title)
 	else:
 		set_texture(get_image("user://cache/Img/"+image+"Profile"))
 		#get_parent().get_parent().get_parent().get_parent().textureList.append(get_texture())

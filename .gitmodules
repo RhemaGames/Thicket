@@ -1,0 +1,3 @@
+[submodule "OpenSeed-Godot"]
+	path = OpenSeed-Godot
+	url = https://github.com/OpenSeedINC/OpenSeed-Godot.git

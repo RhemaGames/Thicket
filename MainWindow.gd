@@ -20,16 +20,18 @@ func _ready():
 	OpenSeed = get_node("/root/OpenSeed")
 	Thicket = get_node("/root/Thicket")
 	Thicket.create_folders()
+	OpenSeed.devId = "0a1831e5eb07615f9cbd999acc8464821b9299b642d033f501f177df5b5dc3a2"
+	OpenSeed.appId = "ve003-234fser234"
 	$Navi/MusicBar.color = Color(0.2,0.2,0.2)
 	$Spatial/AnimationPlayer.play("slowwalk")
 
 	if !OpenSeed.loadUserData():
-		$Wizards/Login.show()
+		OpenSeed.get_node("CanvasLayer/Login").show()
 	else:
 		check_devMode()
 		emit_signal("loading_start",$WindowContainer/DashBoard)
 
-func _input(event):
+func _input(_event):
 	if Input.is_key_pressed(KEY_F10):
 		if OS.window_fullscreen == false:
 			OS.window_fullscreen = true
@@ -56,7 +58,7 @@ func _on_Social_pressed():
 
 # warning-ignore:unused_argument
 func _on_Login_login(status):
-	$Wizards/Login.hide()
+	OpenSeed.get_node("CanvasLayer/Login").hide()
 	#if !$OpenSeed.steem:
 	#	$Wizards/SteemLink.show()
 	#else:
@@ -135,7 +137,7 @@ func _on_Timer_timeout():
 	pass # Replace with function body.
 
 
-func _on_TopBar_gui_input(event):
+func _on_TopBar_gui_input(_event):
 	#var drag = Input.is_mouse_button_pressed(1)
 	#var current_pos = OS.get_window_position()
 	#if drag:
@@ -162,6 +164,7 @@ func _on_MainWindow_loading_complete():
 
 
 func _on_MainWindow_loading_start(what):
+	print("Loading")
 	$Loading.what = what
 	$Loading.show()
 	$Loading.emit_signal("bootup")
@@ -172,6 +175,7 @@ func _on_MainWindow_loading_start(what):
 func _on_Loading_alldone():
 	$WindowContainer/Social.list_connections()
 	$Loading/Label.text = "Gathering Friends"
+	emit_signal("loading_complete")
 	pass # Replace with function body.
 
 
@@ -179,7 +183,7 @@ func _on_Social_done():
 	$Loading.hide()
 	pass # Replace with function body.
 
-func _process(delta): 
+func _process(_delta): 
 	var theTime = OS.get_time()
 	var theHour = "0"
 	var theMinutes = "0"
@@ -215,11 +219,11 @@ func _process(delta):
 	pass
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	
+	print(anim_name)
 	$Navi.emit_signal("activeRelease","all")
 	pass # Replace with function body.
 	
-func _on_Navi_activeRelease(except):
+func _on_Navi_activeRelease(_except):
 	pass # Replace with function body.
 
 
@@ -234,7 +238,7 @@ func _on_Home_pressed():
 	pass # Replace with function body.
 
 
-func _on_Settings_gui_input(event):
+func _on_Settings_gui_input(_event):
 	if Input.is_mouse_button_pressed(1):
 			if !$WindowContainer/AnimationPlayer.is_playing():
 				$WindowContainer/AnimationPlayer.play("Settings",0.2,5,true)

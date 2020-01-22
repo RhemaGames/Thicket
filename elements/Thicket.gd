@@ -1,8 +1,5 @@
 extends Node
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var OpenSeed
 var connections_list
 var artists = []
@@ -12,8 +9,8 @@ var tracks = []
 var genres = []
 var applications = []
 var favorite_apps = []
+var image_library = {}
 
-#var parsed = []
 var parsing = false
 
 var music_color = Color("#6A1B5D")
@@ -26,8 +23,8 @@ var selected_color = Color(0.8,0.8,0.8)
 signal new_tracks_ready()
 
 var dev_profile = ""
-# Called when the node enters the scene tree for the first time.
 
+# Called when the node enters the scene tree for the first time.
 func _ready():
 	OpenSeed = get_node("/root/OpenSeed")
 	OpenSeed.connect("new_tracks",self,"_on_new_tracks")
@@ -180,15 +177,15 @@ func local_knowledge_add(type,track):
 	file.store_string(list)
 	file.close()
 
-func store(type):
+func store(type,newlist):
 	var list 
 	var file = File.new()
 	file.open("user://database/"+type+".dat", File.WRITE)
 	match type:
 		"tracks":
 			#load_cache("tracks")
-			list = str(tracks.size())
-			for t in tracks:
+			list = str(newlist.size())
+			for t in newlist:
 				list = list+", \n"+to_json(t)
 		"artists":
 			#load_cache("artists")
@@ -220,14 +217,13 @@ func build_genres(track):
 		else:
 			genre = tracked[6]
 			list =local_knowledge_load(tracked[6])
-		
 	if list.find(str(track)+",") == -1:
 		file.open("user://database/genres/"+genre+".dat", File.WRITE)
 		file.store_string(list+", \n"+str(track))
 	file.close()
 
 func create_playlist(name):
-	print(name)
+	
 	var file = File.new()
 	if !file.file_exists("user://playlists/"+name+".dat"):
 		file.open("user://playlists/"+name+".dat",File.WRITE)
@@ -273,14 +269,13 @@ func create_developer(cName,pCon,email,steemaccount,about):
 	var created = OpenSeed.get_from_socket('{"act":"create_developer","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'",'+account+'}')
 	var datastring = '"theid":"'+created+'","data1":"'+cName+\
 	'","data2":"'+pCon+'","data3":"'+email+'","data4":"'+steemaccount+'","data5":{"about":"'+about+'}'
-	var response = OpenSeed.get_from_socket('{"act":"create_profile","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'",'+datastring+',"type":2}')
-	#print(datastring)
+	var _response = OpenSeed.get_from_socket('{"act":"create_profile","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'",'+datastring+',"type":2}')
 	dev_profile = datastring
 	return created
 	
 func _on_new_tracks(data):
 	load_cache("tracks")
-	print("Before New Tracks "+str(len(tracks)))
+		
 	var ntracks = data.split("}, ")
 	new_tracks = []
 	if data:
@@ -296,17 +291,14 @@ func _on_new_tracks(data):
 					found = true
 					break
 			if !found:
-				#print("New Track "+test["title"])
-				tracks.append(test)
-		
-		print("After New Tracks "+str(len(tracks)))
-		#store("tracks")
+				tracks.insert(0,test)
+		store("tracks",tracks)
 
 	emit_signal("new_tracks_ready")
 
 func ipfs_upload(file):
 	var the_hash = []
-	OS.execute(OpenSeed.ipfs,["add",file],true,the_hash)
+	var _pid = OS.execute(OpenSeed.ipfs,["add",file],true,the_hash)
 	
 	return str(the_hash[0]).split(" ")[1]
 
@@ -323,15 +315,11 @@ func application_list():
 						var name = file_name
 						for ns in ["org.","net.","io.","com."]:
 							if file_name.substr(0,4).find(ns) != -1:
-								#print(file_name)
 								name = file_name.split(".")[2]
 								break	
 						applications.append(name+"::"+place+"/"+file_name)
-					#else:
-					#	print(file_name)
 					file_name = dir.get_next()
 		applications.sort()
-	#print(applications)
 	pass
 	
 func favorite_app_list():
@@ -340,4 +328,8 @@ func favorite_app_list():
 		if file.exists("user://database/fav_apps.dat"):
 			favorite_apps = local_knowledge_load("fav_apps")
 			
+	pass
+
+func load_library():
+	
 	pass
