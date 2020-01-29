@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://elements/Social.gd" type="Script" id=1]
 [ext_resource path="res://menu.tres" type="StyleBox" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=6]
 [ext_resource path="res://elements/ChatLog.tscn" type="PackedScene" id=7]
 [ext_resource path="res://elements/History.gd" type="Script" id=8]
+[ext_resource path="res://elements/UserSettings.gd" type="Script" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Load"
@@ -83,15 +84,21 @@ margin_top = 2.0
 margin_right = 300.0
 rect_min_size = Vector2( 360, 0 )
 custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Chat"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
-margin_top = 43.0
+margin_top = 55.0
 margin_right = -8.0
 margin_bottom = -12.0
 custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Friends" type="Label" parent="Chat/VBoxContainer"]
 margin_right = 344.0
@@ -159,6 +166,9 @@ margin_left = 372.0
 margin_top = 107.0
 margin_right = 1888.0
 margin_bottom = 1053.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Recent" type="Panel" parent="Main"]
 margin_right = 1528.0
@@ -175,7 +185,16 @@ margin_right = 1528.0
 margin_bottom = 838.0
 custom_constants/separation = 20
 
+[node name="UserSettings" type="PanelContainer" parent="Main/HBoxContainer"]
+margin_right = 930.0
+margin_bottom = 630.0
+rect_min_size = Vector2( 930, 630 )
+script = ExtResource( 9 )
+
 [node name="ChatLog" parent="Main/HBoxContainer" instance=ExtResource( 7 )]
+visible = false
+margin_left = 950.0
+margin_right = 1880.0
 
 [node name="History" type="PanelContainer" parent="Main/HBoxContainer"]
 margin_left = 950.0
@@ -221,7 +240,6 @@ wait_time = 300.0
 
 [node name="history_update" type="Timer" parent="."]
 [connection signal="done" from="." to="." method="_on_Social_done"]
-[connection signal="view" from="." to="." method="_on_Social_view"]
 [connection signal="timeout" from="iterate_connections" to="." method="_on_iterate_connections_timeout"]
 [connection signal="timeout" from="status_update" to="." method="_on_status_update_timeout"]
 [connection signal="timeout" from="history_update" to="Main/HBoxContainer/History" method="_on_history_update_timeout"]

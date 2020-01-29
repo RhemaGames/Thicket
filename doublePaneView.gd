@@ -28,7 +28,7 @@ func create_list(songarray):
 	else:
 		MusicRoot = get_tree().get_root().get_node("MainWindow").get_node("WindowContainer").get_node("Music")
 		
-	var window_size = get_size()
+	#var window_size = get_size()
 	#set_split_offset(window_size.x / 4)
 	MusicRoot.connect("resized",self,"on_resize")
 	
@@ -42,9 +42,9 @@ func create_list(songarray):
 	var post
 	var img
 	var ogg
-	var type = "n/a"
-	var genre = "n/a"
-	var tags
+	var _type = "n/a"
+	var _genre = "n/a"
+	var _tags
 	
 	for listitem in songarray:
 		var thesong = songlisting.instance()
@@ -55,8 +55,8 @@ func create_list(songarray):
 			post = listitem["post"]
 			img = listitem["img"]
 			ogg = listitem["ogg"]
-			genre = listitem["genre"]
-			tags = listitem["tags"]
+			_genre = listitem["genre"]
+			_tags = listitem["tags"]
 
 		if len(listitem) > 3: 
 			thesong.image = img

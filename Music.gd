@@ -96,6 +96,7 @@ func music_play():
 		MusicBar1.emit_signal("songlength",	$AudioStreamPlayer.get_stream().get_length())
 		MusicBar1.emit_signal("timeleft",minutes+":"+seconds_string)
 		$AudioStreamPlayer.play()
+		OpenSeed.set_history("playing",playlist[play_list_num][2])
 	else:
 		emit_signal("download")
 		$AudioStreamPlayer.stop()
@@ -128,7 +129,6 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 				music_play()
 				break
 			num +=1
-
 	
 # warning-ignore:unused_argument
 func get_song(url,port,thefile,tracknum):
@@ -358,7 +358,6 @@ func _on_nexttrack_pressed():
 func _on_Search_update_playlist(list):
 	play_list_num = 0
 	playlist = list
-
 	
 func get_all_music():
 # warning-ignore:unused_variable
@@ -430,9 +429,6 @@ func play_track(track):
 	MusicBar1.emit_signal("playing",playing)
 	music_play()
 
-
-
-
 func _on_Music_download():
 	MusicBar1.emit_signal("wait","show")
 
@@ -440,17 +436,12 @@ func _on_Music_download():
 func _on_Music_download_complete():
 	MusicBar1.emit_signal("wait","hide")
 
-
 func _on_Music_visibility_changed():
 	if visible:
 		get_all_music()
 		#genre_load()
 		$title.text = "Music Deck"	
-
-
-
-
-
+		
 func _on_Music_show(area):
 	match(area):
 		"md":

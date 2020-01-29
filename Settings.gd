@@ -1,9 +1,6 @@
 extends Control
 var thicket = load("res://elements/Thicket.gd")
 var Thicket = thicket.new()
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var first_launch = true
 
 var cf = false
@@ -11,7 +8,6 @@ var p2p = false
 var ipfs = false
 var devMode = false
 	
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	setup(Thicket.settings_load())
 	

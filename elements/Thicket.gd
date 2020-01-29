@@ -17,6 +17,7 @@ var music_color = Color("#6A1B5D")
 var app_color = Color("#1B6A28") 
 var social_color = Color("#6A501B") 
 var games_color = Color("#1B356A")
+var settings_color = Color("#7C356B")
 
 var selected_color = Color(0.8,0.8,0.8)
 

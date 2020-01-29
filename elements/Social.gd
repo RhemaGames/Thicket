@@ -14,12 +14,13 @@ var currentuser = OpenSeed.username
 
 signal done()
 
-signal view(account)
+signal changeview(account)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if $Chat/VBoxContainer/Online.get_child_count() == 0:
 		list_connections()
-	set_view(OpenSeed.username)	
+	#set_view(OpenSeed.username)	
+	#emit_signal("view",OpenSeed.username)
 	$AnimationPlayer.play("Load")
 	pass # Replace with function body.
 
@@ -32,6 +33,7 @@ func _ready():
 func _on_Social_visibility_changed():
 	if visible and $ScrollContainer/Connections.get_child_count() == 0:
 		list_connections()
+		
 	pass # Replace with function body.
 
 func list_connections():
@@ -95,6 +97,7 @@ func _on_iterate_connections_timeout():
 func _on_Social_done():
 	OpenSeed.loadUserProfile(OpenSeed.username)
 	set_view(OpenSeed.username)
+	#OpenSeed.get_history(OpenSeed.username)
 	pass # Replace with function body.
 	
 func set_view(account):
@@ -118,17 +121,16 @@ func set_view(account):
 			if str(profile["data5"]["profile"]) != "Not found":
 				if profile["data5"]["profile"].has("about"):
 					$TopBanner/TextInfo/TagLine.text = profile["data5"]["profile"]["about"]
-					
-				
-		
 		$TopBanner/Contact.pImage = ""
 		
 	$TopBanner/Contact.emit_signal("refresh")	
-
+	$history_update.start()
+	
 
 func _on_Social_view(account):
 	$AnimationPlayer.play("Load")
 	set_view(account)
+	emit_signal('changeview',account)
 	pass # Replace with function body.
 
 

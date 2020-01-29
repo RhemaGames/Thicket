@@ -109,6 +109,7 @@ func get_pic(img) :
 func _on_App_Icon_gui_input(event):
 	if event is InputEventMouseButton and event.pressed and Input.is_mouse_button_pressed(1): 
 		emit_signal("execute",exec)
+		#get_node("/root/MainWindow/WindowContainer/AppView").show()
 		
 	if event is InputEventMouseButton and event.pressed and Input.is_mouse_button_pressed(2): 
 		#emit_signal("execute",exec)

@@ -57,9 +57,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -378.0
-margin_top = -95.0
+margin_top = -112.0
 margin_right = 379.0
-margin_bottom = 95.0
+margin_bottom = 184.0
 rect_min_size = Vector2( 0, 220 )
 bbcode_enabled = true
 bbcode_text = "Greetings, 
@@ -69,12 +69,11 @@ Thank you for downloaded Thicket, your gateway to Games, Music and more! All hos
 "
 text = "Greetings, 
 
-Thank you for downloaded Thicket, your gateway to Games, Music and more! All hosted on the Inter Planetary File System (IPFS) and cataloged on the the STEEM blockchain. Before we begin please read the next few slides so that you are aquainted with some of the ways Thicket is different than other Media distribution platforms and how the difference might be worth more than just your time.
+Thank you for downloading Thicket, your gateway to Games, Music and more! All hosted on the Inter Planetary File System (IPFS) and cataloged on the the STEEM blockchain. Before we begin please read the next few slides so that you are aquainted with some of the ways Thicket is different than other Media distribution platforms and how the difference might be worth more than just your time.
 
 "
 
 [node name="General" type="Control" parent="Panel"]
-editor/display_folded = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -131,7 +130,6 @@ __meta__ = {
 }
 
 [node name="NewAccount" type="Control" parent="Panel"]
-editor/display_folded = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -167,22 +165,21 @@ margin_bottom = -6.00003
 alignment = 1
 
 [node name="NewAccount" type="RichTextLabel" parent="Panel/NewAccount/HBoxContainer"]
-margin_left = 382.0
-margin_right = 382.0
+margin_left = 380.0
+margin_right = 380.0
 margin_bottom = 409.0
 
 [node name="VSeparator" type="VSeparator" parent="Panel/NewAccount/HBoxContainer"]
-margin_left = 386.0
-margin_right = 390.0
+margin_left = 384.0
+margin_right = 392.0
 margin_bottom = 409.0
 
 [node name="ExsitingAccount" type="RichTextLabel" parent="Panel/NewAccount/HBoxContainer"]
-margin_left = 394.0
-margin_right = 394.0
+margin_left = 396.0
+margin_right = 396.0
 margin_bottom = 409.0
 
 [node name="Finish" type="Control" parent="Panel"]
-editor/display_folded = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0

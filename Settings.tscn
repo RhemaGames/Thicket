@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://default.theme" type="Theme" id=1]
 [ext_resource path="res://Settings.gd" type="Script" id=2]
 [ext_resource path="res://menu.tres" type="StyleBox" id=3]
+[ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://elements/Contact.tscn" type="PackedScene" id=5]
 
 [node name="Settings" type="Control"]
 anchor_right = 1.0
@@ -14,201 +16,547 @@ script = ExtResource( 2 )
 [node name="Panel" type="Panel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="mainMenu" type="Panel" parent="Panel"]
-editor/display_folded = true
+visible = false
 anchor_bottom = 1.0
-rect_min_size = Vector2( 180, 0 )
+margin_right = 312.0
+rect_min_size = Vector2( 312, 0 )
 rect_clip_content = true
 custom_styles/panel = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/mainMenu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 4.0
 margin_right = -2.0
 custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="Panel/mainMenu/VBoxContainer"]
-margin_right = 178.0
-margin_bottom = 15.0
+margin_right = 306.0
+margin_bottom = 24.0
 text = "Settings"
 align = 1
 valign = 1
 
 [node name="HSeparator" type="HSeparator" parent="Panel/mainMenu/VBoxContainer"]
-margin_top = 25.0
-margin_right = 178.0
-margin_bottom = 29.0
+margin_top = 34.0
+margin_right = 306.0
+margin_bottom = 42.0
 
 [node name="Account" type="Button" parent="Panel/mainMenu/VBoxContainer"]
-margin_top = 39.0
-margin_right = 178.0
-margin_bottom = 64.0
+margin_top = 52.0
+margin_right = 306.0
+margin_bottom = 86.0
 text = "Account"
 flat = true
 align = 0
 
 [node name="Files" type="Button" parent="Panel/mainMenu/VBoxContainer"]
-margin_top = 74.0
-margin_right = 178.0
-margin_bottom = 99.0
+margin_top = 96.0
+margin_right = 306.0
+margin_bottom = 130.0
 text = "Files"
 flat = true
 align = 0
 
 [node name="Network" type="Button" parent="Panel/mainMenu/VBoxContainer"]
-margin_top = 109.0
-margin_right = 178.0
-margin_bottom = 134.0
+margin_top = 140.0
+margin_right = 306.0
+margin_bottom = 174.0
 text = "Network"
 flat = true
 align = 0
 
-[node name="devMode" type="CheckButton" parent="Panel/mainMenu/VBoxContainer"]
-margin_top = 144.0
-margin_right = 178.0
-margin_bottom = 186.0
-custom_constants/hseparation = 0
-text = "Developer Mode"
-flat = true
-
 [node name="Developer" type="Button" parent="Panel/mainMenu/VBoxContainer"]
-margin_top = 196.0
-margin_right = 178.0
-margin_bottom = 221.0
-text = "Developer Account"
+margin_top = 184.0
+margin_right = 306.0
+margin_bottom = 218.0
+text = "Creator Account"
 flat = true
 align = 0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
-editor/display_folded = true
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 183.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -792.0
+margin_top = -456.0
+margin_right = 792.0
+margin_bottom = 394.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 1580, 850 )
 scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
-margin_right = 351.0
-margin_bottom = 550.0
-rect_min_size = Vector2( 350.47, 0 )
-custom_constants/separation = 10
+[node name="Account" type="VBoxContainer" parent="Panel/ScrollContainer"]
+margin_right = 1560.0
+margin_bottom = 765.0
+rect_min_size = Vector2( 1560, 760 )
+rect_clip_content = true
+custom_constants/separation = 20
+alignment = 1
 
-[node name="General" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
-margin_right = 351.0
-margin_bottom = 15.0
-text = "File System"
+[node name="Account" type="Label" parent="Panel/ScrollContainer/Account"]
+margin_right = 1560.0
+margin_bottom = 29.0
+custom_fonts/font = ExtResource( 4 )
+text = "Account"
 align = 1
 valign = 1
 uppercase = true
 
-[node name="HSeparator" type="HSeparator" parent="Panel/ScrollContainer/VBoxContainer"]
-margin_top = 25.0
-margin_right = 351.0
-margin_bottom = 29.0
+[node name="HSeparator3" type="HSeparator" parent="Panel/ScrollContainer/Account"]
+margin_top = 49.0
+margin_right = 1560.0
+margin_bottom = 57.0
 
-[node name="customFolders" type="CheckButton" parent="Panel/ScrollContainer/VBoxContainer"]
-margin_top = 39.0
-margin_right = 351.0
-margin_bottom = 81.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ScrollContainer/Account"]
+margin_top = 77.0
+margin_right = 1560.0
+margin_bottom = 765.0
+grow_horizontal = 2
+custom_constants/separation = 10
+
+[node name="AccountInfo" type="VBoxContainer" parent="Panel/ScrollContainer/Account/HBoxContainer"]
+margin_right = 750.0
+margin_bottom = 688.0
+custom_constants/separation = 10
+
+[node name="Contact" parent="Panel/ScrollContainer/Account/HBoxContainer/AccountInfo" instance=ExtResource( 5 )]
+margin_right = 750.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 200, 200 )
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/Account/HBoxContainer/AccountInfo"]
+margin_top = 210.0
+margin_right = 750.0
+margin_bottom = 234.0
+text = "Name:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="LineEdit" parent="Panel/ScrollContainer/Account/HBoxContainer/AccountInfo"]
+margin_top = 244.0
+margin_right = 750.0
+margin_bottom = 270.0
+rect_min_size = Vector2( 750, 0 )
+
+[node name="Label2" type="Label" parent="Panel/ScrollContainer/Account/HBoxContainer/AccountInfo"]
+margin_top = 280.0
+margin_right = 750.0
+margin_bottom = 304.0
+text = "Email:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Email" type="LineEdit" parent="Panel/ScrollContainer/Account/HBoxContainer/AccountInfo"]
+margin_top = 314.0
+margin_right = 750.0
+margin_bottom = 340.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Panel/ScrollContainer/Account/HBoxContainer/AccountInfo"]
+margin_top = 350.0
+margin_right = 750.0
+margin_bottom = 374.0
+text = "Address:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Address" type="LineEdit" parent="Panel/ScrollContainer/Account/HBoxContainer/AccountInfo"]
+margin_top = 384.0
+margin_right = 750.0
+margin_bottom = 410.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="devMode" type="CheckButton" parent="Panel/ScrollContainer/Account/HBoxContainer/AccountInfo"]
+margin_top = 420.0
+margin_right = 750.0
+margin_bottom = 494.0
+custom_constants/hseparation = 0
+text = "Creator Mode"
+flat = true
+
+[node name="privInfo" type="Label" parent="Panel/ScrollContainer/Account/HBoxContainer/AccountInfo"]
+margin_top = 504.0
+margin_right = 750.0
+margin_bottom = 555.0
+text = "Private mode will protect your contact information from being shared with others using the service.  "
+autowrap = true
+
+[node name="privMode" type="CheckButton" parent="Panel/ScrollContainer/Account/HBoxContainer/AccountInfo"]
+margin_top = 565.0
+margin_right = 750.0
+margin_bottom = 639.0
+custom_constants/hseparation = 0
+text = "Private Mode"
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer/Account/HBoxContainer"]
+margin_left = 760.0
+margin_right = 1560.0
+margin_bottom = 688.0
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/Account/HBoxContainer/VBoxContainer"]
+margin_right = 800.0
+margin_bottom = 24.0
+text = "About:"
+
+[node name="TextEdit" type="TextEdit" parent="Panel/ScrollContainer/Account/HBoxContainer/VBoxContainer"]
+margin_top = 28.0
+margin_right = 800.0
+margin_bottom = 688.0
+rect_min_size = Vector2( 800, 660 )
+
+[node name="Files" type="VBoxContainer" parent="Panel/ScrollContainer"]
+visible = false
+margin_right = 1560.0
+margin_bottom = 1090.0
+rect_min_size = Vector2( 1560, 800 )
+custom_constants/separation = 15
+
+[node name="General" type="Label" parent="Panel/ScrollContainer/Files"]
+margin_right = 1560.0
+margin_bottom = 29.0
+custom_fonts/font = ExtResource( 4 )
+text = "System"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="HSeparator" type="HSeparator" parent="Panel/ScrollContainer/Files"]
+margin_top = 44.0
+margin_right = 1560.0
+margin_bottom = 52.0
+
+[node name="spacing" type="Control" parent="Panel/ScrollContainer/Files"]
+margin_top = 67.0
+margin_right = 1560.0
+margin_bottom = 97.0
+rect_min_size = Vector2( 0, 30 )
+
+[node name="General4" type="Label" parent="Panel/ScrollContainer/Files"]
+margin_top = 112.0
+margin_right = 1560.0
+margin_bottom = 141.0
+custom_fonts/font = ExtResource( 4 )
+text = "Folder"
+valign = 1
+uppercase = true
+
+[node name="HSeparator4" type="HSeparator" parent="Panel/ScrollContainer/Files"]
+margin_top = 156.0
+margin_right = 1560.0
+margin_bottom = 164.0
+
+[node name="customFolders" type="CheckButton" parent="Panel/ScrollContainer/Files"]
+margin_top = 179.0
+margin_right = 1560.0
+margin_bottom = 253.0
 text = "Custom Folders"
 flat = true
 
-[node name="Music" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer"]
-margin_top = 91.0
-margin_right = 351.0
-margin_bottom = 123.0
+[node name="Music" type="HBoxContainer" parent="Panel/ScrollContainer/Files"]
+margin_top = 268.0
+margin_right = 1560.0
+margin_bottom = 300.0
 rect_min_size = Vector2( 0, 32 )
 custom_constants/separation = 10
 
-[node name="title" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Music"]
-margin_top = 8.0
-margin_right = 84.0
-margin_bottom = 23.0
+[node name="title" type="Label" parent="Panel/ScrollContainer/Files/Music"]
+margin_top = 4.0
+margin_right = 144.0
+margin_bottom = 28.0
 text = "Music Folder"
 
-[node name="entry" type="LineEdit" parent="Panel/ScrollContainer/VBoxContainer/Music"]
-margin_left = 94.0
-margin_right = 349.0
+[node name="entry" type="LineEdit" parent="Panel/ScrollContainer/Files/Music"]
+margin_left = 154.0
+margin_right = 1054.0
 margin_bottom = 32.0
-rect_min_size = Vector2( 255, 0 )
+rect_min_size = Vector2( 900, 0 )
 max_length = 255
 
-[node name="Video" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer"]
-margin_top = 133.0
-margin_right = 351.0
-margin_bottom = 165.0
+[node name="Video" type="HBoxContainer" parent="Panel/ScrollContainer/Files"]
+margin_top = 315.0
+margin_right = 1560.0
+margin_bottom = 347.0
 rect_min_size = Vector2( 0, 32 )
 custom_constants/separation = 10
 
-[node name="title" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Video"]
-margin_top = 8.0
-margin_right = 84.0
-margin_bottom = 23.0
+[node name="title" type="Label" parent="Panel/ScrollContainer/Files/Video"]
+margin_top = 4.0
+margin_right = 144.0
+margin_bottom = 28.0
 text = "Video Folder"
 
-[node name="entry" type="LineEdit" parent="Panel/ScrollContainer/VBoxContainer/Video"]
-margin_left = 94.0
-margin_right = 351.0
+[node name="entry" type="LineEdit" parent="Panel/ScrollContainer/Files/Video"]
+margin_left = 154.0
+margin_right = 1054.0
 margin_bottom = 32.0
-rect_min_size = Vector2( 257, 0 )
+rect_min_size = Vector2( 900, 0 )
 max_length = 255
 
-[node name="Network" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
-margin_top = 175.0
-margin_right = 351.0
-margin_bottom = 190.0
+[node name="HSeparator5" type="HSeparator" parent="Panel/ScrollContainer/Files/Video"]
+margin_left = 1064.0
+margin_right = 1067.0
+margin_bottom = 32.0
+
+[node name="spacing2" type="Control" parent="Panel/ScrollContainer/Files"]
+margin_top = 362.0
+margin_right = 1560.0
+margin_bottom = 402.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="General2" type="Label" parent="Panel/ScrollContainer/Files"]
+margin_top = 417.0
+margin_right = 1560.0
+margin_bottom = 446.0
+custom_fonts/font = ExtResource( 4 )
+text = "Application"
+valign = 1
+uppercase = true
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/ScrollContainer/Files"]
+margin_top = 461.0
+margin_right = 1560.0
+margin_bottom = 469.0
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/Files"]
+margin_top = 484.0
+margin_right = 1560.0
+margin_bottom = 508.0
+text = "Thicket can list, launch, and track local applications. However, this feature is currently only for Linux systems. "
+autowrap = true
+
+[node name="applications" type="CheckButton" parent="Panel/ScrollContainer/Files"]
+margin_top = 523.0
+margin_right = 1560.0
+margin_bottom = 597.0
+text = "Local Applications"
+flat = true
+
+[node name="spacing3" type="Control" parent="Panel/ScrollContainer/Files"]
+margin_top = 612.0
+margin_right = 1560.0
+margin_bottom = 652.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="General3" type="Label" parent="Panel/ScrollContainer/Files"]
+margin_top = 667.0
+margin_right = 1560.0
+margin_bottom = 696.0
+custom_fonts/font = ExtResource( 4 )
+text = "Emulators"
+valign = 1
+uppercase = true
+
+[node name="HSeparator3" type="HSeparator" parent="Panel/ScrollContainer/Files"]
+margin_top = 711.0
+margin_right = 1560.0
+margin_bottom = 719.0
+
+[node name="Label2" type="Label" parent="Panel/ScrollContainer/Files"]
+margin_top = 734.0
+margin_right = 1560.0
+margin_bottom = 758.0
+text = "Thicket can also be used to launch various emulators. "
+autowrap = true
+
+[node name="romFolders" type="CheckButton" parent="Panel/ScrollContainer/Files"]
+margin_top = 773.0
+margin_right = 1560.0
+margin_bottom = 847.0
+text = "Emulator Folders"
+flat = true
+
+[node name="Mame" type="HBoxContainer" parent="Panel/ScrollContainer/Files"]
+margin_top = 862.0
+margin_right = 1560.0
+margin_bottom = 894.0
+rect_min_size = Vector2( 0, 32 )
+custom_constants/separation = 10
+alignment = 2
+
+[node name="title" type="Label" parent="Panel/ScrollContainer/Files/Mame"]
+margin_left = 500.0
+margin_top = 4.0
+margin_right = 620.0
+margin_bottom = 28.0
+text = "MAME Path:"
+
+[node name="entry" type="LineEdit" parent="Panel/ScrollContainer/Files/Mame"]
+margin_left = 630.0
+margin_right = 1530.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 900, 0 )
+max_length = 255
+
+[node name="hspacing" type="Control" parent="Panel/ScrollContainer/Files/Mame"]
+margin_left = 1540.0
+margin_right = 1560.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="Roms" type="HBoxContainer" parent="Panel/ScrollContainer/Files"]
+margin_top = 909.0
+margin_right = 1560.0
+margin_bottom = 941.0
+rect_min_size = Vector2( 0, 32 )
+custom_constants/separation = 10
+alignment = 2
+
+[node name="title" type="Label" parent="Panel/ScrollContainer/Files/Roms"]
+margin_left = 392.0
+margin_top = 4.0
+margin_right = 620.0
+margin_bottom = 28.0
+text = "Rom Folder (MAME) :"
+
+[node name="entry" type="LineEdit" parent="Panel/ScrollContainer/Files/Roms"]
+margin_left = 630.0
+margin_right = 1530.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 900, 0 )
+max_length = 255
+
+[node name="hspacing2" type="Control" parent="Panel/ScrollContainer/Files/Roms"]
+margin_left = 1540.0
+margin_right = 1560.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="Mednafen" type="HBoxContainer" parent="Panel/ScrollContainer/Files"]
+margin_top = 956.0
+margin_right = 1560.0
+margin_bottom = 988.0
+rect_min_size = Vector2( 0, 32 )
+custom_constants/separation = 10
+alignment = 2
+
+[node name="title" type="Label" parent="Panel/ScrollContainer/Files/Mednafen"]
+margin_left = 452.0
+margin_top = 4.0
+margin_right = 620.0
+margin_bottom = 28.0
+text = "Mednafen Path:"
+
+[node name="entry" type="LineEdit" parent="Panel/ScrollContainer/Files/Mednafen"]
+margin_left = 630.0
+margin_right = 1530.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 900, 0 )
+max_length = 255
+
+[node name="hspacing3" type="Control" parent="Panel/ScrollContainer/Files/Mednafen"]
+margin_left = 1540.0
+margin_right = 1560.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="Roms2" type="HBoxContainer" parent="Panel/ScrollContainer/Files"]
+margin_top = 1003.0
+margin_right = 1560.0
+margin_bottom = 1035.0
+rect_min_size = Vector2( 0, 32 )
+custom_constants/separation = 10
+alignment = 2
+
+[node name="title" type="Label" parent="Panel/ScrollContainer/Files/Roms2"]
+margin_left = 344.0
+margin_top = 4.0
+margin_right = 620.0
+margin_bottom = 28.0
+text = "Rom Folder (mednafen) :"
+
+[node name="entry" type="LineEdit" parent="Panel/ScrollContainer/Files/Roms2"]
+margin_left = 630.0
+margin_right = 1530.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 900, 0 )
+max_length = 255
+
+[node name="hspacing4" type="Control" parent="Panel/ScrollContainer/Files/Roms2"]
+margin_left = 1540.0
+margin_right = 1560.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="spacing4" type="Control" parent="Panel/ScrollContainer/Files"]
+margin_top = 1050.0
+margin_right = 1560.0
+margin_bottom = 1090.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="Network" type="VBoxContainer" parent="Panel/ScrollContainer"]
+visible = false
+margin_right = 1560.0
+margin_bottom = 760.0
+rect_min_size = Vector2( 1560, 760 )
+
+[node name="Network" type="Label" parent="Panel/ScrollContainer/Network"]
+margin_right = 1560.0
+margin_bottom = 29.0
+custom_fonts/font = ExtResource( 4 )
 text = "Network"
 align = 1
 valign = 1
 uppercase = true
 
-[node name="HSeparator2" type="HSeparator" parent="Panel/ScrollContainer/VBoxContainer"]
-margin_top = 200.0
-margin_right = 351.0
-margin_bottom = 204.0
+[node name="HSeparator2" type="HSeparator" parent="Panel/ScrollContainer/Network"]
+margin_top = 33.0
+margin_right = 1560.0
+margin_bottom = 41.0
 
-[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
-margin_top = 214.0
-margin_right = 351.0
-margin_bottom = 355.0
+[node name="Label" type="Label" parent="Panel/ScrollContainer/Network"]
+margin_top = 45.0
+margin_right = 1560.0
+margin_bottom = 150.0
 text = "These settings allow Grove to act as an OpenSeed node helping the service work better overall. For developers it is highly recommend to have these options enabled. 
 
 Note: Users that enable this option will recieve monthly rewards based on how much data is shared from your system."
 autowrap = true
 
-[node name="p2p" type="CheckButton" parent="Panel/ScrollContainer/VBoxContainer"]
-margin_top = 365.0
-margin_right = 351.0
-margin_bottom = 405.0
+[node name="p2p" type="CheckButton" parent="Panel/ScrollContainer/Network"]
+margin_top = 154.0
+margin_right = 1560.0
+margin_bottom = 228.0
 text = "P2P Mode"
 flat = true
 
-[node name="ipfs" type="CheckButton" parent="Panel/ScrollContainer/VBoxContainer"]
-margin_top = 415.0
-margin_right = 351.0
-margin_bottom = 455.0
+[node name="ipfs" type="CheckButton" parent="Panel/ScrollContainer/Network"]
+margin_top = 232.0
+margin_right = 1560.0
+margin_bottom = 306.0
 text = "Use IPFS"
 flat = true
 
-[node name="originals" type="CheckButton" parent="Panel/ScrollContainer/VBoxContainer"]
-margin_top = 465.0
-margin_right = 351.0
-margin_bottom = 505.0
+[node name="originals" type="CheckButton" parent="Panel/ScrollContainer/Network"]
+margin_top = 310.0
+margin_right = 1560.0
+margin_bottom = 384.0
 disabled = true
 text = "Store Originals (music / videos) "
-
-[node name="Misc" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
-margin_top = 515.0
-margin_right = 351.0
-margin_bottom = 530.0
-text = "Misc"
-align = 1
-valign = 1
-uppercase = true
-
-[node name="HSeparator3" type="HSeparator" parent="Panel/ScrollContainer/VBoxContainer"]
-margin_top = 540.0
-margin_right = 351.0
-margin_bottom = 544.0
 [connection signal="visibility_changed" from="." to="." method="_on_Settings_visibility_changed"]

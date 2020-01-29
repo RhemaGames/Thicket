@@ -11,9 +11,13 @@ var SocialRoot
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SocialRoot = get_parent().get_parent().get_parent()
+	SocialRoot.connect("changeview",self,"change_view")
 	OpenSeed = get_node("/root/OpenSeed")
 	Thicket = get_node("/root/Thicket")
-	#SocialRoot.get_node("history_update").start()
+	#if !SocialRoot.currentuser or SocialRoot.currentuser == OpenSeed.username:
+	#	self.show()
+	#else:
+	#	self.hide()
 	pass # Replace with function body.
 
 
@@ -21,14 +25,9 @@ func _ready():
 #func _process(delta):
 #	pass
 
-
-func _on_history_update_timeout():
-	var history
-	if SocialRoot.currentuser:
-		#print("Current User "+SocialRoot.currentuser)
-		history = OpenSeed.get_history(SocialRoot.currentuser)
+func change_view(account):
+	print(account)
+	if account == OpenSeed.username:
+		self.show()
 	else:
-		history = OpenSeed.get_history(OpenSeed.username)
-	get_node("VBoxContainer/RichTextLabel2").text = history
-	SocialRoot.get_node("history_update").wait_time = 120
-	pass # Replace with function body.
+		self.hide()

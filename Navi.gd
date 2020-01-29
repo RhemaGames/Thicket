@@ -28,26 +28,18 @@ var gameButtons = [
 {"title":"Search","icon":"res://Img/edit-find-symbolic.svg","color":color_phase(Thicket.games_color,5)}
 ]
 
-var appButtons = [
-#{"title":"Creative","icon":"res://Img/view-list-symbolic.svg","color":color_phase(Thicket.app_color,1)},
+var settingsButtons = [
+{"title":"Account","icon":"res://Img/avatar-default-symbolic.svg","color":color_phase(Thicket.settings_color,1)},
+{"title":"Files","icon":"res://Img/folder-symbolic.svg","color":color_phase(Thicket.settings_color,2)},
+{"title":"Network","icon":"res://Img/network-workgroup-symbolic.svg","color":color_phase(Thicket.settings_color,3)},
+{"title":"Creator","icon":"res://Img/applications-engineering-symbolic.svg","color":color_phase(Thicket.settings_color,4)},
 ]
-var socialButtons = [
-#{"title":"Upload","icon":"res://Img/folder-upload-symbolic.svg","color":color_phase(Thicket.social_color,1)},
-#{"title":"Settings","icon":"res://Img/preferences-system-symbolic.svg","color":color_phase(Thicket.social_color,3)},
-]
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var appButtons = []
+var socialButtons = []
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	nav_buttons("main")
 	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 
 func nav_buttons(area) :
 	var thearea = []
@@ -55,6 +47,9 @@ func nav_buttons(area) :
 		"main":
 			thearea = mainButtons
 			active_area = "main"
+		"settings":
+			thearea = settingsButtons
+			active_area = "settings"
 		"music":
 			thearea = musicButtons
 			active_area = "music"
@@ -96,7 +91,8 @@ func set_focus(item):
 			if !get_parent().get_node("WindowContainer/AnimationPlayer").is_playing():
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Games",0.2,-5,true)
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Social",0.4,-5,true)	
-				get_parent().get_node("WindowContainer/AnimationPlayer").play("Apps",0.4,-5,true)	
+				get_parent().get_node("WindowContainer/AnimationPlayer").play("Apps",0.4,-5,true)
+				get_parent().get_node("WindowContainer/AnimationPlayer").play("Settings",0.4,-5,true)	
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Music",0.4,3)
 				navLabel.text = "Music"
 			nav_buttons("music")
@@ -104,7 +100,8 @@ func set_focus(item):
 			if !get_parent().get_node("WindowContainer/AnimationPlayer").is_playing():
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Music",0.2,-5,true)
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Social",0.4,-5,true)
-				get_parent().get_node("WindowContainer/AnimationPlayer").play("Apps",0.4,-5,true)	
+				get_parent().get_node("WindowContainer/AnimationPlayer").play("Apps",0.4,-5,true)
+				get_parent().get_node("WindowContainer/AnimationPlayer").play("Settings",0.4,-5,true)	
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Games",0.4,3)
 				navLabel.text = "Games"	
 			nav_buttons("games")
@@ -113,6 +110,7 @@ func set_focus(item):
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Music",0.2,-5,true)
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Games",0.4,-5,true)
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Social",0.4,-5,true)	
+				get_parent().get_node("WindowContainer/AnimationPlayer").play("Settings",0.4,-5,true)
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Apps",0.4,3)	
 				navLabel.text = "Applications"
 			nav_buttons("apps")
@@ -121,9 +119,19 @@ func set_focus(item):
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Music",0.2,-5,true)
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Games",0.4,-5,true)	
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Apps",0.4,-5,true)	
+				get_parent().get_node("WindowContainer/AnimationPlayer").play("Settings",0.4,-5,true)
 				get_parent().get_node("WindowContainer/AnimationPlayer").play("Social",0.4,3)
 				navLabel.text = "Social"
 			nav_buttons("social")
+		"Settings":
+			if !get_parent().get_node("WindowContainer/AnimationPlayer").is_playing():
+				get_parent().get_node("WindowContainer/AnimationPlayer").play("Music",0.2,-5,true)
+				get_parent().get_node("WindowContainer/AnimationPlayer").play("Games",0.4,-5,true)	
+				get_parent().get_node("WindowContainer/AnimationPlayer").play("Apps",0.4,-5,true)	
+				get_parent().get_node("WindowContainer/AnimationPlayer").play("Social",0.4,-5,true)	
+				get_parent().get_node("WindowContainer/AnimationPlayer").play("Settings",0.4,3)
+				navLabel.text = "Settings"
+			nav_buttons("settings")
 		"Deck":
 			if active_area == "music":
 				get_node("../WindowContainer/Music").emit_signal("show","md")

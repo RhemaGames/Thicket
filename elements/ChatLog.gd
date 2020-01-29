@@ -3,6 +3,9 @@ var chatmessage = preload("res://elements/MessageBox.tscn")
 var box 
 var offset = 0
 var key = ""
+var SocialRoot
+var OpenSeed
+var Thicket
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -10,10 +13,17 @@ var key = ""
 var last = 0
 
 func _ready():
+	SocialRoot = get_parent().get_parent().get_parent()
+	OpenSeed = get_node("/root/OpenSeed")
+	Thicket = get_node("/root/Thicket")
 	OpenSeed.connect("chatdata",self,"update_chat")
 	OpenSeed.connect("sent_chat",self,"chatbox_reset")
+	
 	box = $VBoxContainer/ScrollContainer/VBoxContainer
 	$Timer.start()
+	SocialRoot.connect("changeview",self,"_on_account_view")
+	#if !SocialRoot.currentuser or SocialRoot.currentuser == OpenSeed.username:
+	#	self.hide()
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,9 +31,10 @@ func _ready():
 #	pass
 
 func get_chat(username,account):
+	
 	if account:
-		OpenSeed.thread.start(OpenSeed,"get_from_socket_threaded",['{"act":"get_chat","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'","uid":"'+username+'","account":"'+account+'","room":"'+username+','+account+'","last":"'+str(last)+'"}',"chat"])
-
+		if !OpenSeed.thread.is_active():
+			OpenSeed.thread.start(OpenSeed,"get_from_socket_threaded",['{"act":"get_chat","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'","uid":"'+username+'","account":"'+account+'","room":"'+username+','+account+'","last":"'+str(last)+'"}',"chat"])
 
 func _on_Timer_timeout():
 	get_chat(OpenSeed.username,get_parent().get_parent().get_parent().currentuser)
@@ -58,6 +69,14 @@ func _on_message_text_entered(new_text):
 	#print(key)
 	send_chat(OpenSeed.simp_crypt(key,new_text),OpenSeed.username,get_parent().get_parent().get_parent().currentuser)
 	pass # Replace with function body.
+
+func _on_account_view(account):
+	print("Chat "+account)
+	if !SocialRoot.currentuser or SocialRoot.currentuser != OpenSeed.username:
+		self.show()
+	else:
+		self.hide()
+	pass
 
 func chatbox_reset(data):
 	$VBoxContainer/InputArea/message.text = ""

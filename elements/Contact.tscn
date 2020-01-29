@@ -4,10 +4,9 @@
 [ext_resource path="res://elements/Contact.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 
-[sub_resource type="CanvasItemMaterial" id=2]
+[sub_resource type="CanvasItemMaterial" id=1]
 
 [node name="Contact" type="TextureRect"]
-material = SubResource( 2 )
 margin_right = 42.0
 margin_bottom = 42.0
 grow_horizontal = 2
@@ -19,6 +18,18 @@ stretch_mode = 6
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
+}
+
+[node name="cImage" type="TextureRect" parent="."]
+visible = false
+show_behind_parent = true
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
 }
 
 [node name="from_image" type="TextureRect" parent="."]

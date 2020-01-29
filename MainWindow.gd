@@ -8,6 +8,7 @@ var Thicket
 signal checksteem()
 signal loading_complete()
 signal loading_start(what)
+signal where(place)
 
 # Called when the node enters the scene tree for the first time.
 var active = ""
@@ -65,11 +66,11 @@ func _on_Login_login(status):
 	#$WindowContainer/Music.show()
 
 func _on_Settings_pressed():
-	if !$WindowContainer/Settings.visible :
+	if $Navi.active_area != "settings" :
 		$WindowContainer/Settings.show()
 		$WindowContainer/Settings.first_launch = false
-	else:
-		$WindowContainer/Settings.hide()
+		$WindowContainer/AnimationPlayer.play("Settings",0.4,5)
+		$Navi.nav_buttons("settings")	
 		check_devMode()
 
 
@@ -122,7 +123,7 @@ func _on_SteemLink_linked():
 	pass
 
 func _on_OpenSeed_userLoaded():
-	if !$OpenSeed.token:
+	if !OpenSeed.token:
 		$Wizards/Welcome.show()
 	#elif !$OpenSeed.steem:
 	#	$Wizards/SteemLink.show()
@@ -219,7 +220,6 @@ func _process(_delta):
 	pass
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	print(anim_name)
 	$Navi.emit_signal("activeRelease","all")
 	pass # Replace with function body.
 	
@@ -231,8 +231,9 @@ func _on_Home_pressed():
 	if !$WindowContainer/AnimationPlayer.is_playing():
 			$WindowContainer/AnimationPlayer.play("Music",0.2,-5,true)
 			$WindowContainer/AnimationPlayer.play("Games",0.2,-5,true)
-			$WindowContainer/AnimationPlayer.play("Social",0.4,-5,true)
-			$WindowContainer/AnimationPlayer.play("Apps",0.4,-5,true)	
+			$WindowContainer/AnimationPlayer.play("Social",0.2,-5,true)
+			$WindowContainer/AnimationPlayer.play("Settings",0.2,-5,true)
+			$WindowContainer/AnimationPlayer.play("Apps",0.2,-5,true)	
 			$Navi.nav_buttons("main")
 			$TopBar/HBoxContainer2/Nav.text = " "
 	pass # Replace with function body.
@@ -251,4 +252,8 @@ func _on_Settings_gui_input(_event):
 		#else:
 			##$WindowContainer/Settings.hide()
 			#check_devMode()
+	pass # Replace with function body.
+
+
+func _on_Account_pressed():
 	pass # Replace with function body.

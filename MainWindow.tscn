@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://default.theme" type="Theme" id=1]
 [ext_resource path="res://MainWindow.gd" type="Script" id=2]
@@ -25,12 +25,15 @@
 [ext_resource path="res://icon.png" type="Texture" id=23]
 [ext_resource path="res://Img/applications-engineering-symbolic.svg" type="Texture" id=24]
 [ext_resource path="res://menu.tres" type="StyleBox" id=25]
+[ext_resource path="res://Fonts/subtitle.tres" type="DynamicFont" id=26]
+[ext_resource path="res://Img/avatar-default-symbolic.svg" type="Texture" id=27]
 [ext_resource path="res://OpenSeed-Godot/steemWallet.tscn" type="PackedScene" id=28]
 [ext_resource path="res://DeveloperSetup.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Welcome.tscn" type="PackedScene" id=30]
 [ext_resource path="res://elements/WelcomeSetup.tscn" type="PackedScene" id=31]
 [ext_resource path="res://elements/Navi.tscn" type="PackedScene" id=32]
 [ext_resource path="res://elements/Loading.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Img/preferences-system-symbolic.svg" type="Texture" id=34]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 1, 1, 1 )
@@ -543,14 +546,10 @@ text = "Videos"
 flat = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="TopBar"]
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -70.6101
-margin_top = -9.0
-margin_right = -22.6101
-margin_bottom = 9.0
+anchor_left = 0.914001
+anchor_top = 0.125
+anchor_right = 0.987939
+anchor_bottom = 0.972222
 grow_horizontal = 0
 grow_vertical = 2
 rect_min_size = Vector2( 0, 18 )
@@ -558,13 +557,14 @@ custom_constants/separation = 12
 alignment = 2
 __meta__ = {
 "_edit_group_": true,
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="Social" type="TextureButton" parent="TopBar/HBoxContainer2"]
 visible = false
-margin_right = 18.0
-margin_bottom = 18.0
+margin_left = 62.0
+margin_right = 80.0
+margin_bottom = 60.0
 rect_min_size = Vector2( 18, 18 )
 texture_normal = ExtResource( 19 )
 texture_pressed = ExtResource( 19 )
@@ -576,9 +576,9 @@ stretch_mode = 5
 
 [node name="Search" type="TextureButton" parent="TopBar/HBoxContainer2"]
 visible = false
-margin_left = 30.0
-margin_right = 48.0
-margin_bottom = 18.0
+margin_left = 62.0
+margin_right = 80.0
+margin_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 18, 18 )
@@ -590,12 +590,54 @@ texture_focused = ExtResource( 20 )
 expand = true
 stretch_mode = 5
 
+[node name="Settings" type="TextureButton" parent="TopBar/HBoxContainer2"]
+margin_left = 92.0
+margin_right = 110.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 18, 18 )
+texture_normal = ExtResource( 34 )
+texture_pressed = ExtResource( 34 )
+texture_hover = ExtResource( 34 )
+texture_disabled = ExtResource( 34 )
+texture_focused = ExtResource( 34 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Account" type="TextureButton" parent="TopBar/HBoxContainer2"]
+margin_left = 122.0
+margin_right = 140.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 18, 18 )
+texture_normal = ExtResource( 27 )
+texture_pressed = ExtResource( 27 )
+texture_hover = ExtResource( 27 )
+texture_disabled = ExtResource( 27 )
+texture_focused = ExtResource( 27 )
+expand = true
+stretch_mode = 5
+
 [node name="Nav" type="Label" parent="TopBar/HBoxContainer2"]
-margin_left = 48.0
-margin_right = 48.0
-margin_bottom = 29.0
+visible = false
+margin_left = 141.0
+margin_top = 10.0
+margin_right = 141.0
+margin_bottom = 39.0
 grow_horizontal = 0
 custom_fonts/font = ExtResource( 18 )
+
+[node name="Main" type="Button" parent="TopBar/HBoxContainer2"]
+visible = false
+margin_left = 61.0
+margin_right = 141.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 26 )
+text = "Account"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Time" type="Label" parent="TopBar"]
 anchor_left = 0.5
@@ -611,6 +653,9 @@ custom_fonts/font = ExtResource( 21 )
 text = "00:00:00"
 align = 2
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Controls" type="Panel" parent="TopBar"]
 margin_left = -4.0
@@ -621,10 +666,12 @@ rect_min_size = Vector2( 300, 100 )
 custom_styles/panel = ExtResource( 22 )
 
 [node name="Home" type="Button" parent="TopBar/Controls"]
-anchor_right = 1.0
+anchor_right = 0.334
 anchor_bottom = 1.0
-margin_left = 40.0
-margin_right = -5.0
+margin_left = 29.0
+margin_top = 19.0
+margin_right = 194.464
+margin_bottom = -10.0
 custom_styles/hover = ExtResource( 17 )
 custom_styles/pressed = ExtResource( 17 )
 custom_styles/focus = ExtResource( 17 )
@@ -632,15 +679,15 @@ custom_styles/normal = ExtResource( 17 )
 custom_fonts/font = ExtResource( 21 )
 text = "Thicket"
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="icon" type="TextureRect" parent="TopBar/Controls/Home"]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = -22.4737
 margin_top = -32.0
-margin_right = 41.5263
+margin_right = 64.0
 margin_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -718,6 +765,10 @@ __meta__ = {
 
 [node name="DeveloperSetup" parent="Wizards" instance=ExtResource( 29 )]
 visible = false
+margin_left = -500.0
+margin_top = -300.0
+margin_right = 500.0
+margin_bottom = 300.0
 
 [node name="Welcome" parent="Wizards" instance=ExtResource( 30 )]
 visible = false
@@ -751,6 +802,8 @@ mouse_default_cursor_shape = 5
 [connection signal="pressed" from="TopBar/HBoxContainer/Video" to="." method="_on_Video_pressed"]
 [connection signal="pressed" from="TopBar/HBoxContainer2/Social" to="." method="_on_Social_pressed"]
 [connection signal="pressed" from="TopBar/HBoxContainer2/Search" to="." method="_on_Search_pressed"]
+[connection signal="pressed" from="TopBar/HBoxContainer2/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="TopBar/HBoxContainer2/Account" to="." method="_on_Account_pressed"]
 [connection signal="pressed" from="TopBar/Controls/Home" to="." method="_on_Home_pressed"]
 [connection signal="gui_input" from="TopBar/Settings" to="." method="_on_Settings_gui_input"]
 [connection signal="visibility_changed" from="Social" to="Social" method="_on_Social_visibility_changed"]
