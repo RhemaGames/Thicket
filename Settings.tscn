@@ -12,6 +12,9 @@ anchor_bottom = 1.0
 rect_min_size = Vector2( 360, 0 )
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Panel" type="Panel" parent="."]
 anchor_right = 1.0
@@ -231,14 +234,14 @@ margin_right = 800.0
 margin_bottom = 688.0
 rect_min_size = Vector2( 800, 660 )
 
-[node name="Files" type="VBoxContainer" parent="Panel/ScrollContainer"]
+[node name="System" type="VBoxContainer" parent="Panel/ScrollContainer"]
 visible = false
 margin_right = 1560.0
 margin_bottom = 1090.0
 rect_min_size = Vector2( 1560, 800 )
 custom_constants/separation = 15
 
-[node name="General" type="Label" parent="Panel/ScrollContainer/Files"]
+[node name="General" type="Label" parent="Panel/ScrollContainer/System"]
 margin_right = 1560.0
 margin_bottom = 29.0
 custom_fonts/font = ExtResource( 4 )
@@ -247,18 +250,18 @@ align = 1
 valign = 1
 uppercase = true
 
-[node name="HSeparator" type="HSeparator" parent="Panel/ScrollContainer/Files"]
+[node name="HSeparator" type="HSeparator" parent="Panel/ScrollContainer/System"]
 margin_top = 44.0
 margin_right = 1560.0
 margin_bottom = 52.0
 
-[node name="spacing" type="Control" parent="Panel/ScrollContainer/Files"]
+[node name="spacing" type="Control" parent="Panel/ScrollContainer/System"]
 margin_top = 67.0
 margin_right = 1560.0
 margin_bottom = 97.0
 rect_min_size = Vector2( 0, 30 )
 
-[node name="General4" type="Label" parent="Panel/ScrollContainer/Files"]
+[node name="General4" type="Label" parent="Panel/ScrollContainer/System"]
 margin_top = 112.0
 margin_right = 1560.0
 margin_bottom = 141.0
@@ -267,70 +270,70 @@ text = "Folder"
 valign = 1
 uppercase = true
 
-[node name="HSeparator4" type="HSeparator" parent="Panel/ScrollContainer/Files"]
+[node name="HSeparator4" type="HSeparator" parent="Panel/ScrollContainer/System"]
 margin_top = 156.0
 margin_right = 1560.0
 margin_bottom = 164.0
 
-[node name="customFolders" type="CheckButton" parent="Panel/ScrollContainer/Files"]
+[node name="customFolders" type="CheckButton" parent="Panel/ScrollContainer/System"]
 margin_top = 179.0
 margin_right = 1560.0
 margin_bottom = 253.0
 text = "Custom Folders"
 flat = true
 
-[node name="Music" type="HBoxContainer" parent="Panel/ScrollContainer/Files"]
+[node name="Music" type="HBoxContainer" parent="Panel/ScrollContainer/System"]
 margin_top = 268.0
 margin_right = 1560.0
 margin_bottom = 300.0
 rect_min_size = Vector2( 0, 32 )
 custom_constants/separation = 10
 
-[node name="title" type="Label" parent="Panel/ScrollContainer/Files/Music"]
+[node name="title" type="Label" parent="Panel/ScrollContainer/System/Music"]
 margin_top = 4.0
 margin_right = 144.0
 margin_bottom = 28.0
 text = "Music Folder"
 
-[node name="entry" type="LineEdit" parent="Panel/ScrollContainer/Files/Music"]
+[node name="entry" type="LineEdit" parent="Panel/ScrollContainer/System/Music"]
 margin_left = 154.0
 margin_right = 1054.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 900, 0 )
 max_length = 255
 
-[node name="Video" type="HBoxContainer" parent="Panel/ScrollContainer/Files"]
+[node name="Video" type="HBoxContainer" parent="Panel/ScrollContainer/System"]
 margin_top = 315.0
 margin_right = 1560.0
 margin_bottom = 347.0
 rect_min_size = Vector2( 0, 32 )
 custom_constants/separation = 10
 
-[node name="title" type="Label" parent="Panel/ScrollContainer/Files/Video"]
+[node name="title" type="Label" parent="Panel/ScrollContainer/System/Video"]
 margin_top = 4.0
 margin_right = 144.0
 margin_bottom = 28.0
 text = "Video Folder"
 
-[node name="entry" type="LineEdit" parent="Panel/ScrollContainer/Files/Video"]
+[node name="entry" type="LineEdit" parent="Panel/ScrollContainer/System/Video"]
 margin_left = 154.0
 margin_right = 1054.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 900, 0 )
 max_length = 255
 
-[node name="HSeparator5" type="HSeparator" parent="Panel/ScrollContainer/Files/Video"]
+[node name="HSeparator5" type="HSeparator" parent="Panel/ScrollContainer/System/Video"]
 margin_left = 1064.0
 margin_right = 1067.0
 margin_bottom = 32.0
 
-[node name="spacing2" type="Control" parent="Panel/ScrollContainer/Files"]
+[node name="spacing2" type="Control" parent="Panel/ScrollContainer/System"]
 margin_top = 362.0
 margin_right = 1560.0
 margin_bottom = 402.0
 rect_min_size = Vector2( 0, 40 )
 
-[node name="General2" type="Label" parent="Panel/ScrollContainer/Files"]
+[node name="General2" type="Label" parent="Panel/ScrollContainer/System"]
 margin_top = 417.0
 margin_right = 1560.0
 margin_bottom = 446.0
@@ -339,32 +342,32 @@ text = "Application"
 valign = 1
 uppercase = true
 
-[node name="HSeparator2" type="HSeparator" parent="Panel/ScrollContainer/Files"]
+[node name="HSeparator2" type="HSeparator" parent="Panel/ScrollContainer/System"]
 margin_top = 461.0
 margin_right = 1560.0
 margin_bottom = 469.0
 
-[node name="Label" type="Label" parent="Panel/ScrollContainer/Files"]
+[node name="Label" type="Label" parent="Panel/ScrollContainer/System"]
 margin_top = 484.0
 margin_right = 1560.0
 margin_bottom = 508.0
 text = "Thicket can list, launch, and track local applications. However, this feature is currently only for Linux systems. "
 autowrap = true
 
-[node name="applications" type="CheckButton" parent="Panel/ScrollContainer/Files"]
+[node name="applications" type="CheckButton" parent="Panel/ScrollContainer/System"]
 margin_top = 523.0
 margin_right = 1560.0
 margin_bottom = 597.0
 text = "Local Applications"
 flat = true
 
-[node name="spacing3" type="Control" parent="Panel/ScrollContainer/Files"]
+[node name="spacing3" type="Control" parent="Panel/ScrollContainer/System"]
 margin_top = 612.0
 margin_right = 1560.0
 margin_bottom = 652.0
 rect_min_size = Vector2( 0, 40 )
 
-[node name="General3" type="Label" parent="Panel/ScrollContainer/Files"]
+[node name="General3" type="Label" parent="Panel/ScrollContainer/System"]
 margin_top = 667.0
 margin_right = 1560.0
 margin_bottom = 696.0
@@ -373,26 +376,26 @@ text = "Emulators"
 valign = 1
 uppercase = true
 
-[node name="HSeparator3" type="HSeparator" parent="Panel/ScrollContainer/Files"]
+[node name="HSeparator3" type="HSeparator" parent="Panel/ScrollContainer/System"]
 margin_top = 711.0
 margin_right = 1560.0
 margin_bottom = 719.0
 
-[node name="Label2" type="Label" parent="Panel/ScrollContainer/Files"]
+[node name="Label2" type="Label" parent="Panel/ScrollContainer/System"]
 margin_top = 734.0
 margin_right = 1560.0
 margin_bottom = 758.0
 text = "Thicket can also be used to launch various emulators. "
 autowrap = true
 
-[node name="romFolders" type="CheckButton" parent="Panel/ScrollContainer/Files"]
+[node name="romFolders" type="CheckButton" parent="Panel/ScrollContainer/System"]
 margin_top = 773.0
 margin_right = 1560.0
 margin_bottom = 847.0
 text = "Emulator Folders"
 flat = true
 
-[node name="Mame" type="HBoxContainer" parent="Panel/ScrollContainer/Files"]
+[node name="Mame" type="HBoxContainer" parent="Panel/ScrollContainer/System"]
 margin_top = 862.0
 margin_right = 1560.0
 margin_bottom = 894.0
@@ -400,27 +403,27 @@ rect_min_size = Vector2( 0, 32 )
 custom_constants/separation = 10
 alignment = 2
 
-[node name="title" type="Label" parent="Panel/ScrollContainer/Files/Mame"]
+[node name="title" type="Label" parent="Panel/ScrollContainer/System/Mame"]
 margin_left = 500.0
 margin_top = 4.0
 margin_right = 620.0
 margin_bottom = 28.0
 text = "MAME Path:"
 
-[node name="entry" type="LineEdit" parent="Panel/ScrollContainer/Files/Mame"]
+[node name="entry" type="LineEdit" parent="Panel/ScrollContainer/System/Mame"]
 margin_left = 630.0
 margin_right = 1530.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 900, 0 )
 max_length = 255
 
-[node name="hspacing" type="Control" parent="Panel/ScrollContainer/Files/Mame"]
+[node name="hspacing" type="Control" parent="Panel/ScrollContainer/System/Mame"]
 margin_left = 1540.0
 margin_right = 1560.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 20, 0 )
 
-[node name="Roms" type="HBoxContainer" parent="Panel/ScrollContainer/Files"]
+[node name="Roms" type="HBoxContainer" parent="Panel/ScrollContainer/System"]
 margin_top = 909.0
 margin_right = 1560.0
 margin_bottom = 941.0
@@ -428,27 +431,27 @@ rect_min_size = Vector2( 0, 32 )
 custom_constants/separation = 10
 alignment = 2
 
-[node name="title" type="Label" parent="Panel/ScrollContainer/Files/Roms"]
+[node name="title" type="Label" parent="Panel/ScrollContainer/System/Roms"]
 margin_left = 392.0
 margin_top = 4.0
 margin_right = 620.0
 margin_bottom = 28.0
 text = "Rom Folder (MAME) :"
 
-[node name="entry" type="LineEdit" parent="Panel/ScrollContainer/Files/Roms"]
+[node name="entry" type="LineEdit" parent="Panel/ScrollContainer/System/Roms"]
 margin_left = 630.0
 margin_right = 1530.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 900, 0 )
 max_length = 255
 
-[node name="hspacing2" type="Control" parent="Panel/ScrollContainer/Files/Roms"]
+[node name="hspacing2" type="Control" parent="Panel/ScrollContainer/System/Roms"]
 margin_left = 1540.0
 margin_right = 1560.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 20, 0 )
 
-[node name="Mednafen" type="HBoxContainer" parent="Panel/ScrollContainer/Files"]
+[node name="Mednafen" type="HBoxContainer" parent="Panel/ScrollContainer/System"]
 margin_top = 956.0
 margin_right = 1560.0
 margin_bottom = 988.0
@@ -456,27 +459,27 @@ rect_min_size = Vector2( 0, 32 )
 custom_constants/separation = 10
 alignment = 2
 
-[node name="title" type="Label" parent="Panel/ScrollContainer/Files/Mednafen"]
+[node name="title" type="Label" parent="Panel/ScrollContainer/System/Mednafen"]
 margin_left = 452.0
 margin_top = 4.0
 margin_right = 620.0
 margin_bottom = 28.0
 text = "Mednafen Path:"
 
-[node name="entry" type="LineEdit" parent="Panel/ScrollContainer/Files/Mednafen"]
+[node name="entry" type="LineEdit" parent="Panel/ScrollContainer/System/Mednafen"]
 margin_left = 630.0
 margin_right = 1530.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 900, 0 )
 max_length = 255
 
-[node name="hspacing3" type="Control" parent="Panel/ScrollContainer/Files/Mednafen"]
+[node name="hspacing3" type="Control" parent="Panel/ScrollContainer/System/Mednafen"]
 margin_left = 1540.0
 margin_right = 1560.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 20, 0 )
 
-[node name="Roms2" type="HBoxContainer" parent="Panel/ScrollContainer/Files"]
+[node name="Roms2" type="HBoxContainer" parent="Panel/ScrollContainer/System"]
 margin_top = 1003.0
 margin_right = 1560.0
 margin_bottom = 1035.0
@@ -484,27 +487,27 @@ rect_min_size = Vector2( 0, 32 )
 custom_constants/separation = 10
 alignment = 2
 
-[node name="title" type="Label" parent="Panel/ScrollContainer/Files/Roms2"]
+[node name="title" type="Label" parent="Panel/ScrollContainer/System/Roms2"]
 margin_left = 344.0
 margin_top = 4.0
 margin_right = 620.0
 margin_bottom = 28.0
 text = "Rom Folder (mednafen) :"
 
-[node name="entry" type="LineEdit" parent="Panel/ScrollContainer/Files/Roms2"]
+[node name="entry" type="LineEdit" parent="Panel/ScrollContainer/System/Roms2"]
 margin_left = 630.0
 margin_right = 1530.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 900, 0 )
 max_length = 255
 
-[node name="hspacing4" type="Control" parent="Panel/ScrollContainer/Files/Roms2"]
+[node name="hspacing4" type="Control" parent="Panel/ScrollContainer/System/Roms2"]
 margin_left = 1540.0
 margin_right = 1560.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 20, 0 )
 
-[node name="spacing4" type="Control" parent="Panel/ScrollContainer/Files"]
+[node name="spacing4" type="Control" parent="Panel/ScrollContainer/System"]
 margin_top = 1050.0
 margin_right = 1560.0
 margin_bottom = 1090.0
@@ -559,4 +562,5 @@ margin_right = 1560.0
 margin_bottom = 384.0
 disabled = true
 text = "Store Originals (music / videos) "
+[connection signal="show" from="." to="." method="_on_Settings_show"]
 [connection signal="visibility_changed" from="." to="." method="_on_Settings_visibility_changed"]

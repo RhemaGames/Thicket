@@ -7,6 +7,8 @@ var cf = false
 var p2p = false
 var ipfs = false
 var devMode = false
+
+signal show(what)
 	
 func _ready():
 	setup(Thicket.settings_load())
@@ -49,3 +51,20 @@ func setup(data) :
 		$Panel/ScrollContainer/VBoxContainer/p2p.set_pressed(p2p)
 		$Panel/ScrollContainer/VBoxContainer/ipfs.set_pressed(ipfs)
 		$Panel/mainMenu/VBoxContainer/devMode.set_pressed(devMode)
+
+
+func _on_Settings_show(what):
+	match what:
+		"account":
+			$Panel/ScrollContainer/Account.show()
+			$Panel/ScrollContainer/System.hide()
+			$Panel/ScrollContainer/Network.hide()
+		"network":
+			$Panel/ScrollContainer/Network.show()
+			$Panel/ScrollContainer/System.hide()
+			$Panel/ScrollContainer/Account.hide()
+		"system":
+			$Panel/ScrollContainer/System.show()
+			$Panel/ScrollContainer/Network.hide()
+			$Panel/ScrollContainer/Account.hide()
+	pass # Replace with function body.

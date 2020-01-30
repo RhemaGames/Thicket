@@ -30,7 +30,7 @@ var gameButtons = [
 
 var settingsButtons = [
 {"title":"Account","icon":"res://Img/avatar-default-symbolic.svg","color":color_phase(Thicket.settings_color,1)},
-{"title":"Files","icon":"res://Img/folder-symbolic.svg","color":color_phase(Thicket.settings_color,2)},
+{"title":"System","icon":"res://Img/folder-symbolic.svg","color":color_phase(Thicket.settings_color,2)},
 {"title":"Network","icon":"res://Img/network-workgroup-symbolic.svg","color":color_phase(Thicket.settings_color,3)},
 {"title":"Creator","icon":"res://Img/applications-engineering-symbolic.svg","color":color_phase(Thicket.settings_color,4)},
 ]
@@ -152,6 +152,26 @@ func set_focus(item):
 				get_node("../WindowContainer/Music").emit_signal("show","search")
 				navLabel.text = "Music - Search"
 				nav_buttons("music")
+		"Account":
+			if active_area == "settings":
+				get_node("../WindowContainer/Settings").emit_signal("show","account")
+				navLabel.text = "Account"
+				nav_buttons("settings")
+		"System":
+			if active_area == "settings":
+				get_node("../WindowContainer/Settings").emit_signal("show","system")
+				navLabel.text = "Account"
+				nav_buttons("settings")
+		"Network":
+			if active_area == "settings":
+				get_node("../WindowContainer/Settings").emit_signal("show","Network")
+				navLabel.text = "Account"
+				nav_buttons("settings")
+		"Creator":
+			if active_area == "settings":
+				get_node("../WindowContainer/Settings").emit_signal("show","creator")
+				navLabel.text = "Creator"
+				nav_buttons("settings")
 	
 
 func _on_Navi_activeRelease(except):

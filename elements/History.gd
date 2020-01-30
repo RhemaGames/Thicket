@@ -23,12 +23,14 @@ func _ready():
 
 
 func _on_history_update_timeout():
-	var history
+	var history 
 	if SocialRoot.currentuser:
 		#print("Current User "+SocialRoot.currentuser)
 		history = OpenSeed.get_history(SocialRoot.currentuser)
 	else:
 		history = OpenSeed.get_history(OpenSeed.username)
-	get_node("VBoxContainer/RichTextLabel2").text = history
+	if history:
+		get_node("VBoxContainer/RichTextLabel2").text = history
+		
 	SocialRoot.get_node("history_update").wait_time = 120
 	pass # Replace with function body.
