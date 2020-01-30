@@ -160,12 +160,12 @@ func set_focus(item):
 		"System":
 			if active_area == "settings":
 				get_node("../WindowContainer/Settings").emit_signal("show","system")
-				navLabel.text = "Account"
+				navLabel.text = "System"
 				nav_buttons("settings")
 		"Network":
 			if active_area == "settings":
-				get_node("../WindowContainer/Settings").emit_signal("show","Network")
-				navLabel.text = "Account"
+				get_node("../WindowContainer/Settings").emit_signal("show","network")
+				navLabel.text = "Network"
 				nav_buttons("settings")
 		"Creator":
 			if active_area == "settings":

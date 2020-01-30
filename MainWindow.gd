@@ -104,7 +104,7 @@ func _on_Video_pressed():
 
 
 func check_devMode():
-	if $WindowContainer/Settings.devMode == false:
+	if $WindowContainer/Settings.creatorMode == false:
 		#$BottomBar/HBoxContainer/DevCon.hide()
 		print("Not a dev!")
 	else:
