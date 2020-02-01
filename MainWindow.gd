@@ -30,7 +30,7 @@ func _ready():
 		OpenSeed.get_node("CanvasLayer/Login").show()
 	else:
 		check_devMode()
-		emit_signal("loading_start",$WindowContainer/DashBoard)
+		emit_signal("loading_start",self)
 
 func _input(_event):
 	if Input.is_key_pressed(KEY_F10):
@@ -159,7 +159,7 @@ func _on_Search_pressed():
 
 
 func _on_MainWindow_loading_complete():
-	$Loading.hide()
+	#$Loading.hide()
 	
 	pass # Replace with function body.
 

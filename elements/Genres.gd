@@ -22,7 +22,7 @@ func genre_load():
 		
 	var current_count = get_child_count() - 1
 	
-	while current_count > 0:
+	while current_count >= 0:
 		remove_child(get_child(current_count))
 		current_count -= 1
 	for genre in Thicket.genres:

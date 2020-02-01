@@ -246,9 +246,9 @@ func find_track(ogg):
 func check_cache(type):
 	var file = File.new()
 	if file.file_exists("user://database/"+type+".dat"):
-		return 1
+		return true
 	else:
-		return 0
+		return false
 		
 func load_cache(type):
 	match type:
@@ -264,6 +264,7 @@ func load_cache(type):
 			genres = local_knowledge_load(type)
 		"connections":
 			connections_list = local_knowledge_load(type)
+	return 1
 			
 func create_developer(cName,pCon,email,steemaccount,about):
 	var account = '"devName":"'+cName+'","contactName":"'+pCon+'","contactEmail":"'+email+'","steem":"'+steemaccount+'"'
@@ -276,7 +277,6 @@ func create_developer(cName,pCon,email,steemaccount,about):
 	
 func _on_new_tracks(data):
 	load_cache("tracks")
-		
 	var ntracks = data.split("}, ")
 	new_tracks = []
 	if data:
@@ -294,7 +294,6 @@ func _on_new_tracks(data):
 			if !found:
 				tracks.insert(0,test)
 		store("tracks",tracks)
-
 	emit_signal("new_tracks_ready")
 
 func ipfs_upload(file):

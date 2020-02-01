@@ -17,11 +17,11 @@ signal done()
 signal changeview(account)
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if $Chat/VBoxContainer/Online.get_child_count() == 0:
-		list_connections()
+	#if $Chat/VBoxContainer/Online.get_child_count() == 0:
+	#	list_connections()
 	#set_view(OpenSeed.username)	
 	#emit_signal("view",OpenSeed.username)
-	$AnimationPlayer.play("Load")
+	#$AnimationPlayer.play("Load")
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

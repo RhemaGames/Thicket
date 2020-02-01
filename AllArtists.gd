@@ -62,15 +62,16 @@ func get_artists():
 func get_artists_new(anum):
 	var catalog = []
 	if anum < Thicket.artists.size():
-		textureFile.append(ImageTexture.new())
-		var artist = Thicket.artists[anum]
-		var g = artistView.instance()
-		g.title = artist
-		g.connect("search",MusicRoot,"new_artist_search")
-		g.block = imageFile
-		g.texblock = textureFile[anum]
-		$ScrollContainer/GridContainer.add_child(g)
-		$Timer.start()
+		if anum >= $ScrollContainer/GridContainer.get_child_count():
+			textureFile.append(ImageTexture.new())
+			var artist = Thicket.artists[anum]
+			var g = artistView.instance()
+			g.title = artist
+			g.connect("search",MusicRoot,"new_artist_search")
+			g.block = imageFile
+			g.texblock = textureFile[anum]
+			$ScrollContainer/GridContainer.add_child(g)
+			$Timer.start()
 
 func _on_Timer_timeout():
 	$Timer.stop()

@@ -17,12 +17,6 @@ func _ready():
 	OpenSeed = get_node("/root/OpenSeed")
 	Thicket = get_node("/root/Thicket")
 	#set_box(title,pImage)
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 
 func set_box(image,profileImage):
 	if !imgfile.file_exists("user://cache/Img/"+image+"Profile"):

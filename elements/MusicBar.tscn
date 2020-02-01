@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://default.theme" type="Theme" id=1]
 [ext_resource path="res://elements/control_backing.tres" type="StyleBox" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Img/media-playback-start-symbolic.svg" type="Texture" id=6]
 [ext_resource path="res://Img/media-skip-forward-symbolic.svg" type="Texture" id=7]
 [ext_resource path="res://icon.png" type="Texture" id=8]
+[ext_resource path="res://elements/bandaid.tres" type="StyleBox" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "ready"
@@ -37,6 +38,9 @@ rect_min_size = Vector2( 0, 76 )
 theme = ExtResource( 1 )
 custom_styles/panel = ExtResource( 2 )
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="PlayerControls" type="Panel" parent="."]
 anchor_left = 0.5
@@ -114,9 +118,14 @@ stretch_mode = 5
 modulate = Color( 0, 0, 0, 1 )
 anchor_top = 0.5
 anchor_bottom = 0.5
+margin_left = -11.0
 margin_top = -15.0
-margin_right = 10.0
-margin_bottom = 57.0
+margin_right = 12.0
+margin_bottom = 56.8
+custom_styles/panel = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="PlayerStatus" type="Panel" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )

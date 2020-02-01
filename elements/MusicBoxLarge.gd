@@ -36,8 +36,8 @@ func _ready():
 #	pass
 
 func set_box(profile,account):
-	#
-	if profile.find('"profile":"Not found"') == -1:
+	
+	if profile and profile.find('"profile":"Not found"') == -1:
 		Thicket.local_knowledge_add("/artists/"+account,'{"ProfileImage":"user://cache/Img/'+account+'ProfileImg"}')
 		var pfile = parse_json(profile)
 		if str(pfile["profile"].keys()).find("name") != -1:

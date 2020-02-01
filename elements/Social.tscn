@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://elements/Social.gd" type="Script" id=1]
 [ext_resource path="res://menu.tres" type="StyleBox" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://elements/ChatLog.tscn" type="PackedScene" id=7]
 [ext_resource path="res://elements/History.gd" type="Script" id=8]
 [ext_resource path="res://elements/UserSettings.gd" type="Script" id=9]
+[ext_resource path="res://default.theme" type="Theme" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Load"
@@ -16,6 +17,7 @@ resource_name = "Load"
 [node name="Social" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 11 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -114,7 +116,7 @@ margin_bottom = 47.0
 [node name="Online" type="PanelContainer" parent="Chat/VBoxContainer"]
 margin_top = 57.0
 margin_right = 344.0
-margin_bottom = 106.0
+margin_bottom = 105.0
 grow_horizontal = 2
 custom_styles/panel = ExtResource( 2 )
 
@@ -122,19 +124,19 @@ custom_styles/panel = ExtResource( 2 )
 margin_left = 1.0
 margin_top = 3.0
 margin_right = 343.0
-margin_bottom = 46.0
+margin_bottom = 45.0
 grow_horizontal = 2
 custom_constants/separation = 10
 
 [node name="Title" type="Label" parent="Chat/VBoxContainer/Online/list"]
 margin_right = 342.0
-margin_bottom = 25.0
+margin_bottom = 24.0
 text = "Connections:"
 
 [node name="HSeparator" type="HSeparator" parent="Chat/VBoxContainer/Online/list"]
-margin_top = 35.0
+margin_top = 34.0
 margin_right = 342.0
-margin_bottom = 43.0
+margin_bottom = 42.0
 
 [node name="Offline" type="PanelContainer" parent="Chat/VBoxContainer"]
 visible = false
@@ -171,21 +173,26 @@ __meta__ = {
 }
 
 [node name="Recent" type="Panel" parent="Main"]
-margin_right = 1528.0
+self_modulate = Color( 1, 1, 1, 0.941176 )
+margin_right = 1520.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 1500, 200 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Main/Recent"]
 margin_right = 1500.0
 margin_bottom = 200.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Main"]
-margin_top = 208.0
-margin_right = 1528.0
-margin_bottom = 838.0
+margin_top = 204.0
+margin_right = 1520.0
+margin_bottom = 834.0
 custom_constants/separation = 20
 
 [node name="UserSettings" type="PanelContainer" parent="Main/HBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0.941176 )
 margin_right = 930.0
 margin_bottom = 630.0
 rect_min_size = Vector2( 930, 630 )
@@ -193,38 +200,40 @@ script = ExtResource( 9 )
 
 [node name="ChatLog" parent="Main/HBoxContainer" instance=ExtResource( 7 )]
 visible = false
+self_modulate = Color( 1, 1, 1, 0.941176 )
 margin_left = 950.0
 margin_right = 1880.0
 
 [node name="History" type="PanelContainer" parent="Main/HBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0.941176 )
 margin_left = 950.0
-margin_right = 1528.0
+margin_right = 1520.0
 margin_bottom = 630.0
 script = ExtResource( 8 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main/HBoxContainer/History"]
-margin_left = 14.0
-margin_top = 14.0
-margin_right = 564.0
-margin_bottom = 616.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 560.0
+margin_bottom = 620.0
 
 [node name="Label" type="Label" parent="Main/HBoxContainer/History/VBoxContainer"]
 margin_right = 550.0
-margin_bottom = 25.0
+margin_bottom = 24.0
 text = "History"
 
 [node name="HSeparator" type="HSeparator" parent="Main/HBoxContainer/History/VBoxContainer"]
-margin_top = 33.0
+margin_top = 28.0
 margin_right = 550.0
-margin_bottom = 41.0
+margin_bottom = 36.0
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Main/HBoxContainer/History/VBoxContainer"]
-margin_top = 49.0
+[node name="ScrollContainer" type="ScrollContainer" parent="Main/HBoxContainer/History/VBoxContainer"]
+margin_top = 40.0
 margin_right = 550.0
-margin_bottom = 549.0
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 550, 500 )
+margin_bottom = 580.0
+rect_min_size = Vector2( 550, 540 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/HBoxContainer/History/VBoxContainer/ScrollContainer"]
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 use_threads = true

@@ -1,10 +1,9 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://default.theme" type="Theme" id=1]
 [ext_resource path="res://MainWindow.gd" type="Script" id=2]
 [ext_resource path="res://BG/bg1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Img/Trees.svg" type="Texture" id=4]
-[ext_resource path="res://DashBoard.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Games.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Music.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Videos.tscn" type="PackedScene" id=8]
@@ -27,7 +26,7 @@
 [ext_resource path="res://menu.tres" type="StyleBox" id=25]
 [ext_resource path="res://Fonts/subtitle.tres" type="DynamicFont" id=26]
 [ext_resource path="res://Img/avatar-default-symbolic.svg" type="Texture" id=27]
-[ext_resource path="res://OpenSeed-Godot/steemWallet.tscn" type="PackedScene" id=28]
+[ext_resource path="res://elements/bandaid.tres" type="StyleBox" id=28]
 [ext_resource path="res://DeveloperSetup.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Welcome.tscn" type="PackedScene" id=30]
 [ext_resource path="res://elements/WelcomeSetup.tscn" type="PackedScene" id=31]
@@ -425,9 +424,6 @@ anims/Settings = SubResource( 5 )
 anims/Social = SubResource( 6 )
 anims/Videos = SubResource( 7 )
 
-[node name="DashBoard" parent="WindowContainer" instance=ExtResource( 5 )]
-visible = false
-
 [node name="Games" parent="WindowContainer" instance=ExtResource( 6 )]
 modulate = Color( 1, 1, 1, 0 )
 margin_top = 1029.0
@@ -452,17 +448,6 @@ margin_top = 1029.0
 margin_bottom = 1045.0
 rect_clip_content = true
 mouse_filter = 2
-
-[node name="steemWallet" parent="WindowContainer" instance=ExtResource( 28 )]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -400.001
-margin_top = -200.0
-margin_right = 400.001
-margin_bottom = 200.0
 
 [node name="DevConWindow" parent="WindowContainer" instance=ExtResource( 11 )]
 visible = false
@@ -701,7 +686,9 @@ modulate = Color( 0, 0, 0, 1 )
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -20.0
+margin_right = 9.0
 margin_bottom = 71.0
+custom_styles/panel = ExtResource( 28 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

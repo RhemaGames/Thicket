@@ -27,12 +27,9 @@ __meta__ = {
 }
 
 [node name="Panel" type="Panel" parent="."]
-self_modulate = Color( 1, 1, 1, 0.980392 )
+self_modulate = Color( 1, 1, 1, 0.917647 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="title" type="Label" parent="."]
 visible = false

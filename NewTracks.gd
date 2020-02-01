@@ -21,7 +21,7 @@ signal playlist()
 func _ready():
 	OpenSeed = get_node("/root/OpenSeed")
 	Thicket = get_node("/root/Thicket")
-	OpenSeed.connect("socket_returns",self,"socket_returned")
+	#OpenSeed.connect("socket_returns",self,"socket_returned")
 	Thicket.connect("new_tracks_ready",self,"set_new_tracks")
 	pass # Replace with function body.
 
@@ -86,7 +86,7 @@ func set_new_tracks():
 			count += 1
 
 func _on_NewTracks_getNew():
-	#print("New_Tracks")
+	print("New_Tracks")
 	OpenSeed.thread.start(OpenSeed,"get_from_socket_threaded",['{"act":"newtracks_json","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'"}',"newtracks"])
 	#set_new_tracks()
 	pass # Replace with function body.
@@ -97,10 +97,12 @@ func _on_NewTracks_playlist():
 
 func _on_NewMusic_getNew():
 	print("New_Music")
+	#Thicket.parsing = false
 	set_new_tracks()
 	pass # Replace with function body.
 	
-func socket_returned(data):
-	if data[0] == "tracks":
-		print(data[0])
-		pass
+#func socket_returned(data):
+#	print("From New Tracks")
+#	if data[0] == "tracks":
+		#print(data[0])
+#		pass

@@ -29,7 +29,6 @@ func _on_Settings_visibility_changed():
 		creatorMode = AccountInfo.get_node("creatorMode").is_pressed()
 		var customMusicFolder = $Panel/ScrollContainer/VBoxContainer/Music/entry.text
 		var customVideoFolder = $Panel/ScrollContainer/VBoxContainer/Video/entry.text
-		
 		Thicket.settings_save(cf,p2p,ipfs,creatorMode,customMusicFolder,customVideoFolder)
 
 
@@ -81,12 +80,30 @@ func _on_Settings_show(what):
 func _on_AccountContainer_visibility_changed():
 	
 	if $Panel/AccountContainer.visible:
-		AccountInfo.get_node("Contact").block = imageFile
-		AccountInfo.get_node("Contact").texblock = profileTexture
-		AccountInfo.get_node("Contact").title = OpenSeed.username
-		AccountInfo.get_node("Contact").pImage = OpenSeed.profile_image
-		AccountInfo.get_node("Email").text = OpenSeed.profile_email
-		AccountInfo.get_node("Name").text = OpenSeed.profile_name
+		AccountInfo.get_node("HBoxContainer/Contact").block = imageFile
+		AccountInfo.get_node("HBoxContainer/Contact").texblock = profileTexture
+		AccountInfo.get_node("HBoxContainer/Contact").title = OpenSeed.username
+		AccountInfo.get_node("HBoxContainer/Contact").pImage = OpenSeed.profile_image
+		AccountInfo.get_node("HBoxContainer/VBoxContainer/Email").text = OpenSeed.profile_email
+		AccountInfo.get_node("HBoxContainer/VBoxContainer/Name").text = OpenSeed.profile_name
 		About.text = OpenSeed.profile_about
-		AccountInfo.get_node("Contact").emit_signal("refresh")
+		AccountInfo.get_node("HBoxContainer/Contact").emit_signal("refresh")
+	pass # Replace with function body.
+
+
+func _on_creatorMode_pressed():
+	if AccountInfo.get_node("creatorMode").is_pressed():
+		creatorMode = true
+	else:
+		creatorMode = false
+	OpenSeed.profile_creator = creatorMode
+	get_node("/root/MainWindow/Navi").nav_buttons("settings")
+
+
+func _on_privMode_pressed():
+	if AccountInfo.get_node("privMode").is_pressed():
+		creatorMode = true
+	else:
+		creatorMode = false
+
 	pass # Replace with function body.

@@ -32,7 +32,6 @@ var settingsButtons = [
 {"title":"Account","icon":"res://Img/avatar-default-symbolic.svg","color":color_phase(Thicket.settings_color,1)},
 {"title":"System","icon":"res://Img/folder-symbolic.svg","color":color_phase(Thicket.settings_color,2)},
 {"title":"Network","icon":"res://Img/network-workgroup-symbolic.svg","color":color_phase(Thicket.settings_color,3)},
-{"title":"Creator","icon":"res://Img/applications-engineering-symbolic.svg","color":color_phase(Thicket.settings_color,4)},
 ]
 var appButtons = []
 var socialButtons = []
@@ -48,6 +47,13 @@ func nav_buttons(area) :
 			thearea = mainButtons
 			active_area = "main"
 		"settings":
+			if OpenSeed.profile_creator:
+				if len(settingsButtons) < 4:
+					settingsButtons.append({"title":"Creator","icon":"res://Img/applications-engineering-symbolic.svg","color":color_phase(Thicket.settings_color,4)})
+			else:
+				if len(settingsButtons) == 4:
+					settingsButtons.remove(3)
+					
 			thearea = settingsButtons
 			active_area = "settings"
 		"music":

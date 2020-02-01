@@ -20,7 +20,7 @@ func on_loading_done():
 	$Main/MainView/NewArtists.emit_signal("getNew")
 	$NewArtistTimer.start()
 	$Main/MainView/NewTracks.emit_signal("getNew")
-	$NewTrackTimer.start()
+	#$NewTrackTimer.start()
 
 func _on_AllMusic_visibility_changed():
 	if visible:

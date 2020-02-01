@@ -6,7 +6,7 @@ var MainWindow
 # var a = 2
 # var b = "text"
 var profile_name
-var color = Color(0.1,0.1,0.1)
+var color = Color(1.0,1.0,1.0)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Thicket = get_node("/root/Thicket")

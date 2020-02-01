@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://elements/Applications.gd" type="Script" id=1]
 [ext_resource path="res://menu.tres" type="StyleBox" id=2]
-[ext_resource path="res://elements/SubWindow.tres" type="StyleBox" id=3]
 
 [node name="Applications" type="Control"]
 anchor_right = 1.0
@@ -28,12 +27,16 @@ margin_left = 26.0
 margin_top = 19.0
 margin_right = -30.0
 margin_bottom = -15.0
-custom_styles/panel = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ScrollContainer" type="ScrollContainer" parent="applicationList"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 7.0
+margin_top = 11.0
+margin_right = -14.0
+margin_bottom = -23.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

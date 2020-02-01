@@ -26,41 +26,83 @@ func _on_Loading_bootup():
 	if OpenSeed.online == true:
 		if visible:
 			$AnimationPlayer.play("loop")
-			if !Thicket.check_cache("connections"):
-				gather_connections()
-			else:
-				Thicket.load_cache("connections")
+			cycle("genres")
+			#if !Thicket.check_cache("connections"):
+			#	gather_connections()
+			#else:
+			#	Thicket.load_cache("connections")
 			
-			if !Thicket.check_cache("new_artists"):
-				gather_new_artists()
-			else:
-				Thicket.load_cache("new_artists")
+			#if !Thicket.check_cache("new_artists"):
+			#	gather_new_artists()
+			#else:
+			#	Thicket.load_cache("new_artists")
 			
-			if !Thicket.check_cache("new_tracks"):
-				gather_new_tracks()
-			else:
-				Thicket.load_cache("new_tracks")
+			#if !Thicket.check_cache("new_tracks"):
+			#	gather_new_tracks()
+			#else:
+			#	Thicket.load_cache("new_tracks")
 			
-			if !Thicket.check_cache("artists"):
-				print("bla")
-			else:
-				Thicket.load_cache("artists")
-			
-			if !Thicket.check_cache("genres"):
-				if gather_genres():
-					Thicket.store("genres","")
-					gather_all_tracks_artists(Thicket.genres[gnum])
-			else:
-				Thicket.load_cache("genres")
-				
-			if !Thicket.check_cache("tracks"):
-				gather_all_tracks_artists(Thicket.genres[gnum])
-			else:
-				Thicket.load_cache("tracks")
-				emit_signal("alldone")
+			#if !Thicket.check_cache("artists"):
+			#	print("bla")
+			#else:
+			#	Thicket.load_cache("artists")
+			#
+			#if !Thicket.check_cache("genres"):
+			#	print("stuff")
+			#	if gather_genres():
+			#		Thicket.store("genres","")
+			#		gather_all_tracks_artists(Thicket.genres[gnum])
+			#else:
+			#	if Thicket.load_cache("genres") == 1:
+			#		print("loaded genres")
+			#	
+			#if !Thicket.check_cache("tracks"):
+			#	gather_all_tracks_artists(Thicket.genres[gnum])
+			#else:
+			#	Thicket.load_cache("tracks")
+			#emit_signal("alldone")
 	else:
 		emit_signal("alldone")
 	pass
+	
+func cycle(type):
+	match type:
+		"genres":
+			if !Thicket.check_cache("genres"):
+				if gather_genres():
+					Thicket.store("genres","")
+					cycle("tracks")
+			else:
+				if Thicket.load_cache("genres"):
+					cycle("tracks")
+		"tracks":
+			if !Thicket.check_cache("tracks"):
+				gather_all_tracks(Thicket.genres[gnum])
+			else:
+				if Thicket.load_cache("tracks") == 1:
+					cycle("artists")
+		"artists":
+			if !Thicket.check_cache("artists"):
+				cycle("new_artists")
+			else:
+				if Thicket.load_cache("artists") == 1:
+					cycle("new_artists")
+		"new_artists":
+				if !Thicket.check_cache("new_artists"):
+					if gather_new_artists():
+						cycle("connections")
+				else:
+					if Thicket.load_cache("new_artists") == 1:
+						cycle("connections")
+		"connections":
+				if !Thicket.check_cache("connections"):
+					if gather_connections():
+						cycle("done")
+				else:
+					if Thicket.load_cache("connections") == 1:
+						cycle("done")
+		"done":
+			emit_signal("alldone")
 	 
 func _on_gathering(data):
 	var returned_data
@@ -88,7 +130,6 @@ func gather_new_tracks():
 	var newtracks = OpenSeed.get_from_socket('{"act":"newtracks_json","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'"}')
 	if newtracks:
 		var clean_list = newtracks.split("}, ")
-		print(len(clean_list))
 		for t in clean_list:
 			var json 
 			if t[0] != "[":
@@ -106,7 +147,7 @@ func gather_genres():
 			Thicket.genres.append(g.split("'")[1])
 	return 1
 
-func gather_all_tracks_artists(g):
+func gather_all_tracks(g):
 	$Label.text = "Gathering Tracks ("+g+")"
 	var content = OpenSeed.get_from_socket('{"act":"genre_json","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'","genre":"'+g+'"}')
 	if content:
@@ -117,20 +158,20 @@ func gather_all_tracks_artists(g):
 				json = parse_json(t+"}")
 			else:
 				json = parse_json(t.trim_prefix("[")+"}")
-			Thicket.tracks.append(json)
-			if json and json.keys().has("author"):
-				if Thicket.artists:
-					if !Thicket.artists.has(json["author"]):
-						Thicket.artists.append(json["author"])
+			if len(str(json)) > 5:
+				Thicket.tracks.append(json)
+				if json.keys().has("author"):
+					if Thicket.artists:
+						if !Thicket.artists.has(json["author"]):
+							Thicket.artists.append(json["author"])
 					else:
-						Thicket.artists.append(json["author"])
-			
+							Thicket.artists.append(json["author"])
 	gnum += 1
 	emit_signal("next",gnum)
 
 func _on_trackandartist_timeout():
 	$trackandartist.stop()
-	gather_all_tracks_artists(Thicket.genres[gnum])
+	gather_all_tracks(Thicket.genres[gnum])
 	
 	pass # Replace with function body.
 
@@ -147,7 +188,8 @@ func _on_Loading_next(num):
 		$Label.text = "Store Data"
 		Thicket.store("tracks",Thicket.tracks)
 		Thicket.store("artists","")
-		emit_signal("alldone")
+		cycle("artists")
+		#emit_signal("alldone")
 
 func convert_lists(type):
 	var file = File.new()
@@ -172,10 +214,6 @@ func convert_lists(type):
 			file.store_string(newlist)
 			file.close()
 			
-	
-	
-
-	
 func _on_Loading_alldone():
 	if what:
 		what.show()

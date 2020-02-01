@@ -1,4 +1,5 @@
 extends PanelContainer
+var history_item = preload("res://elements/historyItem.tscn")
 var OpenSeed
 var Thicket
 var SocialRoot
@@ -30,7 +31,25 @@ func _on_history_update_timeout():
 	else:
 		history = OpenSeed.get_history(OpenSeed.username)
 	if history:
-		get_node("VBoxContainer/RichTextLabel2").text = history
+		#get_node("VBoxContainer/RichTextLabel2").text = history
+		history(history.split("\n"))
 		
 	SocialRoot.get_node("history_update").wait_time = 120
-	pass # Replace with function body.
+	pass 
+	
+func history(data):
+
+	for item in data:
+		var h = history_item.instance()
+		if len(item) > 5:
+			var jsoned = parse_json(item)
+			h.date = jsoned["history"]
+			if jsoned["item"].has("playing"):
+				h.title = str(jsoned["item"]["playing"])
+				h.type = 1
+				$VBoxContainer/ScrollContainer/VBoxContainer.add_child(h)
+			if jsoned["item"].has("program_start"):
+				h.title = str(jsoned["item"]["program_start"])
+				h.type = 2
+				$VBoxContainer/ScrollContainer/VBoxContainer.add_child(h)
+			
