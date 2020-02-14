@@ -19,6 +19,8 @@ var social_color = Color("#6A501B")
 var games_color = Color("#1B356A")
 var settings_color = Color("#7C356B")
 
+var listApps = false
+var listEmulators = false
 var selected_color = Color(0.8,0.8,0.8)
 
 signal new_tracks_ready()
@@ -38,9 +40,14 @@ func developer_save(dev):
 	file.store_string(content)
 	file.close()
 	
-func settings_save(cf,p2p,ipfs,dev,mf,vf):
+func settings_save(creatorMode,privMode,cf,replaceMedia,
+customMusicFolder,customVideoFolder,includeApps,includeEmulators,mamePath,mameRomPath,mednafenPath,mednafenRomPath,p2p,ipfs):
 	var file = File.new()
-	var content = '{"customFolders":"'+str(cf)+'","p2p":"'+str(p2p)+'","ipfs":"'+str(ipfs)+'","devMode":"'+str(dev)+'","MusicFolder":"'+str(mf)+'","VideoFolder":"'+str(vf)+'"}'
+	var content = '{"creatorMode":"'+str(creatorMode)+'","private":"'+str(privMode)
+	content += '","customFolders":"'+str(cf)+'","rmdoubles":"'+str(replaceMedia)+'","MusicFolder":"'+str(customMusicFolder)+'","VideoFolder":"'+str(customVideoFolder)
+	content += '","Apps":"'+str(includeApps)+'","Emulators":"'+str(includeEmulators)
+	content += '","MamePath":"'+str(mamePath)+'","MameRoms":"'+str(mameRomPath)+'","MednafenPath":"'+str(mednafenPath)+'","MednafenRoms":"'+str(mednafenRomPath)
+	content += '","p2p":"'+str(p2p)+'","ipfs":"'+str(ipfs)+'"}'
 	file.open("user://settings.dat", File.WRITE)
 	file.store_string(content)
 	file.close()
@@ -51,9 +58,15 @@ func settings_load():
 		file.open("user://settings.dat", File.READ)
 		var content = parse_json(file.get_as_text())
 		file.close()
-		if content["ipfs"]:
+		if content["ipfs"] == "True":
 			OpenSeed.check_ipfs()
-		
+		if content["creatorMode"] == "True":
+			OpenSeed.profile_creator = true
+		if content["Apps"] == "True":
+			Thicket.listApps = true
+		if content["Emulators"] == "True":
+			Thicket.listEmulators = true
+			
 		return content
 	
 func developer_post():

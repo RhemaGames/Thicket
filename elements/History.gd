@@ -38,7 +38,12 @@ func _on_history_update_timeout():
 	pass 
 	
 func history(data):
-
+	var history = $VBoxContainer/ScrollContainer/VBoxContainer
+	var num = 0
+	while num < history.get_child_count():
+		history.get_child(num).queue_free()
+		num += 1
+		
 	for item in data:
 		var h = history_item.instance()
 		if len(item) > 5:
@@ -47,9 +52,9 @@ func history(data):
 			if jsoned["item"].has("playing"):
 				h.title = str(jsoned["item"]["playing"])
 				h.type = 1
-				$VBoxContainer/ScrollContainer/VBoxContainer.add_child(h)
+				history.add_child(h)
 			if jsoned["item"].has("program_start"):
 				h.title = str(jsoned["item"]["program_start"])
 				h.type = 2
-				$VBoxContainer/ScrollContainer/VBoxContainer.add_child(h)
+				history.add_child(h)
 			

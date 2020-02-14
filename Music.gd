@@ -67,7 +67,7 @@ func music_play():
 	MusicBar1.emit_signal("trackartist",playlist[play_list_num][1])
 	MusicBar1.emit_signal("tracktitle",playlist[play_list_num][2])
 	MusicBar1.emit_signal("trackart",get_image(playlist[play_list_num][3]))
-
+	
 	emit_signal("clear_highlight",playlist[play_list_num][0])
 	var song = "user://cache/Music/"+playlist[play_list_num][0]
 	if !$AllMusic.visible:
@@ -97,6 +97,7 @@ func music_play():
 		MusicBar1.emit_signal("timeleft",minutes+":"+seconds_string)
 		$AudioStreamPlayer.play()
 		OpenSeed.set_history("playing",playlist[play_list_num][2])
+		OS.set_window_title("Thicket - Playing: "+playlist[play_list_num][2]+" -by- "+playlist[play_list_num][1])
 	else:
 		emit_signal("download")
 		$AudioStreamPlayer.stop()

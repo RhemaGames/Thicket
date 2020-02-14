@@ -29,14 +29,15 @@ func _on_search_text_entered(new_text):
 	$AnimationPlayer.play("searching")
 	$Banner.emit_signal("retrieve",new_text)
 	var list = get_parent().get_music(new_text)
-	if list.find("[]") == -1:
-		print("Showing music")
+	if len(list) >= 1:
 		$newArtist.hide()
 		$doublePaneView.artist = new_text
 		emit_signal("update_playlist",$doublePaneView.create_list(list))
 		$doublePaneView.show()
 	else:
+		$doublePaneView.hide()
 		$newArtist.show()
+		OpenSeed.get_from_socket('{"act":"artist_search","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'","author":"'+new_text+'"}')
 	
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):

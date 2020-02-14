@@ -1,15 +1,27 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://default.theme" type="Theme" id=1]
 [ext_resource path="res://Settings.gd" type="Script" id=2]
 [ext_resource path="res://menu.tres" type="StyleBox" id=3]
 [ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://elements/Contact.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Img/window-maximize-symbolic.svg" type="Texture" id=6]
+[ext_resource path="res://Fonts/NaviFont.tres" type="DynamicFont" id=7]
+[ext_resource path="res://elements/tabs/Music.gd" type="Script" id=8]
+[ext_resource path="res://elements/tabs/Videos.gd" type="Script" id=9]
+[ext_resource path="res://elements/tabs/Applications.gd" type="Script" id=10]
+[ext_resource path="res://elements/tabs/Digital Goods.gd" type="Script" id=11]
+[ext_resource path="res://elements/tabs/Games.gd" type="Script" id=12]
+[ext_resource path="res://elements/tabs/Profile.gd" type="Script" id=13]
+[ext_resource path="res://elements/Post.tscn" type="PackedScene" id=14]
+[ext_resource path="res://elements/StatCircle.tscn" type="PackedScene" id=15]
+[ext_resource path="res://elements/StatBar.tscn" type="PackedScene" id=16]
 
 [node name="Settings" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 360, 0 )
+rect_clip_content = true
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -24,77 +36,13 @@ margin_left = 16.0
 margin_top = 20.0
 margin_right = -25.0
 margin_bottom = -32.0
+rect_clip_content = true
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="mainMenu" type="Panel" parent="Panel"]
-visible = false
-anchor_bottom = 1.0
-margin_right = 312.0
-rect_min_size = Vector2( 312, 0 )
-rect_clip_content = true
-custom_styles/panel = ExtResource( 3 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/mainMenu"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_right = -2.0
-custom_constants/separation = 10
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Panel/mainMenu/VBoxContainer"]
-margin_right = 306.0
-margin_bottom = 24.0
-text = "Settings"
-align = 1
-valign = 1
-
-[node name="HSeparator" type="HSeparator" parent="Panel/mainMenu/VBoxContainer"]
-margin_top = 34.0
-margin_right = 306.0
-margin_bottom = 42.0
-
-[node name="Account" type="Button" parent="Panel/mainMenu/VBoxContainer"]
-margin_top = 52.0
-margin_right = 306.0
-margin_bottom = 86.0
-text = "Account"
-flat = true
-align = 0
-
-[node name="Files" type="Button" parent="Panel/mainMenu/VBoxContainer"]
-margin_top = 96.0
-margin_right = 306.0
-margin_bottom = 130.0
-text = "Files"
-flat = true
-align = 0
-
-[node name="Network" type="Button" parent="Panel/mainMenu/VBoxContainer"]
-margin_top = 140.0
-margin_right = 306.0
-margin_bottom = 174.0
-text = "Network"
-flat = true
-align = 0
-
-[node name="Developer" type="Button" parent="Panel/mainMenu/VBoxContainer"]
-margin_top = 184.0
-margin_right = 306.0
-margin_bottom = 218.0
-text = "Creator Account"
-flat = true
-align = 0
-
 [node name="AccountContainer" type="ScrollContainer" parent="Panel"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -196,12 +144,12 @@ __meta__ = {
 margin_top = 132.0
 margin_right = 750.0
 margin_bottom = 156.0
-text = "Address:"
+text = "Phone:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Address" type="LineEdit" parent="Panel/AccountContainer/Account/HBoxContainer/AccountInfo/HBoxContainer/VBoxContainer"]
+[node name="Phone" type="LineEdit" parent="Panel/AccountContainer/Account/HBoxContainer/AccountInfo/HBoxContainer/VBoxContainer"]
 margin_top = 164.0
 margin_right = 750.0
 margin_bottom = 190.0
@@ -218,28 +166,28 @@ margin_bottom = 218.0
 margin_top = 228.0
 margin_right = 954.0
 margin_bottom = 333.0
-text = "Enabling Creator mode will give you access to the Creator console here in settings. There you will be able to create and upload your own content to the OpenSeed network. This includes Games, Music, and any other digital asset that is supported by the system. "
+text = "Enabling Creator mode will give you access to the Creator console here in settings. There you will be able to upload your own content to the OpenSeed network. This includes Games, Music, and any other digital asset that is supported by the system. "
 autowrap = true
 
 [node name="creatorMode" type="CheckButton" parent="Panel/AccountContainer/Account/HBoxContainer/AccountInfo"]
 margin_top = 343.0
 margin_right = 954.0
-margin_bottom = 417.0
+margin_bottom = 390.0
 custom_constants/hseparation = 0
 text = "Creator Mode"
 flat = true
 
 [node name="privInfo" type="Label" parent="Panel/AccountContainer/Account/HBoxContainer/AccountInfo"]
-margin_top = 427.0
+margin_top = 400.0
 margin_right = 954.0
-margin_bottom = 478.0
+margin_bottom = 451.0
 text = "Private mode will protect your contact information from being shared with others using the service.  "
 autowrap = true
 
 [node name="privMode" type="CheckButton" parent="Panel/AccountContainer/Account/HBoxContainer/AccountInfo"]
-margin_top = 488.0
+margin_top = 461.0
 margin_right = 954.0
-margin_bottom = 562.0
+margin_bottom = 508.0
 custom_constants/hseparation = 0
 text = "Private Mode"
 flat = true
@@ -267,9 +215,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -903.5
+margin_left = -905.5
 margin_top = -425.0
-margin_right = 915.5
+margin_right = 918.5
 margin_bottom = 415.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -282,7 +230,7 @@ __meta__ = {
 
 [node name="System" type="VBoxContainer" parent="Panel/SystemContainer"]
 margin_right = 1800.0
-margin_bottom = 1090.0
+margin_bottom = 1171.0
 rect_min_size = Vector2( 1800, 800 )
 custom_constants/separation = 15
 
@@ -311,7 +259,7 @@ margin_top = 112.0
 margin_right = 1800.0
 margin_bottom = 141.0
 custom_fonts/font = ExtResource( 4 )
-text = "Folder"
+text = "Folders"
 valign = 1
 uppercase = true
 
@@ -320,37 +268,41 @@ margin_top = 156.0
 margin_right = 1800.0
 margin_bottom = 164.0
 
-[node name="customFolders" type="CheckButton" parent="Panel/SystemContainer/System"]
+[node name="aboutAdditionalFolders" type="Label" parent="Panel/SystemContainer/System"]
 margin_top = 179.0
 margin_right = 1800.0
-margin_bottom = 253.0
-text = "Custom Folders"
-flat = true
+margin_bottom = 311.0
+text = "Thicket can scan and include other music directories along with OpenSeeds internal music library. By design Thicket only supports Free and OpenSource formats so music found outside of its playable scope will need to be converted before they can be played. 
+
+ - If you are unsure leave these settings alone -
+"
+autowrap = true
 
 [node name="Music" type="HBoxContainer" parent="Panel/SystemContainer/System"]
-margin_top = 268.0
+margin_top = 326.0
 margin_right = 1800.0
-margin_bottom = 300.0
+margin_bottom = 358.0
 rect_min_size = Vector2( 0, 32 )
-custom_constants/separation = 10
+custom_constants/separation = 20
 
 [node name="title" type="Label" parent="Panel/SystemContainer/System/Music"]
 margin_top = 4.0
-margin_right = 144.0
+margin_right = 156.0
 margin_bottom = 28.0
-text = "Music Folder"
+text = "Music Folder:"
 
 [node name="entry" type="LineEdit" parent="Panel/SystemContainer/System/Music"]
-margin_left = 154.0
-margin_right = 1054.0
+margin_left = 176.0
+margin_right = 1576.0
 margin_bottom = 32.0
-rect_min_size = Vector2( 900, 0 )
+rect_min_size = Vector2( 1400, 0 )
 max_length = 255
 
 [node name="Video" type="HBoxContainer" parent="Panel/SystemContainer/System"]
-margin_top = 315.0
+visible = false
+margin_top = 292.0
 margin_right = 1800.0
-margin_bottom = 347.0
+margin_bottom = 324.0
 rect_min_size = Vector2( 0, 32 )
 custom_constants/separation = 10
 
@@ -372,78 +324,92 @@ margin_left = 1064.0
 margin_right = 1067.0
 margin_bottom = 32.0
 
-[node name="spacing2" type="Control" parent="Panel/SystemContainer/System"]
-margin_top = 362.0
+[node name="customFolders" type="CheckButton" parent="Panel/SystemContainer/System"]
+margin_top = 373.0
 margin_right = 1800.0
-margin_bottom = 402.0
+margin_bottom = 447.0
+text = "Convert Library"
+flat = true
+
+[node name="removeDups" type="CheckButton" parent="Panel/SystemContainer/System"]
+margin_top = 462.0
+margin_right = 1800.0
+margin_bottom = 536.0
+text = "Remove Duplicates"
+flat = true
+
+[node name="spacing2" type="Control" parent="Panel/SystemContainer/System"]
+margin_top = 551.0
+margin_right = 1800.0
+margin_bottom = 591.0
 rect_min_size = Vector2( 0, 40 )
 
 [node name="General2" type="Label" parent="Panel/SystemContainer/System"]
-margin_top = 417.0
+margin_top = 606.0
 margin_right = 1800.0
-margin_bottom = 446.0
+margin_bottom = 635.0
 custom_fonts/font = ExtResource( 4 )
 text = "Application"
 valign = 1
 uppercase = true
 
 [node name="HSeparator2" type="HSeparator" parent="Panel/SystemContainer/System"]
-margin_top = 461.0
+margin_top = 650.0
 margin_right = 1800.0
-margin_bottom = 469.0
+margin_bottom = 658.0
 
 [node name="Label" type="Label" parent="Panel/SystemContainer/System"]
-margin_top = 484.0
+margin_top = 673.0
 margin_right = 1800.0
-margin_bottom = 508.0
+margin_bottom = 697.0
 text = "Thicket can list, launch, and track local applications. However, this feature is currently only for Linux systems. "
 autowrap = true
 
 [node name="applications" type="CheckButton" parent="Panel/SystemContainer/System"]
-margin_top = 523.0
+margin_top = 712.0
 margin_right = 1800.0
-margin_bottom = 597.0
+margin_bottom = 786.0
 text = "Local Applications"
 flat = true
 
 [node name="spacing3" type="Control" parent="Panel/SystemContainer/System"]
-margin_top = 612.0
+margin_top = 801.0
 margin_right = 1800.0
-margin_bottom = 652.0
+margin_bottom = 841.0
 rect_min_size = Vector2( 0, 40 )
 
 [node name="General3" type="Label" parent="Panel/SystemContainer/System"]
-margin_top = 667.0
+margin_top = 856.0
 margin_right = 1800.0
-margin_bottom = 696.0
+margin_bottom = 885.0
 custom_fonts/font = ExtResource( 4 )
 text = "Emulators"
 valign = 1
 uppercase = true
 
 [node name="HSeparator3" type="HSeparator" parent="Panel/SystemContainer/System"]
-margin_top = 711.0
+margin_top = 900.0
 margin_right = 1800.0
-margin_bottom = 719.0
+margin_bottom = 908.0
 
 [node name="Label2" type="Label" parent="Panel/SystemContainer/System"]
-margin_top = 734.0
+margin_top = 923.0
 margin_right = 1800.0
-margin_bottom = 758.0
+margin_bottom = 947.0
 text = "Thicket can also be used to launch various emulators. "
 autowrap = true
 
 [node name="romFolders" type="CheckButton" parent="Panel/SystemContainer/System"]
-margin_top = 773.0
+margin_top = 962.0
 margin_right = 1800.0
-margin_bottom = 847.0
+margin_bottom = 1036.0
 text = "Emulator Folders"
 flat = true
 
 [node name="Mame" type="HBoxContainer" parent="Panel/SystemContainer/System"]
-margin_top = 862.0
+margin_top = 1051.0
 margin_right = 1800.0
-margin_bottom = 894.0
+margin_bottom = 1083.0
 rect_min_size = Vector2( 0, 32 )
 custom_constants/separation = 10
 alignment = 2
@@ -469,9 +435,9 @@ margin_bottom = 32.0
 rect_min_size = Vector2( 20, 0 )
 
 [node name="Roms" type="HBoxContainer" parent="Panel/SystemContainer/System"]
-margin_top = 909.0
+margin_top = 1098.0
 margin_right = 1800.0
-margin_bottom = 941.0
+margin_bottom = 1130.0
 rect_min_size = Vector2( 0, 32 )
 custom_constants/separation = 10
 alignment = 2
@@ -497,9 +463,9 @@ margin_bottom = 32.0
 rect_min_size = Vector2( 20, 0 )
 
 [node name="Mednafen" type="HBoxContainer" parent="Panel/SystemContainer/System"]
-margin_top = 956.0
+margin_top = 1145.0
 margin_right = 1800.0
-margin_bottom = 988.0
+margin_bottom = 1177.0
 rect_min_size = Vector2( 0, 32 )
 custom_constants/separation = 10
 alignment = 2
@@ -525,9 +491,9 @@ margin_bottom = 32.0
 rect_min_size = Vector2( 20, 0 )
 
 [node name="Roms2" type="HBoxContainer" parent="Panel/SystemContainer/System"]
-margin_top = 1003.0
+margin_top = 1192.0
 margin_right = 1800.0
-margin_bottom = 1035.0
+margin_bottom = 1224.0
 rect_min_size = Vector2( 0, 32 )
 custom_constants/separation = 10
 alignment = 2
@@ -553,9 +519,9 @@ margin_bottom = 32.0
 rect_min_size = Vector2( 20, 0 )
 
 [node name="spacing4" type="Control" parent="Panel/SystemContainer/System"]
-margin_top = 1050.0
+margin_top = 1239.0
 margin_right = 1800.0
-margin_bottom = 1090.0
+margin_bottom = 1279.0
 rect_min_size = Vector2( 0, 40 )
 
 [node name="NetworkContainer" type="ScrollContainer" parent="Panel"]
@@ -625,8 +591,965 @@ margin_right = 1800.0
 margin_bottom = 384.0
 disabled = true
 text = "Store Originals (music / videos) "
+
+[node name="mainMenu" type="Panel" parent="Panel"]
+visible = false
+anchor_bottom = 1.0
+margin_right = 312.0
+rect_min_size = Vector2( 312, 0 )
+rect_clip_content = true
+custom_styles/panel = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/mainMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_right = -2.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel/mainMenu/VBoxContainer"]
+margin_right = 306.0
+margin_bottom = 24.0
+text = "Settings"
+align = 1
+valign = 1
+
+[node name="HSeparator" type="HSeparator" parent="Panel/mainMenu/VBoxContainer"]
+margin_top = 34.0
+margin_right = 306.0
+margin_bottom = 42.0
+
+[node name="Account" type="Button" parent="Panel/mainMenu/VBoxContainer"]
+margin_top = 52.0
+margin_right = 306.0
+margin_bottom = 86.0
+text = "Account"
+flat = true
+align = 0
+
+[node name="Files" type="Button" parent="Panel/mainMenu/VBoxContainer"]
+margin_top = 96.0
+margin_right = 306.0
+margin_bottom = 130.0
+text = "Files"
+flat = true
+align = 0
+
+[node name="Network" type="Button" parent="Panel/mainMenu/VBoxContainer"]
+margin_top = 140.0
+margin_right = 306.0
+margin_bottom = 174.0
+text = "Network"
+flat = true
+align = 0
+
+[node name="Developer" type="Button" parent="Panel/mainMenu/VBoxContainer"]
+margin_top = 184.0
+margin_right = 306.0
+margin_bottom = 218.0
+text = "Creator Account"
+flat = true
+align = 0
+
+[node name="CreatorContainer" type="TabContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 12.0
+margin_top = 9.0
+margin_right = -10.9999
+margin_bottom = -8.99994
+rect_min_size = Vector2( 1836, 990 )
+rect_clip_content = true
+tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Profile" type="Tabs" parent="Panel/CreatorContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 39.0
+margin_right = -5.0
+margin_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_clip_content = true
+tab_align = 0
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/CreatorContainer/Profile"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -16.0001
+margin_bottom = -5.00006
+rect_min_size = Vector2( 0, 800 )
+rect_clip_content = true
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/CreatorContainer/Profile/HBoxContainer"]
+margin_right = 800.0
+margin_bottom = 941.0
+rect_min_size = Vector2( 800, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer"]
+margin_right = 766.0
+margin_bottom = 831.0
+custom_constants/separation = 15
+
+[node name="Banner" type="TextureButton" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
+margin_right = 766.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer/Banner"]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -12.0
+margin_right = 20.0
+margin_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Banner"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 115.0
+margin_right = 766.0
+margin_bottom = 211.0
+custom_constants/separation = 20
+
+[node name="TextureButton" type="TextureButton" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+margin_right = 96.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 96, 96 )
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/TextureButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -12.0
+margin_right = 20.0
+margin_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Icon"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+margin_left = 116.0
+margin_right = 766.0
+margin_bottom = 96.0
+custom_constants/separation = 8
+
+[node name="Name" type="LineEdit" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 650.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 650, 0 )
+placeholder_text = "Name"
+
+[node name="email" type="LineEdit" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 34.0
+margin_right = 650.0
+margin_bottom = 60.0
+placeholder_text = "Contact Email"
+
+[node name="location" type="LineEdit" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 68.0
+margin_right = 650.0
+margin_bottom = 94.0
+placeholder_text = "Location"
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 226.0
+margin_right = 766.0
+margin_bottom = 250.0
+text = "Content Types"
+
+[node name="HSeparator" type="HSeparator" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 265.0
+margin_right = 766.0
+margin_bottom = 273.0
+
+[node name="Label2" type="Label" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 288.0
+margin_right = 766.0
+margin_bottom = 420.0
+text = "Select the types of content you create. That either uses or will be shared on the OpenSeed Network  - Note - Not all media types will be directly accessable through Thicket (i.e. if you make a game or application for mobile) but you can still access information about said apt directly from this interface."
+autowrap = true
+
+[node name="AppCheck" type="CheckButton" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 435.0
+margin_right = 766.0
+margin_bottom = 482.0
+text = "Applications"
+flat = true
+
+[node name="GameCheck" type="CheckButton" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 497.0
+margin_right = 766.0
+margin_bottom = 544.0
+text = "Games"
+flat = true
+
+[node name="MusicCheck" type="CheckButton" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 559.0
+margin_right = 766.0
+margin_bottom = 606.0
+text = "Music"
+flat = true
+
+[node name="VideosCheck" type="CheckButton" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 621.0
+margin_right = 766.0
+margin_bottom = 668.0
+text = "Videos"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DGCheck" type="CheckButton" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 683.0
+margin_right = 766.0
+margin_bottom = 730.0
+text = "Digital Goods"
+flat = true
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 745.0
+margin_right = 766.0
+margin_bottom = 753.0
+
+[node name="creatorPubID" type="HBoxContainer" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 768.0
+margin_right = 766.0
+margin_bottom = 792.0
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer/creatorPubID"]
+margin_right = 120.0
+margin_bottom = 24.0
+text = "Public ID:"
+align = 2
+
+[node name="ID" type="Label" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer/creatorPubID"]
+self_modulate = Color( 0.0509804, 0.745098, 0.709804, 1 )
+margin_left = 124.0
+margin_right = 124.0
+margin_bottom = 24.0
+
+[node name="creatorPrivID" type="HBoxContainer" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 807.0
+margin_right = 766.0
+margin_bottom = 831.0
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer/creatorPrivID"]
+margin_right = 132.0
+margin_bottom = 24.0
+text = "Private ID:"
+align = 2
+
+[node name="ID" type="Label" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer/creatorPrivID"]
+self_modulate = Color( 0.0509804, 0.745098, 0.709804, 1 )
+margin_left = 136.0
+margin_right = 136.0
+margin_bottom = 24.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/CreatorContainer/Profile/HBoxContainer"]
+margin_left = 810.0
+margin_right = 1810.0
+margin_bottom = 941.0
+rect_min_size = Vector2( 0, 800 )
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Profile/HBoxContainer/VBoxContainer2"]
+margin_right = 1000.0
+margin_bottom = 24.0
+text = "Creator Discription:"
+
+[node name="TextEdit" type="TextEdit" parent="Panel/CreatorContainer/Profile/HBoxContainer/VBoxContainer2"]
+margin_top = 28.0
+margin_right = 1000.0
+margin_bottom = 778.0
+rect_min_size = Vector2( 1000, 750 )
+wrap_enabled = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/CreatorContainer/Profile/HBoxContainer/VBoxContainer2"]
+margin_top = 782.0
+margin_right = 1000.0
+margin_bottom = 816.0
+custom_constants/separation = 20
+alignment = 2
+
+[node name="save" type="Button" parent="Panel/CreatorContainer/Profile/HBoxContainer/VBoxContainer2/HBoxContainer"]
+margin_left = 732.0
+margin_right = 898.0
+margin_bottom = 34.0
+text = "Save as draft"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="submit" type="Button" parent="Panel/CreatorContainer/Profile/HBoxContainer/VBoxContainer2/HBoxContainer"]
+margin_left = 918.0
+margin_right = 1000.0
+margin_bottom = 34.0
+text = "Create"
+
+[node name="Music" type="Tabs" parent="Panel/CreatorContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 39.0
+margin_right = -5.0
+margin_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_clip_content = true
+script = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Music"]
+anchor_left = 0.464403
+anchor_top = 0.00482675
+anchor_right = 0.535597
+anchor_bottom = 0.0492242
+margin_left = 22.5
+margin_top = 4.5
+margin_right = -22.4999
+margin_bottom = -4.5
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 7 )
+text = "Music"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/CreatorContainer/Music"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 52.0
+margin_right = 3.99988
+margin_bottom = -54.0001
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CreatorContainer/Music/HBoxContainer"]
+margin_right = 400.0
+margin_bottom = 840.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Music/HBoxContainer/VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 24.0
+text = "Tracks:"
+
+[node name="TextureButton" type="TextureButton" parent="Panel/CreatorContainer/Music/HBoxContainer/VBoxContainer/Label"]
+anchor_left = 0.945146
+anchor_top = 0.144337
+anchor_right = 0.995146
+anchor_bottom = 0.97767
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 6 )
+texture_focused = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator" type="HSeparator" parent="Panel/CreatorContainer/Music/HBoxContainer/VBoxContainer"]
+margin_top = 28.0
+margin_right = 400.0
+margin_bottom = 36.0
+
+[node name="Tracks" type="ScrollContainer" parent="Panel/CreatorContainer/Music/HBoxContainer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 400.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 400, 740 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CreatorContainer/Music/HBoxContainer/VBoxContainer/Tracks"]
+margin_right = 400.0
+rect_min_size = Vector2( 400, 0 )
+
+[node name="Info" type="ScrollContainer" parent="Panel/CreatorContainer/Music/HBoxContainer"]
+margin_left = 410.0
+margin_right = 1580.0
+margin_bottom = 840.0
+rect_min_size = Vector2( 1170, 0 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CreatorContainer/Music/HBoxContainer/Info"]
+margin_right = 1180.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 1180, 0 )
+
+[node name="Post" parent="Panel/CreatorContainer/Music/HBoxContainer/Info/VBoxContainer" instance=ExtResource( 14 )]
+margin_right = 1180.0
+margin_bottom = 20.0
+
+[node name="Statistics" type="VBoxContainer" parent="Panel/CreatorContainer/Music/HBoxContainer"]
+margin_left = 1590.0
+margin_right = 1838.0
+margin_bottom = 840.0
+rect_min_size = Vector2( 240, 0 )
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Music/HBoxContainer/Statistics"]
+margin_right = 248.0
+margin_bottom = 24.0
+text = "Stats"
+
+[node name="HSeparator" type="HSeparator" parent="Panel/CreatorContainer/Music/HBoxContainer/Statistics"]
+margin_top = 28.0
+margin_right = 248.0
+margin_bottom = 36.0
+
+[node name="StatCircle" parent="Panel/CreatorContainer/Music/HBoxContainer/Statistics" instance=ExtResource( 15 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 40.0
+margin_right = 248.0
+margin_bottom = 240.0
+
+[node name="StatBar" parent="Panel/CreatorContainer/Music/HBoxContainer/Statistics" instance=ExtResource( 16 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 244.0
+margin_right = 248.0
+margin_bottom = 344.0
+
+[node name="Videos" type="Tabs" parent="Panel/CreatorContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 39.0
+margin_right = -5.0
+margin_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_clip_content = true
+script = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Videos"]
+anchor_left = 0.464403
+anchor_top = 0.00482675
+anchor_right = 0.535597
+anchor_bottom = 0.0492242
+margin_left = 22.5
+margin_top = 4.5
+margin_right = -22.4999
+margin_bottom = -4.5
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 7 )
+text = "Videos"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/CreatorContainer/Videos"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 52.0382
+margin_right = 3.99988
+margin_bottom = -53.9619
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CreatorContainer/Videos/HBoxContainer"]
+margin_right = 400.0
+margin_bottom = 840.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Videos/HBoxContainer/VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 24.0
+text = "Videos:"
+
+[node name="TextureButton" type="TextureButton" parent="Panel/CreatorContainer/Videos/HBoxContainer/VBoxContainer/Label"]
+anchor_left = 0.945146
+anchor_top = 0.144337
+anchor_right = 0.995146
+anchor_bottom = 0.97767
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 6 )
+texture_focused = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator" type="HSeparator" parent="Panel/CreatorContainer/Videos/HBoxContainer/VBoxContainer"]
+margin_top = 28.0
+margin_right = 400.0
+margin_bottom = 36.0
+
+[node name="Tracks" type="ScrollContainer" parent="Panel/CreatorContainer/Videos/HBoxContainer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 400.0
+margin_bottom = 840.0
+rect_min_size = Vector2( 400, 800 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CreatorContainer/Videos/HBoxContainer/VBoxContainer/Tracks"]
+margin_right = 400.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 400, 0 )
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Videos/HBoxContainer/VBoxContainer/Tracks/VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 24.0
+text = "Video"
+
+[node name="Info" type="ScrollContainer" parent="Panel/CreatorContainer/Videos/HBoxContainer"]
+margin_left = 410.0
+margin_right = 1610.0
+margin_bottom = 840.0
+rect_min_size = Vector2( 1200, 0 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CreatorContainer/Videos/HBoxContainer/Info"]
+margin_right = 1200.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 1200, 0 )
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Videos/HBoxContainer/Info/VBoxContainer"]
+margin_right = 1200.0
+margin_bottom = 24.0
+text = "Info about Track"
+
+[node name="Statistics" type="VBoxContainer" parent="Panel/CreatorContainer/Videos/HBoxContainer"]
+margin_left = 1620.0
+margin_right = 1830.0
+margin_bottom = 840.0
+rect_min_size = Vector2( 210, 0 )
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Videos/HBoxContainer/Statistics"]
+margin_right = 210.0
+margin_bottom = 24.0
+text = "Stats"
+
+[node name="HSeparator" type="HSeparator" parent="Panel/CreatorContainer/Videos/HBoxContainer/Statistics"]
+margin_top = 28.0
+margin_right = 210.0
+margin_bottom = 36.0
+
+[node name="Applications" type="Tabs" parent="Panel/CreatorContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 39.0
+margin_right = -5.0
+margin_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 1820, 920 )
+rect_clip_content = true
+script = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Applications"]
+anchor_left = 0.464403
+anchor_top = 0.00482675
+anchor_right = 0.535597
+anchor_bottom = 0.0492242
+margin_left = 14.0
+margin_top = 4.5
+margin_right = -13.9999
+margin_bottom = -4.5
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 7 )
+text = "Applications"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/CreatorContainer/Applications"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 52.0382
+margin_right = 3.99988
+margin_bottom = -53.9619
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CreatorContainer/Applications/HBoxContainer"]
+margin_right = 400.0
+margin_bottom = 840.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Applications/HBoxContainer/VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 24.0
+text = "Applications:"
+
+[node name="TextureButton" type="TextureButton" parent="Panel/CreatorContainer/Applications/HBoxContainer/VBoxContainer/Label"]
+anchor_left = 0.945146
+anchor_top = 0.144337
+anchor_right = 0.995146
+anchor_bottom = 0.97767
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 6 )
+texture_focused = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator" type="HSeparator" parent="Panel/CreatorContainer/Applications/HBoxContainer/VBoxContainer"]
+margin_top = 28.0
+margin_right = 400.0
+margin_bottom = 36.0
+
+[node name="Tracks" type="ScrollContainer" parent="Panel/CreatorContainer/Applications/HBoxContainer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 400.0
+margin_bottom = 840.0
+rect_min_size = Vector2( 400, 800 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CreatorContainer/Applications/HBoxContainer/VBoxContainer/Tracks"]
+margin_right = 400.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 400, 0 )
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Applications/HBoxContainer/VBoxContainer/Tracks/VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 24.0
+text = "Application"
+
+[node name="Info" type="ScrollContainer" parent="Panel/CreatorContainer/Applications/HBoxContainer"]
+margin_left = 410.0
+margin_right = 1610.0
+margin_bottom = 840.0
+rect_min_size = Vector2( 1200, 0 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CreatorContainer/Applications/HBoxContainer/Info"]
+margin_right = 1200.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 1200, 0 )
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Applications/HBoxContainer/Info/VBoxContainer"]
+margin_right = 1200.0
+margin_bottom = 24.0
+text = "Info about Track"
+
+[node name="Statistics" type="VBoxContainer" parent="Panel/CreatorContainer/Applications/HBoxContainer"]
+margin_left = 1620.0
+margin_right = 1830.0
+margin_bottom = 840.0
+rect_min_size = Vector2( 210, 0 )
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Applications/HBoxContainer/Statistics"]
+margin_right = 210.0
+margin_bottom = 24.0
+text = "Stats"
+
+[node name="HSeparator" type="HSeparator" parent="Panel/CreatorContainer/Applications/HBoxContainer/Statistics"]
+margin_top = 28.0
+margin_right = 210.0
+margin_bottom = 36.0
+
+[node name="Games" type="Tabs" parent="Panel/CreatorContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 39.0
+margin_right = -5.0
+margin_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_clip_content = true
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Games"]
+anchor_left = 0.464403
+anchor_top = 0.00482675
+anchor_right = 0.535597
+anchor_bottom = 0.0492242
+margin_left = 14.0
+margin_top = 4.5
+margin_right = -13.9999
+margin_bottom = -4.5
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 7 )
+text = "Games"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/CreatorContainer/Games"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 52.0382
+margin_right = 3.99988
+margin_bottom = -53.9619
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CreatorContainer/Games/HBoxContainer"]
+margin_right = 400.0
+margin_bottom = 840.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Games/HBoxContainer/VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 24.0
+text = "Games:"
+
+[node name="TextureButton" type="TextureButton" parent="Panel/CreatorContainer/Games/HBoxContainer/VBoxContainer/Label"]
+anchor_left = 0.945146
+anchor_top = 0.144337
+anchor_right = 0.995146
+anchor_bottom = 0.97767
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 6 )
+texture_focused = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator" type="HSeparator" parent="Panel/CreatorContainer/Games/HBoxContainer/VBoxContainer"]
+margin_top = 28.0
+margin_right = 400.0
+margin_bottom = 36.0
+
+[node name="Tracks" type="ScrollContainer" parent="Panel/CreatorContainer/Games/HBoxContainer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 400.0
+margin_bottom = 840.0
+rect_min_size = Vector2( 400, 800 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CreatorContainer/Games/HBoxContainer/VBoxContainer/Tracks"]
+margin_right = 400.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 400, 0 )
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Games/HBoxContainer/VBoxContainer/Tracks/VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 24.0
+text = "Game"
+
+[node name="Info" type="ScrollContainer" parent="Panel/CreatorContainer/Games/HBoxContainer"]
+margin_left = 410.0
+margin_right = 1610.0
+margin_bottom = 840.0
+rect_min_size = Vector2( 1200, 0 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CreatorContainer/Games/HBoxContainer/Info"]
+margin_right = 1200.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 1200, 0 )
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Games/HBoxContainer/Info/VBoxContainer"]
+margin_right = 1200.0
+margin_bottom = 24.0
+text = "Info about Track"
+
+[node name="Statistics" type="VBoxContainer" parent="Panel/CreatorContainer/Games/HBoxContainer"]
+margin_left = 1620.0
+margin_right = 1830.0
+margin_bottom = 840.0
+rect_min_size = Vector2( 210, 0 )
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Games/HBoxContainer/Statistics"]
+margin_right = 210.0
+margin_bottom = 24.0
+text = "Stats"
+
+[node name="HSeparator" type="HSeparator" parent="Panel/CreatorContainer/Games/HBoxContainer/Statistics"]
+margin_top = 28.0
+margin_right = 210.0
+margin_bottom = 36.0
+
+[node name="Digital Goods" type="Tabs" parent="Panel/CreatorContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 39.0
+margin_right = -5.0
+margin_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_clip_content = true
+script = ExtResource( 11 )
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Digital Goods"]
+anchor_left = 0.464403
+anchor_top = 0.00482675
+anchor_right = 0.535597
+anchor_bottom = 0.0492242
+margin_left = 14.0
+margin_top = 4.5
+margin_right = -13.9999
+margin_bottom = -4.5
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 7 )
+text = "Digital Goods"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/CreatorContainer/Digital Goods"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 52.0382
+margin_right = 3.99988
+margin_bottom = -53.9619
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CreatorContainer/Digital Goods/HBoxContainer"]
+margin_right = 400.0
+margin_bottom = 840.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Digital Goods/HBoxContainer/VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 24.0
+text = "Goods:"
+
+[node name="TextureButton" type="TextureButton" parent="Panel/CreatorContainer/Digital Goods/HBoxContainer/VBoxContainer/Label"]
+anchor_left = 0.945146
+anchor_top = 0.144337
+anchor_right = 0.995146
+anchor_bottom = 0.97767
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 6 )
+texture_focused = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator" type="HSeparator" parent="Panel/CreatorContainer/Digital Goods/HBoxContainer/VBoxContainer"]
+margin_top = 28.0
+margin_right = 400.0
+margin_bottom = 36.0
+
+[node name="Tracks" type="ScrollContainer" parent="Panel/CreatorContainer/Digital Goods/HBoxContainer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 400.0
+margin_bottom = 840.0
+rect_min_size = Vector2( 400, 800 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CreatorContainer/Digital Goods/HBoxContainer/VBoxContainer/Tracks"]
+margin_right = 400.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 400, 0 )
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Digital Goods/HBoxContainer/VBoxContainer/Tracks/VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 24.0
+text = "NFT"
+
+[node name="Info" type="ScrollContainer" parent="Panel/CreatorContainer/Digital Goods/HBoxContainer"]
+margin_left = 410.0
+margin_right = 1610.0
+margin_bottom = 840.0
+rect_min_size = Vector2( 1200, 0 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CreatorContainer/Digital Goods/HBoxContainer/Info"]
+margin_right = 1200.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 1200, 0 )
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Digital Goods/HBoxContainer/Info/VBoxContainer"]
+margin_right = 1200.0
+margin_bottom = 24.0
+text = "Info about Track"
+
+[node name="Statistics" type="VBoxContainer" parent="Panel/CreatorContainer/Digital Goods/HBoxContainer"]
+margin_left = 1620.0
+margin_right = 1830.0
+margin_bottom = 840.0
+rect_min_size = Vector2( 210, 0 )
+
+[node name="Label" type="Label" parent="Panel/CreatorContainer/Digital Goods/HBoxContainer/Statistics"]
+margin_right = 210.0
+margin_bottom = 24.0
+text = "Stats"
+
+[node name="HSeparator" type="HSeparator" parent="Panel/CreatorContainer/Digital Goods/HBoxContainer/Statistics"]
+margin_top = 28.0
+margin_right = 210.0
+margin_bottom = 36.0
 [connection signal="show" from="." to="." method="_on_Settings_show"]
 [connection signal="visibility_changed" from="." to="." method="_on_Settings_visibility_changed"]
 [connection signal="visibility_changed" from="Panel/AccountContainer" to="." method="_on_AccountContainer_visibility_changed"]
 [connection signal="pressed" from="Panel/AccountContainer/Account/HBoxContainer/AccountInfo/creatorMode" to="." method="_on_creatorMode_pressed"]
 [connection signal="pressed" from="Panel/AccountContainer/Account/HBoxContainer/AccountInfo/privMode" to="." method="_on_privMode_pressed"]
+[connection signal="pressed" from="Panel/SystemContainer/System/customFolders" to="." method="_on_customFolders_pressed"]
+[connection signal="pressed" from="Panel/SystemContainer/System/removeDups" to="." method="_on_removeDups_pressed"]
+[connection signal="pressed" from="Panel/SystemContainer/System/applications" to="." method="_on_applications_pressed"]
+[connection signal="pressed" from="Panel/SystemContainer/System/romFolders" to="." method="_on_romFolders_pressed"]
+[connection signal="pressed" from="Panel/NetworkContainer/Network/p2p" to="." method="_on_p2p_pressed"]
+[connection signal="pressed" from="Panel/NetworkContainer/Network/ipfs" to="." method="_on_ipfs_pressed"]
+[connection signal="tab_changed" from="Panel/CreatorContainer" to="." method="_on_CreatorContainer_tab_changed"]

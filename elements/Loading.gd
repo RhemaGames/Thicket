@@ -111,10 +111,11 @@ func _on_gathering(data):
 	
 func gather_connections():
 	$Label.text = "Gathering Connections"
+	
 	if OpenSeed.steem != "":
-		Thicket.connections_list = OpenSeed.get_connections(OpenSeed.steem).split("\n")
+		Thicket.connections_list = parse_json(OpenSeed.get_connections(OpenSeed.steem))
 	else:
-		Thicket.connections_list = OpenSeed.get_connections(OpenSeed.username).split("\n")
+		Thicket.connections_list = parse_json(OpenSeed.get_connections(OpenSeed.username))
 	return 1
 
 func gather_new_artists():
@@ -154,8 +155,9 @@ func gather_all_tracks(g):
 		var clean_list = content.split("}, ")
 		for t in clean_list:
 			var json
-			if t[0] != "[":
-				json = parse_json(t+"}")
+			if t[0] != "[" and len(t) > 5:
+				var fix = t+"}"
+				json = parse_json(fix)
 			else:
 				json = parse_json(t.trim_prefix("[")+"}")
 			if len(str(json)) > 5:

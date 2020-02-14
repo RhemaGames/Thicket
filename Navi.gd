@@ -5,10 +5,10 @@ var navbutton = preload("res://NavButton.tscn")
 
 var active_area = ""
 var last_color
+
 var mainButtons = [
 {"title":"Games","icon":"res://Img/applications-games-symbolic.svg","color":Thicket.games_color},
 {"title":"Music","icon":"res://Img/folder-music-symbolic.svg","color":Thicket.music_color},
-{"title":"Apps","icon":"res://Img/view-grid-symbolic.svg","color":Thicket.app_color},
 {"title":"Social","icon":"res://Img/avatar-default-symbolic.svg","color":Thicket.social_color}
 ]
 
@@ -45,16 +45,22 @@ func nav_buttons(area) :
 	match(area):
 		"main":
 			thearea = mainButtons
+			
+			if Thicket.listApps:
+				if len(mainButtons) < 4:
+					mainButtons.insert(2,{"title":"Apps","icon":"res://Img/view-grid-symbolic.svg","color":Thicket.app_color})
+			else:
+				if len(mainButtons) == 4:
+					mainButtons.remove(2)
 			active_area = "main"
 		"settings":
+			thearea = settingsButtons
 			if OpenSeed.profile_creator:
 				if len(settingsButtons) < 4:
 					settingsButtons.append({"title":"Creator","icon":"res://Img/applications-engineering-symbolic.svg","color":color_phase(Thicket.settings_color,4)})
 			else:
 				if len(settingsButtons) == 4:
 					settingsButtons.remove(3)
-					
-			thearea = settingsButtons
 			active_area = "settings"
 		"music":
 			thearea = musicButtons

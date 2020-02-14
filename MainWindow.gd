@@ -17,14 +17,14 @@ var active = ""
 var sun = 0.0
 
 func _ready():
-	$BG.self_modulate = Color(sun,sun,sun,1.0)
+	#$BG.self_modulate = Color(sun,sun,sun,1.0)
 	OpenSeed = get_node("/root/OpenSeed")
 	Thicket = get_node("/root/Thicket")
 	Thicket.create_folders()
 	OpenSeed.devId = "0a1831e5eb07615f9cbd999acc8464821b9299b642d033f501f177df5b5dc3a2"
 	OpenSeed.appId = "ve003-234fser234"
 	$Navi/MusicBar.color = Color(0.2,0.2,0.2)
-	$Spatial/AnimationPlayer.play("slowwalk")
+	#$Spatial/AnimationPlayer.play("slowwalk")
 
 	if !OpenSeed.loadUserData():
 		OpenSeed.get_node("CanvasLayer/Login").show()
@@ -67,9 +67,13 @@ func _on_Login_login(status):
 
 func _on_Settings_pressed():
 	if $Navi.active_area != "settings" :
-		$WindowContainer/Settings.show()
-		$WindowContainer/Settings.first_launch = false
+		$WindowContainer/AnimationPlayer.play("Music",0.2,-5,true)
+		$WindowContainer/AnimationPlayer.play("Games",0.2,-5,true)
+		$WindowContainer/AnimationPlayer.play("Social",0.2,-5,true)
+		$WindowContainer/AnimationPlayer.play("Apps",0.2,-5,true)
 		$WindowContainer/AnimationPlayer.play("Settings",0.4,5)
+		$WindowContainer/Settings.first_launch = false
+		
 		$Navi.nav_buttons("settings")	
 		check_devMode()
 
@@ -207,16 +211,6 @@ func _process(_delta):
 		
 	$TopBar/Time.text = theHour+":"+theMinutes+":"+theSeconds
 	
-	if theTime["hour"] % 2 == 0:
-		if theTime["hour"] < 12:
-			if theTime["minute"] == 5 and theTime["second"] < 3:
-				$BG.self_modulate = Color(sun,sun,sun,1)
-				sun += 0.0001
-		else:
-			if theTime["minute"] == 5 and theTime["second"] < 3:
-				$BG.self_modulate = Color(sun,sun,sun,1)
-			sun -= 0.0001
-		
 	pass
 
 func _on_AnimationPlayer_animation_finished(anim_name):
@@ -256,4 +250,9 @@ func _on_Settings_gui_input(_event):
 
 
 func _on_Account_pressed():
+	pass # Replace with function body.
+
+
+func _on_Power_pressed():
+	get_tree().quit()
 	pass # Replace with function body.

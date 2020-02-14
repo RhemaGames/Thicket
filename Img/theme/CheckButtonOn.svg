@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="128mm"
+   height="64mm"
+   viewBox="0 0 128 64"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="CheckButtonOn.svg"
+   inkscape:export-filename="/home/benjamin/Games/Thicket/Img/theme/CheckButtonOn.png"
+   inkscape:export-xdpi="48"
+   inkscape:export-ydpi="48">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="347.94134"
+     inkscape:cy="263.39101"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="2560"
+     inkscape:window-height="1376"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-233)">
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#00bec6;stroke-width:0.39625415;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+       id="rect817"
+       width="57.561676"
+       height="19.173796"
+       x="1.9659846"
+       y="236.22195"
+       ry="9.5868979" />
+    <path
+       style="opacity:1;fill:#00bec6;fill-opacity:1;stroke:#000000;stroke-width:0.33141243;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+       id="path819"
+       sodipodi:type="arc"
+       sodipodi:cx="49.562786"
+       sodipodi:cy="245.80882"
+       sodipodi:rx="7.5159616"
+       sodipodi:ry="7.5159616"
+       sodipodi:start="0.064261144"
+       sodipodi:end="0.058076428"
+       d="m 57.063235,246.29147 a 7.5159616,7.5159616 0 0 1 -7.971503,7.01854 7.5159616,7.5159616 0 0 1 -7.030851,-7.96064 7.5159616,7.5159616 0 0 1 7.949761,-7.04315 7.5159616,7.5159616 0 0 1 7.055434,7.93886"
+       sodipodi:open="true" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.94571877px;line-height:1.25;font-family:'Heavy Data';-inkscape-font-specification:'Heavy Data, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#feffff;fill-opacity:1;stroke:none;stroke-width:0.42364296"
+       x="14.686217"
+       y="245.54155"
+       id="text823"
+       transform="scale(0.98035189,1.0200419)"
+       inkscape:export-xdpi="48"
+       inkscape:export-ydpi="48"><tspan
+         sodipodi:role="line"
+         id="tspan821"
+         x="14.686217"
+         y="245.54155"
+         style="fill:#feffff;fill-opacity:1;stroke-width:0.42364296">ON</tspan></text>
+  </g>
+</svg>

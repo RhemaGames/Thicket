@@ -2,8 +2,9 @@
 
 [ext_resource path="res://default.theme" type="Theme" id=1]
 [ext_resource path="res://MainWindow.gd" type="Script" id=2]
-[ext_resource path="res://BG/bg1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://BG/Forest.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Img/Trees.svg" type="Texture" id=4]
+[ext_resource path="res://Img/window-close-symbolic.svg" type="Texture" id=5]
 [ext_resource path="res://Games.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Music.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Videos.tscn" type="PackedScene" id=8]
@@ -34,10 +35,7 @@
 [ext_resource path="res://elements/Loading.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Img/preferences-system-symbolic.svg" type="Texture" id=34]
 
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Apps"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Applications:rect_position")
@@ -64,7 +62,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Games:rect_position")
 tracks/0/interp = 1
@@ -102,7 +100,7 @@ tracks/2/keys = {
 "values": [ 2, 0 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Music:rect_position")
 tracks/0/interp = 1
@@ -140,7 +138,7 @@ tracks/2/keys = {
 "values": [ 2, 0 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Settings:rect_position")
 tracks/0/interp = 1
@@ -178,7 +176,7 @@ tracks/2/keys = {
 "values": [ 2, 0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "Social"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Social:rect_position")
@@ -217,7 +215,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Videos:rect_position")
 tracks/0/interp = 1
@@ -267,19 +265,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Spatial" parent="." instance=ExtResource( 3 )]
-
-[node name="BG" type="Panel" parent="."]
-visible = false
-self_modulate = Color( 0, 0, 0, 0.027451 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-custom_styles/panel = SubResource( 1 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
+[node name="Forest" parent="." instance=ExtResource( 3 )]
 
 [node name="Control" type="Control" parent="."]
 visible = false
@@ -417,12 +403,12 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WindowContainer"]
-anims/Apps = SubResource( 2 )
-anims/Games = SubResource( 3 )
-anims/Music = SubResource( 4 )
-anims/Settings = SubResource( 5 )
-anims/Social = SubResource( 6 )
-anims/Videos = SubResource( 7 )
+anims/Apps = SubResource( 1 )
+anims/Games = SubResource( 2 )
+anims/Music = SubResource( 3 )
+anims/Settings = SubResource( 4 )
+anims/Social = SubResource( 5 )
+anims/Videos = SubResource( 6 )
 
 [node name="Games" parent="WindowContainer" instance=ExtResource( 6 )]
 modulate = Color( 1, 1, 1, 0 )
@@ -446,7 +432,6 @@ mouse_filter = 2
 modulate = Color( 1, 1, 1, 0 )
 margin_top = 1029.0
 margin_bottom = 1045.0
-rect_clip_content = true
 mouse_filter = 2
 
 [node name="DevConWindow" parent="WindowContainer" instance=ExtResource( 11 )]
@@ -476,14 +461,14 @@ margin_right = -1.0
 
 [node name="TopBar" type="Panel" parent="."]
 anchor_right = 1.0
-margin_left = -2.0
-margin_top = -8.0
-margin_right = 5.0
-margin_bottom = 64.0
+margin_top = -12.0
+margin_right = 7.0
+margin_bottom = 60.0
 rect_min_size = Vector2( 0, 64 )
 custom_styles/panel = ExtResource( 15 )
 script = ExtResource( 16 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -533,12 +518,12 @@ flat = true
 [node name="HBoxContainer2" type="HBoxContainer" parent="TopBar"]
 anchor_left = 0.914001
 anchor_top = 0.125
-anchor_right = 0.987939
+anchor_right = 0.992659
 anchor_bottom = 0.972222
 grow_horizontal = 0
 grow_vertical = 2
 rect_min_size = Vector2( 0, 18 )
-custom_constants/separation = 12
+custom_constants/separation = 20
 alignment = 2
 __meta__ = {
 "_edit_group_": true,
@@ -576,8 +561,8 @@ expand = true
 stretch_mode = 5
 
 [node name="Settings" type="TextureButton" parent="TopBar/HBoxContainer2"]
-margin_left = 92.0
-margin_right = 110.0
+margin_left = 94.0
+margin_right = 112.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 18, 18 )
 texture_normal = ExtResource( 34 )
@@ -591,7 +576,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Power" type="TextureButton" parent="TopBar/HBoxContainer2"]
+margin_left = 132.0
+margin_right = 150.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 18, 18 )
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 5 )
+texture_focused = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Account" type="TextureButton" parent="TopBar/HBoxContainer2"]
+visible = false
 margin_left = 122.0
 margin_right = 140.0
 margin_bottom = 60.0
@@ -643,19 +645,22 @@ __meta__ = {
 }
 
 [node name="Controls" type="Panel" parent="TopBar"]
-margin_left = -4.0
+margin_left = -11.0
 margin_top = -4.0
 margin_right = 300.0
 margin_bottom = 98.0
 rect_min_size = Vector2( 300, 100 )
 custom_styles/panel = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Home" type="Button" parent="TopBar/Controls"]
 anchor_right = 0.334
 anchor_bottom = 1.0
-margin_left = 29.0
+margin_left = 45.0
 margin_top = 19.0
-margin_right = 194.464
+margin_right = 194.126
 margin_bottom = -10.0
 custom_styles/hover = ExtResource( 17 )
 custom_styles/pressed = ExtResource( 17 )
@@ -664,22 +669,26 @@ custom_styles/normal = ExtResource( 17 )
 custom_fonts/font = ExtResource( 21 )
 text = "Thicket"
 __meta__ = {
-"_edit_group_": true,
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="icon" type="TextureRect" parent="TopBar/Controls/Home"]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -32.0
-margin_right = 64.0
-margin_bottom = 32.0
+margin_left = -11.0
+margin_top = -32.5
+margin_right = 53.0
+margin_bottom = 31.5
 grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 23 )
 expand = true
 stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="bandaid" type="Panel" parent="TopBar/Controls"]
 modulate = Color( 0, 0, 0, 1 )
@@ -790,6 +799,7 @@ mouse_default_cursor_shape = 5
 [connection signal="pressed" from="TopBar/HBoxContainer2/Social" to="." method="_on_Social_pressed"]
 [connection signal="pressed" from="TopBar/HBoxContainer2/Search" to="." method="_on_Search_pressed"]
 [connection signal="pressed" from="TopBar/HBoxContainer2/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="TopBar/HBoxContainer2/Power" to="." method="_on_Power_pressed"]
 [connection signal="pressed" from="TopBar/HBoxContainer2/Account" to="." method="_on_Account_pressed"]
 [connection signal="pressed" from="TopBar/Controls/Home" to="." method="_on_Home_pressed"]
 [connection signal="gui_input" from="TopBar/Settings" to="." method="_on_Settings_gui_input"]

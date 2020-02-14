@@ -1,0 +1,119 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Img/leaf.svg" type="Texture" id=1]
+[ext_resource path="res://BG/Forest.gd" type="Script" id=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.620513 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.904297, 0.943924, 1, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="CanvasItemMaterial" id=3]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Animation" id=4]
+resource_name = "randomize"
+length = 10.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("CPUParticles2D:gravity:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -20, -0.25, 0, 0.25, 0, -100, -0.25, 0, 0.25, 0, -20, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 4.5, 10 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("CPUParticles2D:gravity:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 75, -0.25, 0, 0.25, 0, 20, -0.25, 0, 0.25, 0, 75, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 4.5, 10 )
+}
+
+[node name="Forest" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="BG" type="Sprite" parent="."]
+position = Vector2( 957.233, 528.553 )
+rotation = 1.5708
+scale = Vector2( 0.538611, 1938.5 )
+texture = SubResource( 2 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+material = SubResource( 3 )
+position = Vector2( 2062.27, -24.6664 )
+amount = 40
+lifetime = 20.0
+randomness = 0.07
+texture = ExtResource( 1 )
+emission_shape = 1
+emission_sphere_radius = 128.0
+spread = 104.56
+gravity = Vector2( -20, 75 )
+initial_velocity_random = 0.01
+angular_velocity_random = 0.1
+orbit_velocity_random = 0.69
+linear_accel_random = 0.16
+radial_accel = -23.53
+radial_accel_random = 0.66
+tangential_accel = 15.63
+tangential_accel_random = 0.77
+damping = 30.51
+damping_random = 0.28
+angle = 105.9
+angle_random = 0.41
+scale_amount = 0.05
+scale_amount_random = 0.07
+color = Color( 0.666667, 0.45098, 0.0980392, 0.52549 )
+hue_variation = 0.77
+hue_variation_random = 1.0
+anim_speed = 0.4
+anim_speed_random = 0.37
+anim_offset = 0.52
+anim_offset_random = 0.78
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+material = SubResource( 3 )
+position = Vector2( 1607.05, -174.357 )
+amount = 10
+lifetime = 22.09
+randomness = 0.07
+texture = ExtResource( 1 )
+emission_shape = 1
+emission_sphere_radius = 128.0
+spread = 104.56
+gravity = Vector2( -20, 75 )
+initial_velocity_random = 0.01
+angular_velocity_random = 0.1
+linear_accel_random = 0.16
+radial_accel = -23.53
+radial_accel_random = 0.66
+tangential_accel = 15.63
+tangential_accel_random = 0.77
+damping = 30.51
+damping_random = 0.6
+angle = 105.9
+angle_random = 0.41
+scale_amount = 0.05
+scale_amount_random = 0.07
+color = Color( 0.666667, 0.45098, 0.0980392, 0.52549 )
+hue_variation = 0.77
+hue_variation_random = 1.0
+anim_speed = 0.47
+anim_speed_random = 1.0
+anim_offset = 0.93
+anim_offset_random = 0.78
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/randomize = SubResource( 4 )

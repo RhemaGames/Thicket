@@ -15,6 +15,7 @@ var imgfile = File.new()
 var textureList = []
 
 signal play(track)
+signal info(track)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$artist.text = artist
@@ -82,6 +83,8 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 
 
 func _on_MusicBoxMedium_gui_input(event):
+	if event is InputEventMouseButton and !event.is_doubleclick() and event.is_pressed():
+		emit_signal("info",[track,artist,title,img,post])
 	if event is InputEventMouseButton and event.is_doubleclick():
 		emit_signal("play",[track,artist,title,img,post])
 	pass # Replace with function body.
