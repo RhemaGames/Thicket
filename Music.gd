@@ -33,6 +33,7 @@ signal clear_highlight(track)
 signal download()
 signal download_complete()
 
+# warning-ignore:unused_signal
 signal show(area)
 
 func _ready():
@@ -179,7 +180,7 @@ func get_image(songImage):
 	return Imagetex
 
 
-func get_curated_music(type):
+func get_curated_music(_type):
 	#var list = OpenSeed.get_from_socket('{"act":"music_json","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'","curator":"'+type+'"}')
 	var list = Thicket.tracks
 	return list
@@ -192,7 +193,7 @@ func get_music(type):
 		"favorites":
 			list = "favorites"
 		"liked":
-			list = OpenSeed.get_from_socket('{"act":"music_json","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'","curator":"'+OpenSeed.steem+'"}')
+			list = OpenSeed.get_from_socket('{"act":"music_json","appPub":"'+str(OpenSeed.appId)+'","devPub":"'+str(OpenSeed.devId)+'","curator":"'+OpenSeed.steem+'"}')
 		_:
 			for t in Thicket.tracks:
 				if t and t["author"] == type:
@@ -234,6 +235,7 @@ func load_playlist(list_name):
 	if !playing:
 		play_list_num = 0
 	$title.text = list_name
+# warning-ignore:shadowed_variable
 	var file = File.new()
 	if file.file_exists("user://playlists/"+list_name+".dat"):
 		file.open("user://playlists/"+list_name+".dat", File.READ)
@@ -253,6 +255,7 @@ func _on_likes_pressed():
 	if !playing:
 		play_list_num = 0
 	$title.text = "Liked"
+# warning-ignore:shadowed_variable
 	var file = File.new()
 	if file.file_exists("user://database/liked.dat"):
 		file.open("user://database/liked.dat", File.READ)
@@ -272,6 +275,7 @@ func _on_favorites_pressed():
 	if !playing:
 		play_list_num = 0
 	$title.text = "Favorites"
+# warning-ignore:shadowed_variable
 	var file = File.new()
 	if file.file_exists("user://database/favorite.dat"):
 		file.open("user://database/favorite.dat", File.READ)
@@ -407,6 +411,7 @@ func _on_recent_pressed():
 		play_list_num = 0
 	
 	$title.text = "recent"
+# warning-ignore:shadowed_variable
 	var file = File.new()
 	file.open("user://database/recent.dat", File.READ)
 	var redict = []

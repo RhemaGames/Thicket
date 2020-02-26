@@ -120,7 +120,7 @@ func gather_connections():
 
 func gather_new_artists():
 	$Label.text = "Gathering Artists"
-	var artists = OpenSeed.get_from_socket('{"act":"newaccounts","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'"}')
+	var artists = OpenSeed.get_from_socket('{"act":"newaccounts","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'"}')
 	if artists:
 		for a in artists.split(",),"):
 			Thicket.new_artists.append(a.split("'")[1])
@@ -128,7 +128,7 @@ func gather_new_artists():
 	
 func gather_new_tracks():
 	$Label.text = "Gathering Tracks"
-	var newtracks = OpenSeed.get_from_socket('{"act":"newtracks_json","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'"}')
+	var newtracks = OpenSeed.get_from_socket('{"act":"newtracks_json","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'"}')
 	if newtracks:
 		var clean_list = newtracks.split("}, ")
 		for t in clean_list:
@@ -142,7 +142,7 @@ func gather_new_tracks():
 
 func gather_genres():
 	$Label.text = "Gathering Genres"
-	var genres = OpenSeed.get_from_socket('{"act":"genres","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'"}')
+	var genres = OpenSeed.get_from_socket('{"act":"genres","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'"}')
 	if genres:
 		for g in genres.split(",),"):
 			Thicket.genres.append(g.split("'")[1])
@@ -150,7 +150,7 @@ func gather_genres():
 
 func gather_all_tracks(g):
 	$Label.text = "Gathering Tracks ("+g+")"
-	var content = OpenSeed.get_from_socket('{"act":"genre_json","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'","genre":"'+g+'"}')
+	var content = OpenSeed.get_from_socket('{"act":"genre_json","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'","genre":"'+g+'"}')
 	if content:
 		var clean_list = content.split("}, ")
 		for t in clean_list:

@@ -37,7 +37,7 @@ func _on_search_text_entered(new_text):
 	else:
 		$doublePaneView.hide()
 		$newArtist.show()
-		OpenSeed.get_from_socket('{"act":"artist_search","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'","author":"'+new_text+'"}')
+		OpenSeed.get_from_socket('{"act":"artist_search","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'","author":"'+new_text+'"}')
 	
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):

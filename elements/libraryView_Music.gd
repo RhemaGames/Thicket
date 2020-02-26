@@ -142,6 +142,7 @@ func _on_g_pressed(list):
 	#$title.text = list
 	var content = []
 	for t in Thicket.tracks:
+		print(t)
 		if t and t["genre"] == list:
 			content.append(t)
 	#var content = OpenSeed.get_from_socket('{"act":"genre_json","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'","genre":"'+list+'"}')

@@ -76,7 +76,7 @@ func game_post():
 	pass
 	
 func get_post(author,url):
-	var post = OpenSeed.get_from_socket('{"act":"post","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'","author":"'+author+'","permlink":"'+url+'"}')
+	var post = OpenSeed.get_from_socket('{"act":"post","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'","author":"'+author+'","permlink":"'+url+'"}')
 	return post
 	
 func playlist_load(type):
@@ -250,7 +250,7 @@ func find_track(ogg):
 	var num = -1
 	for t in Thicket.tracks:
 		num = num+1
-		if t:
+		if t.has("ogg"):
 			if t["ogg"] == ogg:
 				break
 				
@@ -279,12 +279,12 @@ func load_cache(type):
 			connections_list = local_knowledge_load(type)
 	return 1
 			
-func create_developer(cName,pCon,email,steemaccount,about):
+func create_creator(cName,pCon,email,steemaccount,about):
 	var account = '"devName":"'+cName+'","contactName":"'+pCon+'","contactEmail":"'+email+'","steem":"'+steemaccount+'"'
-	var created = OpenSeed.get_from_socket('{"act":"create_developer","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'",'+account+'}')
+	var created = OpenSeed.get_from_socket('{"act":"create_developer","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'",'+account+'}')
 	var datastring = '"theid":"'+created+'","data1":"'+cName+\
 	'","data2":"'+pCon+'","data3":"'+email+'","data4":"'+steemaccount+'","data5":{"about":"'+about+'}'
-	var _response = OpenSeed.get_from_socket('{"act":"create_profile","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'",'+datastring+',"type":2}')
+	var _response = OpenSeed.get_from_socket('{"act":"create_profile","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'",'+datastring+',"type":2}')
 	dev_profile = datastring
 	return created
 	
@@ -300,12 +300,14 @@ func _on_new_tracks(data):
 			new_tracks.append(parsed_track)
 		for test in new_tracks:
 			var found = false
-			for in_library in tracks:
-				if in_library and in_library["title"] == test["title"]:
-					found = true
-					break
-			if !found:
-				tracks.insert(0,test)
+			if len(str(test)) > 4 and test.has("title"):
+				for in_library in tracks:
+					if in_library.has("title") and in_library["title"] == test["title"]:
+						found = true
+						break
+				if !found:
+					tracks.insert(0,test)
+					
 		store("tracks",tracks)
 	emit_signal("new_tracks_ready")
 

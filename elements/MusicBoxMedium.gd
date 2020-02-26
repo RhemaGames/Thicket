@@ -29,7 +29,7 @@ func _ready():
 
 func set_box(image):
 	if !imgfile.file_exists("user://cache/Img/"+image):
-		get_timage("http://142.93.27.131","8080",image)
+		get_timage(OpenSeed.openseed,"8080",image)
 		#print("No Image")
 	else:
 		$TextureRect.set_texture(get_image("user://cache/Img/"+image))

@@ -22,12 +22,33 @@ func _ready():
 	#set_view(OpenSeed.username)	
 	#emit_signal("view",OpenSeed.username)
 	#$AnimationPlayer.play("Load")
+	#image = steemProfile["profile"]["profile_image"]
+	OpenSeed.connect("userLoaded",self,"profileblock")
+	
+	#if !current_status.has("status"):
+	#	if current_status["data"]["chat"] != "Offline":
+	#		loggedIn.get_node("Activity").text = "Online"
+	#	else:
+	#		loggedIn.get_node("Activity").text = "Offline"
+	
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
+func profileblock():
+	var loggedIn = $Chat/VBoxContainer/User_info
+	loggedIn.account = OpenSeed.username
+	textureFile.append(ImageTexture.new())
+	loggedIn.get_node("Contact").block = imageFile
+	loggedIn.get_node("Contact").texblock = textureFile[texture_count]
+	loggedIn.get_node("Contact").title = OpenSeed.username
+	loggedIn.get_node("Contact").pImage = OpenSeed.profile_image
+	loggedIn.get_node("UserName").text = OpenSeed.profile_name
+	loggedIn.get_node("Activity").text = "Account: "+OpenSeed.username
+	loggedIn.get_node("Contact").emit_signal("refesh")
+	loggedIn.connect("view",self,"_on_Social_view")
 
 
 func _on_Social_visibility_changed():
@@ -62,13 +83,14 @@ func setup_connection(person,count):
 			name = profile["name"]
 			if steemProfile.keys().has("profile"):
 				if str(steemProfile["profile"]) != "Not found":
+					texture_count +=1
 					image = steemProfile["profile"]["profile_image"]
 					textureFile.append(ImageTexture.new())
 					next.get_node("Contact").block = imageFile
 					next.get_node("Contact").texblock = textureFile[texture_count]
 					next.get_node("Contact").title = username
 					next.get_node("Contact").pImage = image
-					texture_count +=1
+					
 			next.get_node("UserName").text = name
 			if !current_status.has("status"):
 				if current_status["data"]["chat"] != "Offline":
@@ -96,7 +118,7 @@ func _on_iterate_connections_timeout():
 func _on_Social_done():
 	OpenSeed.loadUserProfile(OpenSeed.username)
 	set_view(OpenSeed.username)
-	#OpenSeed.get_history(OpenSeed.username)
+	OpenSeed.emit_signal("command","history",OpenSeed.username)
 	pass # Replace with function body.
 	
 func set_view(account):
@@ -122,7 +144,8 @@ func set_view(account):
 					$TopBanner/TextInfo/TagLine.text = profile["data5"]["profile"]["about"]
 		$TopBanner/Contact.pImage = ""
 		
-	$TopBanner/Contact.emit_signal("refresh")	
+	$TopBanner/Contact.emit_signal("refresh")
+	OpenSeed.emit_signal("command","history",account)
 	$history_update.start()
 	
 
@@ -134,5 +157,5 @@ func _on_Social_view(account):
 
 
 func _on_status_update_timeout():
-	OpenSeed.set_openseed_account_status(OpenSeed.token,'{"location":"0:1","chat":"Online"}')
+	OpenSeed.set_openseed_account_status(OpenSeed.token,'{"chat":"Online"}')
 	pass # Replace with function body.

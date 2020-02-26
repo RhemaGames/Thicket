@@ -55,7 +55,7 @@ func user_search(search):
 				c.get_node("Contact").texblock = userTextureFile[userCount]
 				userCount += 1
 				$Panel/VBoxContainer/ScrollContainer/Main/UserSearch/VBoxContainer/GridContainer.add_child(c)
-	OpenSeed.get_from_socket('{"act":"artist_search","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'","author":"'+search+'"}')
+	OpenSeed.get_from_socket('{"act":"artist_search","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'","author":"'+search+'"}')
 			
 func music_track_search(search):
 	var reg = RegEx.new()

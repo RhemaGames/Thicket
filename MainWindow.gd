@@ -21,8 +21,10 @@ func _ready():
 	OpenSeed = get_node("/root/OpenSeed")
 	Thicket = get_node("/root/Thicket")
 	Thicket.create_folders()
-	OpenSeed.devId = "0a1831e5eb07615f9cbd999acc8464821b9299b642d033f501f177df5b5dc3a2"
-	OpenSeed.appId = "ve003-234fser234"
+
+	
+	
+	
 	$Navi/MusicBar.color = Color(0.2,0.2,0.2)
 	#$Spatial/AnimationPlayer.play("slowwalk")
 

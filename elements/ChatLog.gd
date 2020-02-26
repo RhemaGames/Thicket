@@ -30,49 +30,48 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func get_chat(username,account):
-	
-	if account:
-		if !OpenSeed.thread.is_active():
-			OpenSeed.thread.start(OpenSeed,"get_from_socket_threaded",['{"act":"get_chat","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'","uid":"'+username+'","account":"'+account+'","room":"'+username+','+account+'","last":"'+str(last)+'"}',"chat"])
+
 
 func _on_Timer_timeout():
-	get_chat(OpenSeed.username,get_parent().get_parent().get_parent().currentuser)
+	OpenSeed.get_chat(OpenSeed.username,get_parent().get_parent().get_parent().currentuser,last)
 		
 	pass # Replace with function body.
 
 func update_chat(data):
-	var json = parse_json(data) 
 	if key == "":
-		key = OpenSeed.get_keys_for(OpenSeed.username+","+get_parent().get_parent().get_parent().currentuser)
+			key = OpenSeed.get_keys_for(OpenSeed.username+","+get_parent().get_parent().get_parent().currentuser)
 	elif key != "denied":
-		if json and json.has("index"):
-			$Timer.wait_time = 1
-			box.get_parent().set_v_scroll(box.rect_size.y)
-			var newmessage = chatmessage.instance()
-			newmessage.date = json["date"]
-			newmessage.speaker = json["type"]
-			newmessage.message = OpenSeed.simp_decrypt(key,json["message"])
-			box.add_child(newmessage)
-			box.get_parent().set_v_scroll(box.rect_size.y)
-			last = json["index"]
-		else:
-			$Timer.wait_time = 2
+		if(len(data) > 10):
+			var json = parse_json(data)
+			if typeof(json) == TYPE_DICTIONARY:
+				if json.has("index"):
+					#$Timer.wait_time = 2
+					box.get_parent().set_v_scroll(box.rect_size.y)
+					var newmessage = chatmessage.instance()
+					newmessage.date = json["date"]
+					newmessage.speaker = json["type"]
+					newmessage.message = OpenSeed.simp_decrypt(key,json["message"])
+					#newmessage.message = "Testing "+last
+					box.add_child(newmessage)
+					box.get_parent().set_v_scroll(box.rect_size.y)
+					last = json["index"]
+					OpenSeed.get_chat(OpenSeed.username,get_parent().get_parent().get_parent().currentuser,last)
+				elif json and json.has("type"):
+					if json["type"] == "server":
+						box.get_parent().set_v_scroll(box.rect_size.y)
+						match json["message"]:
+							"none":
+								$Timer.wait_time = 10
+			else:
+				$Timer.wait_time = 4
 			
 
-func send_chat(message,username,account):
-	if account:
-		OpenSeed.thread.start(OpenSeed,"get_from_socket_threaded",['{"act":"send_chat","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'","uid":"'+OpenSeed.token+'","username":"'+username+'","account":"'+account+'","data":"'+message+'"}',"send_chat"])
-	
 func _on_message_text_entered(new_text):
-	#print(new_text)
-	#print(key)
-	send_chat(OpenSeed.simp_crypt(key,new_text),OpenSeed.username,get_parent().get_parent().get_parent().currentuser)
+	OpenSeed.send_chat(OpenSeed.simp_crypt(key,new_text),OpenSeed.username,get_parent().get_parent().get_parent().currentuser)
 	pass # Replace with function body.
 
 func _on_account_view(account):
-	print("Chat "+account)
-	if !SocialRoot.currentuser or SocialRoot.currentuser != OpenSeed.username:
+	if account != OpenSeed.username:
 		self.show()
 	else:
 		self.hide()

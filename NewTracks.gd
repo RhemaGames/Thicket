@@ -47,23 +47,24 @@ func set_new_tracks():
 	var count = 0
 	if get_child_count() < new_num:
 		for track in list:
-			var NewTrack = newtracks.instance()
-			var artist = track["author"]
-			var title = track["title"]
-			var post = track["post"]
-			var img = track["img"]
-			if count < new_num:
-				NewTrack.title = title
-				NewTrack.artist = artist
-				NewTrack.img = img
-				NewTrack.block = imageFile
-				NewTrack.post = post
-				NewTrack.texblock = textureFile[count]
-				NewTrack.track = track["ogg"]
-				NewTrack.connect("play",get_parent().get_parent().get_parent().get_parent(),"play_track")
+			if track:
+				var NewTrack = newtracks.instance()
+				var artist = track["author"]
+				var title = track["title"]
+				var post = track["post"]
+				var img = track["img"]
+				if count < new_num:
+					NewTrack.title = title
+					NewTrack.artist = artist
+					NewTrack.img = img
+					NewTrack.block = imageFile
+					NewTrack.post = post
+					NewTrack.texblock = textureFile[count]
+					NewTrack.track = track["ogg"]
+					NewTrack.connect("play",get_parent().get_parent().get_parent().get_parent(),"play_track")
 				
-				call_deferred("add_child", NewTrack)
-				playlist.append(track)
+					call_deferred("add_child", NewTrack)
+					playlist.append(track)
 			count += 1
 	else:
 		for track in list:
@@ -87,7 +88,7 @@ func set_new_tracks():
 
 func _on_NewTracks_getNew():
 	print("New_Tracks")
-	OpenSeed.thread.start(OpenSeed,"get_from_socket_threaded",['{"act":"newtracks_json","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'"}',"newtracks"])
+	OpenSeed.thread.start(OpenSeed,"get_from_socket_threaded",['{"act":"newtracks_json","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'"}',"newtracks"])
 	#set_new_tracks()
 	pass # Replace with function body.
 

@@ -1,7 +1,6 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Games.gd" type="Script" id=1]
-[ext_resource path="res://effects/leaves2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://menu.tres" type="StyleBox" id=3]
 [ext_resource path="res://Img/Games.png" type="Texture" id=4]
 [ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=5]
@@ -39,102 +38,6 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="leaves2" parent="Panel" instance=ExtResource( 2 )]
-modulate = Color( 1, 1, 1, 0.133333 )
-margin_left = 652.864
-margin_top = 641.0
-margin_right = -597.136
-margin_bottom = -2.0
-rect_pivot_offset = Vector2( 350.097, 216.872 )
-
-[node name="leaves3" parent="Panel" instance=ExtResource( 2 )]
-modulate = Color( 1, 1, 1, 0.133333 )
-margin_left = 548.329
-margin_top = -239.666
-margin_right = -701.671
-margin_bottom = -882.666
-rect_pivot_offset = Vector2( 350.097, 216.872 )
-
-[node name="leaves4" parent="Panel" instance=ExtResource( 2 )]
-modulate = Color( 1, 1, 1, 0.133333 )
-margin_left = -499.878
-margin_top = 118.328
-margin_right = -1749.88
-margin_bottom = -524.672
-rect_pivot_offset = Vector2( 350.097, 216.872 )
-
-[node name="leaves5" parent="Panel" instance=ExtResource( 2 )]
-modulate = Color( 1, 1, 1, 0.133333 )
-margin_left = 1026.61
-margin_top = 502.098
-margin_right = -223.39
-margin_bottom = -140.902
-rect_pivot_offset = Vector2( 350.097, 216.872 )
-
-[node name="leaves6" parent="Panel" instance=ExtResource( 2 )]
-modulate = Color( 1, 1, 1, 0.133333 )
-margin_left = -335.201
-margin_top = 431.931
-margin_right = -1585.2
-margin_bottom = -211.069
-rect_pivot_offset = Vector2( 350.097, 216.872 )
-
-[node name="leaves7" parent="Panel" instance=ExtResource( 2 )]
-modulate = Color( 1, 1, 1, 0.133333 )
-margin_left = 61.4571
-margin_top = -120.812
-margin_right = -1188.54
-margin_bottom = -763.812
-rect_pivot_offset = Vector2( 350.097, 216.872 )
-
-[node name="leaves8" parent="Panel" instance=ExtResource( 2 )]
-modulate = Color( 1, 1, 1, 0.133333 )
-margin_left = 1058.11
-margin_top = -149.452
-margin_right = -191.886
-margin_bottom = -792.452
-rect_pivot_offset = Vector2( 350.097, 216.872 )
-
-[node name="leaves9" parent="Panel" instance=ExtResource( 2 )]
-modulate = Color( 1, 1, 1, 0.133333 )
-margin_left = -23.0295
-margin_top = 401.86
-margin_right = -1273.03
-margin_bottom = -241.14
-rect_pivot_offset = Vector2( 350.097, 216.872 )
-
-[node name="leaves10" parent="Panel" instance=ExtResource( 2 )]
-modulate = Color( 1, 1, 1, 0.133333 )
-margin_left = 605.609
-margin_top = 5.20197
-margin_right = -644.391
-margin_bottom = -637.798
-rect_pivot_offset = Vector2( 350.097, 216.872 )
-
-[node name="leaves11" parent="Panel" instance=ExtResource( 2 )]
-modulate = Color( 1, 1, 1, 0.133333 )
-margin_left = -113.244
-margin_top = 129.784
-margin_right = -1363.24
-margin_bottom = -513.216
-rect_pivot_offset = Vector2( 350.097, 216.872 )
-
-[node name="leaves12" parent="Panel" instance=ExtResource( 2 )]
-modulate = Color( 1, 1, 1, 0.133333 )
-margin_left = 1068.14
-margin_top = 198.519
-margin_right = -181.863
-margin_bottom = -444.481
-rect_pivot_offset = Vector2( 350.097, 216.872 )
-
-[node name="leaves13" parent="Panel" instance=ExtResource( 2 )]
-modulate = Color( 1, 1, 1, 0.133333 )
-margin_left = 181.743
-margin_top = 197.087
-margin_right = -1068.26
-margin_bottom = -445.913
-rect_pivot_offset = Vector2( 350.097, 216.872 )
-
 [node name="error" type="Label" parent="."]
 visible = false
 anchor_left = 0.5
@@ -148,7 +51,6 @@ margin_bottom = 7.0
 text = "No Games"
 
 [node name="mainMenu" type="Panel" parent="."]
-editor/display_folded = true
 visible = false
 anchor_bottom = 1.0
 margin_right = 180.0
@@ -173,7 +75,6 @@ expand = true
 stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="mainMenu/VBoxContainer"]
-editor/display_folded = true
 margin_top = 68.0
 margin_right = 163.0
 margin_bottom = 141.0
@@ -242,7 +143,6 @@ margin_right = 163.0
 margin_bottom = 86.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="mainMenu/VBoxContainer/VBoxContainer2"]
-editor/display_folded = true
 margin_top = 90.0
 margin_right = 163.0
 margin_bottom = 218.0
@@ -296,6 +196,9 @@ anchor_bottom = 0.5
 margin_top = -300.0
 margin_bottom = 223.0
 custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Library/PanelContainer"]
 margin_top = 10.0
@@ -347,7 +250,6 @@ margin_bottom = 266.0
 rect_min_size = Vector2( 0, 20 )
 
 [node name="updated" type="GridContainer" parent="Library"]
-editor/display_folded = true
 visible = false
 margin_left = 21.0
 margin_top = 276.0
@@ -368,21 +270,21 @@ margin_left = 640.0
 margin_right = 940.0
 
 [node name="GameMedium4" parent="Library/updated" instance=ExtResource( 6 )]
-margin_top = 104.0
+margin_top = 108.0
 margin_right = 300.0
-margin_bottom = 204.0
+margin_bottom = 208.0
 
 [node name="GameMedium5" parent="Library/updated" instance=ExtResource( 6 )]
 margin_left = 320.0
-margin_top = 104.0
+margin_top = 108.0
 margin_right = 620.0
-margin_bottom = 204.0
+margin_bottom = 208.0
 
 [node name="GameMedium6" parent="Library/updated" instance=ExtResource( 6 )]
 margin_left = 640.0
-margin_top = 104.0
+margin_top = 108.0
 margin_right = 940.0
-margin_bottom = 204.0
+margin_bottom = 208.0
 
 [node name="Label3" type="Label" parent="Library"]
 visible = false
@@ -410,7 +312,6 @@ margin_bottom = 588.0
 rect_min_size = Vector2( 0, 20 )
 
 [node name="neverplayed" type="GridContainer" parent="Library"]
-editor/display_folded = true
 visible = false
 margin_left = 21.0
 margin_top = 598.0
@@ -448,7 +349,6 @@ margin_right = 940.0
 margin_bottom = 204.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Library"]
-editor/display_folded = true
 margin_left = 13.0
 margin_top = 52.0
 margin_right = 1683.0
@@ -500,7 +400,6 @@ custom_constants/separation = 50
 alignment = 1
 
 [node name="Recent" type="Panel" parent="Library/Buttons"]
-editor/display_folded = true
 self_modulate = Color( 0.219608, 0.384314, 0.419608, 1 )
 margin_right = 92.0
 margin_bottom = 96.0
@@ -529,7 +428,6 @@ expand = true
 stretch_mode = 6
 
 [node name="Favorites" type="Panel" parent="Library/Buttons"]
-editor/display_folded = true
 self_modulate = Color( 1, 0.796078, 0, 1 )
 margin_left = 142.0
 margin_right = 238.0
@@ -559,7 +457,6 @@ expand = true
 stretch_mode = 6
 
 [node name="Store" type="Panel" parent="Library/Buttons"]
-editor/display_folded = true
 self_modulate = Color( 1, 0.352941, 0, 1 )
 margin_left = 288.0
 margin_right = 384.0
@@ -589,7 +486,6 @@ expand = true
 stretch_mode = 6
 
 [node name="Library" type="Panel" parent="Library/Buttons"]
-editor/display_folded = true
 self_modulate = Color( 0.219608, 0.419608, 0.219608, 1 )
 margin_left = 434.0
 margin_right = 526.0
@@ -619,7 +515,6 @@ expand = true
 stretch_mode = 6
 
 [node name="Genres" type="Panel" parent="Library/Buttons"]
-editor/display_folded = true
 self_modulate = Color( 0.219608, 0.384314, 0.419608, 1 )
 margin_left = 576.0
 margin_right = 668.0

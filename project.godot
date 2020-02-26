@@ -46,6 +46,5 @@ limits/message_queue/max_size_kb=2048
 
 quality/driver/driver_name="GLES2"
 quality/driver/fallback_to_gles2=true
-threads/thread_model=2
 vram_compression/import_etc=true
 environment/default_environment="res://default_env.tres"

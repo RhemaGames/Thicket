@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://elements/Social.gd" type="Script" id=1]
 [ext_resource path="res://menu.tres" type="StyleBox" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://elements/ChatLog.tscn" type="PackedScene" id=7]
 [ext_resource path="res://elements/History.gd" type="Script" id=8]
 [ext_resource path="res://elements/UserSettings.gd" type="Script" id=9]
+[ext_resource path="res://elements/Contact_info.tscn" type="PackedScene" id=10]
 [ext_resource path="res://default.theme" type="Theme" id=11]
 
 [sub_resource type="Animation" id=1]
@@ -102,21 +103,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Friends" type="Label" parent="Chat/VBoxContainer"]
+[node name="User_info" parent="Chat/VBoxContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 344.0
-margin_bottom = 29.0
+margin_bottom = 60.0
+
+[node name="Friends" type="Label" parent="Chat/VBoxContainer"]
+margin_top = 70.0
+margin_right = 344.0
+margin_bottom = 99.0
 custom_fonts/font = ExtResource( 6 )
 text = "Friends:"
 
 [node name="HSeparator" type="HSeparator" parent="Chat/VBoxContainer"]
-margin_top = 39.0
+margin_top = 109.0
 margin_right = 344.0
-margin_bottom = 47.0
+margin_bottom = 117.0
+
+[node name="LineEdit" type="LineEdit" parent="Chat/VBoxContainer"]
+margin_top = 127.0
+margin_right = 344.0
+margin_bottom = 153.0
+max_length = 255
+placeholder_text = "Search:"
 
 [node name="Online" type="PanelContainer" parent="Chat/VBoxContainer"]
-margin_top = 57.0
+margin_top = 163.0
 margin_right = 344.0
-margin_bottom = 105.0
+margin_bottom = 211.0
 grow_horizontal = 2
 custom_styles/panel = ExtResource( 2 )
 
@@ -138,35 +153,10 @@ margin_top = 34.0
 margin_right = 342.0
 margin_bottom = 42.0
 
-[node name="Offline" type="PanelContainer" parent="Chat/VBoxContainer"]
-visible = false
-margin_top = 116.0
-margin_right = 344.0
-margin_bottom = 163.0
-grow_horizontal = 2
-custom_styles/panel = ExtResource( 2 )
-
-[node name="list" type="VBoxContainer" parent="Chat/VBoxContainer/Offline"]
-margin_left = 1.0
-margin_top = 3.0
-margin_right = 343.0
-margin_bottom = 44.0
-grow_horizontal = 2
-
-[node name="Title" type="Label" parent="Chat/VBoxContainer/Offline/list"]
-margin_right = 342.0
-margin_bottom = 25.0
-text = "Offline::"
-
-[node name="HSeparator" type="HSeparator" parent="Chat/VBoxContainer/Offline/list"]
-margin_top = 33.0
-margin_right = 342.0
-margin_bottom = 41.0
-
 [node name="Main" type="VBoxContainer" parent="."]
 margin_left = 372.0
 margin_top = 107.0
-margin_right = 1888.0
+margin_right = 1892.0
 margin_bottom = 1053.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -202,7 +192,7 @@ script = ExtResource( 9 )
 visible = false
 self_modulate = Color( 1, 1, 1, 0.941176 )
 margin_left = 950.0
-margin_right = 1880.0
+margin_right = 1872.0
 
 [node name="History" type="PanelContainer" parent="Main/HBoxContainer"]
 self_modulate = Color( 1, 1, 1, 0.941176 )
@@ -248,6 +238,7 @@ anims/Load = SubResource( 1 )
 wait_time = 300.0
 
 [node name="history_update" type="Timer" parent="."]
+wait_time = 20.0
 [connection signal="done" from="." to="." method="_on_Social_done"]
 [connection signal="timeout" from="iterate_connections" to="." method="_on_iterate_connections_timeout"]
 [connection signal="timeout" from="status_update" to="." method="_on_status_update_timeout"]

@@ -7,6 +7,7 @@ var MusicRoot
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	MusicRoot = get_parent().get_parent().get_parent()
+# warning-ignore:return_value_discarded
 	get_popup().connect("id_pressed",self,"menu_item_selected")
 	#load_playlists()
 
@@ -30,10 +31,10 @@ func load_playlists():
 	if dir.open("user://playlists") == OK:
 		dir.list_dir_begin(true,true)
 		var playlist = dir.get_next()
-		var count = 0
+		var _count = 0
 		while playlist != "":
 			get_popup().add_item(playlist.split(".")[0])
-			count += 1
+			_count += 1
 			playlist = dir.get_next()
 
 func _on_playlists_about_to_show():
