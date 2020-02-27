@@ -179,13 +179,13 @@ __meta__ = {
 margin_top = 204.0
 margin_right = 1520.0
 margin_bottom = 834.0
-custom_constants/separation = 20
+custom_constants/separation = 10
 
 [node name="UserSettings" type="PanelContainer" parent="Main/HBoxContainer"]
 self_modulate = Color( 1, 1, 1, 0.941176 )
-margin_right = 930.0
+margin_right = 910.0
 margin_bottom = 630.0
-rect_min_size = Vector2( 930, 630 )
+rect_min_size = Vector2( 910, 630 )
 script = ExtResource( 9 )
 
 [node name="ChatLog" parent="Main/HBoxContainer" instance=ExtResource( 7 )]
@@ -193,18 +193,19 @@ visible = false
 self_modulate = Color( 1, 1, 1, 0.941176 )
 margin_left = 950.0
 margin_right = 1872.0
+rect_min_size = Vector2( 910, 500 )
 
 [node name="History" type="PanelContainer" parent="Main/HBoxContainer"]
 self_modulate = Color( 1, 1, 1, 0.941176 )
-margin_left = 950.0
-margin_right = 1520.0
+margin_left = 920.0
+margin_right = 1510.0
 margin_bottom = 630.0
 script = ExtResource( 8 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main/HBoxContainer/History"]
-margin_left = 10.0
+margin_left = 20.0
 margin_top = 10.0
-margin_right = 560.0
+margin_right = 570.0
 margin_bottom = 620.0
 
 [node name="Label" type="Label" parent="Main/HBoxContainer/History/VBoxContainer"]

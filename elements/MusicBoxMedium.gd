@@ -71,7 +71,7 @@ func get_timage(url,port,thefile):
 			"User-Agent: Pirulo/1.0 (Godot)",
 			"Accept: */*"
 		]
-		$HTTPRequest.request(str(url)+":"+str(port)+"/ipfs/"+str(thefile),headers,false,HTTPClient.METHOD_GET)	
+		$HTTPRequest.request("http://"+str(url)+":"+str(port)+"/ipfs/"+str(thefile),headers,false,HTTPClient.METHOD_GET)	
 
 # warning-ignore:unused_argument
 # warning-ignore:unused_argument

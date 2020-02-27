@@ -5,33 +5,36 @@
 [ext_resource path="res://Img/mail-send-symbolic.svg" type="Texture" id=3]
 
 [node name="ChatLog" type="PanelContainer"]
-margin_right = 930.0
+margin_right = 928.0
 margin_bottom = 630.0
 rect_min_size = Vector2( 0, 500 )
 rect_clip_content = true
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 14.0
 margin_top = 14.0
-margin_right = 916.0
+margin_right = 914.0
 margin_bottom = 616.0
 rect_min_size = Vector2( 0, 500 )
 rect_clip_content = true
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 902.0
+margin_right = 900.0
 margin_bottom = 25.0
 text = "Chat"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 margin_top = 33.0
-margin_right = 902.0
+margin_right = 900.0
 margin_bottom = 41.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
 margin_top = 49.0
-margin_right = 902.0
+margin_right = 900.0
 margin_bottom = 549.0
 rect_min_size = Vector2( 900, 500 )
 scroll_horizontal_enabled = false
@@ -41,7 +44,7 @@ custom_constants/separation = 10
 
 [node name="InputArea" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 557.0
-margin_right = 902.0
+margin_right = 900.0
 margin_bottom = 602.0
 custom_constants/separation = 10
 
@@ -56,14 +59,14 @@ stretch_mode = 6
 
 [node name="message" type="LineEdit" parent="VBoxContainer/InputArea"]
 margin_left = 46.0
-margin_right = 856.0
+margin_right = 846.0
 margin_bottom = 45.0
-rect_min_size = Vector2( 810, 0 )
+rect_min_size = Vector2( 800, 0 )
 rect_clip_content = true
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/InputArea"]
-margin_left = 866.0
-margin_right = 902.0
+margin_left = 856.0
+margin_right = 892.0
 margin_bottom = 45.0
 rect_min_size = Vector2( 36, 36 )
 rect_pivot_offset = Vector2( 16.7976, 23.2531 )

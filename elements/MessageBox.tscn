@@ -4,11 +4,14 @@
 [ext_resource path="res://elements/Contact.tscn" type="PackedScene" id=2]
 
 [node name="MessageBox" type="Panel"]
-margin_right = 850.0
+margin_right = 840.0
 margin_bottom = 80.0
-rect_min_size = Vector2( 850, 80 )
+rect_min_size = Vector2( 840, 80 )
 rect_clip_content = true
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Contact" parent="." instance=ExtResource( 2 )]
 margin_left = 10.4455

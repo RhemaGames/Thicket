@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://BG/flat_white.tres" type="Environment" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+vertex_color_use_as_albedo = true
+params_diffuse_mode = 4
+params_specular_mode = 3
+
+[sub_resource type="SphereMesh" id=2]
+material = SubResource( 1 )
+radius = 0.1
+height = 0.25
+radial_segments = 10
+rings = 10
+
+[sub_resource type="Curve" id=3]
+min_value = -1.0
+_data = [ Vector2( 0.128713, -0.218182 ), 0.0, -0.250413, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[node name="OpenSeed" type="Spatial"]
+
+[node name="CPUParticles" type="CPUParticles" parent="."]
+amount = 20
+lifetime = 600.0
+preprocess = 13.08
+mesh = SubResource( 2 )
+emission_shape = 1
+emission_sphere_radius = 5.78
+emission_colors = PoolColorArray( 0.745098, 1, 0.72549, 1, 0.494118, 0.92549, 0.988235, 1, 0.980392, 0.635294, 1, 1, 0.647059, 0.537255, 0.960784, 1, 1, 1, 1, 1 )
+gravity = Vector3( 0, 0, 0 )
+linear_accel = 2.72
+linear_accel_random = 1.0
+radial_accel_random = 1.0
+scale_amount_random = 1.0
+hue_variation = 1.0
+hue_variation_random = 1.0
+hue_variation_curve = SubResource( 3 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5 )
+environment = ExtResource( 1 )

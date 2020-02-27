@@ -42,7 +42,7 @@ func _ready():
 	emit_signal("playposition",0.0)
 	emit_signal("playing",is_playing)
 	emit_signal("trackart",noimage)
-	color = Thicket.selected_color
+	#color = Thicket.selected_color
 	
 	pass # Replace with function body.
 
@@ -53,8 +53,8 @@ func _ready():
 
 func _on_MusicBar_playing(playing):
 	if playing == true:
-		self.self_modulate = Thicket.music_color
-		$PlayerControls.self_modulate = Thicket.music_color
+		#self.self_modulate = Thicket.music_color
+		#$PlayerControls.self_modulate = Thicket.music_color
 		$songProgress.show()
 		$PlayerStatus.show()
 		$PlayerControls/HBoxContainer/play.set("texture_normal",stopImage)
@@ -62,8 +62,8 @@ func _on_MusicBar_playing(playing):
 		$PlayerControls/HBoxContainer/play.set("texture_focus",stopImage)
 		is_playing = true
 	else: 
-		self.self_modulate = color
-		$PlayerControls.self_modulate = color
+		#self.self_modulate = color
+		#$PlayerControls.self_modulate = color
 		$songProgress.hide()
 		$PlayerStatus.hide()
 		$PlayerControls/HBoxContainer/play.set("texture_normal",startImage)

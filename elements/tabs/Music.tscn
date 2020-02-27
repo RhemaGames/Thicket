@@ -1,0 +1,136 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Fonts/NaviFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Img/window-maximize-symbolic.svg" type="Texture" id=2]
+[ext_resource path="res://elements/StatBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://elements/tabs/Music.gd" type="Script" id=4]
+[ext_resource path="res://elements/Post.tscn" type="PackedScene" id=7]
+[ext_resource path="res://elements/StatCircle.tscn" type="PackedScene" id=8]
+
+[node name="Music" type="Tabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 34.0
+margin_right = -5.0
+margin_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_clip_content = true
+script = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.464403
+anchor_top = 0.00482675
+anchor_right = 0.535597
+anchor_bottom = 0.0492242
+margin_left = 22.5
+margin_top = 4.5
+margin_right = -22.4999
+margin_bottom = -4.5
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 1 )
+text = "Music"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 52.0
+margin_right = 3.99988
+margin_bottom = -54.0001
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 400.0
+margin_bottom = 914.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 25.0
+text = "Tracks:"
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer/VBoxContainer/Label"]
+anchor_left = 0.945146
+anchor_top = 0.144337
+anchor_right = 0.995146
+anchor_bottom = 0.97767
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 2 )
+texture_disabled = ExtResource( 2 )
+texture_focused = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+margin_top = 33.0
+margin_right = 400.0
+margin_bottom = 41.0
+
+[node name="Tracks" type="ScrollContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 49.0
+margin_right = 400.0
+margin_bottom = 789.0
+rect_min_size = Vector2( 400, 740 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/Tracks"]
+margin_right = 400.0
+rect_min_size = Vector2( 400, 0 )
+
+[node name="Info" type="ScrollContainer" parent="HBoxContainer"]
+margin_left = 410.0
+margin_right = 1580.0
+margin_bottom = 914.0
+rect_min_size = Vector2( 1170, 0 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Info"]
+margin_right = 1180.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 1180, 0 )
+
+[node name="Post" parent="HBoxContainer/Info/VBoxContainer" instance=ExtResource( 7 )]
+margin_right = 1180.0
+margin_bottom = 28.0
+
+[node name="Statistics" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 1590.0
+margin_right = 1838.0
+margin_bottom = 914.0
+rect_min_size = Vector2( 240, 0 )
+
+[node name="Label" type="Label" parent="HBoxContainer/Statistics"]
+margin_right = 248.0
+margin_bottom = 25.0
+text = "Stats"
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/Statistics"]
+margin_top = 33.0
+margin_right = 248.0
+margin_bottom = 41.0
+
+[node name="StatCircle" parent="HBoxContainer/Statistics" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 49.0
+margin_right = 248.0
+margin_bottom = 249.0
+
+[node name="StatBar" parent="HBoxContainer/Statistics" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 257.0
+margin_right = 248.0
+margin_bottom = 357.0

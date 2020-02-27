@@ -7,7 +7,7 @@ extends Control
 var minNum = 0
 var maxNum = 7
 var currentNum = 0
-var startRotation = 180
+var startRotation = 0
 var currentRotation = 0
 
 signal set_num(number)
@@ -25,5 +25,5 @@ func _ready():
 #	pass
 
 func _on_StatCircle_set_num(number):
-	$Indicator.rect_rotation = 0
+	$Indicator.rect_rotation = number
 	pass # Replace with function body.

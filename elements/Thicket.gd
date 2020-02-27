@@ -41,7 +41,8 @@ func developer_save(dev):
 	file.close()
 	
 func settings_save(creatorMode,privMode,cf,replaceMedia,
-customMusicFolder,customVideoFolder,includeApps,includeEmulators,mamePath,mameRomPath,mednafenPath,mednafenRomPath,p2p,ipfs):
+customMusicFolder,customVideoFolder,includeApps,includeEmulators,
+mamePath,mameRomPath,mednafenPath,mednafenRomPath,p2p,ipfs):
 	var file = File.new()
 	var content = '{"creatorMode":"'+str(creatorMode)+'","private":"'+str(privMode)
 	content += '","customFolders":"'+str(cf)+'","rmdoubles":"'+str(replaceMedia)+'","MusicFolder":"'+str(customMusicFolder)+'","VideoFolder":"'+str(customVideoFolder)
@@ -287,6 +288,14 @@ func create_creator(cName,pCon,email,steemaccount,about):
 	var _response = OpenSeed.get_from_socket('{"act":"create_profile","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'",'+datastring+',"type":2}')
 	dev_profile = datastring
 	return created
+	
+func get_creator():
+	var defaults = '"appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'"'
+	var response = OpenSeed.get_from_socket('{"act":"creatorcheck",'+defaults+',"steem":"'+OpenSeed.steem+'"}')
+	var jsoned = parse_json(response)
+	OpenSeed.profile_creator_Id = jsoned["devID"]
+	OpenSeed.profile_creator_Pub = jsoned["pubID"]
+	return response
 	
 func _on_new_tracks(data):
 	load_cache("tracks")

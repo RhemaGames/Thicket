@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://default.theme" type="Theme" id=1]
 [ext_resource path="res://elements/control_backing.tres" type="StyleBox" id=2]
@@ -10,30 +10,14 @@
 [ext_resource path="res://icon.png" type="Texture" id=8]
 [ext_resource path="res://elements/bandaid.tres" type="StyleBox" id=9]
 
-[sub_resource type="Animation" id=1]
-resource_name = "ready"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerControls:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1548, 3.5509 ), Vector2( 1548, -92.682 ) ]
-}
-
 [node name="MusicBar" type="Panel"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -8.0
-margin_top = -76.0
+margin_top = -80.2959
 margin_right = 4.0
-margin_bottom = 6.0
+margin_bottom = 1.7041
 rect_min_size = Vector2( 0, 76 )
 theme = ExtResource( 1 )
 custom_styles/panel = ExtResource( 2 )
@@ -43,19 +27,16 @@ __meta__ = {
 }
 
 [node name="PlayerControls" type="Panel" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = 588.09
-margin_top = -124.0
-margin_right = 963.09
+anchor_left = 0.809623
+anchor_top = -0.515614
+anchor_right = 1.00575
+anchor_bottom = 0.996581
 grow_horizontal = 2
 grow_vertical = 2
 custom_styles/panel = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true,
-"_edit_lock_": true
+"_edit_use_anchors_": true
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PlayerControls"]
@@ -119,9 +100,9 @@ modulate = Color( 0, 0, 0, 1 )
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = -11.0
-margin_top = -15.0
+margin_top = -14.0
 margin_right = 12.0
-margin_bottom = 56.8
+margin_bottom = 57.0
 custom_styles/panel = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -177,31 +158,37 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 margin_left = -300.339
-margin_top = 2.5
+margin_top = -3.22791
 margin_right = -73.3389
-margin_bottom = 26.5
+margin_bottom = 20.7721
 
 [node name="title" type="Label" parent="songProgress"]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = -60.0
+margin_left = -62.9403
 margin_top = -13.0
+margin_right = 5.05969
 margin_bottom = 11.0
 text = "Time:"
 align = 2
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="left" type="Label" parent="songProgress"]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = 9.0
-margin_top = -13.0
-margin_right = 57.0
-margin_bottom = 11.0
+margin_top = -9.60876
+margin_right = 56.0
+margin_bottom = 14.3912
 text = "0.00"
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="wait" type="Label" parent="."]
 visible = false
@@ -210,14 +197,11 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 margin_left = -264.446
-margin_top = 2.88904
-margin_right = -96.446
-margin_bottom = 26.8891
+margin_top = -4.27075
+margin_right = -88.446
+margin_bottom = 19.7293
 text = "Please Wait..."
 uppercase = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/ready = SubResource( 1 )
 [connection signal="playing" from="." to="." method="_on_MusicBar_playing"]
 [connection signal="playlist_loaded" from="." to="." method="_on_MusicBar_playlist_loaded"]
 [connection signal="playposition" from="." to="." method="_on_MusicBar_playposition"]

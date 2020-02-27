@@ -45,7 +45,6 @@ func set_box(profile,account):
 		else:
 			$title.text = account
 		Thicket.local_knowledge_add("/artists/"+account,'{"ProfileName":"'+$title.text+'"}')
-	
 		if !imgfile.file_exists("user://cache/Img/"+account+"ProfileImg"):
 			if str(pfile["profile"].keys()).find("profile_image") != -1:
 				get_pimage(account,pfile["profile"]["profile_image"])

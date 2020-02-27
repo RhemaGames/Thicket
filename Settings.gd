@@ -4,6 +4,18 @@ var Thicket
 var OpenSeed
 var first_launch = true
 
+var mTab = preload("res://elements/tabs/Music.tscn")
+var gTab = preload("res://elements/tabs/Games.tscn")
+var vTab = preload("res://elements/tabs/Videos.tscn")
+var aTab = preload("res://elements/tabs/Applications.tscn")
+var dTab = preload("res://elements/tabs/Digital Goods.tscn")
+
+var tMusic = mTab.instance()
+var tGames = gTab.instance()
+var tVideos = vTab.instance()
+var tApplications = aTab.instance()
+var tDG = dTab.instance()
+
 #User Options
 var creatorMode = false
 var privMode = false
@@ -32,7 +44,9 @@ var AccountInfo
 var About
 var System
 var Network
+var CreatorProfile
 
+# warning-ignore:unused_signal
 signal show(what)
 	
 func _ready():
@@ -42,6 +56,8 @@ func _ready():
 	About = $Panel/AccountContainer/Account/HBoxContainer/About/TextEdit
 	System = $Panel/SystemContainer/System
 	Network = $Panel/NetworkContainer/Network
+	CreatorProfile = $Panel/CreatorContainer/Profile/HBoxContainer
+	
 	setup(Thicket.settings_load())
 	
 func _on_Settings_visibility_changed():
@@ -50,8 +66,9 @@ func _on_Settings_visibility_changed():
 		p2p = $Panel/ScrollContainer/VBoxContainer/p2p.is_pressed()
 		ipfs = $Panel/ScrollContainer/VBoxContainer/ipfs.is_pressed()
 		creatorMode = AccountInfo.get_node("creatorMode").is_pressed()
-		var customMusicFolder = $Panel/ScrollContainer/VBoxContainer/Music/entry.text
-		var customVideoFolder = $Panel/ScrollContainer/VBoxContainer/Video/entry.text
+		var _customMusicFolder = $Panel/ScrollContainer/VBoxContainer/Music/entry.text
+		var _customVideoFolder = $Panel/ScrollContainer/VBoxContainer/Video/entry.text
+		
 		save()
 
 
@@ -125,6 +142,27 @@ func _on_AccountContainer_visibility_changed():
 		AccountInfo.get_node("HBoxContainer/VBoxContainer/Phone").text = OpenSeed.profile_phone
 		About.text = OpenSeed.profile_about
 		AccountInfo.get_node("HBoxContainer/Contact").emit_signal("refresh")
+		
+	if $Panel/CreatorContainer.visible:
+		Thicket.get_creator()
+		if CreatorProfile.get_node("ScrollContainer/VBoxContainer/AppCheck").is_pressed():
+			$Panel/CreatorContainer.add_child(tApplications)
+		if CreatorProfile.get_node("ScrollContainer/VBoxContainer/GameCheck").is_pressed():
+			$Panel/CreatorContainer.add_child(tGames)
+		if CreatorProfile.get_node("ScrollContainer/VBoxContainer/MusicCheck").is_pressed():
+			$Panel/CreatorContainer.add_child(tMusic)
+		if CreatorProfile.get_node("ScrollContainer/VBoxContainer/VideosCheck").is_pressed():
+			$Panel/CreatorContainer.add_child(tVideos)
+		if CreatorProfile.get_node("ScrollContainer/VBoxContainer/DGCheck").is_pressed():
+			$Panel/CreatorContainer.add_child(tDG)
+			
+		CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name").text = OpenSeed.profile_name
+		CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/email").text = OpenSeed.profile_email
+		CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/steem").text = OpenSeed.steem
+		CreatorProfile.get_node("ScrollContainer/VBoxContainer/creatorPubID/ID").text = OpenSeed.profile_creator_Pub
+		CreatorProfile.get_node("ScrollContainer/VBoxContainer/creatorPrivID/ID").text = OpenSeed.profile_creator_Id
+		
+		
 	pass # Replace with function body.
 
 
@@ -224,26 +262,86 @@ func _on_CreatorContainer_tab_changed(tab):
 			
 	pass # Replace with function body.
 
-func pull_music(account):
+func pull_music(_account):
 	$Panel/CreatorContainer/Music.loadUp("newenx")
 	pass
 
-func pull_videos(account):
+func pull_videos(_account):
 	print("VIDEOS")
 	pass
 
-func pull_games(account):
+func pull_games(_account):
 	print("GAMES")
 	pass
 
-func pull_apps(account):
+func pull_apps(_account):
 	print("APPS")
 	pass
 
-func pull_profile(account):
+func pull_profile(_account):
 	print("PROFILE")
 	pass
 	
-func pull_dg(account):
+func pull_dg(_account):
 	print("Digital Goods")
 	pass
+
+
+func _on_submit_pressed():
+	var aC = CreatorProfile.get_node("ScrollContainer/VBoxContainer/AppCheck").is_pressed()
+	var gC = CreatorProfile.get_node("ScrollContainer/VBoxContainer/GameCheck").is_pressed()
+	var mC = CreatorProfile.get_node("ScrollContainer/VBoxContainer/MusicCheck").is_pressed()
+	var vC = CreatorProfile.get_node("ScrollContainer/VBoxContainer/VideosCheck").is_pressed()
+	var dC = CreatorProfile.get_node("ScrollContainer/VBoxContainer/DGCheck").is_pressed()
+	var cname = CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name").text
+	var email = CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/email").text
+	var location = CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/steem").text
+	print(cname," ",email," ",location," ",aC," ",gC," ",mC," ",vC," ",dC)
+	#Thicket.save_creator()
+	pass # Replace with function body.
+
+
+func _on_save_pressed():
+	
+	pass # Replace with function body.
+
+
+func _on_AppCheck_pressed():
+	if $Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer/AppCheck.is_pressed():
+		$Panel/CreatorContainer.add_child(tApplications)
+	else:
+		$Panel/CreatorContainer.remove_child(tApplications)
+		
+	pass # Replace with function body.
+
+
+func _on_GameCheck_pressed():
+	if $Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer/GameCheck.is_pressed():
+		$Panel/CreatorContainer.add_child(tGames)
+	else:
+		$Panel/CreatorContainer.remove_child(tGames)
+	pass # Replace with function body.
+
+
+func _on_MusicCheck_pressed():
+	if $Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer/MusicCheck.is_pressed():
+		$Panel/CreatorContainer.add_child(tMusic)
+	else:
+		$Panel/CreatorContainer.remove_child(tMusic)
+	pass # Replace with function body.
+
+
+func _on_VideosCheck_pressed():
+	if $Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer/VideosCheck.is_pressed():
+		$Panel/CreatorContainer.add_child(tVideos)
+	else:
+		$Panel/CreatorContainer.remove_child(tVideos)
+	pass # Replace with function body.
+
+
+func _on_DGCheck_pressed():
+	if $Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer/DGCheck.is_pressed():
+		$Panel/CreatorContainer.add_child(tDG)
+	else:
+		$Panel/CreatorContainer.remove_child(tDG)
+	pass # Replace with function body.
