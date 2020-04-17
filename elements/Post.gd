@@ -20,7 +20,7 @@ func _ready():
 
 func track_formatter(artist,title,post):
 	var data = Thicket.get_post(artist,post)
-	var currentAlign = "left"
+#	var currentAlign = "left"
 	var output = title+"\n"+data
 	var lines = output.split("\n")
 	
@@ -53,10 +53,10 @@ func track_formatter(artist,title,post):
 			elif t.find("a href") == -1:
 				var textLine = Label.new()
 				textLine.autowrap = true
-				if t.find("center>"):
-					currentAlign = "center"
-				if t.find("/center>"):
-					currentAlign = "left"	
+				#if t.find("center>"):
+#					currentAlign = "center"
+			#	if t.find("/center>"):
+				#	currentAlign = "left"	
 				if t != "hr>" and t != "br>" and t.find("##") and t.find("center>") and t.find("/center>") and t.find("iframe") and t.find("/iframe") and t.find("/a>"):
 					textLine.text = t
 					#match(currentAlign):

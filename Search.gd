@@ -151,8 +151,8 @@ func _clear_highlight(track):
 func _on_Search_go(artist):
 	$AnimationPlayer.play("searching")
 	$Banner.emit_signal("retrieve",artist)
-	var list = get_parent().get_music(artist)
+	var _list = get_parent().get_music(artist)
 	$doublePaneView.artist = artist
-	emit_signal("update_playlist",$doublePaneView.create_list(list))
+	emit_signal("update_playlist",$doublePaneView.create_list(_list))
 	$doublePaneView.show()
 

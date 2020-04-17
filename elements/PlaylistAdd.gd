@@ -16,6 +16,7 @@ var tags
 var imgfile = File.new()
 var Imagedata = Image.new()
 var Imagetex = ImageTexture.new()
+# warning-ignore:unused_signal
 signal add_track(track)
 
 func _ready():
@@ -26,7 +27,7 @@ func _on_Cancel_pressed():
 	hide()
 	
 func _on_Button_pressed():
-	$Thicket.local_knowledge_add("../playlists/"+playlist,thetrack[0])
+	Thicket.local_knowledge_add("../playlists/"+playlist,thetrack[0])
 	hide()
 	
 func load_playlists():

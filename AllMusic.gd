@@ -6,9 +6,10 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+# warning-ignore:return_value_discarded
 	get_parent().connect("resized",self,"on_resize")
+# warning-ignore:return_value_discarded
 	get_node("/root/MainWindow").connect("loading_complete",self,"on_loading_done")
-	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -16,22 +17,22 @@ func _ready():
 
 func on_loading_done():
 	print("starting All Music")
-	$Timer.start()
+	#$Timer.start()
 	$Main/MainView/NewArtists.emit_signal("getNew")
 	$NewArtistTimer.start()
+	OpenSeed.command("newtracks","")
 	$Main/MainView/NewTracks.emit_signal("getNew")
 	#$NewTrackTimer.start()
+	OpenSeed.command("newartists","")
+	#OpenSeed.emit_signal("command","newtracks","")
+	#OpenSeed.emit_signal("command","newartists","")
 
 func _on_AllMusic_visibility_changed():
 	if visible:
 		$resize.start()
-		#$Main/MainView/NewArtists.emit_signal("getNew")
-		#$Main/MainView/NewTracks.emit_signal("getNew")
-		
+		$Main/MainView/NewArtists.emit_signal("getNew")
 		$Main.set_v_scroll(0)
 		$Main/MainView/playlistGrid.emit_signal("loadup")
-		
-	pass # Replace with function body.
 
 
 
@@ -41,18 +42,18 @@ func _on_newMusic_pressed():
 	get_parent().playlist = get_parent().get_node("OptionView").create_list(list)
 	get_parent().get_node("OptionView").show()
 	self.hide()
-	pass # Replace with function body.
+
 
 
 func _on_NewArtistTimer_timeout():
 	#if visible:
-	$Main/MainView/NewArtists.emit_signal("getNew")
+	#$Main/MainView/NewArtists.emit_signal("getNew")
 	pass # Replace with function body.
 
 
 func _on_NewTrackTimer_timeout():
 	#if visible:
-	$Main/MainView/NewTracks.emit_signal("getNew")
+	#$Main/MainView/NewTracks.emit_signal("getNew")
 	pass # Replace with function body.
 
 

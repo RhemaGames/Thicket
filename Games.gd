@@ -5,6 +5,7 @@ var GameBox = preload("res://elements/GameBig.tscn")
 # var b = "text"
 var OpenSeed 
 var Thicket
+# warning-ignore:unused_signal
 signal launch_game(game)
 # Called when the node enters the scene tree for the first time.
 func _ready():

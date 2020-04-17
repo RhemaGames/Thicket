@@ -4,13 +4,14 @@ var fallback = preload("res://Img/avatar-default-symbolic.svg")
 var title = ""
 var pImage = ""
 var imgfile = File.new()
-var block = ""
+var block = Image.new()
 var texblock = ""
 var highlight = false
 #var loadAnimDone = false
 var OpenSeed
 var Thicket	
 
+# warning-ignore:unused_signal
 signal refresh()
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,9 +43,11 @@ func get_image(image):
 				if err != 0:
 					Imagetex = fallback
 				else:
-					Imagetex.create_from_image(Imagedata,0)
+					#Imagetex.create_from_image(Imagedata,0)
+					Imagetex = fallback
 			else:
-				Imagetex.create_from_image(Imagedata,0)
+				#Imagetex.create_from_image(Imagedata,0)
+				Imagetex = fallback
 		else:
 			print(image)
 			print("too big")
@@ -62,7 +65,8 @@ func get_timage(url,thefile):
 			"User-Agent: Pirulo/1.0 (Godot)",
 			"Accept: */*"
 		]
-		$HTTPRequest.request(str(url),headers,false,HTTPClient.METHOD_GET)	
+		if url:
+			$HTTPRequest.request(str(url),headers,false,HTTPClient.METHOD_GET)	
 
 # warning-ignore:unused_argument
 # warning-ignore:unused_argument

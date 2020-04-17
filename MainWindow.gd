@@ -8,6 +8,7 @@ var Thicket
 signal checksteem()
 signal loading_complete()
 signal loading_start(what)
+# warning-ignore:unused_signal
 signal where(place)
 
 # Called when the node enters the scene tree for the first time.
@@ -21,10 +22,12 @@ func _ready():
 	OpenSeed = get_node("/root/OpenSeed")
 	Thicket = get_node("/root/Thicket")
 	Thicket.create_folders()
-
-	
-	
-	
+	OpenSeed.devPub = "2c65ba0d"
+	OpenSeed.devId = "0a1831e5eb07615f9cbd999acc8464821b9299b642d033f501f177df5b5dc3a2"
+	OpenSeed.appPub = "6c6d0ec5"
+	OpenSeed.appId = "26a24a33a7fde894b5f3ab02ce67a28ccc309dcfe94b625ade8ab1b5ba97d507" 
+	var bg_instance = load("res://BG/dancing.tscn").instance()
+	$background/Viewport.add_child(bg_instance)
 	$Navi/MusicBar.color = Color(0.2,0.2,0.2)
 	#$Spatial/AnimationPlayer.play("slowwalk")
 
@@ -188,7 +191,6 @@ func _on_Loading_alldone():
 
 func _on_Social_done():
 	$Loading.hide()
-	pass # Replace with function body.
 
 func _process(_delta): 
 	var theTime = OS.get_time()
@@ -215,7 +217,7 @@ func _process(_delta):
 	
 	pass
 
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_AnimationPlayer_animation_finished(_anim_name):
 	$Navi.emit_signal("activeRelease","all")
 	pass # Replace with function body.
 	

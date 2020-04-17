@@ -16,12 +16,15 @@ signal songlength(length)
 signal playposition(pos)
 signal playing(playing)
 signal trackart(art)
+# warning-ignore:unused_signal
 signal timeleft(time)
 
+# warning-ignore:unused_signal
 signal wait(status)
 
 signal play_pressed(playing)
 
+# warning-ignore:unused_signal
 signal playlist_loaded(ready)
 
 signal next_track()

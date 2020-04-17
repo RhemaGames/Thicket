@@ -87,7 +87,7 @@ rect_min_size = Vector2( 400, 800 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/Tracks"]
 margin_right = 400.0
-margin_bottom = 24.0
+margin_bottom = 25.0
 rect_min_size = Vector2( 400, 0 )
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Tracks/VBoxContainer"]
@@ -103,7 +103,7 @@ rect_min_size = Vector2( 1200, 0 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Info"]
 margin_right = 1200.0
-margin_bottom = 24.0
+margin_bottom = 25.0
 rect_min_size = Vector2( 1200, 0 )
 
 [node name="Label" type="Label" parent="HBoxContainer/Info/VBoxContainer"]

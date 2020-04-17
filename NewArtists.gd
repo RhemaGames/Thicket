@@ -6,6 +6,7 @@ var currentList
 var imageFile = Image.new()
 var textureFile = [ImageTexture.new(),ImageTexture.new(),ImageTexture.new(),ImageTexture.new(),ImageTexture.new()]
 
+# warning-ignore:unused_signal
 signal getNew()
 
 func _ready():
@@ -20,6 +21,7 @@ func _ready():
 # warning-ignore:unused_argument
 func get_new_artists(num):
 	var newartists = Thicket.new_artists
+	print(newartists)
 	return newartists
 
 func propogate_new_artists():

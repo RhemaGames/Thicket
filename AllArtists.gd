@@ -61,6 +61,7 @@ func get_artists():
 
 func get_artists_new(anum):
 	var catalog = []
+	
 	if anum < Thicket.artists.size():
 		if anum >= $ScrollContainer/GridContainer.get_child_count():
 			textureFile.append(ImageTexture.new())

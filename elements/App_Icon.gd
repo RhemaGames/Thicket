@@ -21,6 +21,7 @@ func _ready():
 #func _process(delta):
 #	pass
 
+# warning-ignore:shadowed_variable
 func read_desktop(path):
 	file.open(path,File.READ)
 	var info = file.get_as_text()

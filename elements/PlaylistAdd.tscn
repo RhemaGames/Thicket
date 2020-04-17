@@ -1,9 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://elements/PlaylistAdd.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://OpenSeed-Godot/OpenSeed.tscn" type="PackedScene" id=3]
-[ext_resource path="res://elements/Thicket.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=5]
 
 [node name="PlaylistAdd" type="Panel"]
@@ -18,6 +16,9 @@ margin_bottom = 175.0
 rect_min_size = Vector2( 350, 350 )
 rect_pivot_offset = Vector2( 316.078, 86.5961 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Panel" type="Panel" parent="."]
 self_modulate = Color( 0.0352941, 0.0352941, 0.0352941, 0.521569 )
@@ -90,10 +91,6 @@ margin_bottom = 171.0
 rect_min_size = Vector2( 256, 256 )
 texture = ExtResource( 2 )
 expand = true
-
-[node name="OpenSeed" parent="." instance=ExtResource( 3 )]
-
-[node name="Thicket" parent="." instance=ExtResource( 4 )]
 
 [node name="title" type="Label" parent="."]
 anchor_left = 0.5

@@ -18,6 +18,9 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_clip_content = true
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.464403

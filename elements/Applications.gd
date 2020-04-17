@@ -19,7 +19,7 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if pid != 0:
 		LoadingScreen.get_node("Label").text = "Launched "+executing+"("+str(pid)+")"
 		process_watcher(pid,executing)
@@ -54,6 +54,7 @@ func execute(program):
 func process_watcher(thepid,program):
 	var output = []
 	if OS.get_name() == "X11":
+# warning-ignore:return_value_discarded
 		OS.execute("/bin/ps",["--no-headers",str(thepid)],true,output)
 		if len(output[0]) > 10 and output[0].find("<defunct>") != -1:
 			pid = 0

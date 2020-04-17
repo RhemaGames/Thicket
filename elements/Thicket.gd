@@ -1,7 +1,7 @@
 extends Node
 
 var OpenSeed
-var connections_list
+var connections_list = []
 var artists = []
 var new_artists = []
 var new_tracks = []
@@ -24,6 +24,8 @@ var listEmulators = false
 var selected_color = Color(0.8,0.8,0.8)
 
 signal new_tracks_ready()
+signal new_artists_ready()
+signal conversations_ready()
 
 var dev_profile = ""
 
@@ -31,6 +33,31 @@ var dev_profile = ""
 func _ready():
 	OpenSeed = get_node("/root/OpenSeed")
 	OpenSeed.connect("new_tracks",self,"_on_new_tracks")
+	OpenSeed.connect("new_artists",self,"_on_new_artists")
+	OpenSeed.connect("conversations",self,"_on_conversations")
+	OpenSeed.connect("tracks",self,"gather_all_tracks")
+	OpenSeed.connect("genres",self,"gather_genres")
+	OpenSeed.connect("connections",self,"store_connections")
+# warning-ignore:return_value_discarded
+	$Timer.connect("timeout",self,"update_loop")
+	$Timer.start()
+	
+	pass
+
+func store_connections(data):
+	for c in data:
+		var found = false
+		for f in Thicket.connections_list:
+			if f["username"] == c["username"]:
+				found = true
+				break
+		if found == false:
+			Thicket.connections_list.append(c)
+	pass
+
+func update_loop():
+	OpenSeed.send('{"act":"genres","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'"}',6)
+	OpenSeed.get_connections(OpenSeed.username)
 	pass
 
 func developer_save(dev):
@@ -97,20 +124,23 @@ func playlist_load(type):
 	return(list)
 			
 
-func playlist_save(type,data):
-	var list = playlist_load(type)
-	var file = File.new()
-	var index = find_track(data)
-	var Tdata = to_json(Thicket.tracks[index])
-	if list:
-		if list.find(Tdata) == -1:
-			file.open("user://database/"+type+".dat", File.WRITE)
-			file.store_string(Tdata+", \n"+list)
-	else:
-		file.open("user://database/"+type+".dat", File.WRITE)
-		file.store_string(Tdata+", \n")
+func playlist_save(_type,_data):
+	#var list = playlist_load(type)
+#	var file = File.new()
+#	var index = find_track(data)
+#	var Tdata = to_json(Thicket.tracks[index])
+#	if list:
+#		if list.find(Tdata) == -1:
+#			file.open("user://database/"+type+".dat", File.WRITE)
+#			file.store_string(Tdata+", \n"+list)
+#	else:
+#		file.open("user://database/"+type+".dat", File.WRITE)
+#		file.store_string(Tdata+", \n")
 		
-	file.close()
+#	file.close()
+	pass
+	
+
 
 func create_folders():
 	var dir = Directory.new()
@@ -140,6 +170,8 @@ func create_folders():
 		dir.make_dir("user://updates")
 	if !dir.dir_exists("user://playlists"):
 		dir.make_dir("user://playlists")
+	if !dir.dir_exists("user://runners"):
+		dir.make_dir("user://runners")
 
 # warning-ignore:unused_argument
 func played_song_record(track):
@@ -195,26 +227,28 @@ func local_knowledge_add(type,track):
 func store(type,newlist):
 	var list 
 	var file = File.new()
-	file.open("user://database/"+type+".dat", File.WRITE)
+	
 	match type:
 		"tracks":
-			#load_cache("tracks")
 			list = str(newlist.size())
+			file.open("user://database/"+type+".dat", File.WRITE)
 			for t in newlist:
 				list = list+", \n"+to_json(t)
 		"artists":
-			#load_cache("artists")
 			list = str(artists.size())
+			file.open("user://database/"+type+".dat", File.WRITE)
 			for t in artists:
 				list = list+", \n"+to_json(t)
 		"genres":
-			#load_cache("genres")
 			list = str(genres.size())
+			file.open("user://database/"+type+".dat", File.WRITE)
+			#print("Number of genres "+list)
 			for t in genres:
 				list = list+", \n"+to_json(t)
 				
 	file.store_string(list)
 	file.close()
+	return 1
 
 func build_genres(track):
 	var list = ""
@@ -299,14 +333,11 @@ func get_creator():
 	
 func _on_new_tracks(data):
 	load_cache("tracks")
-	var ntracks = data.split("}, ")
+	var ntracks = data
 	new_tracks = []
 	if data:
 		for track in ntracks:
-			if track[0] == "[":
-				track = track.trim_prefix("[")
-			var parsed_track = parse_json(track+"}")
-			new_tracks.append(parsed_track)
+			new_tracks.append(track)
 		for test in new_tracks:
 			var found = false
 			if len(str(test)) > 4 and test.has("title"):
@@ -316,9 +347,24 @@ func _on_new_tracks(data):
 						break
 				if !found:
 					tracks.insert(0,test)
-					
-		store("tracks",tracks)
+	
 	emit_signal("new_tracks_ready")
+	
+func _on_new_artists(data):
+	new_artists = []
+	if data:
+		for artist in data:
+			new_artists.append(artist)
+	print(new_artists)
+	emit_signal("new_artists_ready")
+	
+# warning-ignore:unused_argument
+func _on_conversations(data):
+	#print("Signal receieved")
+	#if data:
+	#	print(data)
+	
+	emit_signal("conversations_ready")
 
 func ipfs_upload(file):
 	var the_hash = []
@@ -354,6 +400,41 @@ func favorite_app_list():
 			
 	pass
 
-func load_library():
-	
-	pass
+func gather_genres(list):
+	if list:
+		for g in list:
+			if Thicket.genres:
+				if !Thicket.genres.has(g):
+					Thicket.genres.append(g)
+					OpenSeed.send('{"act":"genre_json","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'","genre":"'+g+'","count":"0"}',6)
+			else:
+				Thicket.genres.append(g)
+				OpenSeed.send('{"act":"genre_json","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'","genre":"'+g+'","count":"0"}',6)
+	return 1
+
+func gather_all_tracks(content):
+	if content:
+		var clean_list = content["results"]
+		if typeof(clean_list) == TYPE_ARRAY:
+			for t in clean_list:
+				if Thicket.tracks:
+					if !Thicket.tracks.has(t):
+						Thicket.tracks.append(t)
+				else:
+					Thicket.tracks.append(t)
+					
+				if t.keys().has("author"):
+					if Thicket.artists:
+						if !Thicket.artists.has(t["author"]):
+							Thicket.artists.append(t["author"])
+					else:
+						Thicket.artists.append(t["author"])
+
+
+#func _on_Thicket_update_loop(last):
+#	pass # Replace with function body.
+
+
+func _on_Timer_timeout():
+	$Timer.wait_time = 20
+	pass # Replace with function body.

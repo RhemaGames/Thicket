@@ -18,9 +18,6 @@ __meta__ = {
 [node name="Panel2" type="Panel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -41.0
-margin_right = -1.52588e-05
-margin_bottom = -1.52588e-05
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -30,7 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 2.0
 margin_top = 23.0
-margin_right = -11.0
+margin_right = -2.0
 margin_bottom = 58.0
 rect_pivot_offset = Vector2( 117.5, 117.5 )
 rect_clip_content = true
@@ -45,34 +42,41 @@ __meta__ = {
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -69.0
-margin_right = -1.52588e-05
-margin_bottom = 22.0
+margin_top = -65.0
+margin_bottom = 1.0
 rect_min_size = Vector2( 0, 50 )
 rect_pivot_offset = Vector2( 104.322, 119.996 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Info"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -6.0
+margin_top = -42.7501
 margin_right = 5.0
-margin_bottom = -22.0
+margin_bottom = -64.7501
+custom_constants/separation = 20
 alignment = 1
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="statTitle" type="Label" parent="Info/VBoxContainer"]
-margin_top = 5.0
-margin_right = 259.0
-margin_bottom = 30.0
-text = "Stat"
-align = 1
-
 [node name="StatNumber" type="Label" parent="Info/VBoxContainer"]
-margin_top = 38.0
 margin_right = 259.0
-margin_bottom = 63.0
+margin_bottom = 25.0
 text = "StatNum"
 align = 1
+
+[node name="statTitle" type="Label" parent="Info/VBoxContainer"]
+margin_top = 45.0
+margin_right = 259.0
+margin_bottom = 70.0
+text = "Stat"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="set_num" from="." to="." method="_on_StatCircle_set_num"]

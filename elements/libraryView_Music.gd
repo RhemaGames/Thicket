@@ -20,7 +20,9 @@ func _ready():
 		MusicRoot = get_tree().get_root().get_child(2).get_node("MainWindow").get_node("WindowContainer").get_node("Music")
 	else:
 		MusicRoot = get_tree().get_root().get_node("MainWindow").get_node("WindowContainer").get_node("Music")
-		
+	MusicRoot.connect("resized",self,"on_resize")
+# warning-ignore:return_value_discarded
+	OpenSeed.connect("userloaded",self,"on_user_load")
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,7 +35,7 @@ func create_list(songarray):
 # warning-ignore:unused_variable
 	var window_size = get_size()
 	#set_split_offset(window_size.x / 4)
-	MusicRoot.connect("resized",self,"on_resize")
+	
 	
 	clear_list()
 	playlist = []
@@ -53,7 +55,7 @@ func create_list(songarray):
 	var tags
 	
 	for listitem in songarray:
-		if num < 1000:
+		#if num < 1000:
 			var thesong = songlisting.instance()
 			#Thicket.local_knowledge_add("audio",listitem)
 			if len(listitem) >= 8: 
@@ -73,7 +75,8 @@ func create_list(songarray):
 				thesong.fileName = ogg
 				thesong.tracknum = num
 				thesong.fulltrack = listitem
-				if listitem["duration"]:
+				#print(listitem)
+				if listitem.has("duration"):
 					var minutes = float(listitem["duration"]) / 60
 					var seconds = 0
 					var secs = ""
@@ -131,21 +134,32 @@ func _on_resize_timer_timeout():
 
 
 func _on_libraryView_visibility_changed():
+	if OpenSeed.token:
+		$Menu/GenreBox/ScrollContainer/Genres.emit_signal("loadup")
+		
+	pass # Replace with function body.
+	
+func on_user_load():
 	if visible:
 		$Menu/GenreBox/ScrollContainer/Genres.emit_signal("loadup")
 		
 	pass # Replace with function body.
 	
-func _on_g_pressed(list):	
+func _on_g_pressed(list):
 	if !MusicRoot.playing:
 		MusicRoot.play_list_num = 0
 	#$title.text = list
 	var content = []
-	for t in Thicket.tracks:
-		print(t)
-		if t and t["genre"] == list:
+	var test = OpenSeed.get_from_socket('{"act":"genre_json","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'","genre":"'+list+'","count":"15"}')
+	var jsoned = parse_json(test)
+	if typeof(jsoned) == TYPE_DICTIONARY:
+		print(jsoned["genre_tracks"]["total"])
+		for t in jsoned["genre_tracks"]["results"]:
 			content.append(t)
-	#var content = OpenSeed.get_from_socket('{"act":"genre_json","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'","genre":"'+list+'"}')
+	#for t in Thicket.tracks:
+	#	if t and t["genre"] == list.strip_edges():
+	#		content.append(t)
+	
 	MusicRoot.playlist = self.create_list(content)
 
 func _on_MusicInfo_loaded():

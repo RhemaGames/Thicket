@@ -75,11 +75,9 @@ func nav_buttons(area) :
 		"social":
 			thearea = socialButtons
 			active_area = "social"
-			
-	var children = $Main.get_child_count()
-	while children >= 0:
-		$Main.remove_child($Main.get_child(children))
-		children -= 1
+
+	while $Main.get_child_count() != 0:
+		$Main.remove_child($Main.get_child(0))
 	
 	for n in thearea:
 		var note = navbutton.instance()
@@ -89,6 +87,7 @@ func nav_buttons(area) :
 		note.get_node("AnimationPlayer").play_backwards("focus")
 		$Main.add_child(note)
 		note.connect("activeSet",self,"set_focus")
+# warning-ignore:return_value_discarded
 		self.connect("activeRelease",note,"_on_ActiveRelease")
 
 func release_focus() :
@@ -186,7 +185,7 @@ func set_focus(item):
 				nav_buttons("settings")
 	
 
-func _on_Navi_activeRelease(except):
+func _on_Navi_activeRelease(_except):
 	pass # Replace with function body.
 
 func vert_words(word):

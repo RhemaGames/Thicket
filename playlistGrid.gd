@@ -4,6 +4,7 @@ var genres = preload("res://elements/GenreBox.tscn")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+# warning-ignore:unused_signal
 signal loadup()
 
 # Called when the node enters the scene tree for the first time.

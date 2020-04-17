@@ -20,5 +20,5 @@ func _on_Cancel_pressed():
 func _on_Create_pressed():
 	var title = $LineEdit.text
 	if title.length() > 0:
-		$Thicket.local_knowledge_add("../playlists/"+title,"")
+		Thicket.local_knowledge_add("../playlists/"+title,"")
 	hide()

@@ -33,6 +33,7 @@ window/size/height=1060
 window/size/fullscreen=true
 window/dpi/allow_hidpi=true
 window/stretch/mode="2d"
+window/stretch/aspect="expand"
 
 [gui]
 
@@ -46,5 +47,6 @@ limits/message_queue/max_size_kb=2048
 
 quality/driver/driver_name="GLES2"
 quality/driver/fallback_to_gles2=true
+threads/thread_model=2
 vram_compression/import_etc=true
 environment/default_environment="res://default_env.tres"

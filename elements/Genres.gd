@@ -6,11 +6,12 @@ var gbutton = preload("res://elements/GenreButton.tscn")
 var OpenSeed
 var Thicket 
 var Music
+# warning-ignore:unused_signal
 signal loadup()
 func _ready():
 	OpenSeed = get_node("/root/OpenSeed")
 	Thicket = get_node("/root/Thicket")
-	genre_load()
+	#genre_load()
 	pass # Replace with function body.
 
 
@@ -25,6 +26,13 @@ func genre_load():
 	while current_count >= 0:
 		remove_child(get_child(current_count))
 		current_count -= 1
+	Thicket.genres.sort()
+	if len(Thicket.genres) == 0:
+		print("No Local Genres")
+		var list = OpenSeed.get_audio("genres")
+		if list:
+			Thicket.genres = list
+		Thicket.genres.sort()
 	for genre in Thicket.genres:
 		var g = gbutton.instance()
 		g.text = genre
@@ -46,10 +54,11 @@ func genre_load():
 
 func get_genres():
 	#var from_server = OpenSeed.get_from_socket('{"act":"genres","appID":"'+str(OpenSeed.appId)+'","devID":"'+str(OpenSeed.devId)+'"}')
-	var from_local = Thicket.genres.sort()
+	Thicket.genres.sort()
+	var from_local = Thicket.genres
 	return from_local
 	
-func get_genre(genre):
+func get_genre(_genre):
 	var list = ""
 	
 	return list

@@ -1,9 +1,7 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://default.theme" type="Theme" id=1]
 [ext_resource path="res://MainWindow.gd" type="Script" id=2]
-[ext_resource path="res://BG/Forest.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Img/Trees.svg" type="Texture" id=4]
 [ext_resource path="res://Img/window-close-symbolic.svg" type="Texture" id=5]
 [ext_resource path="res://Games.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Music.tscn" type="PackedScene" id=7]
@@ -265,50 +263,20 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="bg" type="Panel" parent="."]
+[node name="background" type="ViewportContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Forest" parent="bg" instance=ExtResource( 3 )]
-
-[node name="Control" type="Control" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_default_cursor_shape = 2
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
-
-[node name="Trees" type="Sprite" parent="Control"]
-self_modulate = Color( 1, 1, 1, 0.403922 )
-position = Vector2( 1816.96, 431.383 )
-scale = Vector2( 1.42325, 1.80131 )
-texture = ExtResource( 4 )
-
-[node name="Trees2" type="Sprite" parent="Control"]
-self_modulate = Color( 1, 1, 1, 0.505882 )
-position = Vector2( 23.2161, 461.9 )
-scale = Vector2( 1.20416, 1.67226 )
-texture = ExtResource( 4 )
-flip_h = true
-
-[node name="Trees3" type="Sprite" parent="Control"]
-self_modulate = Color( 1, 1, 1, 0.215686 )
-position = Vector2( 1180.04, 356.811 )
-scale = Vector2( 0.447518, 0.476087 )
-texture = ExtResource( 4 )
-
-[node name="Trees4" type="Sprite" parent="Control"]
-self_modulate = Color( 0.945098, 0.945098, 0.945098, 0.129412 )
-position = Vector2( 555.464, 493.108 )
-scale = Vector2( 0.558984, 0.664469 )
-texture = ExtResource( 4 )
-flip_h = true
+[node name="Viewport" type="Viewport" parent="background"]
+size = Vector2( 1900, 1061 )
+handle_input_locally = false
+render_target_update_mode = 3
 
 [node name="Status" type="Control" parent="."]
 visible = false

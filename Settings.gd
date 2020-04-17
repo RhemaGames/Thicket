@@ -158,7 +158,7 @@ func _on_AccountContainer_visibility_changed():
 			
 		CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name").text = OpenSeed.profile_name
 		CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/email").text = OpenSeed.profile_email
-		CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/steem").text = OpenSeed.steem
+		CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/account").text = OpenSeed.username
 		CreatorProfile.get_node("ScrollContainer/VBoxContainer/creatorPubID/ID").text = OpenSeed.profile_creator_Pub
 		CreatorProfile.get_node("ScrollContainer/VBoxContainer/creatorPrivID/ID").text = OpenSeed.profile_creator_Id
 		
@@ -295,7 +295,7 @@ func _on_submit_pressed():
 	var dC = CreatorProfile.get_node("ScrollContainer/VBoxContainer/DGCheck").is_pressed()
 	var cname = CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name").text
 	var email = CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/email").text
-	var location = CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/steem").text
+	var location = CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/account").text
 	print(cname," ",email," ",location," ",aC," ",gC," ",mC," ",vC," ",dC)
 	#Thicket.save_creator()
 	pass # Replace with function body.

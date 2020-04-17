@@ -8,6 +8,7 @@ var Thicket
 # var b = "text"
 # Called when the node enters the scene tree for the first time.
 signal activeSet(item)
+# warning-ignore:unused_signal
 signal activeList()
 var active = false
 var bgColor = Color(0.1,1,0.5)
@@ -48,7 +49,7 @@ func _on_underlay_mouse_entered():
 	pass # Replace with function body.
 
 
-func _on_underlay_gui_input(event):
+func _on_underlay_gui_input(_event):
 	if Input.is_mouse_button_pressed(1):
 		$AnimationPlayer.play("focus")
 		$AudioStreamPlayer2D.pitch_scale = 0.5 + (0.1 * index)
@@ -57,7 +58,7 @@ func _on_underlay_gui_input(event):
 	pass # Replace with function body.
 
 
-func _on_NavButton_activeSet(item):
+func _on_NavButton_activeSet(_item):
 	active = true
 	if !$AnimationPlayer.is_playing():
 		$NavList.visible = true
@@ -78,7 +79,7 @@ func _on_ActiveRelease(except):
 		active = true
 		#$AnimationPlayer.play("focus")
 		
-func fill_list(listname):
+func fill_list(_listname):
 	var musicList = [{"title":"All Music"},{"title":"All Artists"}]
 	for item in musicList:
 		var button = navbutton.instance()

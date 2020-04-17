@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://elements/NewPlaylist.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=2]
-[ext_resource path="res://elements/Thicket.tscn" type="PackedScene" id=3]
 
 [node name="NewPlaylist" type="Panel"]
 anchor_left = 0.5
@@ -108,7 +107,5 @@ grow_vertical = 2
 text = "Play List Name:"
 align = 1
 valign = 1
-
-[node name="Thicket" parent="." instance=ExtResource( 3 )]
 [connection signal="pressed" from="Control/Cancel" to="." method="_on_Cancel_pressed"]
 [connection signal="pressed" from="Control/Create" to="." method="_on_Create_pressed"]

@@ -5,6 +5,7 @@ var Thicket
 var gnum = 0
 signal next(num)
 signal alldone
+# warning-ignore:unused_signal
 signal bootup
 
 var thread = Thread.new()
@@ -26,7 +27,8 @@ func _on_Loading_bootup():
 	if OpenSeed.online == true:
 		if visible:
 			$AnimationPlayer.play("loop")
-			cycle("genres")
+			#cycle("genres")
+			cycle("connections")
 			#if !Thicket.check_cache("connections"):
 			#	gather_connections()
 			#else:
@@ -70,8 +72,8 @@ func cycle(type):
 		"genres":
 			if !Thicket.check_cache("genres"):
 				if gather_genres():
-					Thicket.store("genres","")
-					cycle("tracks")
+					if Thicket.store("genres",Thicket.genres):
+						cycle("tracks")
 			else:
 				if Thicket.load_cache("genres"):
 					cycle("tracks")
@@ -80,7 +82,8 @@ func cycle(type):
 				gather_all_tracks(Thicket.genres[gnum])
 			else:
 				if Thicket.load_cache("tracks") == 1:
-					cycle("artists")
+					#cycle("artists")
+					cycle("connections")
 		"artists":
 			if !Thicket.check_cache("artists"):
 				cycle("new_artists")
@@ -102,20 +105,28 @@ func cycle(type):
 					if Thicket.load_cache("connections") == 1:
 						cycle("done")
 		"done":
+			OpenSeed.loadUserProfile(OpenSeed.username)
 			emit_signal("alldone")
 	 
-func _on_gathering(data):
-	var returned_data
+#func _on_gathering(data):
+	#var returned_data
 	
-	pass
+#	pass
 	
 func gather_connections():
 	$Label.text = "Gathering Connections"
-	
-	if OpenSeed.steem != "":
-		Thicket.connections_list = parse_json(OpenSeed.get_connections(OpenSeed.steem))
-	else:
-		Thicket.connections_list = parse_json(OpenSeed.get_connections(OpenSeed.username))
+	if OpenSeed.token != "":
+		OpenSeed.get_connections(OpenSeed.username)
+		
+	#	var jsoned = parse_json(response)
+	#	if typeof(jsoned) == TYPE_DICTIONARY:
+	#		Thicket.connections_list = parse_json(response)["connections"]
+	#else:
+	#	response = OpenSeed.get_connections(OpenSeed.username)
+	#	var jsoned = parse_json(response)
+	#	if typeof(jsoned) == TYPE_DICTIONARY:
+	#		Thicket.connections_list = parse_json(response)["connections"]
+	cycle("done")
 	return 1
 
 func gather_new_artists():
@@ -143,31 +154,27 @@ func gather_new_tracks():
 func gather_genres():
 	$Label.text = "Gathering Genres"
 	var genres = OpenSeed.get_from_socket('{"act":"genres","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'"}')
-	if genres:
-		for g in genres.split(",),"):
-			Thicket.genres.append(g.split("'")[1])
+	var list = parse_json(genres)
+	print(list["results"])
+	if list:
+		for g in list["results"]:
+			Thicket.genres.append(g)
 	return 1
 
 func gather_all_tracks(g):
 	$Label.text = "Gathering Tracks ("+g+")"
 	var content = OpenSeed.get_from_socket('{"act":"genre_json","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'","genre":"'+g+'"}')
 	if content:
-		var clean_list = content.split("}, ")
-		for t in clean_list:
-			var json
-			if t[0] != "[" and len(t) > 5:
-				var fix = t+"}"
-				json = parse_json(fix)
-			else:
-				json = parse_json(t.trim_prefix("[")+"}")
-			if len(str(json)) > 5:
-				Thicket.tracks.append(json)
-				if json.keys().has("author"):
+		var clean_list = parse_json(content)
+		if typeof(clean_list) == TYPE_DICTIONARY:
+			for t in clean_list["results"]:
+				Thicket.tracks.append(t)
+				if t.keys().has("author"):
 					if Thicket.artists:
-						if !Thicket.artists.has(json["author"]):
-							Thicket.artists.append(json["author"])
+						if !Thicket.artists.has(t["author"]):
+							Thicket.artists.append(t["author"])
 					else:
-							Thicket.artists.append(json["author"])
+							Thicket.artists.append(t["author"])
 	gnum += 1
 	emit_signal("next",gnum)
 

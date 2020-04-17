@@ -8,7 +8,7 @@ var MusicRoot
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Controls/title.text = title
-	fill_list($Thicket.playlist_load(title))
+	fill_list(Thicket.playlist_load(title))
 	$Timer.start()
 	if get_tree().get_root().get_child(2).name == "Loader":
 		MusicRoot = get_tree().get_root().get_child(2).get_node("MainWindow").get_node("WindowContainer").get_node("Music")
@@ -55,5 +55,5 @@ func _on_Play_pressed():
 
 
 func _on_Timer_timeout():
-	fill_list($Thicket.playlist_load(title))
+	fill_list(Thicket.playlist_load(title))
 	pass # Replace with function body.

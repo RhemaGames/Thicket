@@ -11,12 +11,13 @@ func _ready():
 	else:
 		MusicRoot = get_tree().get_root().get_node("MainWindow").get_node("WindowContainer").get_node("Music")
 		
+# warning-ignore:return_value_discarded
 	get_parent().get_parent().connect("resized",self,"_on_Music_resized")
 	pass 
 
 func _on_Banner_retrieve(account):
 	show()
-	var profile = parse_json(OpenSeed.get_steem_account(account))
+	var profile = OpenSeed.get_hive_account(account)
 	if profile:
 		if str(profile["profile"]) != "Not found":
 			if str(profile["profile"].keys()).find("name") != -1:
@@ -62,8 +63,8 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	pass # Replace with function body.
 	
 func _on_Music_resized():
-	$Timer.start()
-
+	#$Timer.start()
+	pass
 
 func _on_Timer_timeout():
 	var win_size = get_parent().get_parent().get_size()

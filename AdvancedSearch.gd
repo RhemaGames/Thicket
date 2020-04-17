@@ -19,6 +19,7 @@ var userTextureFile = []
 var userTextureList = []
 var userCount = 0
 
+# warning-ignore:unused_signal
 signal next_track(num)
 signal tracks_found()
 
@@ -107,7 +108,6 @@ func music_artist_search(search):
 	var reg = RegEx.new()
 	reg.compile("^"+search.to_lower())
 	var count = 0
-	var artists = []
 	for artist in Thicket.artists:
 		var result 
 		result = reg.search(artist.to_lower())
@@ -163,7 +163,7 @@ func _on_Keywords_text_entered(new_text):
 		music_artist_search(new_text)
 		music_track_search(new_text)
 
-func _on_Keywords_text_changed(new_text):
+func _on_Keywords_text_changed(_new_text):
 	#clear()
 	#terms = new_text
 	#$type_timeout.start()

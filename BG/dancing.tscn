@@ -76,6 +76,7 @@ anim_offset = 0.86
 anim_offset_random = 0.56
 
 [node name="bubbles3" type="CPUParticles2D" parent="."]
+self_modulate = Color( 0.454902, 0.45098, 0.45098, 1 )
 material = SubResource( 3 )
 position = Vector2( 1074.02, 1083.83 )
 scale = Vector2( 0.2, 0.2 )
@@ -103,6 +104,7 @@ anim_offset = 0.86
 anim_offset_random = 0.56
 
 [node name="bubbles4" type="CPUParticles2D" parent="."]
+self_modulate = Color( 0.462745, 0.462745, 0.462745, 1 )
 material = SubResource( 3 )
 position = Vector2( 176.552, 1093.64 )
 scale = Vector2( 0.2, 0.2 )

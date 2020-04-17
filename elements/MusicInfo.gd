@@ -13,6 +13,7 @@ var author = ""
 var thepost = ""
 var postImg
 
+# warning-ignore:unused_signal
 signal postview(post,artist,img)
 signal loaded()
 # Called when the node enters the scene tree for the first time.
@@ -31,7 +32,15 @@ func _ready():
 #	pass
 
 func _on_MusicInfo_postview(post, artist, img):
-	$trackImage.set_texture(get_image(img))
+	var imagehash = OpenSeed.get_image(img)
+	var the_img
+	if imagehash != "No_Image_found":
+		var fromStore = OpenSeed.get_from_image_store(imagehash)
+		if !fromStore:
+			the_img = OpenSeed.set_image(imagehash)
+		else:
+			the_img = fromStore
+	$trackImage.set_texture(the_img)
 	$trackpost.bbcode_enabled = true
 	$trackpost.bbcode_text = track_formatter(artist,post)
 	author = artist

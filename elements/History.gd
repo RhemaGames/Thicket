@@ -15,7 +15,7 @@ func _ready():
 	OpenSeed = get_node("/root/OpenSeed")
 	Thicket = get_node("/root/Thicket")
 	OpenSeed.connect("historydata",self,"show_history")
-	#SocialRoot.get_node("history_update").start()
+	SocialRoot.get_node("history_update").start()
 	pass # Replace with function body.
 
 
@@ -25,11 +25,11 @@ func _ready():
 
 
 func _on_history_update_timeout():
-	var history 
+	#var history 
 	if SocialRoot.currentuser:
-		OpenSeed.emit_signal("command","history",SocialRoot.currentuser)
+		OpenSeed.command("history",SocialRoot.currentuser)
 	else:
-		OpenSeed.emit_signal("command","history",OpenSeed.username)
+		OpenSeed.command("history",OpenSeed.username)
 	pass 
 	
 func show_history(data):
@@ -38,15 +38,20 @@ func show_history(data):
 	while num < history.get_child_count():
 		history.get_child(num).queue_free()
 		num += 1
-	for item in data.keys():
+	for item in data:
 		var h = history_item.instance()
-		h.date = data[item]["history"]
-		if data[item]["item"].has("playing"):
-			h.title = str(data[item]["item"]["playing"])
-			h.type = 1
-			history.add_child(h)
-		if data[item]["item"].has("program_start"):
-			h.title = str(data[item]["item"]["program_start"])
-			h.type = 2
-			history.add_child(h)
+		if typeof(item) != TYPE_STRING:
+			h.date = item["history"]
+			if item["item"].has("playing"):
+				h.title = str(item["item"]["playing"]["song"]) + " by: " + str(item["item"]["playing"]["artist"])
+				h.type = 1
+				history.add_child(h)
+			if item["item"].has("program_start"):
+				h.title = str(item["item"]["program_start"])
+				h.type = 2
+				history.add_child(h)
+			if item["item"].has("post"):
+				h.title = str(item["item"]["post"]["title"])
+				h.type = 0
+				history.add_child(h)
 			

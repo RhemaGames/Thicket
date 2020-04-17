@@ -97,13 +97,14 @@ func music_play():
 		MusicBar1.emit_signal("songlength",	$AudioStreamPlayer.get_stream().get_length())
 		MusicBar1.emit_signal("timeleft",minutes+":"+seconds_string)
 		$AudioStreamPlayer.play()
-		OpenSeed.set_history("playing",playlist[play_list_num][2])
+		OpenSeed.set_history("playing",[playlist[play_list_num][2],playlist[play_list_num][1]])
 		OS.set_window_title("Thicket - Playing: "+playlist[play_list_num][2]+" -by- "+playlist[play_list_num][1])
 	else:
 		emit_signal("download")
 		$AudioStreamPlayer.stop()
 		get_song("http://142.93.27.131","8080",playlist[play_list_num][0],play_list_num)
 	pass
+	
 func _on_Music_play(tracknum):
 	emit_signal("clear_highlight",playlist[tracknum][0])
 	play_list_num = tracknum
