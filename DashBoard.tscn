@@ -32,7 +32,6 @@ margin_bottom = 15.0
 modulate = Color( 1, 1, 1, 0.184314 )
 
 [node name="music" type="Panel" parent="."]
-editor/display_folded = true
 visible = false
 anchor_left = 1.0
 anchor_right = 1.0

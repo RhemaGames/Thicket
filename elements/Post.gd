@@ -11,6 +11,7 @@ signal show_post(data)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	OpenSeed.connect("post",self,"_on_Post_show_post")
 	pass # Replace with function body.
 
 
@@ -35,7 +36,7 @@ func track_formatter(artist,title,post):
 		for t in format:
 			if t.find("img src") != -1:
 				var imgurl = t.split('"')[1]
-				var imagehash = OpenSeed.get_image(imgurl)
+				var imagehash = OpenSeed.get_image(imgurl,"low")
 				if imagehash != "No_Image_found":
 					var texbox = TextureRect.new()
 					var fromStore = OpenSeed.get_from_image_store(imagehash)
@@ -73,7 +74,7 @@ func track_formatter(artist,title,post):
 func _on_Post_show_post(data):
 	#$VBoxContainer/Label.text = 
 	refresh = data
-	track_formatter(data[1],data[2],data[4])
+	track_formatter(data["author"],data["title"],data["post"])
 	pass # Replace with function body.
 
 func _on_HTTPRequest_request_completed(_result, response_code, _headers, _body):

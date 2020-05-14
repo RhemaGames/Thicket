@@ -22,20 +22,21 @@ func _ready():
 	OpenSeed = get_node("/root/OpenSeed")
 	Thicket = get_node("/root/Thicket")
 	Thicket.create_folders()
-	OpenSeed.devPub = "2c65ba0d"
-	OpenSeed.devId = "0a1831e5eb07615f9cbd999acc8464821b9299b642d033f501f177df5b5dc3a2"
-	OpenSeed.appPub = "6c6d0ec5"
-	OpenSeed.appId = "26a24a33a7fde894b5f3ab02ce67a28ccc309dcfe94b625ade8ab1b5ba97d507" 
+	OpenSeed.devPub = ""
+	OpenSeed.devId = ""
+	OpenSeed.appPub = ""
+	OpenSeed.appId = "" 
 	var bg_instance = load("res://BG/dancing.tscn").instance()
 	$background/Viewport.add_child(bg_instance)
 	$Navi/MusicBar.color = Color(0.2,0.2,0.2)
 	#$Spatial/AnimationPlayer.play("slowwalk")
 
 	if !OpenSeed.loadUserData():
-		OpenSeed.get_node("CanvasLayer/Login").show()
+		OpenSeed.interface("login",true,"")
+		#OpenSeed.get_node("CanvasLayer/Login").show()
 	else:
 		check_devMode()
-		emit_signal("loading_start",self)
+		OpenSeed.loadUserProfile(OpenSeed.username)
 
 func _input(_event):
 	if Input.is_key_pressed(KEY_F10):
@@ -64,7 +65,8 @@ func _on_Social_pressed():
 
 # warning-ignore:unused_argument
 func _on_Login_login(status):
-	OpenSeed.get_node("CanvasLayer/Login").hide()
+	OpenSeed.interface("login",false,"")
+	#OpenSeed.get_node("CanvasLayer/Login").hide()
 	#if !$OpenSeed.steem:
 	#	$Wizards/SteemLink.show()
 	#else:

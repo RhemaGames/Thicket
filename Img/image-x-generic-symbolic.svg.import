@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/window-maximize-symbolic.svg-a0102fc7bfc4b46f16492bfa4161c669.stex"
+path="res://.import/image-x-generic-symbolic.svg-f7038c27da9565cfed8692a1243ca15f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Img/window-maximize-symbolic.svg"
-dest_files=[ "res://.import/window-maximize-symbolic.svg-a0102fc7bfc4b46f16492bfa4161c669.stex" ]
+source_file="res://Img/image-x-generic-symbolic.svg"
+dest_files=[ "res://.import/image-x-generic-symbolic.svg-f7038c27da9565cfed8692a1243ca15f.stex" ]
 
 [params]
 
@@ -31,4 +31,4 @@ process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true
-svg/scale=2.81
+svg/scale=4.0

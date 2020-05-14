@@ -38,9 +38,13 @@ func _ready():
 	OpenSeed.connect("tracks",self,"gather_all_tracks")
 	OpenSeed.connect("genres",self,"gather_genres")
 	OpenSeed.connect("connections",self,"store_connections")
+	OpenSeed.connect("creatorData",self,"get_creator")
+	#OpenSeed.connect("creator_created",self,"update_creator_profile")
 # warning-ignore:return_value_discarded
 	$Timer.connect("timeout",self,"update_loop")
 	$Timer.start()
+	$Social_timer.connect("timeout",self,"social_loop")
+	$Social_timer.start()
 	
 	pass
 
@@ -56,16 +60,31 @@ func store_connections(data):
 	pass
 
 func update_loop():
-	OpenSeed.send('{"act":"genres","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'"}',6)
-	OpenSeed.get_connections(OpenSeed.username)
+	if OpenSeed.username != "":
+		OpenSeed.openSeedRequest("get_genres",[])
+		OpenSeed.openSeedRequest("get_new_musicians",[])
+		OpenSeed.openSeedRequest("get_new_tracks",[])
+		$Timer.wait_time = 120
 	pass
 
-func developer_save(dev):
+func social_loop():
+	if OpenSeed.username != "":
+		OpenSeed.openSeedRequest("get_connections",[OpenSeed.username])
+		OpenSeed.openSeedRequest("getConversations",[])
+
+func save_creator(dev):
 	var file = File.new()
-	var content = '{'+dev+'}'
-	file.open("user://dev.dat",File.WRITE)
-	file.store_string(content)
+	file.open("user://creator.dat",File.WRITE)
+	file.store_string(dev)
 	file.close()
+
+func load_creator():
+	var file = File.new()
+	var content = {"name":""}
+	if file.file_exists("user://creator.dat"):
+		file.open("user://creator.dat", File.READ)
+		content = parse_json(file.get_as_text())
+	return(content)
 	
 func settings_save(creatorMode,privMode,cf,replaceMedia,
 customMusicFolder,customVideoFolder,includeApps,includeEmulators,
@@ -104,7 +123,7 @@ func game_post():
 	pass
 	
 func get_post(author,url):
-	var post = OpenSeed.get_from_socket('{"act":"post","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'","author":"'+author+'","permlink":"'+url+'"}')
+	var post = OpenSeed.openSeedRequest("get_hive_post",[author,url])
 	return post
 	
 func playlist_load(type):
@@ -314,22 +333,23 @@ func load_cache(type):
 			connections_list = local_knowledge_load(type)
 	return 1
 			
-func create_creator(cName,pCon,email,steemaccount,about):
-	var account = '"devName":"'+cName+'","contactName":"'+pCon+'","contactEmail":"'+email+'","steem":"'+steemaccount+'"'
-	var created = OpenSeed.get_from_socket('{"act":"create_developer","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'",'+account+'}')
-	var datastring = '"theid":"'+created+'","data1":"'+cName+\
-	'","data2":"'+pCon+'","data3":"'+email+'","data4":"'+steemaccount+'","data5":{"about":"'+about+'}'
-	var _response = OpenSeed.get_from_socket('{"act":"create_profile","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'",'+datastring+',"type":2}')
-	dev_profile = datastring
-	return created
+func create_creator(cName,pCon,email,openseedaccount,about):
+	var account = '"devName":"'+cName+'","contactName":"'+pCon+'","contactEmail":"'+email+'","openseed":"'+openseedaccount+'"'
+	#var created = OpenSeed.openSeedRequest('{"act":"create_developer","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'",'+account+'}')
+	OpenSeed.openSeedRequest("createCreator",[account])
+	#var datastring = '"theid":"'+created+'","data1":"'+cName+'","data2":"'+pCon+'","data3":"'+email+'","data4":"'+steemaccount+'","data5":{"about":"'+about+'}'
+	#var _response = OpenSeed.openSeedRequest('{"act":"create_profile","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'",'+datastring+',"type":2}')
+	#dev_profile = datastring
+	#return created
+
+#func update_creator_profile(data):
+	#var datastring = [data,cName,pCon,email,steemaccount,about]
+	#OpenSeed.openSeedRequest("set_profile",[data])
 	
-func get_creator():
-	var defaults = '"appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'"'
-	var response = OpenSeed.get_from_socket('{"act":"creatorcheck",'+defaults+',"steem":"'+OpenSeed.steem+'"}')
-	var jsoned = parse_json(response)
-	OpenSeed.profile_creator_Id = jsoned["devID"]
-	OpenSeed.profile_creator_Pub = jsoned["pubID"]
-	return response
+
+func get_creator(data):
+	OpenSeed.profile_creator_Id = data["devID"]
+	OpenSeed.profile_creator_Pub = data["pubID"]
 	
 func _on_new_tracks(data):
 	load_cache("tracks")
@@ -355,7 +375,6 @@ func _on_new_artists(data):
 	if data:
 		for artist in data:
 			new_artists.append(artist)
-	print(new_artists)
 	emit_signal("new_artists_ready")
 	
 # warning-ignore:unused_argument
@@ -403,13 +422,15 @@ func favorite_app_list():
 func gather_genres(list):
 	if list:
 		for g in list:
+			var genre = g
+			
 			if Thicket.genres:
 				if !Thicket.genres.has(g):
 					Thicket.genres.append(g)
-					OpenSeed.send('{"act":"genre_json","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'","genre":"'+g+'","count":"0"}',6)
+					OpenSeed.openSeedRequest("get_genre",[genre["name"]])
 			else:
 				Thicket.genres.append(g)
-				OpenSeed.send('{"act":"genre_json","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'","genre":"'+g+'","count":"0"}',6)
+				OpenSeed.openSeedRequest("get_genre",[genre["name"]])
 	return 1
 
 func gather_all_tracks(content):
@@ -422,7 +443,7 @@ func gather_all_tracks(content):
 						Thicket.tracks.append(t)
 				else:
 					Thicket.tracks.append(t)
-					
+				
 				if t.keys().has("author"):
 					if Thicket.artists:
 						if !Thicket.artists.has(t["author"]):
@@ -436,5 +457,4 @@ func gather_all_tracks(content):
 
 
 func _on_Timer_timeout():
-	$Timer.wait_time = 20
 	pass # Replace with function body.

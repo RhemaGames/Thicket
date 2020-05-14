@@ -122,20 +122,21 @@ margin_bottom = 430.0
 
 [node name="playlistGrid" type="GridContainer" parent="Main/MainView"]
 visible = false
-margin_top = 434.0
-margin_right = 106.0
-margin_bottom = 434.0
+margin_top = 446.0
+margin_right = 1800.0
+margin_bottom = 446.0
 custom_constants/hseparation = 20
 columns = 2
 script = ExtResource( 6 )
 
 [node name="NewArtistTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 40.0
 
 [node name="NewTrackTimer" type="Timer" parent="."]
-wait_time = 20.0
+wait_time = 40.0
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 20.0
 
 [node name="resize" type="Timer" parent="."]
 wait_time = 0.1

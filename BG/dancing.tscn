@@ -14,15 +14,19 @@ particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="ParallaxBackground"]
+follow_viewport_enable = true
+scroll_ignore_camera_zoom = true
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 971.866, 534.742 )
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer"]
+position = Vector2( 1007.19, 534.742 )
 rotation = -1.5708
-scale = Vector2( 0.53759, 2016.72 )
+scale = Vector2( 0.53759, 3315.45 )
 texture = SubResource( 2 )
 
-[node name="bubbles" type="CPUParticles2D" parent="."]
+[node name="bubbles" type="CPUParticles2D" parent="ParallaxLayer"]
 material = SubResource( 3 )
 position = Vector2( 1765.52, 1083.83 )
 amount = 20
@@ -48,7 +52,7 @@ anim_speed_random = 0.86
 anim_offset = 0.86
 anim_offset_random = 0.56
 
-[node name="bubbles2" type="CPUParticles2D" parent="."]
+[node name="bubbles2" type="CPUParticles2D" parent="ParallaxLayer"]
 material = SubResource( 3 )
 position = Vector2( 4.90454, 1059.31 )
 scale = Vector2( 0.5, 0.5 )
@@ -75,7 +79,7 @@ anim_speed_random = 0.86
 anim_offset = 0.86
 anim_offset_random = 0.56
 
-[node name="bubbles3" type="CPUParticles2D" parent="."]
+[node name="bubbles3" type="CPUParticles2D" parent="ParallaxLayer"]
 self_modulate = Color( 0.454902, 0.45098, 0.45098, 1 )
 material = SubResource( 3 )
 position = Vector2( 1074.02, 1083.83 )
@@ -103,7 +107,7 @@ anim_speed_random = 0.86
 anim_offset = 0.86
 anim_offset_random = 0.56
 
-[node name="bubbles4" type="CPUParticles2D" parent="."]
+[node name="bubbles4" type="CPUParticles2D" parent="ParallaxLayer"]
 self_modulate = Color( 0.462745, 0.462745, 0.462745, 1 )
 material = SubResource( 3 )
 position = Vector2( 176.552, 1093.64 )

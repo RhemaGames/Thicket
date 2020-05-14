@@ -12,6 +12,7 @@ signal getNew()
 func _ready():
 	OpenSeed = get_node("/root/OpenSeed")
 	Thicket = get_node("/root/Thicket")
+	Thicket.connect("new_artists_ready",self,"propogate_new_artists")
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,7 +22,6 @@ func _ready():
 # warning-ignore:unused_argument
 func get_new_artists(num):
 	var newartists = Thicket.new_artists
-	print(newartists)
 	return newartists
 
 func propogate_new_artists():

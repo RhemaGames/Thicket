@@ -6,7 +6,7 @@
 [ext_resource path="res://Fonts/subtitle.tres" type="DynamicFont" id=4]
 [ext_resource path="res://elements/Contact.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=6]
-[ext_resource path="res://elements/ChatLog.tscn" type="PackedScene" id=7]
+[ext_resource path="res://OpenSeed-Godot/ChatLog.tscn" type="PackedScene" id=7]
 [ext_resource path="res://elements/History.gd" type="Script" id=8]
 [ext_resource path="res://elements/UserSettings.gd" type="Script" id=9]
 [ext_resource path="res://elements/Contact_info.tscn" type="PackedScene" id=10]
@@ -23,6 +23,7 @@ anchor_bottom = 1.0
 theme = ExtResource( 11 )
 script = ExtResource( 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -198,11 +199,14 @@ margin_right = 300.0
 margin_bottom = 42.0
 
 [node name="Main" type="VBoxContainer" parent="."]
-margin_left = 372.0
-margin_top = 10.0
-margin_right = 1892.0
-margin_bottom = 1053.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 369.0
+margin_top = 4.0
+margin_right = -11.0
+rect_clip_content = true
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -291,6 +295,7 @@ margin_top = 204.0
 margin_right = 1520.0
 margin_bottom = 924.0
 custom_constants/separation = 18
+alignment = 1
 
 [node name="UserSettings" type="PanelContainer" parent="Main/HBoxContainer"]
 visible = false
@@ -338,7 +343,7 @@ rect_min_size = Vector2( 550, 650 )
 use_threads = true
 
 [node name="iterate_connections" type="Timer" parent="."]
-wait_time = 0.02
+wait_time = 0.2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Load = SubResource( 1 )

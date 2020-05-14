@@ -14,6 +14,7 @@ var img = ""
 var the_img
 var highlight = false
 var loadAnimDone = false
+var pfile = false
 
 # warning-ignore:unused_signal
 signal refresh()
@@ -23,8 +24,12 @@ signal search(artist)
 func _ready():
 	Thicket = get_node("/root/Thicket")
 	OpenSeed = get_node("/root/OpenSeed")
-	set_box(title,img)
+	#set_box(title,img)
+	OpenSeed.openSeedRequest("get_image",[img,"medium"])
 	OpenSeed.connect("imagestored",self,"refresh")
+	OpenSeed.connect("profiledata",self,"on_profile_return")
+	
+	$title.text = title
 	if get_tree().get_root().get_child(2).name == "Loader":
 		MusicRoot = get_tree().get_root().get_child(2).get_node("MainWindow").get_node("WindowContainer").get_node("Music")
 	else:
@@ -36,86 +41,15 @@ func _ready():
 	$Timer.start()
 
 
-func set_box(title,image):
-	var imagehash = OpenSeed.get_image(image)
-	if imagehash != "No_Image_found":
+func set_box(title,imagehash):
+	if imagehash != "No_Image_found" and imagehash != "":
 		var fromStore = OpenSeed.get_from_image_store(imagehash)
 		if !fromStore:
 			the_img = OpenSeed.set_image(imagehash)
 		else:
 			the_img = fromStore
 		$TextureRect.set_texture(the_img)
-	else:
-		print(imagehash)
-		
 	$title.text = title
-
-#func set_box(profile,account):
-	
-#	if profile and profile.find('"profile":"Not found"') == -1:
-#		Thicket.local_knowledge_add("/artists/"+account,'{"ProfileImage":"user://cache/Img/'+account+'ProfileImg"}')
-#		var pfile = parse_json(profile)
-#		if str(pfile["profile"].keys()).find("name") != -1:
-#			$title.text = pfile["profile"]["name"]
-#		else:
-#			$title.text = account
-#		Thicket.local_knowledge_add("/artists/"+account,'{"ProfileName":"'+$title.text+'"}')
-#		if !imgfile.file_exists("user://cache/Img/"+account+"ProfileImg"):
-#			if str(pfile["profile"].keys()).find("profile_image") != -1:
-#				get_pimage(account,pfile["profile"]["profile_image"])
-#		else:
-#			$TextureRect.set_texture(get_image("user://cache/Img/"+account+"ProfileImg"))
-#	#$TextureRect.set_texture(get_image("user://cache/"+account+"ProfileImg"))
-	
-	
-#func get_image(image):
-#	var Imagedata = block
-#	var Imagetex = texblock
-
-#	if imgfile.file_exists(image):
-#		imgfile.open(image, File.READ)
-#		var imagesize = imgfile.get_len()
-#		if imagesize <= 3615421:
-#			var buffer = imgfile.get_buffer(imagesize)
-#			var err = Imagedata.load_jpg_from_buffer(buffer)
-#			Imagedata.compress(0,0,90)
-#			if err !=OK:
-#				err = Imagedata.load_png_from_buffer(buffer)
-#				Imagedata.compress(0,0,90)
-#				if err !=OK:
-#					Imagetex = fallback_audio
-#				else:
-#					Imagetex.create_from_image(Imagedata,0)
-#			else:
-#				Imagetex.create_from_image(Imagedata,0)
-#		else:
-#			print(image)
-#			print("too big")
-#			print(imagesize)
-#			Imagetex = fallback_audio
-			
-#		imgfile.close()
-#		return Imagetex
-	
-#func get_pimage(account,image):
-#	$HTTPRequest.set_download_file("user://cache/Img/"+account+"ProfileImg")
-#	var headers = [
-#		"User-Agent: Pirulo/1.0 (Godot)",
-#		"Accept: */*"
-#	]
-#	$HTTPRequest.request(str(image),headers,false,HTTPClient.METHOD_GET)
-	
-	
-
-# warning-ignore:unused_argument
-# warning-ignore:unused_argument
-# warning-ignore:unused_argument
-#func _on_HTTPRequest_request_completed(result, response_code, headers, body):
-#	if response_code == 200:
-#		$TextureRect.set_texture(get_image($HTTPRequest.get_download_file()))
-		
-#	pass # Replace with function body.
-
 
 # warning-ignore:unused_argument
 func _on_MusicBoxLarge_gui_input(event):
@@ -130,16 +64,23 @@ func _on_MusicBoxLarge_gui_input(event):
 
 
 func _on_Timer_timeout():
-	var hive = OpenSeed.get_hive_account(title)
-	if hive.has("profile"):
-		if hive["profile"].has("profile_image"):
-			img = hive["profile"]["profile_image"]
-			if hive["profile"].has("name"):
-				title = hive["profile"]["name"]
-	set_box(title,img)
-	$AnimationPlayer.play("active")
 	$Timer.stop()
+	OpenSeed.openSeedRequest("get_hive_account",[title])
+	$AnimationPlayer.play("active")
 
+func on_profile_return(data):
+	if pfile == false:
+		if data[0] == title and data[1].has("profile"):
+			if typeof(data[1]["profile"]) == TYPE_DICTIONARY:
+				if data[1]["profile"].has("profile_image"):
+					img = data[1]["profile"]["profile_image"]
+					OpenSeed.openSeedRequest("get_image",[img,"medium"])
+				if data[1]["profile"].has("name"):
+					$title.text = data[1]["profile"]["name"]
+					
+			pfile = true	
+	pass
+		
 
 func _on_highlight_timer_timeout():
 	if !$AnimationPlayer.is_playing():
@@ -155,14 +96,14 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 
 func _on_MusicBoxLarge_refresh():
-	$Timer.start()
+	pass
+#	$Timer.start()
 
 	
-func refresh():
-	var imagehash = OpenSeed.get_image(img)
-	if imagehash != "No_Image_found":
+func refresh(data):
+	if data[1] != "No_Image_found" and data[0] == img:
 		var texbox = TextureRect.new()
-		var fromStore = OpenSeed.get_from_image_store(imagehash)
+		var fromStore = OpenSeed.get_from_image_store(data[1])
 		if !fromStore:
 			the_img = fallback_audio
 		else:

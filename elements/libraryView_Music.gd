@@ -150,17 +150,17 @@ func _on_g_pressed(list):
 		MusicRoot.play_list_num = 0
 	#$title.text = list
 	var content = []
-	var test = OpenSeed.get_from_socket('{"act":"genre_json","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'","genre":"'+list+'","count":"15"}')
-	var jsoned = parse_json(test)
-	if typeof(jsoned) == TYPE_DICTIONARY:
-		print(jsoned["genre_tracks"]["total"])
-		for t in jsoned["genre_tracks"]["results"]:
-			content.append(t)
+	OpenSeed.openSeedRequest("get_genre",[list])
+#	var jsoned = parse_json(test)
+#	if typeof(jsoned) == TYPE_DICTIONARY:
+#		print(jsoned["genre_tracks"]["total"])
+#		for t in jsoned["genre_tracks"]["results"]:
+#			content.append(t)
 	#for t in Thicket.tracks:
 	#	if t and t["genre"] == list.strip_edges():
 	#		content.append(t)
 	
-	MusicRoot.playlist = self.create_list(content)
+#	MusicRoot.playlist = self.create_list(content)
 
 func _on_MusicInfo_loaded():
 	$AnimationPlayer.play("show_info")

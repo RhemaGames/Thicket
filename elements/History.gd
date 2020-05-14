@@ -27,9 +27,9 @@ func _ready():
 func _on_history_update_timeout():
 	#var history 
 	if SocialRoot.currentuser:
-		OpenSeed.command("history",SocialRoot.currentuser)
+		OpenSeed.openSeedRequest("history",[SocialRoot.currentuser,"all","10"])
 	else:
-		OpenSeed.command("history",OpenSeed.username)
+		OpenSeed.openSeedRequest("history",[OpenSeed.username,"all","10"])
 	pass 
 	
 func show_history(data):

@@ -77,7 +77,6 @@ volume_db = -5.0
 bus = "Interface"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
 autostart = true
 [connection signal="gui_input" from="." to="." method="_on_Contact_info_gui_input"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

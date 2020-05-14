@@ -10,7 +10,7 @@ var newtracks = load("res://elements/MusicBoxMedium.tscn")
 # warning-ignore:unused_signal
 var playlist = []
 var textureList = []
-var new_num = 15
+var new_num = 10
 var imageFile = Image.new()
 var textureFile = [ImageTexture.new(),ImageTexture.new(),ImageTexture.new(),ImageTexture.new(),ImageTexture.new(),ImageTexture.new(),ImageTexture.new(),ImageTexture.new(),ImageTexture.new(),
 ImageTexture.new(),ImageTexture.new(),ImageTexture.new(),ImageTexture.new(),ImageTexture.new(),ImageTexture.new()]

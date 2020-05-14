@@ -12,7 +12,7 @@ var Imagetex = ImageTexture.new()
 var author = ""
 var thepost = ""
 var postImg
-
+var the_img
 # warning-ignore:unused_signal
 signal postview(post,artist,img)
 signal loaded()
@@ -26,13 +26,18 @@ func _ready():
 	else:
 		MusicRoot = get_tree().get_root().get_node("MainWindow").get_node("WindowContainer").get_node("Music")
 	pass # Replace with function body.
+	OpenSeed.connect("imagestored",self,"refresh")
+	OpenSeed.connect("post",self,"post_refresh")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
 func _on_MusicInfo_postview(post, artist, img):
-	var imagehash = OpenSeed.get_image(img)
+	postImg = img
+	OpenSeed.openSeedRequest("get_hive_post",[artist,post])
+	OpenSeed.openSeedRequest("get_image",[img,"medium"])
+	var imagehash = "No_Image_found"
 	var the_img
 	if imagehash != "No_Image_found":
 		var fromStore = OpenSeed.get_from_image_store(imagehash)
@@ -50,16 +55,17 @@ func _on_MusicInfo_postview(post, artist, img):
 	pass # Replace with function body.
 
 func track_formatter(artist,post):
-	var data = Thicket.get_post(artist,post)
+	var data = post
 	var output = ""
-	var lines = data.split("\n")
-	for line in lines:
-		if line.find("<hr>") == 0 or line.find("<br>") == 0:
-			output = output + "\n"
-		elif line.find("<") == -1:
-			#if line.find("[!") and line.find("]") and line.find("!["):
-			if line != "#" and line != "##" and line != "###" and line != "####":
-				output = output + line + "\n"
+	if data:
+		var lines = data.split("\n")
+		for line in lines:
+			if line.find("<hr>") == 0 or line.find("<br>") == 0:
+				output = output + "\n"
+			elif line.find("<") == -1:
+				#if line.find("[!") and line.find("]") and line.find("!["):
+				if line != "#" and line != "##" and line != "###" and line != "####":
+					output = output + line + "\n"
 				
 	return output
 
@@ -109,7 +115,7 @@ func _on_Favorite_pressed():
 
 
 func _on_Like_pressed():
-	OpenSeed.send_like(thepost)
+	OpenSeed.openSeedRequest("send_hive_like",[OpenSeed.token,author,thepost])
 	Thicket.local_knowledge_add("liked",str(MusicRoot.playlist[MusicRoot.play_list_num]))
 	
 func get_timage(url,port,thefile):
@@ -133,5 +139,21 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 
 func _on_Comment_pressed():
 	print("Opening Comment dialog")
-	MusicRoot.OpenSeed.emit_signal("comment",["test","test","test"])
+	OpenSeed.interface("comment",true,[OpenSeed.token,author,thepost,the_img])
+	#MusicRoot.OpenSeed.emit_signal("comment",["test","test","test"])
 	pass # Replace with function body.
+
+func refresh(data):
+	
+	if data[1] != "No_Image_found" and data[0] == postImg:
+		#var texbox = TextureRect.new()
+		var fromStore = OpenSeed.get_from_image_store(data[1])
+		if !fromStore:
+			the_img = noimage
+		else:
+			the_img = fromStore
+		$trackImage.set_texture(the_img)
+
+func post_refresh(data):
+	$trackpost.bbcode_enabled = true
+	$trackpost.bbcode_text = track_formatter(data["author"],data["post"])

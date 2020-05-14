@@ -15,8 +15,11 @@ signal changeview(account)
 
 func _ready():
 	chatbox = $Main/HBoxContainer/ChatLog
+	chatbox.currentuser = currentuser
+	chatbox.SocialRoot = self
 # warning-ignore:return_value_discarded
 	OpenSeed.connect("userLoaded",self,"profileblock")
+	OpenSeed.connect("profiledata",self,"on_profile_return")
 # warning-ignore:return_value_discarded
 	OpenSeed.connect("connections",self,"get_connections")
 	
@@ -71,10 +74,10 @@ func setup_connection(dat,_count):
 			next.get_node("Contact").title = username
 			next.get_node("UserName").text = name
 			if dat.keys().has("linked"):
-				if dat["linked"] == "1":
+				if dat["linked"] == 1:
 					next.get_node("Activity").text = "Please Wait"
 					next.connect("view",self,"_Show_connect_opts")
-				elif dat["linked"] == "2":
+				elif dat["linked"] == 2:
 					next.connect("view",self,"_on_Social_view")
 					next.get_node("Activity").text = "Please Wait"
 					
@@ -94,11 +97,13 @@ func _on_iterate_connections_timeout():
 		$iterate_connections.stop()
 	
 func _on_Social_done():
-	set_view(OpenSeed.username)
-	OpenSeed.command("history",OpenSeed.username)
+	#set_view(OpenSeed.username)
+	OpenSeed.openSeedRequest("history",[OpenSeed.username,"all","10"])
+	#OpenSeed.openSeedRequest("getProfile",[OpenSeed.username])
+	pass
 	
 func set_view(account):
-	print(account)
+	print("setting view for "+account)
 	$Main/Recent/TextInfo/Name.text = ""
 	$Main/Recent/TextInfo/TagLine.text = ""
 	$Main/Recent/Contact.pImage = ""
@@ -116,22 +121,15 @@ func set_view(account):
 	else:
 		$Main/HBoxContainer/ChatLog.show()
 		$Main/HBoxContainer/UserSettings.hide()
-		var profile = OpenSeed.get_openseed_account(account)
+		OpenSeed.openSeedRequest("getProfile",[account])
 		currentuser = account
-		if profile.has("openseed"):
-			$Main/Recent/TextInfo/Name.text = profile["openseed"]["name"]
-			if profile["imports"].has("profile"):
-				if str(profile["imports"]["profile"]) != "Not found":
-					if profile["imports"]["profile"].has("about"):
-						$Main/Recent/TextInfo/TagLine.text = profile["imports"]["profile"]["about"]
-		else:
-			$Main/Recent/TextInfo/Name.text = account
-			
+		$Main/HBoxContainer/ChatLog.currentuser = account
+		
+		
 		$Main/Recent/Contact.pImage = ""
 		
 	$Main/Recent/Contact.emit_signal("refresh")
-	#OpenSeed.emit_signal("command","history",account)
-	OpenSeed.command("history",account)
+	OpenSeed.openSeedRequest("history",[account,"all","10"])
 	chatbox.emit_signal("change_user",account)
 	
 func _on_Social_view(account):
@@ -143,5 +141,15 @@ func _Show_connect_opts(account):
 	OpenSeed.emit_signal("interface","request",account)
 	
 func _on_status_update_timeout():
-	OpenSeed.set_openseed_account_status(OpenSeed.token,'{"chat":"Online"}')
+	OpenSeed.openSeedRequest("updateStatus",['{"chat":"Online"}'])
 
+func on_profile_return(profile):
+	if profile[0] == currentuser:
+		if profile[1].has("openseed"):
+			$Main/Recent/TextInfo/Name.text = profile[1]["openseed"]["name"]
+			if profile[1]["imports"].has("profile"):
+				if str(profile[1]["imports"]["profile"]) != "Not found":
+					if profile[1]["imports"]["profile"].has("about"):
+						$Main/Recent/TextInfo/TagLine.text = profile[1]["imports"]["profile"]["about"]
+		else:
+			$Main/Recent/TextInfo/Name.text = currentuser

@@ -16,16 +16,9 @@ func _ready():
 #	pass
 
 func on_loading_done():
-	print("starting All Music")
-	#$Timer.start()
-	$Main/MainView/NewArtists.emit_signal("getNew")
-	$NewArtistTimer.start()
-	OpenSeed.command("newtracks","")
-	$Main/MainView/NewTracks.emit_signal("getNew")
-	#$NewTrackTimer.start()
-	OpenSeed.command("newartists","")
-	#OpenSeed.emit_signal("command","newtracks","")
-	#OpenSeed.emit_signal("command","newartists","")
+	OpenSeed.openSeedRequest("newtracks",[])
+	OpenSeed.openSeedRequest("newartists",[])
+
 
 func _on_AllMusic_visibility_changed():
 	if visible:

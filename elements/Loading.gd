@@ -116,7 +116,7 @@ func cycle(type):
 func gather_connections():
 	$Label.text = "Gathering Connections"
 	if OpenSeed.token != "":
-		OpenSeed.get_connections(OpenSeed.username)
+		OpenSeed.openSeedRequest("get_connections",[OpenSeed.username])
 		
 	#	var jsoned = parse_json(response)
 	#	if typeof(jsoned) == TYPE_DICTIONARY:

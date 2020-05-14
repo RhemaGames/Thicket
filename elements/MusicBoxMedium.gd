@@ -21,12 +21,13 @@ signal info(track)
 func _ready():
 	$artist.text = artist
 	$title.text = title
-	set_box(img)
+	OpenSeed.openSeedRequest("get_image",[img,"low"])
+	#set_box(img)
 # warning-ignore:return_value_discarded
 	OpenSeed.connect("imagestored",self,"refresh")
 
 func set_box(image):
-	var imagehash = OpenSeed.get_image(image)
+	var imagehash = "No_Image_found"
 	if imagehash != "No_Image_found":
 		var fromStore = OpenSeed.get_from_image_store(imagehash)
 		if !fromStore:
@@ -42,11 +43,10 @@ func _on_MusicBoxMedium_gui_input(event):
 		emit_signal("play",[track,artist,title,img,post])
 
 
-func refresh():
-	var imagehash = OpenSeed.get_image(img)
-	if imagehash != "No_Image_found":
+func refresh(data):
+	if data[1] != "No_Image_found" and data[0] == img:
 		#var texbox = TextureRect.new()
-		var fromStore = OpenSeed.get_from_image_store(imagehash)
+		var fromStore = OpenSeed.get_from_image_store(data[1])
 		if !fromStore:
 			the_img = fallback_audio
 		else:

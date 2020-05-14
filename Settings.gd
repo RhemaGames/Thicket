@@ -52,13 +52,14 @@ signal show(what)
 func _ready():
 	OpenSeed = get_node("/root/OpenSeed")
 	Thicket = get_node("/root/Thicket")
+	OpenSeed.connect("creatorData",self,"update_creator")
 	AccountInfo = $Panel/AccountContainer/Account/HBoxContainer/AccountInfo
 	About = $Panel/AccountContainer/Account/HBoxContainer/About/TextEdit
 	System = $Panel/SystemContainer/System
 	Network = $Panel/NetworkContainer/Network
 	CreatorProfile = $Panel/CreatorContainer/Profile/HBoxContainer
-	
 	setup(Thicket.settings_load())
+	set_creator(Thicket.load_creator())
 	
 func _on_Settings_visibility_changed():
 	if !self.visible and first_launch == false:
@@ -71,6 +72,22 @@ func _on_Settings_visibility_changed():
 		
 		save()
 
+func set_creator(data):
+	if data and data["name"] != "":
+		CreatorProfile.get_node("ScrollContainer/VBoxContainer/AppCheck").pressed = data["app"]
+		CreatorProfile.get_node("ScrollContainer/VBoxContainer/GameCheck").pressed = data["game"]
+		CreatorProfile.get_node("ScrollContainer/VBoxContainer/MusicCheck").pressed = data["music"]
+		CreatorProfile.get_node("ScrollContainer/VBoxContainer/VideosCheck").pressed = data["video"]
+		CreatorProfile.get_node("ScrollContainer/VBoxContainer/DGCheck").pressed = data["DG"]
+		CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name").text = data["name"]
+		CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/email").text = data["email"]
+		CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/account").text = data["openseed"]
+		CreatorProfile.get_node("VBoxContainer2/creatorAbout").text = data["about"]
+	
+func update_creator(data):
+	CreatorProfile.get_node("ScrollContainer/VBoxContainer/creatorPubID/ID").text = data['pubID']
+	CreatorProfile.get_node("ScrollContainer/VBoxContainer/creatorPrivID/ID").text = data['devID']
+	
 
 func setup(data) :
 	if data :
@@ -144,7 +161,7 @@ func _on_AccountContainer_visibility_changed():
 		AccountInfo.get_node("HBoxContainer/Contact").emit_signal("refresh")
 		
 	if $Panel/CreatorContainer.visible:
-		Thicket.get_creator()
+		OpenSeed.openSeedRequest("getCreator",[CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name").text,OpenSeed.token])
 		if CreatorProfile.get_node("ScrollContainer/VBoxContainer/AppCheck").is_pressed():
 			$Panel/CreatorContainer.add_child(tApplications)
 		if CreatorProfile.get_node("ScrollContainer/VBoxContainer/GameCheck").is_pressed():
@@ -156,11 +173,11 @@ func _on_AccountContainer_visibility_changed():
 		if CreatorProfile.get_node("ScrollContainer/VBoxContainer/DGCheck").is_pressed():
 			$Panel/CreatorContainer.add_child(tDG)
 			
-		CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name").text = OpenSeed.profile_name
-		CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/email").text = OpenSeed.profile_email
-		CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/account").text = OpenSeed.username
-		CreatorProfile.get_node("ScrollContainer/VBoxContainer/creatorPubID/ID").text = OpenSeed.profile_creator_Pub
-		CreatorProfile.get_node("ScrollContainer/VBoxContainer/creatorPrivID/ID").text = OpenSeed.profile_creator_Id
+	#	CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name").text = OpenSeed.profile_name
+	#	CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/email").text = OpenSeed.profile_email
+	#	CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/account").text = OpenSeed.username
+	#	CreatorProfile.get_node("ScrollContainer/VBoxContainer/creatorPubID/ID").text = OpenSeed.profile_creator_Pub
+	#	CreatorProfile.get_node("ScrollContainer/VBoxContainer/creatorPrivID/ID").text = OpenSeed.profile_creator_Id
 		
 		
 	pass # Replace with function body.
@@ -295,15 +312,25 @@ func _on_submit_pressed():
 	var dC = CreatorProfile.get_node("ScrollContainer/VBoxContainer/DGCheck").is_pressed()
 	var cname = CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name").text
 	var email = CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/email").text
-	var location = CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/account").text
-	print(cname," ",email," ",location," ",aC," ",gC," ",mC," ",vC," ",dC)
-	#Thicket.save_creator()
-	pass # Replace with function body.
+	var openseed = CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/account").text
+	var about = CreatorProfile.get_node("VBoxContainer2/creatorAbout").text
+	var creator = '{"name":"'+cname+'", "email":"'+email+'","openseed":"'+openseed+'","app":'+str(aC).to_lower()+',"game":'+str(gC).to_lower()+',"music":'+str(mC).to_lower()+',"video":'+str(vC).to_lower()+',"DG":'+str(dC).to_lower()+',"about":"'+about+'"}'
+	Thicket.save_creator(str(creator))
+	OpenSeed.openSeedRequest("createCreator",[cname,OpenSeed.profile_name,email,OpenSeed.token])
 
 
 func _on_save_pressed():
-	
-	pass # Replace with function body.
+	var aC = CreatorProfile.get_node("ScrollContainer/VBoxContainer/AppCheck").is_pressed()
+	var gC = CreatorProfile.get_node("ScrollContainer/VBoxContainer/GameCheck").is_pressed()
+	var mC = CreatorProfile.get_node("ScrollContainer/VBoxContainer/MusicCheck").is_pressed()
+	var vC = CreatorProfile.get_node("ScrollContainer/VBoxContainer/VideosCheck").is_pressed()
+	var dC = CreatorProfile.get_node("ScrollContainer/VBoxContainer/DGCheck").is_pressed()
+	var cname = CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name").text
+	var email = CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/email").text
+	var openseed = CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/account").text
+	var about = CreatorProfile.get_node("VBoxContainer2/creatorAbout").text
+	var creator = '{"name":"'+cname+'", "email":"'+email+'","openseed":"'+openseed+'","app":'+str(aC).to_lower()+',"game":'+str(gC).to_lower()+',"music":'+str(mC).to_lower()+',"video":'+str(vC).to_lower()+',"DG":'+str(dC).to_lower()+',"about":"'+about+'"}'
+	Thicket.save_creator(str(creator))
 
 
 func _on_AppCheck_pressed():
@@ -311,8 +338,6 @@ func _on_AppCheck_pressed():
 		$Panel/CreatorContainer.add_child(tApplications)
 	else:
 		$Panel/CreatorContainer.remove_child(tApplications)
-		
-	pass # Replace with function body.
 
 
 func _on_GameCheck_pressed():
