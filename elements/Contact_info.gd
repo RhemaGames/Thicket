@@ -28,7 +28,11 @@ func _ready():
 
 func _on_Contact_info_gui_input(event):
 	if event is InputEventMouseButton and event.get_button_index() == 1 and event.is_pressed():
-		emit_signal("view",account)
+		
+		if request_stat != "pending":
+			emit_signal("view",account)
+		else:
+			OpenSeed.interface("request",true,account)
 		$newMessage.visible = false
 
 

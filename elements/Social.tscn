@@ -349,7 +349,7 @@ wait_time = 0.2
 anims/Load = SubResource( 1 )
 
 [node name="status_update" type="Timer" parent="."]
-wait_time = 11.0
+wait_time = 4.0
 one_shot = true
 autostart = true
 

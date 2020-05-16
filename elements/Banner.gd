@@ -2,9 +2,9 @@ extends Control
 
 var imgfile = File.new()
 var MusicRoot 
-
+var account = ""
 # warning-ignore:unused_signal
-signal retrieve(account)
+signal retrieve(data)
 func _ready():
 	if get_tree().get_root().get_child(2).name == "Loader":
 		MusicRoot = get_tree().get_root().get_child(2).get_node("MainWindow").get_node("WindowContainer").get_node("Music")
@@ -13,23 +13,14 @@ func _ready():
 		
 # warning-ignore:return_value_discarded
 	get_parent().get_parent().connect("resized",self,"_on_Music_resized")
+	OpenSeed.connect("profiledata",self,"_account_retrieved")
 	pass 
 
-func _on_Banner_retrieve(account):
+func _on_Banner_retrieve(data):
 	show()
-	var profile = OpenSeed.get_hive_account(account)
-	if profile:
-		if str(profile["profile"]) != "Not found":
-			if str(profile["profile"].keys()).find("name") != -1:
-				$About/Name.text = profile["profile"]["name"]
-			if str(profile["profile"].keys()).find("about") != -1:
-				$About.text = profile["profile"]["about"]
-			
-			if !imgfile.file_exists("user://cache/"+account+"Cover"):
-				if str(profile["profile"].keys()).find("cover_image") != -1:
-					get_cover(account,profile["profile"]["cover_image"])
-			else:
-				$TextureRect.set_texture(get_pic("user://cache/"+account+"Cover"))
+	account = data
+	OpenSeed.openSeedRequest("get_hive_account",[account])
+	
 	
 func get_pic(img) :
 	var Imagetex = ImageTexture.new()
@@ -70,3 +61,21 @@ func _on_Timer_timeout():
 	var win_size = get_parent().get_parent().get_size()
 	set_size(Vector2(win_size.x,36.0))
 	$Timer.stop()
+
+func _account_retrieved(data):
+	if data and data[0] == account:
+		if data[1]:
+			var profile = data[1]
+			if typeof(profile) == TYPE_DICTIONARY:
+				if str(profile["profile"]) != "Not found":
+					if str(profile["profile"].keys()).find("name") != -1:
+						$About/Name.text = profile["profile"]["name"]
+					if str(profile["profile"].keys()).find("about") != -1:
+						$About.text = profile["profile"]["about"]
+			
+					if !imgfile.file_exists("user://cache/"+account+"Cover"):
+						if str(profile["profile"].keys()).find("cover_image") != -1:
+							get_cover(account,profile["profile"]["cover_image"])
+					else:
+						$TextureRect.set_texture(get_pic("user://cache/"+account+"Cover"))
+

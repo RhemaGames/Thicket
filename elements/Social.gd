@@ -18,13 +18,13 @@ func _ready():
 	chatbox.currentuser = currentuser
 	chatbox.SocialRoot = self
 # warning-ignore:return_value_discarded
-	OpenSeed.connect("userLoaded",self,"profileblock")
 	OpenSeed.connect("profiledata",self,"on_profile_return")
+	OpenSeed.connect("userLoaded",self,"profileblock")
 # warning-ignore:return_value_discarded
 	OpenSeed.connect("connections",self,"get_connections")
 	
-func profileblock():
 	
+func profileblock():
 	var loggedIn = $Chat/VBoxContainer/User_info
 	loggedIn.account = OpenSeed.username
 	textureFile.append(ImageTexture.new())
@@ -37,6 +37,8 @@ func profileblock():
 	loggedIn.get_node("Contact").emit_signal("refresh")
 	loggedIn.connect("view",self,"set_view")
 	texture_count += 1
+	currentuser = OpenSeed.username
+	set_view(OpenSeed.username)
 	emit_signal("done")
 	
 func _on_Social_visibility_changed():

@@ -108,12 +108,13 @@ grow_horizontal = 2
 rect_min_size = Vector2( 1200, 0 )
 
 [node name="newGame" parent="HBoxContainer/Info" instance=ExtResource( 4 )]
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1191.0
-margin_bottom = 1578.0
+margin_bottom = 1328.0
 
 [node name="Statistics" type="VBoxContainer" parent="HBoxContainer"]
 margin_left = 1620.0
