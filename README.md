@@ -1,5 +1,5 @@
 # Thicket
-Media Delivery Platform based on IPFS,OpenSeed,and STEEM 
+Media Delivery Platform based on IPFS,OpenSeed,and HIVE
 
 Written completely in Godot, Thicket is a one stop shop for Games,and Music. Thicket's goal is to create a complete solution for indie game devs and independant musicians. Thicket uses OpenSeed which is currently being developed in concert with Thicket and various other social platforms in order to create Open Source network for communications, online storage, and digital asset ownership. Check out OpenSeed's github repo [here](https://github.com/OpenSeedINC/OpenSeed/)
 
