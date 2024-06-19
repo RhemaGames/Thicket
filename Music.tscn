@@ -2,12 +2,12 @@
 
 [ext_resource path="res://default.theme" type="Theme" id=1]
 [ext_resource path="res://Music.gd" type="Script" id=2]
-[ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Fonts/titleFont.tres" type="FontFile" id=3]
 [ext_resource path="res://menu.tres" type="StyleBox" id=4]
-[ext_resource path="res://Img/Music.png" type="Texture" id=5]
+[ext_resource path="res://Img/Music.png" type="Texture2D" id=5]
 [ext_resource path="res://playlists.gd" type="Script" id=6]
-[ext_resource path="res://Img/view-list-symbolic.svg" type="Texture" id=7]
-[ext_resource path="res://Img/view-grid-symbolic.svg" type="Texture" id=8]
+[ext_resource path="res://Img/view-list-symbolic.svg" type="Texture2D" id=7]
+[ext_resource path="res://Img/view-grid-symbolic.svg" type="Texture2D" id=8]
 [ext_resource path="res://AllMusic.tscn" type="PackedScene" id=9]
 [ext_resource path="res://ArtistView.tscn" type="PackedScene" id=10]
 [ext_resource path="res://doublePaneView.tscn" type="PackedScene" id=11]
@@ -35,11 +35,11 @@ anchor_bottom = 1.0
 visible = false
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -39.0444
-margin_top = 10.0
-margin_right = 11.9556
-margin_bottom = 25.0
-custom_fonts/font = ExtResource( 3 )
+offset_left = -39.0444
+offset_top = 10.0
+offset_right = 11.9556
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource( 3 )
 text = "Where?"
 align = 1
 valign = 1
@@ -51,18 +51,18 @@ __meta__ = {
 [node name="mainMenu" type="Panel" parent="."]
 visible = false
 anchor_bottom = 1.0
-margin_right = 220.0
-rect_min_size = Vector2( 220, 0 )
-rect_clip_content = true
-custom_styles/panel = ExtResource( 4 )
+offset_right = 220.0
+custom_minimum_size = Vector2( 220, 0 )
+clip_contents = true
+theme_override_styles/panel = ExtResource( 4 )
 
 [node name="TextureRect" type="TextureRect" parent="mainMenu"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -81.108
-margin_top = 42.8678
-margin_right = 80.892
-margin_bottom = 105.868
+offset_left = -81.108
+offset_top = 42.8678
+offset_right = 80.892
+offset_bottom = 105.868
 texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
@@ -70,59 +70,59 @@ stretch_mode = 6
 [node name="generalOpts" type="VBoxContainer" parent="mainMenu"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -99.9503
-margin_top = 116.166
-margin_right = 63.0497
-margin_bottom = 314.166
+offset_left = -99.9503
+offset_top = 116.166
+offset_right = 63.0497
+offset_bottom = 314.166
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Title" type="Label" parent="mainMenu/generalOpts"]
-margin_right = 163.0
-margin_bottom = 24.0
+offset_right = 163.0
+offset_bottom = 24.0
 text = "General"
 align = 1
 
 [node name="HSeparator" type="HSeparator" parent="mainMenu/generalOpts"]
-margin_top = 28.0
-margin_right = 163.0
-margin_bottom = 36.0
+offset_top = 28.0
+offset_right = 163.0
+offset_bottom = 36.0
 
 [node name="allMusic" type="Button" parent="mainMenu/generalOpts"]
-margin_top = 40.0
-margin_right = 163.0
-margin_bottom = 74.0
+offset_top = 40.0
+offset_right = 163.0
+offset_bottom = 74.0
 text = "Music Deck"
 flat = true
 align = 0
 
 [node name="Control" type="Control" parent="mainMenu/generalOpts"]
-margin_top = 78.0
-margin_right = 163.0
-margin_bottom = 88.0
-rect_min_size = Vector2( 0, 10 )
+offset_top = 78.0
+offset_right = 163.0
+offset_bottom = 88.0
+custom_minimum_size = Vector2( 0, 10 )
 
 [node name="all" type="Button" parent="mainMenu/generalOpts"]
-margin_top = 92.0
-margin_right = 163.0
-margin_bottom = 126.0
+offset_top = 92.0
+offset_right = 163.0
+offset_bottom = 126.0
 text = "All Music"
 flat = true
 align = 0
 
 [node name="likes" type="Button" parent="mainMenu/generalOpts"]
-margin_top = 130.0
-margin_right = 163.0
-margin_bottom = 164.0
+offset_top = 130.0
+offset_right = 163.0
+offset_bottom = 164.0
 text = "Liked"
 flat = true
 align = 0
 
 [node name="favorites" type="Button" parent="mainMenu/generalOpts"]
-margin_top = 168.0
-margin_right = 163.0
-margin_bottom = 202.0
+offset_top = 168.0
+offset_right = 163.0
+offset_bottom = 202.0
 text = "Favorites"
 flat = true
 align = 0
@@ -130,53 +130,53 @@ align = 0
 [node name="genplaylists" type="VBoxContainer" parent="mainMenu"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -102.519
-margin_top = 334.192
-margin_right = 87.4806
-margin_bottom = 518.192
+offset_left = -102.519
+offset_top = 334.192
+offset_right = 87.4806
+offset_bottom = 518.192
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Title" type="Label" parent="mainMenu/genplaylists"]
-margin_right = 190.0
-margin_bottom = 24.0
+offset_right = 190.0
+offset_bottom = 24.0
 text = "Play Lists"
 align = 1
 
 [node name="HSeparator" type="HSeparator" parent="mainMenu/genplaylists"]
-margin_top = 28.0
-margin_right = 190.0
-margin_bottom = 36.0
+offset_top = 28.0
+offset_right = 190.0
+offset_bottom = 36.0
 
 [node name="recent" type="Button" parent="mainMenu/genplaylists"]
-margin_top = 40.0
-margin_right = 190.0
-margin_bottom = 74.0
+offset_top = 40.0
+offset_right = 190.0
+offset_bottom = 74.0
 text = "Recently Played"
 flat = true
 align = 0
 
 [node name="most" type="Button" parent="mainMenu/genplaylists"]
-margin_top = 78.0
-margin_right = 190.0
-margin_bottom = 112.0
+offset_top = 78.0
+offset_right = 190.0
+offset_bottom = 112.0
 text = "Most Played"
 flat = true
 align = 0
 
 [node name="random" type="Button" parent="mainMenu/genplaylists"]
-margin_top = 116.0
-margin_right = 190.0
-margin_bottom = 150.0
+offset_top = 116.0
+offset_right = 190.0
+offset_bottom = 150.0
 text = "Random"
 flat = true
 align = 0
 
 [node name="playlists" type="MenuButton" parent="mainMenu/genplaylists"]
-margin_top = 154.0
-margin_right = 190.0
-margin_bottom = 188.0
+offset_top = 154.0
+offset_right = 190.0
+offset_bottom = 188.0
 text = "Others"
 align = 0
 items = [ "", null, 0, false, false, -1, 0, null, "", true, "New", null, 0, false, false, -1, 0, null, "", false, "", null, 0, false, false, -1, 0, null, "", true ]
@@ -185,38 +185,38 @@ script = ExtResource( 6 )
 [node name="curated" type="VBoxContainer" parent="mainMenu"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -102.126
-margin_top = 545.262
-margin_right = 60.8742
-margin_bottom = 653.262
+offset_left = -102.126
+offset_top = 545.262
+offset_right = 60.8742
+offset_bottom = 653.262
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Title" type="Label" parent="mainMenu/curated"]
-margin_right = 163.0
-margin_bottom = 24.0
+offset_right = 163.0
+offset_bottom = 24.0
 text = "Curated Music"
 align = 1
 
 [node name="HSeparator" type="HSeparator" parent="mainMenu/curated"]
-margin_top = 28.0
-margin_right = 163.0
-margin_bottom = 36.0
+offset_top = 28.0
+offset_right = 163.0
+offset_bottom = 36.0
 
 [node name="helpiecake" type="Button" parent="mainMenu/curated"]
-margin_top = 40.0
-margin_right = 163.0
-margin_bottom = 74.0
+offset_top = 40.0
+offset_right = 163.0
+offset_bottom = 74.0
 disabled = true
 text = "Helpie Cake"
 flat = true
 align = 0
 
 [node name="curie" type="Button" parent="mainMenu/curated"]
-margin_top = 78.0
-margin_right = 163.0
-margin_bottom = 112.0
+offset_top = 78.0
+offset_right = 163.0
+offset_bottom = 112.0
 disabled = true
 text = "C-Squared"
 flat = true
@@ -227,29 +227,29 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -81.108
-margin_top = -110.0
-margin_right = 81.892
-margin_bottom = -40.0
+offset_left = -81.108
+offset_top = -110.0
+offset_right = 81.892
+offset_bottom = -40.0
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Title" type="Label" parent="mainMenu/sources"]
-margin_right = 163.0
-margin_bottom = 24.0
+offset_right = 163.0
+offset_bottom = 24.0
 text = "Sources"
 align = 1
 
 [node name="HSeparator" type="HSeparator" parent="mainMenu/sources"]
-margin_top = 28.0
-margin_right = 163.0
-margin_bottom = 36.0
+offset_top = 28.0
+offset_right = 163.0
+offset_bottom = 36.0
 
 [node name="dsound" type="Button" parent="mainMenu/sources"]
-margin_top = 40.0
-margin_right = 163.0
-margin_bottom = 74.0
+offset_top = 40.0
+offset_right = 163.0
+offset_bottom = 74.0
 text = "dsound.audio"
 flat = true
 align = 0
@@ -258,143 +258,143 @@ align = 0
 visible = false
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -87.0
-margin_top = 413.272
-margin_right = 84.0
-margin_bottom = 612.272
+offset_left = -87.0
+offset_top = 413.272
+offset_right = 84.0
+offset_bottom = 612.272
 grow_vertical = 2
-rect_clip_content = true
-custom_constants/vseparation = 0
-custom_constants/hseparation = 0
+clip_contents = true
+theme_override_constants/v_separation = 0
+theme_override_constants/h_separation = 0
 columns = 2
 
 [node name="viewOpts" type="HBoxContainer" parent="."]
 visible = false
-margin_left = 184.0
-margin_top = 2.3432
-margin_right = 252.0
-margin_bottom = 33.3432
+offset_left = 184.0
+offset_top = 2.3432
+offset_right = 252.0
+offset_bottom = 33.3432
 alignment = 1
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="listview" type="Button" parent="viewOpts"]
-margin_right = 26.0
-margin_bottom = 106.0
+offset_right = 26.0
+offset_bottom = 106.0
 icon = ExtResource( 7 )
 flat = true
 
 [node name="VSeparator" type="VSeparator" parent="viewOpts"]
-margin_left = 30.0
-margin_right = 38.0
-margin_bottom = 106.0
+offset_left = 30.0
+offset_right = 38.0
+offset_bottom = 106.0
 
 [node name="iconview" type="Button" parent="viewOpts"]
-margin_left = 42.0
-margin_right = 148.0
-margin_bottom = 106.0
+offset_left = 42.0
+offset_right = 148.0
+offset_bottom = 106.0
 icon = ExtResource( 8 )
 flat = true
 
 [node name="ListViewLegend" type="HBoxContainer" parent="."]
 visible = false
-margin_left = 187.892
-margin_top = 36.6759
-margin_right = 667.892
-margin_bottom = 54.6759
+offset_left = 187.892
+offset_top = 36.6759
+offset_right = 667.892
+offset_bottom = 54.6759
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
 [node name="title" type="Label" parent="ListViewLegend"]
-margin_top = 2.0
-margin_right = 500.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 500, 0 )
+offset_top = 2.0
+offset_right = 500.0
+offset_bottom = 16.0
+custom_minimum_size = Vector2( 500, 0 )
 text = "Song Title"
 
 [node name="VSeparator" type="VSeparator" parent="ListViewLegend"]
-margin_left = 504.0
-margin_right = 508.0
-margin_bottom = 18.0
+offset_left = 504.0
+offset_right = 508.0
+offset_bottom = 18.0
 
 [node name="artist" type="Label" parent="ListViewLegend"]
-margin_left = 512.0
-margin_top = 2.0
-margin_right = 692.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 180, 0 )
+offset_left = 512.0
+offset_top = 2.0
+offset_right = 692.0
+offset_bottom = 16.0
+custom_minimum_size = Vector2( 180, 0 )
 text = "Artist"
 
 [node name="VSeparator2" type="VSeparator" parent="ListViewLegend"]
-margin_left = 696.0
-margin_right = 700.0
-margin_bottom = 18.0
+offset_left = 696.0
+offset_right = 700.0
+offset_bottom = 18.0
 
 [node name="duration" type="Label" parent="ListViewLegend"]
-margin_left = 704.0
-margin_top = 2.0
-margin_right = 759.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 55, 0 )
+offset_left = 704.0
+offset_top = 2.0
+offset_right = 759.0
+offset_bottom = 16.0
+custom_minimum_size = Vector2( 55, 0 )
 text = "Duration"
 valign = 1
 
 [node name="VSeparator3" type="VSeparator" parent="ListViewLegend"]
-margin_left = 763.0
-margin_right = 767.0
-margin_bottom = 18.0
+offset_left = 763.0
+offset_right = 767.0
+offset_bottom = 18.0
 
 [node name="filename" type="Label" parent="ListViewLegend"]
 visible = false
-margin_left = 771.0
-margin_top = 2.0
-margin_right = 951.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 180, 0 )
+offset_left = 771.0
+offset_top = 2.0
+offset_right = 951.0
+offset_bottom = 16.0
+custom_minimum_size = Vector2( 180, 0 )
 text = "File Name"
 
 [node name="HSeparator" type="HSeparator" parent="."]
 visible = false
 anchor_right = 1.0
-margin_left = 181.0
-margin_top = 54.0
-margin_right = -9.0
-margin_bottom = 62.0
+offset_left = 181.0
+offset_top = 54.0
+offset_right = -9.0
+offset_bottom = 62.0
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="AllMusic" parent="." instance=ExtResource( 9 )]
-margin_left = 1.0
-margin_top = 1.0
-margin_bottom = -3.0
+offset_left = 1.0
+offset_top = 1.0
+offset_bottom = -3.0
 
 [node name="ArtistView" parent="." instance=ExtResource( 10 )]
 visible = false
-margin_top = -1.0
+offset_top = -1.0
 
 [node name="OptionView" parent="." instance=ExtResource( 11 )]
 visible = false
-margin_bottom = -53.0
+offset_bottom = -53.0
 
 [node name="AllArtists" parent="." instance=ExtResource( 12 )]
 visible = false
-margin_left = 2.0
-margin_right = -1.0
-margin_bottom = -1.0
+offset_left = 2.0
+offset_right = -1.0
+offset_bottom = -1.0
 
 [node name="Search" parent="." instance=ExtResource( 13 )]
 visible = false
 
 [node name="libraryView" parent="." instance=ExtResource( 14 )]
 visible = false
-margin_left = 4.0
-margin_top = -1.0
-margin_right = 4.0
-margin_bottom = -83.0
+offset_left = 4.0
+offset_top = -1.0
+offset_right = 4.0
+offset_bottom = -83.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
@@ -422,7 +422,7 @@ visible = false
 [connection signal="pressed" from="mainMenu/genplaylists/recent" to="." method="_on_recent_pressed"]
 [connection signal="pressed" from="mainMenu/genplaylists/most" to="." method="_on_likes_pressed"]
 [connection signal="pressed" from="mainMenu/genplaylists/random" to="." method="_on_favorites_pressed"]
-[connection signal="about_to_show" from="mainMenu/genplaylists/playlists" to="mainMenu/genplaylists/playlists" method="_on_playlists_about_to_show"]
+[connection signal="about_to_popup" from="mainMenu/genplaylists/playlists" to="mainMenu/genplaylists/playlists" method="_on_playlists_about_to_show"]
 [connection signal="pressed" from="mainMenu/curated/helpiecake" to="." method="_on_helpiecake_pressed"]
 [connection signal="pressed" from="mainMenu/curated/curie" to="." method="_on_curie_pressed"]
 [connection signal="update_playlist" from="Search" to="." method="_on_Search_update_playlist"]

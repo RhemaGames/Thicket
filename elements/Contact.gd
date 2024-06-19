@@ -19,7 +19,7 @@ func _ready():
 	OpenSeed = get_node("/root/OpenSeed")
 	Thicket = get_node("/root/Thicket")
 	OpenSeed.openSeedRequest("get_image",[pImage,"low"])
-	OpenSeed.connect("imagestored",self,"_on_Contact_refresh")
+	OpenSeed.connect("imagestored", Callable(self, "_on_Contact_refresh"))
 
 func set_box(image):
 	var imagehash = "No_Image_found"
@@ -49,4 +49,3 @@ func _on_Contact_refresh(data):
 		self.set_texture(the_img)
 	else:
 		self.set_texture(fallback)
-

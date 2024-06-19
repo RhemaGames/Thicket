@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://elements/Loading.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://icon.png" type="Texture2D" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "loop"
@@ -14,8 +14,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.4, 2.9 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 1.4, 2.9 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.160784 ), Color( 1, 1, 1, 0.988235 ) ]
 }
@@ -38,10 +38,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -62.5
-margin_top = -62.5
-margin_right = 62.5
-margin_bottom = 62.5
+offset_left = -62.5
+offset_top = -62.5
+offset_right = 62.5
+offset_bottom = 62.5
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -52,10 +52,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -24.4321
-margin_top = 84.4321
-margin_right = 24.5679
-margin_bottom = 98.4321
+offset_left = -24.4321
+offset_top = 84.4321
+offset_right = 24.5679
+offset_bottom = 98.4321
 grow_horizontal = 2
 grow_vertical = 2
 text = "Loading"

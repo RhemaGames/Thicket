@@ -8,7 +8,7 @@ var active = false
 var bgColor = Color(0.1,1,0.5)
 var textColor = Color(1,1,1)
 var icon = ""
-var text = "Area"
+var text = "Area3D"
 var title = ""
 
 # Called when the node enters the scene tree for the first time.

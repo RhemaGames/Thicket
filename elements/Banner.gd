@@ -12,8 +12,8 @@ func _ready():
 		MusicRoot = get_tree().get_root().get_node("MainWindow").get_node("WindowContainer").get_node("Music")
 		
 # warning-ignore:return_value_discarded
-	get_parent().get_parent().connect("resized",self,"_on_Music_resized")
-	OpenSeed.connect("profiledata",self,"_account_retrieved")
+	get_parent().get_parent().connect("resized", Callable(self, "_on_Music_resized"))
+	OpenSeed.connect("profiledata", Callable(self, "_account_retrieved"))
 	pass 
 
 func _on_Banner_retrieve(data):
@@ -27,11 +27,11 @@ func get_pic(img) :
 	var Imagedata = Image.new()
 	if imgfile.file_exists(img):
 		imgfile.open(img, File.READ)
-		var imagesize = imgfile.get_len()
+		var imagesize = imgfile.get_length()
 		var err = Imagedata.load_jpg_from_buffer(imgfile.get_buffer(imagesize))
 		if err:
 			err = Imagedata.load_png_from_buffer(imgfile.get_buffer(imagesize))
-		Imagetex.create_from_image(Imagedata,0)
+		Imagetex.create_from_image(Imagedata) #,0
 		imgfile.close()
 		return Imagetex
 	else:

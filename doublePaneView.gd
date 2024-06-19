@@ -30,7 +30,7 @@ func create_list(songarray):
 		
 	#var window_size = get_size()
 	#set_split_offset(window_size.x / 4)
-	MusicRoot.connect("resized",self,"on_resize")
+	MusicRoot.connect("resized", Callable(self, "on_resize"))
 	
 	clear_list()
 	playlist = []
@@ -47,7 +47,7 @@ func create_list(songarray):
 	var _tags
 	
 	for listitem in songarray:
-		var thesong = songlisting.instance()
+		var thesong = songlisting.instantiate()
 		#Thicket.local_knowledge_add("audio",listitem)
 		if len(listitem) >= 8: 
 			artist = listitem["author"]
@@ -91,12 +91,12 @@ func create_list(songarray):
 				num += 1	
 				playlist.append([thesong.fileName,thesong.artist,thesong.title,thesong.image,thesong.post])
 			
-			thesong.connect("play",MusicRoot,"_on_Music_play")
-			thesong.connect("play_now",MusicRoot,"_on_play_now")
-			thesong.connect("search",MusicRoot,"_on_artist_search")
-			thesong.connect("postview",$MusicInfo,"_on_MusicInfo_postview")
+			thesong.connect("play", Callable(MusicRoot, "_on_Music_play"))
+			thesong.connect("play_now", Callable(MusicRoot, "_on_play_now"))
+			thesong.connect("search", Callable(MusicRoot, "_on_artist_search"))
+			thesong.connect("postview", Callable($MusicInfo, "_on_MusicInfo_postview"))
 # warning-ignore:return_value_discarded
-			MusicRoot.connect("clear_highlight",thesong,"_clear_highlight")
+			MusicRoot.connect("clear_highlight", Callable(thesong, "_clear_highlight"))
 	return(playlist)
 		
 func clear_list():

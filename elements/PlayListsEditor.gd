@@ -37,12 +37,12 @@ func load_lists():
 		plistlist.remove_child(child)
 		listsnum -= 1
 	
-	var dir = Directory.new()
+	var dir = DirAccess.new()
 	if dir.open("user://playlists/") == OK:
-		dir.list_dir_begin(true,true)
+		dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 		var playlists = dir.get_next()
 		while playlists != "":
-			var g = plist.instance()
+			var g = plist.instantiate()
 			print(playlists.split(".")[0])
 			g.emit_signal("title",playlists.split(".")[0])
 			plistlist.add_child(g)

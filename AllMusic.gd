@@ -7,9 +7,9 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 # warning-ignore:return_value_discarded
-	get_parent().connect("resized",self,"on_resize")
+	get_parent().connect("resized", Callable(self, "on_resize"))
 # warning-ignore:return_value_discarded
-	get_node("/root/MainWindow").connect("loading_complete",self,"on_loading_done")
+	get_node("/root/MainWindow").connect("loading_complete", Callable(self, "on_loading_done"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -60,7 +60,7 @@ func on_resize():
 		$resize.start()
 
 func _on_resize_timeout():
-	$Main.rect_size = Vector2(get_size().x-12,get_size().y)
+	$Main.size = Vector2(get_size().x-12,get_size().y)
 	$Main.queue_sort()
 	$resize.stop()
 

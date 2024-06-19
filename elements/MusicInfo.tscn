@@ -1,19 +1,19 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://elements/MusicInfo.gd" type="Script" id=1]
-[ext_resource path="res://Img/Music.png" type="Texture" id=2]
+[ext_resource path="res://Img/Music.png" type="Texture2D" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 shadow_size = 20
 
 [node name="MusicInfo" type="Control"]
-margin_right = 400.0
-margin_bottom = 1057.0
+offset_right = 400.0
+offset_bottom = 1057.0
 grow_horizontal = 0
 grow_vertical = 2
-rect_min_size = Vector2( 400, 720 )
-rect_clip_content = true
+custom_minimum_size = Vector2( 400, 720 )
+clip_contents = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -22,7 +22,7 @@ __meta__ = {
 [node name="Panel" type="Panel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 1 )
+theme_override_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -30,10 +30,10 @@ __meta__ = {
 [node name="trackImage" type="TextureRect" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -170.0
-margin_top = 40.0
-margin_right = 171.0
-margin_bottom = 240.0
+offset_left = -170.0
+offset_top = 40.0
+offset_right = 171.0
+offset_bottom = 240.0
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
@@ -41,53 +41,53 @@ stretch_mode = 6
 [node name="trackpost" type="RichTextLabel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 319.0
-margin_right = -5.0
-margin_bottom = -52.0
+offset_left = 5.0
+offset_top = 319.0
+offset_right = -5.0
+offset_bottom = -52.0
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 use_threads = true
 
 [node name="buttons" type="HBoxContainer" parent="."]
 anchor_right = 1.0
-margin_left = 1.16635
-margin_top = 257.035
-margin_right = 1.16635
-margin_bottom = 294.035
-custom_constants/separation = 30
+offset_left = 1.16635
+offset_top = 257.035
+offset_right = 1.16635
+offset_bottom = 294.035
+theme_override_constants/separation = 30
 alignment = 1
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Like" type="Button" parent="buttons"]
-margin_left = 11.0
-margin_right = 86.0
-margin_bottom = 37.0
-rect_min_size = Vector2( 75, 0 )
+offset_left = 11.0
+offset_right = 86.0
+offset_bottom = 37.0
+custom_minimum_size = Vector2( 75, 0 )
 text = "Like"
 
 [node name="Favorite" type="Button" parent="buttons"]
-margin_left = 116.0
-margin_right = 228.0
-margin_bottom = 37.0
-rect_min_size = Vector2( 75, 0 )
+offset_left = 116.0
+offset_right = 228.0
+offset_bottom = 37.0
+custom_minimum_size = Vector2( 75, 0 )
 text = "Favorite"
 
 [node name="Comment" type="Button" parent="buttons"]
-margin_left = 258.0
-margin_right = 389.0
-margin_bottom = 37.0
-rect_min_size = Vector2( 75, 0 )
+offset_left = 258.0
+offset_right = 389.0
+offset_bottom = 37.0
+custom_minimum_size = Vector2( 75, 0 )
 text = "Comment"
 
 [node name="Download" type="Button" parent="buttons"]
 visible = false
-margin_left = 323.0
-margin_right = 398.0
-margin_bottom = 31.0
-rect_min_size = Vector2( 75, 0 )
+offset_left = 323.0
+offset_right = 398.0
+offset_bottom = 31.0
+custom_minimum_size = Vector2( 75, 0 )
 disabled = true
 text = "Tip"
 [connection signal="postview" from="." to="." method="_on_MusicInfo_postview"]

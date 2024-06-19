@@ -19,9 +19,9 @@ func _ready():
 	title = "Connections"
 	$Info/VBoxContainer/statTitle.text = title
 	$Info/VBoxContainer/StatNumber.text = str(num)
-	$Indicator.rect_rotation = startRotation
+	$Indicator.rotation = startRotation
 # warning-ignore:return_value_discarded
-	OpenSeed.connect("conversations",self,"_on_conversations_update")
+	OpenSeed.connect("conversations", Callable(self, "_on_conversations_update"))
 
 
 
@@ -32,7 +32,7 @@ func _ready():
 	#pass
 
 func _on_StatCircle_set_num(number):
-	$Indicator.rect_rotation = startRotation+number
+	$Indicator.rotation = startRotation+number
 	num = startRotation+number
 	$Info/VBoxContainer/StatNumber.text = str(number)
 	

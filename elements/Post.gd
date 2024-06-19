@@ -11,7 +11,7 @@ signal show_post(data)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	OpenSeed.connect("post",self,"_on_Post_show_post")
+	OpenSeed.connect("post", Callable(self, "_on_Post_show_post"))
 	pass # Replace with function body.
 
 
@@ -46,7 +46,7 @@ func track_formatter(artist,title,post):
 						img = fromStore
 						
 					texbox.set_texture(img)
-					texbox.rect_min_size = Vector2(0.0,300.0)
+					texbox.custom_minimum_size = Vector2(0.0,300.0)
 					texbox.expand = true
 					texbox.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 					$VBoxContainer.add_child(texbox)

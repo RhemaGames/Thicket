@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh6kdmiad7axc"]
+
+[ext_resource type="PackedScene" uid="uid://dmnwrvqtq62io" path="res://elements/clouds.tscn" id="1_ql5jk"]
+
+[node name="Loading" type="Node2D"]
+
+[node name="Clouds" parent="." instance=ExtResource("1_ql5jk")]
+position = Vector2(935, 464.5)

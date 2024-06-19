@@ -3,7 +3,7 @@
 [ext_resource path="res://default.theme" type="Theme" id=1]
 [ext_resource path="res://Settings.gd" type="Script" id=2]
 [ext_resource path="res://menu.tres" type="StyleBox" id=3]
-[ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Fonts/titleFont.tres" type="FontFile" id=4]
 [ext_resource path="res://elements/Contact.tscn" type="PackedScene" id=5]
 [ext_resource path="res://elements/control_backing.tres" type="StyleBox" id=6]
 [ext_resource path="res://elements/tabs/Profile.gd" type="Script" id=13]
@@ -11,8 +11,8 @@
 [node name="Settings" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_min_size = Vector2( 360, 0 )
-rect_clip_content = true
+custom_minimum_size = Vector2( 360, 0 )
+clip_contents = true
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -23,11 +23,11 @@ __meta__ = {
 self_modulate = Color( 1, 1, 1, 0.960784 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 16.0
-margin_top = 20.0
-margin_right = -25.0
-margin_bottom = -32.0
-rect_clip_content = true
+offset_left = 16.0
+offset_top = 20.0
+offset_right = -25.0
+offset_bottom = -32.0
+clip_contents = true
 __meta__ = {
 "_edit_lock_": true
 }
@@ -37,13 +37,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -792.0
-margin_top = -425.0
-margin_right = 792.0
-margin_bottom = 425.0
+offset_left = -792.0
+offset_top = -425.0
+offset_right = 792.0
+offset_bottom = 425.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 1584, 850 )
+custom_minimum_size = Vector2( 1584, 850 )
 scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_group_": true,
@@ -51,152 +51,152 @@ __meta__ = {
 }
 
 [node name="Account" type="VBoxContainer" parent="Panel/AccountContainer"]
-margin_right = 1764.0
-margin_bottom = 763.0
-rect_min_size = Vector2( 1560, 760 )
-rect_clip_content = true
-custom_constants/separation = 20
+offset_right = 1764.0
+offset_bottom = 763.0
+custom_minimum_size = Vector2( 1560, 760 )
+clip_contents = true
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="Account" type="Label" parent="Panel/AccountContainer/Account"]
-margin_right = 1764.0
-margin_bottom = 27.0
-custom_fonts/font = ExtResource( 4 )
+offset_right = 1764.0
+offset_bottom = 27.0
+theme_override_fonts/font = ExtResource( 4 )
 text = "Account"
 align = 1
 valign = 1
 uppercase = true
 
 [node name="HSeparator3" type="HSeparator" parent="Panel/AccountContainer/Account"]
-margin_top = 47.0
-margin_right = 1764.0
-margin_bottom = 55.0
+offset_top = 47.0
+offset_right = 1764.0
+offset_bottom = 55.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/AccountContainer/Account"]
-margin_top = 75.0
-margin_right = 1764.0
-margin_bottom = 763.0
+offset_top = 75.0
+offset_right = 1764.0
+offset_bottom = 763.0
 grow_horizontal = 2
-custom_constants/separation = 10
+theme_override_constants/separation = 10
 
 [node name="AccountInfo" type="VBoxContainer" parent="Panel/AccountContainer/Account/HBoxContainer"]
-margin_right = 954.0
-margin_bottom = 688.0
-custom_constants/separation = 10
+offset_right = 954.0
+offset_bottom = 688.0
+theme_override_constants/separation = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/AccountContainer/Account/HBoxContainer/AccountInfo"]
-margin_right = 954.0
-margin_bottom = 200.0
+offset_right = 954.0
+offset_bottom = 200.0
 
 [node name="Contact" parent="Panel/AccountContainer/Account/HBoxContainer/AccountInfo/HBoxContainer" instance=ExtResource( 5 )]
-margin_right = 200.0
-margin_bottom = 200.0
-rect_min_size = Vector2( 200, 200 )
+offset_right = 200.0
+offset_bottom = 200.0
+custom_minimum_size = Vector2( 200, 200 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/AccountContainer/Account/HBoxContainer/AccountInfo/HBoxContainer"]
-margin_left = 204.0
-margin_right = 954.0
-margin_bottom = 200.0
-custom_constants/separation = 8
+offset_left = 204.0
+offset_right = 954.0
+offset_bottom = 200.0
+theme_override_constants/separation = 8
 
 [node name="Label" type="Label" parent="Panel/AccountContainer/Account/HBoxContainer/AccountInfo/HBoxContainer/VBoxContainer"]
-margin_right = 750.0
-margin_bottom = 24.0
+offset_right = 750.0
+offset_bottom = 24.0
 text = "Name:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Name" type="LineEdit" parent="Panel/AccountContainer/Account/HBoxContainer/AccountInfo/HBoxContainer/VBoxContainer"]
-margin_top = 32.0
-margin_right = 750.0
-margin_bottom = 58.0
-rect_min_size = Vector2( 750, 0 )
+offset_top = 32.0
+offset_right = 750.0
+offset_bottom = 58.0
+custom_minimum_size = Vector2( 750, 0 )
 
 [node name="Label2" type="Label" parent="Panel/AccountContainer/Account/HBoxContainer/AccountInfo/HBoxContainer/VBoxContainer"]
-margin_top = 66.0
-margin_right = 750.0
-margin_bottom = 90.0
+offset_top = 66.0
+offset_right = 750.0
+offset_bottom = 90.0
 text = "Email:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Email" type="LineEdit" parent="Panel/AccountContainer/Account/HBoxContainer/AccountInfo/HBoxContainer/VBoxContainer"]
-margin_top = 98.0
-margin_right = 750.0
-margin_bottom = 124.0
+offset_top = 98.0
+offset_right = 750.0
+offset_bottom = 124.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label3" type="Label" parent="Panel/AccountContainer/Account/HBoxContainer/AccountInfo/HBoxContainer/VBoxContainer"]
-margin_top = 132.0
-margin_right = 750.0
-margin_bottom = 156.0
+offset_top = 132.0
+offset_right = 750.0
+offset_bottom = 156.0
 text = "Phone:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Phone" type="LineEdit" parent="Panel/AccountContainer/Account/HBoxContainer/AccountInfo/HBoxContainer/VBoxContainer"]
-margin_top = 164.0
-margin_right = 750.0
-margin_bottom = 190.0
+offset_top = 164.0
+offset_right = 750.0
+offset_bottom = 190.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HSeparator4" type="HSeparator" parent="Panel/AccountContainer/Account/HBoxContainer/AccountInfo"]
-margin_top = 210.0
-margin_right = 954.0
-margin_bottom = 218.0
+offset_top = 210.0
+offset_right = 954.0
+offset_bottom = 218.0
 
 [node name="createInfo" type="Label" parent="Panel/AccountContainer/Account/HBoxContainer/AccountInfo"]
-margin_top = 228.0
-margin_right = 954.0
-margin_bottom = 333.0
+offset_top = 228.0
+offset_right = 954.0
+offset_bottom = 333.0
 text = "Enabling Creator mode will give you access to the Creator console here in settings. There you will be able to upload your own content to the OpenSeed network. This includes Games, Music, and any other digital asset that is supported by the system. "
 autowrap = true
 
 [node name="creatorMode" type="CheckButton" parent="Panel/AccountContainer/Account/HBoxContainer/AccountInfo"]
-margin_top = 343.0
-margin_right = 954.0
-margin_bottom = 400.0
-custom_constants/hseparation = 0
+offset_top = 343.0
+offset_right = 954.0
+offset_bottom = 400.0
+theme_override_constants/h_separation = 0
 text = "Creator Mode"
 flat = true
 
 [node name="privInfo" type="Label" parent="Panel/AccountContainer/Account/HBoxContainer/AccountInfo"]
-margin_top = 410.0
-margin_right = 954.0
-margin_bottom = 461.0
+offset_top = 410.0
+offset_right = 954.0
+offset_bottom = 461.0
 text = "Private mode will protect your contact information from being shared with others using the service.  "
 autowrap = true
 
 [node name="privMode" type="CheckButton" parent="Panel/AccountContainer/Account/HBoxContainer/AccountInfo"]
-margin_top = 471.0
-margin_right = 954.0
-margin_bottom = 528.0
-custom_constants/hseparation = 0
+offset_top = 471.0
+offset_right = 954.0
+offset_bottom = 528.0
+theme_override_constants/h_separation = 0
 text = "Private Mode"
 flat = true
 
 [node name="About" type="VBoxContainer" parent="Panel/AccountContainer/Account/HBoxContainer"]
-margin_left = 964.0
-margin_right = 1764.0
-margin_bottom = 688.0
+offset_left = 964.0
+offset_right = 1764.0
+offset_bottom = 688.0
 
 [node name="Label" type="Label" parent="Panel/AccountContainer/Account/HBoxContainer/About"]
-margin_right = 800.0
-margin_bottom = 24.0
+offset_right = 800.0
+offset_bottom = 24.0
 text = "About:"
 
 [node name="TextEdit" type="TextEdit" parent="Panel/AccountContainer/Account/HBoxContainer/About"]
-margin_top = 28.0
-margin_right = 800.0
-margin_bottom = 688.0
-rect_min_size = Vector2( 800, 660 )
+offset_top = 28.0
+offset_right = 800.0
+offset_bottom = 688.0
+custom_minimum_size = Vector2( 800, 660 )
 wrap_enabled = true
 
 [node name="SystemContainer" type="ScrollContainer" parent="Panel"]
@@ -205,13 +205,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -905.5
-margin_top = -425.0
-margin_right = 918.5
-margin_bottom = 415.0
+offset_left = -905.5
+offset_top = -425.0
+offset_right = 918.5
+offset_bottom = 415.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 1580, 800 )
+custom_minimum_size = Vector2( 1580, 800 )
 scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_group_": true,
@@ -219,49 +219,49 @@ __meta__ = {
 }
 
 [node name="System" type="VBoxContainer" parent="Panel/SystemContainer"]
-margin_right = 1800.0
-margin_bottom = 1203.0
-rect_min_size = Vector2( 1800, 800 )
-custom_constants/separation = 15
+offset_right = 1800.0
+offset_bottom = 1203.0
+custom_minimum_size = Vector2( 1800, 800 )
+theme_override_constants/separation = 15
 
 [node name="General" type="Label" parent="Panel/SystemContainer/System"]
-margin_right = 1800.0
-margin_bottom = 27.0
-custom_fonts/font = ExtResource( 4 )
+offset_right = 1800.0
+offset_bottom = 27.0
+theme_override_fonts/font = ExtResource( 4 )
 text = "System"
 align = 1
 valign = 1
 uppercase = true
 
 [node name="HSeparator" type="HSeparator" parent="Panel/SystemContainer/System"]
-margin_top = 42.0
-margin_right = 1800.0
-margin_bottom = 50.0
+offset_top = 42.0
+offset_right = 1800.0
+offset_bottom = 50.0
 
 [node name="spacing" type="Control" parent="Panel/SystemContainer/System"]
-margin_top = 65.0
-margin_right = 1800.0
-margin_bottom = 95.0
-rect_min_size = Vector2( 0, 30 )
+offset_top = 65.0
+offset_right = 1800.0
+offset_bottom = 95.0
+custom_minimum_size = Vector2( 0, 30 )
 
 [node name="General4" type="Label" parent="Panel/SystemContainer/System"]
-margin_top = 110.0
-margin_right = 1800.0
-margin_bottom = 137.0
-custom_fonts/font = ExtResource( 4 )
+offset_top = 110.0
+offset_right = 1800.0
+offset_bottom = 137.0
+theme_override_fonts/font = ExtResource( 4 )
 text = "Folders"
 valign = 1
 uppercase = true
 
 [node name="HSeparator4" type="HSeparator" parent="Panel/SystemContainer/System"]
-margin_top = 152.0
-margin_right = 1800.0
-margin_bottom = 160.0
+offset_top = 152.0
+offset_right = 1800.0
+offset_bottom = 160.0
 
 [node name="aboutAdditionalFolders" type="Label" parent="Panel/SystemContainer/System"]
-margin_top = 175.0
-margin_right = 1800.0
-margin_bottom = 307.0
+offset_top = 175.0
+offset_right = 1800.0
+offset_bottom = 307.0
 text = "Thicket can scan and include other music directories along with OpenSeeds internal music library. By design Thicket only supports Free and OpenSource formats so music found outside of its playable scope will need to be converted before they can be played. 
 
  - If you are unsure leave these settings alone -
@@ -269,250 +269,250 @@ text = "Thicket can scan and include other music directories along with OpenSeed
 autowrap = true
 
 [node name="Music" type="HBoxContainer" parent="Panel/SystemContainer/System"]
-margin_top = 322.0
-margin_right = 1800.0
-margin_bottom = 354.0
-rect_min_size = Vector2( 0, 32 )
-custom_constants/separation = 20
+offset_top = 322.0
+offset_right = 1800.0
+offset_bottom = 354.0
+custom_minimum_size = Vector2( 0, 32 )
+theme_override_constants/separation = 20
 
 [node name="title" type="Label" parent="Panel/SystemContainer/System/Music"]
-margin_top = 4.0
-margin_right = 164.0
-margin_bottom = 28.0
+offset_top = 4.0
+offset_right = 164.0
+offset_bottom = 28.0
 text = "Music Folder:"
 
 [node name="entry" type="LineEdit" parent="Panel/SystemContainer/System/Music"]
-margin_left = 184.0
-margin_right = 1584.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 1400, 0 )
+offset_left = 184.0
+offset_right = 1584.0
+offset_bottom = 32.0
+custom_minimum_size = Vector2( 1400, 0 )
 max_length = 255
 
 [node name="Video" type="HBoxContainer" parent="Panel/SystemContainer/System"]
 visible = false
-margin_top = 292.0
-margin_right = 1800.0
-margin_bottom = 324.0
-rect_min_size = Vector2( 0, 32 )
-custom_constants/separation = 10
+offset_top = 292.0
+offset_right = 1800.0
+offset_bottom = 324.0
+custom_minimum_size = Vector2( 0, 32 )
+theme_override_constants/separation = 10
 
 [node name="title" type="Label" parent="Panel/SystemContainer/System/Video"]
-margin_top = 4.0
-margin_right = 144.0
-margin_bottom = 28.0
+offset_top = 4.0
+offset_right = 144.0
+offset_bottom = 28.0
 text = "Video Folder"
 
 [node name="entry" type="LineEdit" parent="Panel/SystemContainer/System/Video"]
-margin_left = 154.0
-margin_right = 1054.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 900, 0 )
+offset_left = 154.0
+offset_right = 1054.0
+offset_bottom = 32.0
+custom_minimum_size = Vector2( 900, 0 )
 max_length = 255
 
 [node name="HSeparator5" type="HSeparator" parent="Panel/SystemContainer/System/Video"]
-margin_left = 1064.0
-margin_right = 1067.0
-margin_bottom = 32.0
+offset_left = 1064.0
+offset_right = 1067.0
+offset_bottom = 32.0
 
 [node name="customFolders" type="CheckButton" parent="Panel/SystemContainer/System"]
-margin_top = 369.0
-margin_right = 1800.0
-margin_bottom = 416.0
+offset_top = 369.0
+offset_right = 1800.0
+offset_bottom = 416.0
 text = "Convert Library"
 flat = true
 
 [node name="removeDups" type="CheckButton" parent="Panel/SystemContainer/System"]
-margin_top = 431.0
-margin_right = 1800.0
-margin_bottom = 478.0
+offset_top = 431.0
+offset_right = 1800.0
+offset_bottom = 478.0
 text = "Remove Duplicates"
 flat = true
 
 [node name="spacing2" type="Control" parent="Panel/SystemContainer/System"]
-margin_top = 493.0
-margin_right = 1800.0
-margin_bottom = 533.0
-rect_min_size = Vector2( 0, 40 )
+offset_top = 493.0
+offset_right = 1800.0
+offset_bottom = 533.0
+custom_minimum_size = Vector2( 0, 40 )
 
 [node name="General2" type="Label" parent="Panel/SystemContainer/System"]
-margin_top = 548.0
-margin_right = 1800.0
-margin_bottom = 575.0
-custom_fonts/font = ExtResource( 4 )
+offset_top = 548.0
+offset_right = 1800.0
+offset_bottom = 575.0
+theme_override_fonts/font = ExtResource( 4 )
 text = "Application"
 valign = 1
 uppercase = true
 
 [node name="HSeparator2" type="HSeparator" parent="Panel/SystemContainer/System"]
-margin_top = 590.0
-margin_right = 1800.0
-margin_bottom = 598.0
+offset_top = 590.0
+offset_right = 1800.0
+offset_bottom = 598.0
 
 [node name="Label" type="Label" parent="Panel/SystemContainer/System"]
-margin_top = 613.0
-margin_right = 1800.0
-margin_bottom = 637.0
+offset_top = 613.0
+offset_right = 1800.0
+offset_bottom = 637.0
 text = "Thicket can list, launch, and track local applications. However, this feature is currently only for Linux systems. "
 autowrap = true
 
 [node name="applications" type="CheckButton" parent="Panel/SystemContainer/System"]
-margin_top = 652.0
-margin_right = 1800.0
-margin_bottom = 699.0
+offset_top = 652.0
+offset_right = 1800.0
+offset_bottom = 699.0
 text = "Local Applications"
 flat = true
 
 [node name="spacing3" type="Control" parent="Panel/SystemContainer/System"]
-margin_top = 714.0
-margin_right = 1800.0
-margin_bottom = 754.0
-rect_min_size = Vector2( 0, 40 )
+offset_top = 714.0
+offset_right = 1800.0
+offset_bottom = 754.0
+custom_minimum_size = Vector2( 0, 40 )
 
 [node name="General3" type="Label" parent="Panel/SystemContainer/System"]
-margin_top = 769.0
-margin_right = 1800.0
-margin_bottom = 796.0
-custom_fonts/font = ExtResource( 4 )
+offset_top = 769.0
+offset_right = 1800.0
+offset_bottom = 796.0
+theme_override_fonts/font = ExtResource( 4 )
 text = "Emulators"
 valign = 1
 uppercase = true
 
 [node name="HSeparator3" type="HSeparator" parent="Panel/SystemContainer/System"]
-margin_top = 811.0
-margin_right = 1800.0
-margin_bottom = 819.0
+offset_top = 811.0
+offset_right = 1800.0
+offset_bottom = 819.0
 
 [node name="Label2" type="Label" parent="Panel/SystemContainer/System"]
-margin_top = 834.0
-margin_right = 1800.0
-margin_bottom = 858.0
+offset_top = 834.0
+offset_right = 1800.0
+offset_bottom = 858.0
 text = "Thicket can also be used to launch various emulators. "
 autowrap = true
 
 [node name="romFolders" type="CheckButton" parent="Panel/SystemContainer/System"]
-margin_top = 873.0
-margin_right = 1800.0
-margin_bottom = 920.0
+offset_top = 873.0
+offset_right = 1800.0
+offset_bottom = 920.0
 text = "Emulator Folders"
 flat = true
 
 [node name="Mame" type="HBoxContainer" parent="Panel/SystemContainer/System"]
-margin_top = 935.0
-margin_right = 1800.0
-margin_bottom = 967.0
-rect_min_size = Vector2( 0, 32 )
-custom_constants/separation = 10
+offset_top = 935.0
+offset_right = 1800.0
+offset_bottom = 967.0
+custom_minimum_size = Vector2( 0, 32 )
+theme_override_constants/separation = 10
 alignment = 2
 
 [node name="title" type="Label" parent="Panel/SystemContainer/System/Mame"]
-margin_left = 732.0
-margin_top = 4.0
-margin_right = 860.0
-margin_bottom = 28.0
-text = "MAME Path:"
+offset_left = 732.0
+offset_top = 4.0
+offset_right = 860.0
+offset_bottom = 28.0
+text = "MAME Path3D:"
 
 [node name="entry" type="LineEdit" parent="Panel/SystemContainer/System/Mame"]
-margin_left = 870.0
-margin_right = 1770.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 900, 0 )
+offset_left = 870.0
+offset_right = 1770.0
+offset_bottom = 32.0
+custom_minimum_size = Vector2( 900, 0 )
 max_length = 255
 
 [node name="hspacing" type="Control" parent="Panel/SystemContainer/System/Mame"]
-margin_left = 1780.0
-margin_right = 1800.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 20, 0 )
+offset_left = 1780.0
+offset_right = 1800.0
+offset_bottom = 32.0
+custom_minimum_size = Vector2( 20, 0 )
 
 [node name="Roms" type="HBoxContainer" parent="Panel/SystemContainer/System"]
-margin_top = 982.0
-margin_right = 1800.0
-margin_bottom = 1014.0
-rect_min_size = Vector2( 0, 32 )
-custom_constants/separation = 10
+offset_top = 982.0
+offset_right = 1800.0
+offset_bottom = 1014.0
+custom_minimum_size = Vector2( 0, 32 )
+theme_override_constants/separation = 10
 alignment = 2
 
 [node name="title" type="Label" parent="Panel/SystemContainer/System/Roms"]
-margin_left = 624.0
-margin_top = 4.0
-margin_right = 860.0
-margin_bottom = 28.0
+offset_left = 624.0
+offset_top = 4.0
+offset_right = 860.0
+offset_bottom = 28.0
 text = "Rom Folder (MAME) :"
 
 [node name="entry" type="LineEdit" parent="Panel/SystemContainer/System/Roms"]
-margin_left = 870.0
-margin_right = 1770.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 900, 0 )
+offset_left = 870.0
+offset_right = 1770.0
+offset_bottom = 32.0
+custom_minimum_size = Vector2( 900, 0 )
 max_length = 255
 
 [node name="hspacing2" type="Control" parent="Panel/SystemContainer/System/Roms"]
-margin_left = 1780.0
-margin_right = 1800.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 20, 0 )
+offset_left = 1780.0
+offset_right = 1800.0
+offset_bottom = 32.0
+custom_minimum_size = Vector2( 20, 0 )
 
 [node name="Mednafen" type="HBoxContainer" parent="Panel/SystemContainer/System"]
-margin_top = 1029.0
-margin_right = 1800.0
-margin_bottom = 1061.0
-rect_min_size = Vector2( 0, 32 )
-custom_constants/separation = 10
+offset_top = 1029.0
+offset_right = 1800.0
+offset_bottom = 1061.0
+custom_minimum_size = Vector2( 0, 32 )
+theme_override_constants/separation = 10
 alignment = 2
 
 [node name="title" type="Label" parent="Panel/SystemContainer/System/Mednafen"]
-margin_left = 684.0
-margin_top = 4.0
-margin_right = 860.0
-margin_bottom = 28.0
-text = "Mednafen Path:"
+offset_left = 684.0
+offset_top = 4.0
+offset_right = 860.0
+offset_bottom = 28.0
+text = "Mednafen Path3D:"
 
 [node name="entry" type="LineEdit" parent="Panel/SystemContainer/System/Mednafen"]
-margin_left = 870.0
-margin_right = 1770.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 900, 0 )
+offset_left = 870.0
+offset_right = 1770.0
+offset_bottom = 32.0
+custom_minimum_size = Vector2( 900, 0 )
 max_length = 255
 
 [node name="hspacing3" type="Control" parent="Panel/SystemContainer/System/Mednafen"]
-margin_left = 1780.0
-margin_right = 1800.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 20, 0 )
+offset_left = 1780.0
+offset_right = 1800.0
+offset_bottom = 32.0
+custom_minimum_size = Vector2( 20, 0 )
 
 [node name="Roms2" type="HBoxContainer" parent="Panel/SystemContainer/System"]
-margin_top = 1076.0
-margin_right = 1800.0
-margin_bottom = 1108.0
-rect_min_size = Vector2( 0, 32 )
-custom_constants/separation = 10
+offset_top = 1076.0
+offset_right = 1800.0
+offset_bottom = 1108.0
+custom_minimum_size = Vector2( 0, 32 )
+theme_override_constants/separation = 10
 alignment = 2
 
 [node name="title" type="Label" parent="Panel/SystemContainer/System/Roms2"]
-margin_left = 576.0
-margin_top = 4.0
-margin_right = 860.0
-margin_bottom = 28.0
+offset_left = 576.0
+offset_top = 4.0
+offset_right = 860.0
+offset_bottom = 28.0
 text = "Rom Folder (mednafen) :"
 
 [node name="entry" type="LineEdit" parent="Panel/SystemContainer/System/Roms2"]
-margin_left = 870.0
-margin_right = 1770.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 900, 0 )
+offset_left = 870.0
+offset_right = 1770.0
+offset_bottom = 32.0
+custom_minimum_size = Vector2( 900, 0 )
 max_length = 255
 
 [node name="hspacing4" type="Control" parent="Panel/SystemContainer/System/Roms2"]
-margin_left = 1780.0
-margin_right = 1800.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 20, 0 )
+offset_left = 1780.0
+offset_right = 1800.0
+offset_bottom = 32.0
+custom_minimum_size = Vector2( 20, 0 )
 
 [node name="spacing4" type="Control" parent="Panel/SystemContainer/System"]
-margin_top = 1123.0
-margin_right = 1800.0
-margin_bottom = 1163.0
-rect_min_size = Vector2( 0, 40 )
+offset_top = 1123.0
+offset_right = 1800.0
+offset_bottom = 1163.0
+custom_minimum_size = Vector2( 0, 40 )
 
 [node name="NetworkContainer" type="ScrollContainer" parent="Panel"]
 visible = false
@@ -520,13 +520,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -907.5
-margin_top = -425.0
-margin_right = 908.5
-margin_bottom = 425.0
+offset_left = -907.5
+offset_top = -425.0
+offset_right = 908.5
+offset_bottom = 425.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 1580, 850 )
+custom_minimum_size = Vector2( 1580, 850 )
 scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_group_": true,
@@ -534,61 +534,61 @@ __meta__ = {
 }
 
 [node name="Network" type="VBoxContainer" parent="Panel/NetworkContainer"]
-margin_right = 1800.0
-margin_bottom = 760.0
-rect_min_size = Vector2( 1800, 760 )
+offset_right = 1800.0
+offset_bottom = 760.0
+custom_minimum_size = Vector2( 1800, 760 )
 
 [node name="Network" type="Label" parent="Panel/NetworkContainer/Network"]
-margin_right = 1800.0
-margin_bottom = 29.0
-custom_fonts/font = ExtResource( 4 )
+offset_right = 1800.0
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource( 4 )
 text = "Network"
 align = 1
 valign = 1
 uppercase = true
 
 [node name="HSeparator2" type="HSeparator" parent="Panel/NetworkContainer/Network"]
-margin_top = 33.0
-margin_right = 1800.0
-margin_bottom = 41.0
+offset_top = 33.0
+offset_right = 1800.0
+offset_bottom = 41.0
 
 [node name="Label" type="Label" parent="Panel/NetworkContainer/Network"]
-margin_top = 45.0
-margin_right = 1800.0
-margin_bottom = 150.0
+offset_top = 45.0
+offset_right = 1800.0
+offset_bottom = 150.0
 text = "These settings allow Thicket to act as an OpenSeed node helping the service work better overall. It is highly recommend to have these options enabled if you are a creator. 
 
 Note: In the future, users that enable this option will recieve monthly rewards based on how much data is shared from your system."
 autowrap = true
 
 [node name="p2p" type="CheckButton" parent="Panel/NetworkContainer/Network"]
-margin_top = 154.0
-margin_right = 1800.0
-margin_bottom = 228.0
+offset_top = 154.0
+offset_right = 1800.0
+offset_bottom = 228.0
 text = "P2P Mode"
 flat = true
 
 [node name="ipfs" type="CheckButton" parent="Panel/NetworkContainer/Network"]
-margin_top = 232.0
-margin_right = 1800.0
-margin_bottom = 306.0
+offset_top = 232.0
+offset_right = 1800.0
+offset_bottom = 306.0
 text = "Use IPFS"
 flat = true
 
 [node name="originals" type="CheckButton" parent="Panel/NetworkContainer/Network"]
-margin_top = 310.0
-margin_right = 1800.0
-margin_bottom = 384.0
+offset_top = 310.0
+offset_right = 1800.0
+offset_bottom = 384.0
 disabled = true
 text = "Store Originals (music / videos) "
 
 [node name="mainMenu" type="Panel" parent="Panel"]
 visible = false
 anchor_bottom = 1.0
-margin_right = 312.0
-rect_min_size = Vector2( 312, 0 )
-rect_clip_content = true
-custom_styles/panel = ExtResource( 3 )
+offset_right = 312.0
+custom_minimum_size = Vector2( 312, 0 )
+clip_contents = true
+theme_override_styles/panel = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -596,53 +596,53 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/mainMenu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_right = -2.0
-custom_constants/separation = 10
+offset_left = 4.0
+offset_right = -2.0
+theme_override_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Panel/mainMenu/VBoxContainer"]
-margin_right = 306.0
-margin_bottom = 24.0
+offset_right = 306.0
+offset_bottom = 24.0
 text = "Settings"
 align = 1
 valign = 1
 
 [node name="HSeparator" type="HSeparator" parent="Panel/mainMenu/VBoxContainer"]
-margin_top = 34.0
-margin_right = 306.0
-margin_bottom = 42.0
+offset_top = 34.0
+offset_right = 306.0
+offset_bottom = 42.0
 
 [node name="Account" type="Button" parent="Panel/mainMenu/VBoxContainer"]
-margin_top = 52.0
-margin_right = 306.0
-margin_bottom = 86.0
+offset_top = 52.0
+offset_right = 306.0
+offset_bottom = 86.0
 text = "Account"
 flat = true
 align = 0
 
 [node name="Files" type="Button" parent="Panel/mainMenu/VBoxContainer"]
-margin_top = 96.0
-margin_right = 306.0
-margin_bottom = 130.0
+offset_top = 96.0
+offset_right = 306.0
+offset_bottom = 130.0
 text = "Files"
 flat = true
 align = 0
 
 [node name="Network" type="Button" parent="Panel/mainMenu/VBoxContainer"]
-margin_top = 140.0
-margin_right = 306.0
-margin_bottom = 174.0
+offset_top = 140.0
+offset_right = 306.0
+offset_bottom = 174.0
 text = "Network"
 flat = true
 align = 0
 
 [node name="Developer" type="Button" parent="Panel/mainMenu/VBoxContainer"]
-margin_top = 184.0
-margin_right = 306.0
-margin_bottom = 218.0
+offset_top = 184.0
+offset_right = 306.0
+offset_bottom = 218.0
 text = "Creator Account"
 flat = true
 align = 0
@@ -651,27 +651,27 @@ align = 0
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 12.0
-margin_top = 9.0
-margin_right = -10.9999
-margin_bottom = -8.99994
-rect_min_size = Vector2( 1836, 990 )
-rect_clip_content = true
+offset_left = 12.0
+offset_top = 9.0
+offset_right = -10.9999
+offset_bottom = -8.99994
+custom_minimum_size = Vector2( 1836, 990 )
+clip_contents = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Profile" type="Tabs" parent="Panel/CreatorContainer"]
+[node name="Profile" type="TabBar" parent="Panel/CreatorContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 39.0
-margin_right = -5.0
-margin_bottom = -5.0
+offset_left = 5.0
+offset_top = 39.0
+offset_right = -5.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_clip_content = true
-tab_align = 0
+clip_contents = true
+tab_alignment = 0
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -680,32 +680,32 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/CreatorContainer/Profile"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -16.0001
-margin_bottom = -5.00006
-rect_min_size = Vector2( 0, 800 )
-rect_clip_content = true
-custom_constants/separation = 10
+offset_right = -16.0001
+offset_bottom = -5.00006
+custom_minimum_size = Vector2( 0, 800 )
+clip_contents = true
+theme_override_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel/CreatorContainer/Profile/HBoxContainer"]
-margin_right = 800.0
-margin_bottom = 941.0
-rect_min_size = Vector2( 800, 0 )
+offset_right = 800.0
+offset_bottom = 941.0
+custom_minimum_size = Vector2( 800, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer"]
-margin_right = 804.0
-margin_bottom = 819.0
-custom_constants/separation = 10
+offset_right = 804.0
+offset_bottom = 819.0
+theme_override_constants/separation = 10
 
 [node name="banner" type="TextureRect" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
-margin_right = 804.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 764, 100 )
+offset_right = 804.0
+offset_bottom = 100.0
+custom_minimum_size = Vector2( 764, 100 )
 expand = true
 stretch_mode = 5
 
@@ -714,10 +714,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -12.0
-margin_right = 20.0
-margin_bottom = 12.0
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 20.0
+offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Banner"
@@ -730,21 +730,21 @@ self_modulate = Color( 1, 1, 1, 0.423529 )
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = ExtResource( 6 )
+theme_override_styles/panel = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 110.0
-margin_right = 804.0
-margin_bottom = 204.0
-custom_constants/separation = 20
+offset_top = 110.0
+offset_right = 804.0
+offset_bottom = 204.0
+theme_override_constants/separation = 20
 
 [node name="Icon" type="TextureRect" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
-margin_right = 94.0
-margin_bottom = 94.0
-rect_min_size = Vector2( 94, 94 )
+offset_right = 94.0
+offset_bottom = 94.0
+custom_minimum_size = Vector2( 94, 94 )
 expand = true
 stretch_mode = 6
 
@@ -753,10 +753,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -12.0
-margin_right = 20.0
-margin_bottom = 12.0
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 20.0
+offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Icon"
@@ -770,79 +770,79 @@ self_modulate = Color( 1, 1, 1, 0.423529 )
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = ExtResource( 6 )
+theme_override_styles/panel = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
-margin_left = 114.0
-margin_right = 764.0
-margin_bottom = 94.0
-custom_constants/separation = 8
+offset_left = 114.0
+offset_right = 764.0
+offset_bottom = 94.0
+theme_override_constants/separation = 8
 
 [node name="Name" type="LineEdit" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_right = 650.0
-margin_bottom = 26.0
-rect_min_size = Vector2( 650, 0 )
+offset_right = 650.0
+offset_bottom = 26.0
+custom_minimum_size = Vector2( 650, 0 )
 placeholder_text = "Name"
 
 [node name="email" type="LineEdit" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 34.0
-margin_right = 650.0
-margin_bottom = 60.0
+offset_top = 34.0
+offset_right = 650.0
+offset_bottom = 60.0
 placeholder_text = "Contact Email"
 
 [node name="account" type="LineEdit" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 68.0
-margin_right = 650.0
-margin_bottom = 94.0
+offset_top = 68.0
+offset_right = 650.0
+offset_bottom = 94.0
 editable = false
 placeholder_text = "OpenSeed Account"
 
 [node name="Label" type="Label" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 214.0
-margin_right = 804.0
-margin_bottom = 238.0
+offset_top = 214.0
+offset_right = 804.0
+offset_bottom = 238.0
 text = "Content Types"
 
 [node name="HSeparator" type="HSeparator" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 248.0
-margin_right = 804.0
-margin_bottom = 256.0
+offset_top = 248.0
+offset_right = 804.0
+offset_bottom = 256.0
 
 [node name="Label2" type="Label" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 266.0
-margin_right = 804.0
-margin_bottom = 398.0
+offset_top = 266.0
+offset_right = 804.0
+offset_bottom = 398.0
 text = "Select the types of content you create. That either uses or will be shared on the OpenSeed Network  - Note - Not all media types will be directly accessable through Thicket (i.e. if you make a game or application for mobile) but you can still access information about said apt directly from this interface."
 autowrap = true
 
 [node name="AppCheck" type="CheckButton" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 408.0
-margin_right = 804.0
-margin_bottom = 465.0
+offset_top = 408.0
+offset_right = 804.0
+offset_bottom = 465.0
 text = "Applications"
 flat = true
 
 [node name="GameCheck" type="CheckButton" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 475.0
-margin_right = 804.0
-margin_bottom = 532.0
+offset_top = 475.0
+offset_right = 804.0
+offset_bottom = 532.0
 text = "Games"
 flat = true
 
 [node name="MusicCheck" type="CheckButton" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 542.0
-margin_right = 804.0
-margin_bottom = 599.0
+offset_top = 542.0
+offset_right = 804.0
+offset_bottom = 599.0
 text = "Music"
 flat = true
 
 [node name="VideosCheck" type="CheckButton" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 609.0
-margin_right = 804.0
-margin_bottom = 666.0
+offset_top = 609.0
+offset_right = 804.0
+offset_bottom = 666.0
 text = "Videos"
 flat = true
 __meta__ = {
@@ -850,92 +850,92 @@ __meta__ = {
 }
 
 [node name="DGCheck" type="CheckButton" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 676.0
-margin_right = 804.0
-margin_bottom = 733.0
+offset_top = 676.0
+offset_right = 804.0
+offset_bottom = 733.0
 text = "Digital Goods"
 flat = true
 
 [node name="HSeparator2" type="HSeparator" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 743.0
-margin_right = 804.0
-margin_bottom = 751.0
+offset_top = 743.0
+offset_right = 804.0
+offset_bottom = 751.0
 
 [node name="creatorPubID" type="HBoxContainer" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 761.0
-margin_right = 804.0
-margin_bottom = 785.0
+offset_top = 761.0
+offset_right = 804.0
+offset_bottom = 785.0
 
 [node name="Label" type="Label" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer/creatorPubID"]
-margin_right = 128.0
-margin_bottom = 24.0
+offset_right = 128.0
+offset_bottom = 24.0
 text = "Public ID:"
 align = 2
 
 [node name="ID" type="Label" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer/creatorPubID"]
 self_modulate = Color( 0.0509804, 0.745098, 0.709804, 1 )
-margin_left = 132.0
-margin_right = 140.0
-margin_bottom = 24.0
+offset_left = 132.0
+offset_right = 140.0
+offset_bottom = 24.0
 
 [node name="creatorPrivID" type="HBoxContainer" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 795.0
-margin_right = 804.0
-margin_bottom = 819.0
+offset_top = 795.0
+offset_right = 804.0
+offset_bottom = 819.0
 
 [node name="Label" type="Label" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer/creatorPrivID"]
-margin_right = 140.0
-margin_bottom = 24.0
+offset_right = 140.0
+offset_bottom = 24.0
 text = "Private ID:"
 align = 2
 
 [node name="ID" type="Label" parent="Panel/CreatorContainer/Profile/HBoxContainer/ScrollContainer/VBoxContainer/creatorPrivID"]
 self_modulate = Color( 0.0509804, 0.745098, 0.709804, 1 )
-margin_left = 144.0
-margin_right = 804.0
-margin_bottom = 24.0
-rect_min_size = Vector2( 660, 0 )
+offset_left = 144.0
+offset_right = 804.0
+offset_bottom = 24.0
+custom_minimum_size = Vector2( 660, 0 )
 autowrap = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Panel/CreatorContainer/Profile/HBoxContainer"]
-margin_left = 810.0
-margin_right = 1810.0
-margin_bottom = 941.0
-rect_min_size = Vector2( 0, 800 )
-custom_constants/separation = 10
+offset_left = 810.0
+offset_right = 1810.0
+offset_bottom = 941.0
+custom_minimum_size = Vector2( 0, 800 )
+theme_override_constants/separation = 10
 
 [node name="Label" type="Label" parent="Panel/CreatorContainer/Profile/HBoxContainer/VBoxContainer2"]
-margin_right = 1000.0
-margin_bottom = 24.0
+offset_right = 1000.0
+offset_bottom = 24.0
 text = "Creator Discription:"
 
 [node name="creatorAbout" type="TextEdit" parent="Panel/CreatorContainer/Profile/HBoxContainer/VBoxContainer2"]
-margin_top = 34.0
-margin_right = 1000.0
-margin_bottom = 734.0
-rect_min_size = Vector2( 1000, 700 )
+offset_top = 34.0
+offset_right = 1000.0
+offset_bottom = 734.0
+custom_minimum_size = Vector2( 1000, 700 )
 wrap_enabled = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/CreatorContainer/Profile/HBoxContainer/VBoxContainer2"]
-margin_top = 744.0
-margin_right = 1000.0
-margin_bottom = 788.0
-custom_constants/separation = 20
+offset_top = 744.0
+offset_right = 1000.0
+offset_bottom = 788.0
+theme_override_constants/separation = 20
 alignment = 2
 
 [node name="save" type="Button" parent="Panel/CreatorContainer/Profile/HBoxContainer/VBoxContainer2/HBoxContainer"]
-margin_left = 712.0
-margin_right = 888.0
-margin_bottom = 44.0
+offset_left = 712.0
+offset_right = 888.0
+offset_bottom = 44.0
 text = "Save as draft"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="submit" type="Button" parent="Panel/CreatorContainer/Profile/HBoxContainer/VBoxContainer2/HBoxContainer"]
-margin_left = 908.0
-margin_right = 1000.0
-margin_bottom = 44.0
+offset_left = 908.0
+offset_right = 1000.0
+offset_bottom = 44.0
 text = "Create"
 [connection signal="show" from="." to="." method="_on_Settings_show"]
 [connection signal="visibility_changed" from="." to="." method="_on_Settings_visibility_changed"]

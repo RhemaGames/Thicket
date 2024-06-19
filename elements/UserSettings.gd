@@ -11,7 +11,7 @@ var SocialRoot
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SocialRoot = get_parent().get_parent().get_parent()
-	SocialRoot.connect("changeview",self,"change_view")
+	SocialRoot.connect("changeview", Callable(self, "change_view"))
 	OpenSeed = get_node("/root/OpenSeed")
 	Thicket = get_node("/root/Thicket")
 	#if !SocialRoot.currentuser or SocialRoot.currentuser == OpenSeed.username:

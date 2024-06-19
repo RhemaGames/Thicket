@@ -11,7 +11,7 @@ func _ready():
 	$VBoxContainer/HBoxContainer/date.text = date
 	$VBoxContainer/HBoxContainer/name.text = speaker
 	$msg.text = message
-	set_custom_minimum_size(Vector2(self.rect_size.x,str(message).length() +100))
+	set_custom_minimum_size(Vector2(self.size.x,str(message).length() +100))
 	#self.set("self_modulate", Color(1,1,1,1))
 	pass # Replace with function body.
 

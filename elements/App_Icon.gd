@@ -61,14 +61,14 @@ func read_desktop(path):
 
 func find_icon(iconname):
 	var iconpath = ""
-	var dir = Directory.new()
+	var dir = DirAccess.new()
 	var places = ["/usr/share/icons/hicolor/scalable/apps","/usr/share/applications/icons/hicolor/256x256/apps","/usr/share/applications/icons/hicolor/128x128/apps","/usr/share/icons/Pop/128x128/apps","/usr/share/app-info/icons/pop-artful-extra/64x64","/usr/share/pixmaps","/usr/share/applications/icons/hicolor/64x64/apps",
 	"user://../../../icons/hicolor/scalable/apps","user://../../../icons/hicolor/256x256/apps","user://../../../icons/hicolor/128x128/apps","user://../../../icons/hicolor/64x64/apps","/usr/share/app-install/icons"]
 	
 	for place in places:
 		if dir.dir_exists(place):
 			dir.open(place)
-			dir.list_dir_begin()
+			dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 			var file_name = dir.get_next()
 			while (file_name != ""):
 				if str(file_name.split(".")[0]).to_lower() == iconname.to_lower():
@@ -93,14 +93,14 @@ func get_pic(img) :
 	var Imagedata = Image.new()
 	if imgfile.file_exists(img):
 		imgfile.open(img, File.READ)
-		var imagesize = imgfile.get_len()
+		var imagesize = imgfile.get_length()
 		var err = Imagedata.load_jpg_from_buffer(imgfile.get_buffer(imagesize))
 		if err:
 			err = Imagedata.load_png_from_buffer(imgfile.get_buffer(imagesize))
 		if err:
 			Imagedata.load(img)
 		imgfile.close()
-		Imagetex.create_from_image(Imagedata,0)
+		Imagetex.create_from_image(Imagedata) #,0
 	else:
 		Imagetex = default_icon
 		

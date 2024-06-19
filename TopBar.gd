@@ -12,7 +12,7 @@ func _ready():
 	Thicket = get_node("/root/Thicket")
 	OpenSeed = get_node("/root/OpenSeed")
 	MainWindow = get_node("/root/MainWindow")
-	MainWindow.connect("loading_complete",self,"_onloading_complete")
+	MainWindow.connect("loading_complete", Callable(self, "_onloading_complete"))
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

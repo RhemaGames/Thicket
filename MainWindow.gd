@@ -27,7 +27,7 @@ func _ready():
 	OpenSeed.appPub = "6c6d0ec5"
 	OpenSeed.appId = "26a24a33a7fde894b5f3ab02ce67a28ccc309dcfe94b625ade8ab1b5ba97d507" 
 	var bg_instance = load("res://BG/dancing.tscn").instance()
-	$background/Viewport.add_child(bg_instance)
+	$background/SubViewport.add_child(bg_instance)
 	$Navi/MusicBar.color = Color(0.2,0.2,0.2)
 	#$Spatial/AnimationPlayer.play("slowwalk")
 
@@ -40,10 +40,10 @@ func _ready():
 
 func _input(_event):
 	if Input.is_key_pressed(KEY_F10):
-		if OS.window_fullscreen == false:
-			OS.window_fullscreen = true
+		if get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (= false:) else Window.MODE_WINDOWED
+			get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (true) else Window.MODE_WINDOWED
 		else:
-			OS.window_fullscreen = false
+			get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (false) else Window.MODE_WINDOWED
 
 
 

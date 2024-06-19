@@ -168,7 +168,7 @@ func get_image(image):
 	if imgfile.file_exists(image):
 		print("Image found")
 		imgfile.open(image, File.READ)
-		var imagesize = imgfile.get_len()
+		var imagesize = imgfile.get_length()
 		var err = Imagedata.load_jpg_from_buffer(imgfile.get_buffer(imagesize))
 		#Imagedata.compress(0,0,75)
 		if err !=OK:
@@ -177,13 +177,13 @@ func get_image(image):
 			#Imagedata.compress(0,0,75)
 			if err !=OK:
 				Imagedata.load(image)
-				Imagetex.create_from_image(Imagedata,0)
+				Imagetex.create_from_image(Imagedata) #,0
 			else:
 				print("PNG found")
-				Imagetex.create_from_image(Imagedata,0)
+				Imagetex.create_from_image(Imagedata) #,0
 		else:
 			print("Jpg found")
-			Imagetex.create_from_image(Imagedata,0)
+			Imagetex.create_from_image(Imagedata) #,0
 			
 		imgfile.close()
 		return Imagetex

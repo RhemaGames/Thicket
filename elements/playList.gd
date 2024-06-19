@@ -26,8 +26,10 @@ func fill_list(list):
 	if list:
 		for listing in list.split(", \n"):
 			if len(listing) > 3 and num <=13:
-				var track = parse_json(listing)
-				var Song = songlisting.instance()
+				var test_json_conv = JSON.new()
+				test_json_conv.parse(listing)
+				var track = test_json_conv.get_data()
+				var Song = songlisting.instantiate()
 				Song.image = track["img"]
 				Song.title = track["title"]
 				Song.post  = track["post"]
@@ -39,7 +41,7 @@ func fill_list(list):
 				#Song.connect("play_now",MusicRoot,"_on_play_now")
 				#Song.connect("search",MusicRoot,"_on_artist_search")
 # warning-ignore:return_value_discarded
-				MusicRoot.connect("clear_highlight",Song,"_clear_highlight")
+				MusicRoot.connect("clear_highlight", Callable(Song, "_clear_highlight"))
 				add_child(Song)
 				num +=1
 		

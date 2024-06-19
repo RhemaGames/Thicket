@@ -3,8 +3,8 @@
 [ext_resource path="res://elements/Genres.gd" type="Script" id=1]
 
 [node name="Genres" type="GridContainer"]
-margin_right = 40.0
-margin_bottom = 40.0
+offset_right = 40.0
+offset_bottom = 40.0
 columns = 4
 script = ExtResource( 1 )
 __meta__ = {

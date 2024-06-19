@@ -26,8 +26,8 @@ func _ready():
 	OpenSeed = get_node("/root/OpenSeed")
 	#set_box(title,img)
 	OpenSeed.openSeedRequest("get_image",[img,"medium"])
-	OpenSeed.connect("imagestored",self,"refresh")
-	OpenSeed.connect("profiledata",self,"on_profile_return")
+	OpenSeed.connect("imagestored", Callable(self, "refresh"))
+	OpenSeed.connect("profiledata", Callable(self, "on_profile_return"))
 	
 	$title.text = title
 	if get_tree().get_root().get_child(2).name == "Loader":

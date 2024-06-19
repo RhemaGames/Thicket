@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Welcome.gd" type="Script" id=1]
-[ext_resource path="res://OpenSeed-Godot/OpenSeed.png" type="Texture" id=2]
+[ext_resource path="res://OpenSeed-Godot/OpenSeed.png" type="Texture2D" id=2]
 
 [node name="Welcome" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -700.0
-margin_bottom = -20.0
-rect_min_size = Vector2( 600, 700 )
+offset_right = -700.0
+offset_bottom = -20.0
+custom_minimum_size = Vector2( 600, 700 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -21,32 +21,32 @@ anchor_bottom = 1.0
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -8.0
-margin_bottom = -10.0
-custom_constants/separation = 20
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -8.0
+offset_bottom = -10.0
+theme_override_constants/separation = 20
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 1182.0
-margin_bottom = 25.0
+offset_right = 1182.0
+offset_bottom = 25.0
 text = "Welcome"
 align = 1
 valign = 1
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
-margin_top = 45.0
-margin_right = 1182.0
-margin_bottom = 53.0
+offset_top = 45.0
+offset_right = 1182.0
+offset_bottom = 53.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
-margin_top = 73.0
-margin_right = 1182.0
-margin_bottom = 873.0
+offset_top = 73.0
+offset_right = 1182.0
+offset_bottom = 873.0
 grow_horizontal = 2
-rect_min_size = Vector2( 0, 800 )
+custom_minimum_size = Vector2( 0, 800 )
 bbcode_enabled = true
-bbcode_text = "Thank you for downloading Thicket, before you begin exploring the application you will need to setup an account on OpenSeed, the authentication service used in Thicket as well as any other software that connects too it. This information will be stored for future use, BUT will never be sold to advertisers or data collection agencies. After setting up your OpenSeed account you will be able to access to services Thicket provides; however if you wish to become a developer or an artists featured on Thicket you will need to link a valid STEEM (not Steam) account to OpenSeed. 
+text = "Thank you for downloading Thicket, before you begin exploring the application you will need to setup an account on OpenSeed, the authentication service used in Thicket as well as any other software that connects too it. This information will be stored for future use, BUT will never be sold to advertisers or data collection agencies. After setting up your OpenSeed account you will be able to access to services Thicket provides; however if you wish to become a developer or an artists featured on Thicket you will need to link a valid STEEM (not Steam) account to OpenSeed. 
 
 
 For Content Creators:
@@ -77,16 +77,16 @@ If all of this sounds good, and you're ready to proceed Click the button below a
 scroll_active = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 893.0
-margin_right = 1182.0
-margin_bottom = 930.0
-rect_min_size = Vector2( 0, 32 )
+offset_top = 893.0
+offset_right = 1182.0
+offset_bottom = 930.0
+custom_minimum_size = Vector2( 0, 32 )
 alignment = 1
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 530.0
-margin_right = 651.0
-margin_bottom = 37.0
+offset_left = 530.0
+offset_right = 651.0
+offset_bottom = 37.0
 text = "Continue"
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -95,11 +95,11 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -149.0
-margin_top = -178.0
-margin_right = -21.0
-margin_bottom = -50.0
-rect_min_size = Vector2( 128, 128 )
+offset_left = -149.0
+offset_top = -178.0
+offset_right = -21.0
+offset_bottom = -50.0
+custom_minimum_size = Vector2( 128, 128 )
 texture = ExtResource( 2 )
 expand = true
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_Button_pressed"]

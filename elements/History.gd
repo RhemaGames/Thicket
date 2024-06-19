@@ -14,7 +14,7 @@ func _ready():
 	SocialRoot = get_parent().get_parent().get_parent()
 	OpenSeed = get_node("/root/OpenSeed")
 	Thicket = get_node("/root/Thicket")
-	OpenSeed.connect("historydata",self,"show_history")
+	OpenSeed.connect("historydata", Callable(self, "show_history"))
 	SocialRoot.get_node("history_update").start()
 	pass # Replace with function body.
 
@@ -39,7 +39,7 @@ func show_history(data):
 		history.get_child(num).queue_free()
 		num += 1
 	for item in data:
-		var h = history_item.instance()
+		var h = history_item.instantiate()
 		if typeof(item) != TYPE_STRING:
 			h.date = item["history"]
 			if item["item"].has("playing"):

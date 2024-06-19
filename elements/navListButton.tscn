@@ -2,22 +2,22 @@
 
 [ext_resource path="res://blankslate.tres" type="StyleBox" id=1]
 [ext_resource path="res://navListButton.gd" type="Script" id=2]
-[ext_resource path="res://Fonts/new_dynamicfont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Fonts/new_dynamicfont.tres" type="FontFile" id=3]
 
 [node name="navListButton" type="Panel"]
-margin_right = 189.0
-margin_bottom = 48.0
-rect_min_size = Vector2( 0, 48 )
-custom_styles/panel = ExtResource( 1 )
+offset_right = 189.0
+offset_bottom = 48.0
+custom_minimum_size = Vector2( 0, 48 )
+theme_override_styles/panel = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="area" type="Label" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 6.0
-margin_right = -5.0
-margin_bottom = -4.0
-custom_fonts/font = ExtResource( 3 )
+offset_left = 4.0
+offset_top = 6.0
+offset_right = -5.0
+offset_bottom = -4.0
+theme_override_fonts/font = ExtResource( 3 )
 valign = 1
 uppercase = true

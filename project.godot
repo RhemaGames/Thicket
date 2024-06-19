@@ -6,34 +6,30 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
-
-_global_script_classes=[  ]
-_global_script_class_icons={
-
-}
+config_version=5
 
 [application]
 
 config/name="Thicket"
-run/main_scene="res://MainWindow.tscn"
+run/main_scene="res://elements/clouds.tscn"
+config/features=PackedStringArray("4.3")
+boot_splash/bg_color=Color(0.00351917, 0.00351917, 0.00351916, 1)
 boot_splash/image="res://icon.png"
 boot_splash/fullsize=false
 config/icon="res://icon.png"
 
 [autoload]
 
-Thicket="*res://elements/Thicket.tscn"
-OpenSeed="*res://OpenSeed-Godot/OpenSeed.tscn"
+Thicket="res://elements/Thicket.tscn"
+OpenSeed="res://OpenSeed-Godot/OpenSeed.tscn"
 
 [display]
 
-window/size/width=1900
-window/size/height=1060
-window/size/fullscreen=true
-window/dpi/allow_hidpi=true
+window/size/viewport_width=1900
+window/size/viewport_height=1060
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
+window/size/fullscreen=true
 
 [gui]
 
@@ -45,7 +41,7 @@ limits/message_queue/max_size_kb=2048
 
 [rendering]
 
+environment/defaults/default_environment="res://default_env.tres"
 quality/driver/fallback_to_gles2=true
 threads/thread_model=2
 vram_compression/import_etc=true
-environment/default_environment="res://default_env.tres"

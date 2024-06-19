@@ -2,7 +2,7 @@
 
 [ext_resource path="res://elements/gameView.gd" type="Script" id=1]
 
-[node name="gameView" type="ViewportContainer"]
+[node name="gameView" type="SubViewportContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -10,7 +10,7 @@ mouse_default_cursor_shape = 3
 stretch = true
 script = ExtResource( 1 )
 
-[node name="Viewport" type="Viewport" parent="."]
+[node name="SubViewport" type="SubViewport" parent="."]
 size = Vector2( 1335, 720 )
 handle_input_locally = false
 msaa = 2

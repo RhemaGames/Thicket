@@ -80,15 +80,15 @@ func nav_buttons(area) :
 		$Main.remove_child($Main.get_child(0))
 	
 	for n in thearea:
-		var note = navbutton.instance()
+		var note = navbutton.instantiate()
 		note.text = vert_words(n["title"])
 		note.bgColor = n["color"]
 		note.icon = n["icon"]
 		note.get_node("AnimationPlayer").play_backwards("focus")
 		$Main.add_child(note)
-		note.connect("activeSet",self,"set_focus")
+		note.connect("activeSet", Callable(self, "set_focus"))
 # warning-ignore:return_value_discarded
-		self.connect("activeRelease",note,"_on_ActiveRelease")
+		self.connect("activeRelease", Callable(note, "_on_ActiveRelease"))
 
 func release_focus() :
 	emit_signal("activeRelease")

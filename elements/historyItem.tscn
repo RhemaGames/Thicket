@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Img/folder-recent-symbolic.svg" type="Texture" id=1]
+[ext_resource path="res://Img/folder-recent-symbolic.svg" type="Texture2D" id=1]
 [ext_resource path="res://elements/historyItem.gd" type="Script" id=2]
-[ext_resource path="res://Fonts/subtitle.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Fonts/subtitle.tres" type="FontFile" id=3]
 
 [node name="historyItem" type="Panel"]
-margin_right = 500.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 500, 100 )
+offset_right = 500.0
+offset_bottom = 100.0
+custom_minimum_size = Vector2( 500, 100 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -18,44 +18,44 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -249.0
-margin_top = -40.0
-margin_right = 249.0
-margin_bottom = 40.0
-custom_constants/separation = 20
+offset_left = -249.0
+offset_top = -40.0
+offset_right = 249.0
+offset_bottom = 40.0
+theme_override_constants/separation = 20
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
-margin_right = 64.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 64, 64 )
+offset_right = 64.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 64, 64 )
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 6
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 84.0
-margin_right = 474.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 390, 80 )
-custom_constants/separation = 20
+offset_left = 84.0
+offset_right = 474.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 390, 80 )
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="title" type="Label" parent="HBoxContainer/VBoxContainer"]
-margin_top = 8.0
-margin_right = 390.0
-margin_bottom = 33.0
+offset_top = 8.0
+offset_right = 390.0
+offset_bottom = 33.0
 text = "History Item"
 autowrap = true
 max_lines_visible = 2
 
 [node name="date" type="Label" parent="HBoxContainer/VBoxContainer"]
-margin_top = 53.0
-margin_right = 390.0
-margin_bottom = 72.0
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 0, 0.996078, 0.890196, 1 )
+offset_top = 53.0
+offset_right = 390.0
+offset_bottom = 72.0
+theme_override_fonts/font = ExtResource( 3 )
+theme_override_colors/font_color = Color( 0, 0.996078, 0.890196, 1 )
 text = "Date"
 align = 2

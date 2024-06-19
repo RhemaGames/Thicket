@@ -3,16 +3,16 @@
 [ext_resource path="res://elements/Contact_info.gd" type="Script" id=1]
 [ext_resource path="res://popup.tres" type="StyleBox" id=2]
 [ext_resource path="res://elements/Contact.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=4]
-[ext_resource path="res://Fonts/subtitle.tres" type="DynamicFont" id=5]
-[ext_resource path="res://Img/notification-alert-symbolic.svg" type="Texture" id=6]
+[ext_resource path="res://Fonts/titleFont.tres" type="FontFile" id=4]
+[ext_resource path="res://Fonts/subtitle.tres" type="FontFile" id=5]
+[ext_resource path="res://Img/notification-alert-symbolic.svg" type="Texture2D" id=6]
 
 [node name="Contact_info" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -1620.0
-margin_bottom = -1000.0
-rect_min_size = Vector2( 280, 60 )
+offset_right = -1620.0
+offset_bottom = -1000.0
+custom_minimum_size = Vector2( 280, 60 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -22,24 +22,24 @@ __meta__ = {
 self_modulate = Color( 1, 1, 1, 0.678431 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_min_size = Vector2( 280, 60 )
+custom_minimum_size = Vector2( 280, 60 )
 mouse_filter = 1
-custom_styles/panel = ExtResource( 2 )
+theme_override_styles/panel = ExtResource( 2 )
 
 [node name="Contact" parent="." instance=ExtResource( 3 )]
-margin_left = 11.2038
-margin_top = 8.19116
-margin_right = 58.2038
-margin_bottom = 51.1912
+offset_left = 11.2038
+offset_top = 8.19116
+offset_right = 58.2038
+offset_bottom = 51.1912
 
 [node name="UserName" type="Label" parent="."]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = 65.0
-margin_top = -22.0
-margin_bottom = 7.0
-custom_fonts/font = ExtResource( 4 )
+offset_left = 65.0
+offset_top = -22.0
+offset_bottom = 7.0
+theme_override_fonts/font = ExtResource( 4 )
 text = "User Name"
 clip_text = true
 __meta__ = {
@@ -47,11 +47,11 @@ __meta__ = {
 }
 
 [node name="Activity" type="Label" parent="."]
-margin_left = 65.0
-margin_top = 32.0
-margin_right = 257.0
-margin_bottom = 56.0
-custom_fonts/font = ExtResource( 5 )
+offset_left = 65.0
+offset_top = 32.0
+offset_right = 257.0
+offset_bottom = 56.0
+theme_override_fonts/font = ExtResource( 5 )
 text = "Not on OpenSeed"
 valign = 2
 __meta__ = {
@@ -62,10 +62,10 @@ __meta__ = {
 visible = false
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -16.0
-margin_top = -6.00003
-margin_right = 8.0
-margin_bottom = 18.0
+offset_left = -16.0
+offset_top = -6.00003
+offset_right = 8.0
+offset_bottom = 18.0
 texture = ExtResource( 6 )
 expand = true
 __meta__ = {

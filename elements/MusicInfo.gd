@@ -26,8 +26,8 @@ func _ready():
 	else:
 		MusicRoot = get_tree().get_root().get_node("MainWindow").get_node("WindowContainer").get_node("Music")
 	pass # Replace with function body.
-	OpenSeed.connect("imagestored",self,"refresh")
-	OpenSeed.connect("post",self,"post_refresh")
+	OpenSeed.connect("imagestored", Callable(self, "refresh"))
+	OpenSeed.connect("post", Callable(self, "post_refresh"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -47,7 +47,7 @@ func _on_MusicInfo_postview(post, artist, img):
 			the_img = fromStore
 	$trackImage.set_texture(the_img)
 	$trackpost.bbcode_enabled = true
-	$trackpost.bbcode_text = track_formatter(artist,post)
+	$trackpost.text = track_formatter(artist,post)
 	author = artist
 	thepost = post
 	$buttons.show()
@@ -73,7 +73,7 @@ func get_image(songImage):
 
 	if imgfile.file_exists("user://cache/Img/"+songImage):
 		imgfile.open("user://cache/Img/"+songImage, File.READ)
-		var imagesize = imgfile.get_len()
+		var imagesize = imgfile.get_length()
 		if imagesize <= 3554421:
 			var buffer = imgfile.get_buffer(imagesize)
 			var err = Imagedata.load_jpg_from_buffer(buffer)
@@ -85,10 +85,10 @@ func get_image(songImage):
 					Imagetex = noimage
 				else:
 					if str(Imagetex).split("[")[1].split(":")[0] == "ImageTexture":
-						Imagetex.create_from_image(Imagedata,0)
+						Imagetex.create_from_image(Imagedata) #,0
 			else:
 				if str(Imagetex).split("[")[1].split(":")[0] == "ImageTexture":
-					Imagetex.create_from_image(Imagedata,0)
+					Imagetex.create_from_image(Imagedata) #,0
 		else:
 			print(songImage)
 			print("too big")
@@ -156,4 +156,4 @@ func refresh(data):
 
 func post_refresh(data):
 	$trackpost.bbcode_enabled = true
-	$trackpost.bbcode_text = track_formatter(data["author"],data["post"])
+	$trackpost.text = track_formatter(data["author"],data["post"])

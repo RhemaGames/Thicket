@@ -1,4 +1,4 @@
-extends Tabs
+extends TabBar
 var songlisting = preload("res://elements/MusicBoxMedium.tscn")
 var currentList
 var Thicket
@@ -24,14 +24,14 @@ func loadUp(user):
 	var num = 0
 	for t in Thicket.tracks:
 		if t["author"] == user:
-			var song = songlisting.instance()
+			var song = songlisting.instantiate()
 			track_list.append(t)
 			song.title = t["title"]
 			song.artist = t["author"]
 			song.post = t["post"]
 			song.track = t["ogg"]
 			#song.img = t["img"]
-			song.connect("info",self,"display_info")
+			song.connect("info", Callable(self, "display_info"))
 			currentList.add_child(song)
 			
 			if num == 0:

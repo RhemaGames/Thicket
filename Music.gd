@@ -40,9 +40,9 @@ func _ready():
 	OpenSeed = get_node("/root/OpenSeed")
 	Thicket = get_node("/root/Thicket")
 	MusicBar1 = get_tree().get_root().get_node("MainWindow/Navi/MusicBar")
-	MusicBar1.connect("play_pressed",self,"_on_play_pressed") 
-	MusicBar1.connect("next_track",self,"_on_nexttrack_pressed")
-	MusicBar1.connect("previous_track",self,"_on_lasttrack_pressed")
+	MusicBar1.connect("play_pressed", Callable(self, "_on_play_pressed")) 
+	MusicBar1.connect("next_track", Callable(self, "_on_nexttrack_pressed"))
+	MusicBar1.connect("previous_track", Callable(self, "_on_lasttrack_pressed"))
 	pass # Replace with function body.
 
 # warning-ignore:unused_argument
@@ -64,7 +64,7 @@ func _on_play_pressed(is_playing):
 		MusicBar1.emit_signal("playing",playing)
 
 func music_play():
-	var Oggy = AudioStreamOGGVorbis.new()
+	var Oggy = AudioStreamOggVorbis.new()
 	MusicBar1.emit_signal("trackartist",playlist[play_list_num][1])
 	MusicBar1.emit_signal("tracktitle",playlist[play_list_num][2])
 	MusicBar1.emit_signal("trackart",get_image(playlist[play_list_num][3]))
@@ -76,7 +76,7 @@ func music_play():
 	if file.file_exists(song):
 		
 		file.open(song, File.READ)
-		var songlength = file.get_len()
+		var songlength = file.get_length()
 		Oggy.set_data(file.get_buffer(songlength))
 		#queue = Oggy.instance()
 		$AudioStreamPlayer.set_stream(Oggy)
@@ -98,7 +98,7 @@ func music_play():
 		MusicBar1.emit_signal("timeleft",minutes+":"+seconds_string)
 		$AudioStreamPlayer.play()
 		OpenSeed.set_history("playing",[playlist[play_list_num][2],playlist[play_list_num][1]])
-		OS.set_window_title("Thicket - Playing: "+playlist[play_list_num][2]+" -by- "+playlist[play_list_num][1])
+		get_window().set_title("Thicket - Playing: "+playlist[play_list_num][2]+" -by- "+playlist[play_list_num][1])
 	else:
 		emit_signal("download")
 		$AudioStreamPlayer.stop()
@@ -161,17 +161,17 @@ func get_image(songImage):
 	var Imagedata = Image.new()
 	if imgfile.file_exists("user://cache/Img/"+songImage):
 		imgfile.open("user://cache/Img/"+songImage, File.READ)
-		var imagesize = imgfile.get_len()
+		var imagesize = imgfile.get_length()
 		var err = Imagedata.load_jpg_from_buffer(imgfile.get_buffer(imagesize))
 		if err:
 			err = Imagedata.load_png_from_buffer(imgfile.get_buffer(imagesize))
 			if err:
 				Imagetex = noimage
 			else:
-				Imagetex.create_from_image(Imagedata,0)
+				Imagetex.create_from_image(Imagedata) #,0
 				imgfile.close()
 		else:
-			Imagetex.create_from_image(Imagedata,0)
+			Imagetex.create_from_image(Imagedata) #,0
 			imgfile.close()
 	else:
 		Imagetex = noimage
@@ -244,7 +244,9 @@ func load_playlist(list_name):
 		var content = file.get_as_text().split(", \n")
 		for t in content:
 			if len(t) > 10:
-				redict.append(parse_json(t))
+				var test_json_conv = JSON.new()
+				test_json_conv.parse(t))
+				redict.append(test_json_conv.get_data()
 		file.close()
 		playlist = $OptionView.create_list(redict)
 		$Search.hide()
@@ -264,7 +266,9 @@ func _on_likes_pressed():
 		var content = file.get_as_text().split(", \n")
 		for t in content:
 			if len(t) > 10:
-				redict.append(parse_json(t))
+				var test_json_conv = JSON.new()
+				test_json_conv.parse(t))
+				redict.append(test_json_conv.get_data()
 		file.close()
 		playlist = $OptionView.create_list(redict)
 		$Search.hide()
@@ -284,7 +288,9 @@ func _on_favorites_pressed():
 		var content = file.get_as_text().split(", \n")
 		for t in content:
 			if len(t) > 10:
-				redict.append(parse_json(t))
+				var test_json_conv = JSON.new()
+				test_json_conv.parse(t))
+				redict.append(test_json_conv.get_data()
 		file.close()
 		playlist = $OptionView.create_list(redict)
 		$AllMusic.hide()
@@ -367,7 +373,7 @@ func _on_Search_update_playlist(list):
 	
 func get_all_music():
 # warning-ignore:unused_variable
-	var dir = Directory.new()
+	var dir = DirAccess.new()
 	
 func _on_play_now(track):
 	$AudioStreamPlayer.stop()
@@ -419,7 +425,9 @@ func _on_recent_pressed():
 	var content = file.get_as_text().split(", \n")
 	for t in content:
 		if len(t) > 10:
-			redict.append(parse_json(t))
+			var test_json_conv = JSON.new()
+			test_json_conv.parse(t))
+			redict.append(test_json_conv.get_data()
 	file.close()
 	playlist = $OptionView.create_list(redict)
 	$AllMusic.hide()

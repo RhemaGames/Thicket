@@ -10,11 +10,11 @@ var vTab = preload("res://elements/tabs/Videos.tscn")
 var aTab = preload("res://elements/tabs/Applications.tscn")
 var dTab = preload("res://elements/tabs/Digital Goods.tscn")
 
-var tMusic = mTab.instance()
-var tGames = gTab.instance()
-var tVideos = vTab.instance()
-var tApplications = aTab.instance()
-var tDG = dTab.instance()
+var tMusic = mTab.instantiate()
+var tGames = gTab.instantiate()
+var tVideos = vTab.instantiate()
+var tApplications = aTab.instantiate()
+var tDG = dTab.instantiate()
 
 #User Options
 var creatorMode = false
@@ -52,7 +52,7 @@ signal show(what)
 func _ready():
 	OpenSeed = get_node("/root/OpenSeed")
 	Thicket = get_node("/root/Thicket")
-	OpenSeed.connect("creatorData",self,"update_creator")
+	OpenSeed.connect("creatorData", Callable(self, "update_creator"))
 	AccountInfo = $Panel/AccountContainer/Account/HBoxContainer/AccountInfo
 	About = $Panel/AccountContainer/Account/HBoxContainer/About/TextEdit
 	System = $Panel/SystemContainer/System
@@ -74,11 +74,11 @@ func _on_Settings_visibility_changed():
 
 func set_creator(data):
 	if data and data["name"] != "":
-		CreatorProfile.get_node("ScrollContainer/VBoxContainer/AppCheck").pressed = data["app"]
-		CreatorProfile.get_node("ScrollContainer/VBoxContainer/GameCheck").pressed = data["game"]
-		CreatorProfile.get_node("ScrollContainer/VBoxContainer/MusicCheck").pressed = data["music"]
-		CreatorProfile.get_node("ScrollContainer/VBoxContainer/VideosCheck").pressed = data["video"]
-		CreatorProfile.get_node("ScrollContainer/VBoxContainer/DGCheck").pressed = data["DG"]
+		CreatorProfile.get_node("ScrollContainer/VBoxContainer/AppCheck").button_pressed = data["app"]
+		CreatorProfile.get_node("ScrollContainer/VBoxContainer/GameCheck").button_pressed = data["game"]
+		CreatorProfile.get_node("ScrollContainer/VBoxContainer/MusicCheck").button_pressed = data["music"]
+		CreatorProfile.get_node("ScrollContainer/VBoxContainer/VideosCheck").button_pressed = data["video"]
+		CreatorProfile.get_node("ScrollContainer/VBoxContainer/DGCheck").button_pressed = data["DG"]
 		CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name").text = data["name"]
 		CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/email").text = data["email"]
 		CreatorProfile.get_node("ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/account").text = data["openseed"]

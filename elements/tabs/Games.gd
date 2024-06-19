@@ -1,4 +1,4 @@
-extends Tabs
+extends TabBar
 
 
 # Declare member variables here. Examples:

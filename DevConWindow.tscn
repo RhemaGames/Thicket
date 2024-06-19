@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://default.theme" type="Theme" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://icon.png" type="Texture2D" id=2]
 [ext_resource path="res://Item.tscn" type="PackedScene" id=3]
 
 [node name="DevConWindow" type="Control"]
@@ -17,10 +17,10 @@ anchor_bottom = 1.0
 visible = false
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 171.0
-margin_top = -298.0
-margin_right = 1020.0
-margin_bottom = 299.0
+offset_left = 171.0
+offset_top = -298.0
+offset_right = 1020.0
+offset_bottom = 299.0
 
 [node name="OptionsList" type="VBoxContainer" parent="NewGame"]
 
@@ -28,19 +28,19 @@ margin_bottom = 299.0
 visible = false
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 239.0
-margin_top = -297.0
-margin_right = 1020.0
-margin_bottom = 297.0
+offset_left = 239.0
+offset_top = -297.0
+offset_right = 1020.0
+offset_bottom = 297.0
 
 [node name="Label" type="Label" parent="Welcome"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -154.447
-margin_top = 31.5789
-margin_right = -93.4474
-margin_bottom = 45.5789
-rect_scale = Vector2( 4, 4 )
+offset_left = -154.447
+offset_top = 31.5789
+offset_right = -93.4474
+offset_bottom = 45.5789
+scale = Vector2( 4, 4 )
 text = "Welcome"
 align = 1
 valign = 1
@@ -49,11 +49,11 @@ valign = 1
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -419.5
-margin_top = 96.0
-margin_right = 389.5
+offset_left = -419.5
+offset_top = 96.0
+offset_right = 389.5
 bbcode_enabled = true
-bbcode_text = "OpenSeed is an Open Source distributed gaming platform that enables developers to access and uitilize cloud based services as well as various blockchain inovations without the usual hoops that are required to use such services. 
+text = "OpenSeed is an Open Source distributed gaming platform that enables developers to access and uitilize cloud based services as well as various blockchain inovations without the usual hoops that are required to use such services. 
 
 [b] Account Creation: [/b]
 
@@ -66,95 +66,95 @@ If you already have a STEEM account you may use it to create your Developer acco
 
 [node name="MainMenu" type="Panel" parent="."]
 anchor_bottom = 1.0
-margin_top = 39.0
-margin_right = 204.0
+offset_top = 39.0
+offset_right = 204.0
 
 [node name="UserTag" type="Control" parent="MainMenu"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 193.0
-margin_bottom = 593.0
-rect_clip_content = true
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 193.0
+offset_bottom = 593.0
+clip_contents = true
 
 [node name="UserIcon" type="TextureRect" parent="MainMenu/UserTag"]
-margin_right = 64.0
-margin_bottom = 64.0
-rect_scale = Vector2( 0.7, 0.7 )
+offset_right = 64.0
+offset_bottom = 64.0
+scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 2 )
 
 [node name="devName" type="Label" parent="MainMenu/UserTag"]
 anchor_right = 1.0
-margin_left = 51.0526
-margin_top = 26.0
-margin_right = 1.05261
-margin_bottom = 40.0
-rect_scale = Vector2( 0.8, 0.8 )
+offset_left = 51.0526
+offset_top = 26.0
+offset_right = 1.05261
+offset_bottom = 40.0
+scale = Vector2( 0.8, 0.8 )
 text = "Developer Name"
 valign = 1
 autowrap = true
 
 [node name="comName" type="Label" parent="MainMenu/UserTag"]
-margin_left = 49.0
-margin_top = 2.0
-margin_right = 187.0
-margin_bottom = 22.0
-rect_scale = Vector2( 1.2, 1.2 )
+offset_left = 49.0
+offset_top = 2.0
+offset_right = 187.0
+offset_bottom = 22.0
+scale = Vector2( 1.2, 1.2 )
 text = "Company Name"
 valign = 1
 autowrap = true
 
 [node name="Menu" type="VBoxContainer" parent="MainMenu"]
 anchor_right = 1.0
-margin_top = 58.0
-margin_bottom = 599.0
+offset_top = 58.0
+offset_bottom = 599.0
 
 [node name="HSeparator" type="HSeparator" parent="MainMenu/Menu"]
-margin_right = 204.0
-margin_bottom = 8.0
+offset_right = 204.0
+offset_bottom = 8.0
 
 [node name="Games" type="Button" parent="MainMenu/Menu"]
-margin_top = 12.0
-margin_right = 204.0
-margin_bottom = 46.0
+offset_top = 12.0
+offset_right = 204.0
+offset_bottom = 46.0
 text = "Games"
 flat = true
 align = 0
 
 [node name="Applications" type="Button" parent="MainMenu/Menu"]
-margin_top = 50.0
-margin_right = 204.0
-margin_bottom = 84.0
+offset_top = 50.0
+offset_right = 204.0
+offset_bottom = 84.0
 text = "Apps"
 flat = true
 align = 0
 
 [node name="Stats" type="Button" parent="MainMenu/Menu"]
-margin_top = 88.0
-margin_right = 204.0
-margin_bottom = 122.0
+offset_top = 88.0
+offset_right = 204.0
+offset_bottom = 122.0
 text = "Stats"
 flat = true
 align = 0
 
 [node name="HSeparator2" type="HSeparator" parent="MainMenu/Menu"]
-margin_top = 126.0
-margin_right = 204.0
-margin_bottom = 134.0
+offset_top = 126.0
+offset_right = 204.0
+offset_bottom = 134.0
 
 [node name="Games" type="Panel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 205.0
+offset_left = 205.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_clip_content = true
+clip_contents = true
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="TopBar" type="Panel" parent="Games"]
 anchor_right = 1.0
-margin_bottom = 34.0
+offset_bottom = 34.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -164,16 +164,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 alignment = 1
 
 [node name="Label" type="Label" parent="Games/TopBar/HBoxContainer"]
-margin_top = 8.0
-margin_right = 60.0
-margin_bottom = 32.0
+offset_top = 8.0
+offset_right = 60.0
+offset_bottom = 32.0
 text = "Games"
 align = 1
 valign = 1
@@ -184,18 +184,18 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -46.7368
-margin_top = -11.0526
-margin_right = -6.73682
-margin_bottom = 8.94739
+offset_left = -46.7368
+offset_top = -11.0526
+offset_right = -6.73682
+offset_bottom = 8.94739
 text = "NEW"
 flat = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Games"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 15.0
-margin_top = 44.0
+offset_left = 15.0
+offset_top = 44.0
 grow_horizontal = 2
 grow_vertical = 2
 __meta__ = {
@@ -203,24 +203,24 @@ __meta__ = {
 }
 
 [node name="GridContainer" type="GridContainer" parent="Games/ScrollContainer"]
-margin_right = 860.0
-margin_bottom = 300.0
+offset_right = 860.0
+offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_constants/vseparation = 20
-custom_constants/hseparation = 20
+theme_override_constants/v_separation = 20
+theme_override_constants/h_separation = 20
 columns = 6
 
 [node name="Item" parent="Games/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
 
 [node name="Item2" parent="Games/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
-margin_left = 220.0
-margin_right = 420.0
+offset_left = 220.0
+offset_right = 420.0
 
 [node name="Item3" parent="Games/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
-margin_left = 440.0
-margin_right = 640.0
+offset_left = 440.0
+offset_right = 640.0
 
 [node name="Item4" parent="Games/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
-margin_left = 660.0
-margin_right = 860.0
+offset_left = 660.0
+offset_right = 860.0

@@ -2,57 +2,57 @@
 
 [ext_resource path="res://elements/GameBig.gd" type="Script" id=1]
 [ext_resource path="res://menu.tres" type="StyleBox" id=2]
-[ext_resource path="res://Fonts/GameBig.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Samples/gameCover.png" type="Texture" id=4]
+[ext_resource path="res://Fonts/GameBig.tres" type="FontFile" id=3]
+[ext_resource path="res://Samples/gameCover.png" type="Texture2D" id=4]
 
 [sub_resource type="Gradient" id=1]
-offsets = PoolRealArray( 0, 1.4013e-45, 0.293413, 0.784431 )
-colors = PoolColorArray( 0.0980392, 0.458824, 0.172549, 1, 0.054902, 0.227451, 0.117647, 1, 0.0431373, 0.262745, 0.0627451, 1, 0.580392, 0.662745, 0.447059, 1 )
+offsets = PackedFloat32Array( 0, 1.4013e-45, 0.293413, 0.784431 )
+colors = PackedColorArray( 0.0980392, 0.458824, 0.172549, 1, 0.054902, 0.227451, 0.117647, 1, 0.0431373, 0.262745, 0.0627451, 1, 0.580392, 0.662745, 0.447059, 1 )
 
-[sub_resource type="GradientTexture" id=2]
+[sub_resource type="GradientTexture2D" id=2]
 gradient = SubResource( 1 )
 width = 40
 
 [sub_resource type="Animation" id=3]
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ) ]
 }
 
 [node name="GameBig" type="Control"]
-margin_left = -100.0
-margin_top = -123.0
-margin_right = 275.0
-margin_bottom = 377.0
+offset_left = -100.0
+offset_top = -123.0
+offset_right = 275.0
+offset_bottom = 377.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 375, 500 )
-rect_pivot_offset = Vector2( 179.412, 269.062 )
-rect_clip_content = true
+custom_minimum_size = Vector2( 375, 500 )
+pivot_offset = Vector2( 179.412, 269.062 )
+clip_contents = true
 script = ExtResource( 1 )
 
 [node name="shadow" type="Panel" parent="."]
 self_modulate = Color( 0, 0, 0, 0.152941 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.05338
-margin_top = 9.56671
-margin_right = 8.05338
-margin_bottom = 9.56671
+offset_left = 8.05338
+offset_top = 9.56671
+offset_right = 8.05338
+offset_bottom = 9.56671
 
 [node name="Panel" type="Panel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = ExtResource( 2 )
+theme_override_styles/panel = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -60,12 +60,12 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -111.0
-margin_top = 10.0
-margin_right = 44.0
-margin_bottom = 9.0
-rect_rotation = -89.9999
-rect_pivot_offset = Vector2( 263.781, 255.351 )
+offset_left = -111.0
+offset_top = 10.0
+offset_right = 44.0
+offset_bottom = 9.0
+rotation = -89.9999
+pivot_offset = Vector2( 263.781, 255.351 )
 texture = SubResource( 2 )
 expand = true
 stretch_mode = 1
@@ -73,13 +73,13 @@ stretch_mode = 1
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -171.5
-margin_top = 116.0
-margin_right = 171.5
-margin_bottom = 187.0
+offset_left = -171.5
+offset_top = 116.0
+offset_right = 171.5
+offset_bottom = 187.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = ExtResource( 3 )
+theme_override_fonts/font = ExtResource( 3 )
 align = 1
 valign = 1
 autowrap = true
@@ -89,7 +89,7 @@ uppercase = true
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -48.0
+offset_top = -48.0
 text = "Company"
 align = 1
 valign = 1

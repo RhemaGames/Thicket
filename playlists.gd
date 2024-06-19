@@ -8,7 +8,7 @@ var MusicRoot
 func _ready():
 	MusicRoot = get_parent().get_parent().get_parent()
 # warning-ignore:return_value_discarded
-	get_popup().connect("id_pressed",self,"menu_item_selected")
+	get_popup().connect("id_pressed", Callable(self, "menu_item_selected"))
 	#load_playlists()
 
 
@@ -27,9 +27,9 @@ func load_playlists():
 		get_popup().remove_item(children)
 		children -= 1
 		
-	var dir = Directory.new()
+	var dir = DirAccess.new()
 	if dir.open("user://playlists") == OK:
-		dir.list_dir_begin(true,true)
+		dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 		var playlist = dir.get_next()
 		var _count = 0
 		while playlist != "":

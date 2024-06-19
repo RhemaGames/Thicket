@@ -12,7 +12,7 @@ signal getNew()
 func _ready():
 	OpenSeed = get_node("/root/OpenSeed")
 	Thicket = get_node("/root/Thicket")
-	Thicket.connect("new_artists_ready",self,"propogate_new_artists")
+	Thicket.connect("new_artists_ready", Callable(self, "propogate_new_artists"))
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,9 +37,9 @@ func propogate_new_artists():
 		if get_child_count() < 7:
 			var count = 0
 			for artist in list:
-				var NewArtist = newartist.instance()
+				var NewArtist = newartist.instantiate()
 				NewArtist.title = artist
-				NewArtist.connect("search",get_parent().get_parent().get_parent().get_parent(),"new_artist_search")
+				NewArtist.connect("search", Callable(get_parent().get_parent().get_parent().get_parent(), "new_artist_search"))
 				NewArtist.block = imageFile
 				NewArtist.texblock = textureFile[count]
 				call_deferred("add_child", NewArtist)

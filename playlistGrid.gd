@@ -17,8 +17,8 @@ func _ready():
 #	pass
 
 func populate_recent():
-	var PlayList = playlist.instance()
-	var Genres = genres.instance()
+	var PlayList = playlist.instantiate()
+	var Genres = genres.instantiate()
 	#get_parent().get_parent().get_parent().get_node("Thicket").playlist_load("recent")
 	PlayList.title = "recent"
 	add_child(PlayList)

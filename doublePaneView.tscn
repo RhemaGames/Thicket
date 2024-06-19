@@ -17,26 +17,26 @@ __meta__ = {
 [node name="Panel" type="Panel" parent="."]
 editor/display_folded = true
 self_modulate = Color( 1, 1, 1, 0.513726 )
-margin_right = 1340.0
-margin_bottom = 1060.0
-rect_min_size = Vector2( 1200, 800 )
+offset_right = 1340.0
+offset_bottom = 1060.0
+custom_minimum_size = Vector2( 1200, 800 )
 
 [node name="listView" type="ScrollContainer" parent="Panel"]
 editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 3.0
-margin_bottom = -26.0
-rect_min_size = Vector2( 500, 500 )
+offset_top = 3.0
+offset_bottom = -26.0
+custom_minimum_size = Vector2( 500, 500 )
 
 [node name="list" type="VBoxContainer" parent="Panel/listView"]
-custom_constants/separation = 0
+theme_override_constants/separation = 0
 
 [node name="MusicInfo" parent="." instance=ExtResource( 2 )]
-margin_left = 1340.0
-margin_right = 1900.0
-margin_bottom = 1060.0
-rect_min_size = Vector2( 400, 0 )
+offset_left = 1340.0
+offset_right = 1900.0
+offset_bottom = 1060.0
+custom_minimum_size = Vector2( 400, 0 )
 
 [node name="resize_timer" type="Timer" parent="."]
 wait_time = 0.1

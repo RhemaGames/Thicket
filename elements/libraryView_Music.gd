@@ -20,9 +20,9 @@ func _ready():
 		MusicRoot = get_tree().get_root().get_child(2).get_node("MainWindow").get_node("WindowContainer").get_node("Music")
 	else:
 		MusicRoot = get_tree().get_root().get_node("MainWindow").get_node("WindowContainer").get_node("Music")
-	MusicRoot.connect("resized",self,"on_resize")
+	MusicRoot.connect("resized", Callable(self, "on_resize"))
 # warning-ignore:return_value_discarded
-	OpenSeed.connect("userloaded",self,"on_user_load")
+	OpenSeed.connect("userloaded", Callable(self, "on_user_load"))
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -56,7 +56,7 @@ func create_list(songarray):
 	
 	for listitem in songarray:
 		#if num < 1000:
-			var thesong = songlisting.instance()
+			var thesong = songlisting.instantiate()
 			#Thicket.local_knowledge_add("audio",listitem)
 			if len(listitem) >= 8: 
 				artist = listitem["author"]
@@ -97,11 +97,11 @@ func create_list(songarray):
 					thesong.duration = "unknown"
 				#if($Panel/listView/list.get_child_count() <= num):
 				$Panel/listView/list.add_child(thesong)
-				thesong.connect("play",MusicRoot,"_on_Music_play")
-				thesong.connect("play_now",MusicRoot,"_on_play_now")
-				thesong.connect("search",MusicRoot,"_on_artist_search")
-				thesong.connect("postview",$MusicInfo,"_on_MusicInfo_postview")
-				MusicRoot.connect("clear_highlight",thesong,"_clear_highlight")
+				thesong.connect("play", Callable(MusicRoot, "_on_Music_play"))
+				thesong.connect("play_now", Callable(MusicRoot, "_on_play_now"))
+				thesong.connect("search", Callable(MusicRoot, "_on_artist_search"))
+				thesong.connect("postview", Callable($MusicInfo, "_on_MusicInfo_postview"))
+				MusicRoot.connect("clear_highlight", Callable(thesong, "_clear_highlight"))
 				if title != "":
 					num += 1	
 					playlist.append([thesong.fileName,thesong.artist,thesong.title,thesong.image,thesong.post])
@@ -149,7 +149,9 @@ func _on_g_pressed(list):
 	if !MusicRoot.playing:
 		MusicRoot.play_list_num = 0
 	var content = []
-	var jsoned = parse_json(list)
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(list)
+	var jsoned = test_json_conv.get_data()
 	for t in Thicket.tracks:
 		if t and t["genre"] == list.strip_edges():
 			content.append(t)
@@ -177,7 +179,9 @@ func load_genre(data):
 	if !MusicRoot.playing:
 		MusicRoot.play_list_num = 0
 	var content = []
-	var jsoned = parse_json(data)
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(data)
+	var jsoned = test_json_conv.get_data()
 	if typeof(jsoned) == TYPE_DICTIONARY:
 		print(jsoned["genre_tracks"]["total"])
 		for t in jsoned["genre_tracks"]["results"]:

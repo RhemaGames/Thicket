@@ -14,7 +14,7 @@ var active = false
 var bgColor = Color(0.1,1,0.5)
 var textColor = Color(1,1,1)
 var icon = ""
-var text = "Area"
+var text = "Area3D"
 var title = ""
 var index = 1
 
@@ -82,7 +82,7 @@ func _on_ActiveRelease(except):
 func fill_list(_listname):
 	var musicList = [{"title":"All Music"},{"title":"All Artists"}]
 	for item in musicList:
-		var button = navbutton.instance()
+		var button = navbutton.instantiate()
 		button.text = item["title"]
 		$NavList.add_child(button)
 	pass

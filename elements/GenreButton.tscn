@@ -1,15 +1,15 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Fonts/titleFont.tres" type="FontFile" id=1]
 
 [node name="Button" type="Button"]
-margin_left = -37.0
-margin_top = -8.0
-margin_right = 84.0
-margin_bottom = 29.0
+offset_left = -37.0
+offset_top = -8.0
+offset_right = 84.0
+offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = ExtResource( 1 )
+theme_override_fonts/font = ExtResource( 1 )
 text = "genre"
 flat = true
 align = 0

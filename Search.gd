@@ -52,7 +52,7 @@ func create_list(songarray):
 	var num = 0
 	for listitem in songarray:
 		
-		var thesong = songlisting.instance()
+		var thesong = songlisting.instantiate()
 		listitem.replace("'s","20%s")
 		var listing = listitem.split("', '")
 		if len(listing) == 16 or len(listing) == 17 or len(listing) == 18:
@@ -114,10 +114,10 @@ func create_list(songarray):
 		if len(listing) > 3:
 			list.append([thesong.fileName,thesong.artist,thesong.title,thesong.image,thesong.post])
 			num +=1
-		connect("clear_highlight",thesong,"_clear_highlight")
-		thesong.connect("clear_highlight",self,"_clear_highlight")	
-		thesong.connect("play",get_parent(),"_on_Music_play")
-		thesong.connect("play_now",get_parent(),"_on_play_now")
+		connect("clear_highlight", Callable(thesong, "_clear_highlight"))
+		thesong.connect("clear_highlight", Callable(self, "_clear_highlight"))	
+		thesong.connect("play", Callable(get_parent(), "_on_Music_play"))
+		thesong.connect("play_now", Callable(get_parent(), "_on_play_now"))
 		#thesong.connect("postview",$HSplitContainer/MusicInfo,"_on_MusicInfo_postview")
 	emit_signal("update_playlist",list)
 	get_parent().genre_load()

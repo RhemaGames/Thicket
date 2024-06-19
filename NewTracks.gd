@@ -21,7 +21,7 @@ signal playlist()
 func _ready():
 	OpenSeed = get_node("/root/OpenSeed")
 	Thicket = get_node("/root/Thicket")
-	Thicket.connect("new_tracks_ready",self,"set_new_tracks")
+	Thicket.connect("new_tracks_ready", Callable(self, "set_new_tracks"))
 	pass # Replace with function body.
 	
 func new_tracks(_data):
@@ -34,7 +34,7 @@ func set_new_tracks():
 	if get_child_count() < new_num:
 		for track in list:
 			if track:
-				var NewTrack = newtracks.instance()
+				var NewTrack = newtracks.instantiate()
 				var artist = track["author"]
 				var title = track["title"]
 				var post = track["post"]
@@ -47,7 +47,7 @@ func set_new_tracks():
 					NewTrack.post = post
 					NewTrack.texblock = textureFile[count]
 					NewTrack.track = track["ogg"]
-					NewTrack.connect("play",get_parent().get_parent().get_parent().get_parent(),"play_track")
+					NewTrack.connect("play", Callable(get_parent().get_parent().get_parent().get_parent(), "play_track"))
 				
 					call_deferred("add_child", NewTrack)
 					playlist.append(track)

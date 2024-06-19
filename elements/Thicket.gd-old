@@ -32,18 +32,18 @@ var dev_profile = ""
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	OpenSeed = get_node("/root/OpenSeed")
-	OpenSeed.connect("new_tracks",self,"_on_new_tracks")
-	OpenSeed.connect("new_artists",self,"_on_new_artists")
-	OpenSeed.connect("conversations",self,"_on_conversations")
-	OpenSeed.connect("tracks",self,"gather_all_tracks")
-	OpenSeed.connect("genres",self,"gather_genres")
-	OpenSeed.connect("connections",self,"store_connections")
-	OpenSeed.connect("creatorData",self,"get_creator")
+	OpenSeed.connect("new_tracks", Callable(self, "_on_new_tracks"))
+	OpenSeed.connect("new_artists", Callable(self, "_on_new_artists"))
+	OpenSeed.connect("conversations", Callable(self, "_on_conversations"))
+	OpenSeed.connect("tracks", Callable(self, "gather_all_tracks"))
+	OpenSeed.connect("genres", Callable(self, "gather_genres"))
+	OpenSeed.connect("connections", Callable(self, "store_connections"))
+	OpenSeed.connect("creatorData", Callable(self, "get_creator"))
 	#OpenSeed.connect("creator_created",self,"update_creator_profile")
 # warning-ignore:return_value_discarded
-	$Timer.connect("timeout",self,"update_loop")
+	$Timer.connect("timeout", Callable(self, "update_loop"))
 	$Timer.start()
-	$Social_timer.connect("timeout",self,"social_loop")
+	$Social_timer.connect("timeout", Callable(self, "social_loop"))
 	$Social_timer.start()
 	
 	pass
@@ -83,7 +83,9 @@ func load_creator():
 	var content = {"name":""}
 	if file.file_exists("user://creator.dat"):
 		file.open("user://creator.dat", File.READ)
-		content = parse_json(file.get_as_text())
+		var test_json_conv = JSON.new()
+		test_json_conv.parse(file.get_as_text())
+		content = test_json_conv.get_data()
 	return(content)
 	
 func settings_save(creatorMode,privMode,cf,replaceMedia,
@@ -103,7 +105,9 @@ func settings_load():
 	var file = File.new()
 	if file.file_exists("user://settings.dat"):
 		file.open("user://settings.dat", File.READ)
-		var content = parse_json(file.get_as_text())
+		var test_json_conv = JSON.new()
+		test_json_conv.parse(file.get_as_text())
+		var content = test_json_conv.get_data()
 		file.close()
 		if content["ipfs"] == "True":
 			OpenSeed.check_ipfs()
@@ -162,7 +166,7 @@ func playlist_save(_type,_data):
 
 
 func create_folders():
-	var dir = Directory.new()
+	var dir = DirAccess.new()
 	if !dir.dir_exists("user://cache"):
 		dir.make_dir("user://cache")
 	if !dir.dir_exists("user://cache/Music"):
@@ -199,7 +203,9 @@ func played_song_record(track):
 	var current_records
 	if file.file_exists("user://records.dat"):
 		file.open("user://records.dat", File.READ)
-		current_records = parse_json(file.get_as_text())
+		var test_json_conv = JSON.new()
+		test_json_conv.parse(file.get_as_text())
+		current_records = test_json_conv.get_data()
 		file.close()
 	pass
 
@@ -213,7 +219,9 @@ func local_knowledge_load(type):
 				var count = 0
 				for t in file.get_as_text().split(", \n"):
 					if count > 0:
-						list.append(parse_json(t))
+						var test_json_conv = JSON.new()
+						test_json_conv.parse(t)
+						list.append(test_json_conv.get_data())
 					count +=1
 			"genres":
 				var count = 0
@@ -252,18 +260,18 @@ func store(type,newlist):
 			list = str(newlist.size())
 			file.open("user://database/"+type+".dat", File.WRITE)
 			for t in newlist:
-				list = list+", \n"+to_json(t)
+				list = list+", \n"+JSON.new().stringify(t)
 		"artists":
 			list = str(artists.size())
 			file.open("user://database/"+type+".dat", File.WRITE)
 			for t in artists:
-				list = list+", \n"+to_json(t)
+				list = list+", \n"+JSON.new().stringify(t)
 		"genres":
 			list = str(genres.size())
 			file.open("user://database/"+type+".dat", File.WRITE)
 			#print("Number of genres "+list)
 			for t in genres:
-				list = list+", \n"+to_json(t)
+				list = list+", \n"+JSON.new().stringify(t)
 				
 	file.store_string(list)
 	file.close()
@@ -393,11 +401,11 @@ func ipfs_upload(file):
 
 func application_list():
 	if OS.get_name() == "X11":
-		var dir = Directory.new()
+		var dir = DirAccess.new()
 		for place in ["/usr/share/applications","user://../../../applications"]:
 			if dir.dir_exists(place):
 				dir.open(place)
-				dir.list_dir_begin()
+				dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 				var file_name = dir.get_next()
 				while (file_name != ""):
 					if !dir.current_is_dir():

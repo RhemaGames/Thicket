@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Img/image-x-generic-symbolic.svg" type="Texture" id=2]
+[ext_resource path="res://Fonts/titleFont.tres" type="FontFile" id=1]
+[ext_resource path="res://Img/image-x-generic-symbolic.svg" type="Texture2D" id=2]
 [ext_resource path="res://default.theme" type="Theme" id=3]
-[ext_resource path="res://Fonts/NaviFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Fonts/NaviFont.tres" type="FontFile" id=4]
 [ext_resource path="res://elements/things/Genre.gd" type="Script" id=5]
 [ext_resource path="res://elements/things/rating.gd" type="Script" id=6]
 
@@ -13,58 +13,58 @@ anchor_top = 0.00149686
 anchor_right = 0.626007
 anchor_bottom = 1.48829
 theme = ExtResource( 3 )
-custom_constants/separation = 20
+theme_override_constants/separation = 20
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="Label" type="Label" parent="."]
-margin_right = 1191.0
-margin_bottom = 27.0
-custom_fonts/font = ExtResource( 1 )
+offset_right = 1191.0
+offset_bottom = 27.0
+theme_override_fonts/font = ExtResource( 1 )
 text = "Title"
 
 [node name="GameName" type="LineEdit" parent="."]
-margin_top = 47.0
-margin_right = 1191.0
-margin_bottom = 127.0
+offset_top = 47.0
+offset_right = 1191.0
+offset_bottom = 127.0
 grow_vertical = 2
-rect_min_size = Vector2( 0, 80 )
-custom_fonts/font = ExtResource( 4 )
+custom_minimum_size = Vector2( 0, 80 )
+theme_override_fonts/font = ExtResource( 4 )
 placeholder_text = "Game Name"
 caret_blink = true
-caret_blink_speed = 0.5
+caret_blink_interval = 0.5
 
 [node name="Label2" type="Label" parent="."]
-margin_top = 147.0
-margin_right = 1191.0
-margin_bottom = 174.0
-custom_fonts/font = ExtResource( 1 )
+offset_top = 147.0
+offset_right = 1191.0
+offset_bottom = 174.0
+theme_override_fonts/font = ExtResource( 1 )
 text = "Screen Shots"
 
 [node name="HSeparator" type="HSeparator" parent="."]
-margin_top = 194.0
-margin_right = 1191.0
-margin_bottom = 202.0
+offset_top = 194.0
+offset_right = 1191.0
+offset_bottom = 202.0
 
 [node name="ScreenShots" type="HBoxContainer" parent="."]
-margin_top = 222.0
-margin_right = 1191.0
-margin_bottom = 492.0
-custom_constants/separation = 10
+offset_top = 222.0
+offset_right = 1191.0
+offset_bottom = 492.0
+theme_override_constants/separation = 10
 alignment = 1
 
 [node name="shot1" type="PanelContainer" parent="ScreenShots"]
-margin_right = 390.0
-margin_bottom = 270.0
+offset_right = 390.0
+offset_bottom = 270.0
 
 [node name="TextureRect" type="TextureRect" parent="ScreenShots/shot1"]
 self_modulate = Color( 1, 1, 1, 0.117647 )
-margin_left = 20.0
-margin_top = 10.0
-margin_right = 370.0
-margin_bottom = 260.0
-rect_min_size = Vector2( 350, 250 )
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 370.0
+offset_bottom = 260.0
+custom_minimum_size = Vector2( 350, 250 )
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
@@ -73,17 +73,17 @@ __meta__ = {
 }
 
 [node name="shot2" type="PanelContainer" parent="ScreenShots"]
-margin_left = 400.0
-margin_right = 790.0
-margin_bottom = 270.0
+offset_left = 400.0
+offset_right = 790.0
+offset_bottom = 270.0
 
 [node name="TextureRect" type="TextureRect" parent="ScreenShots/shot2"]
 self_modulate = Color( 1, 1, 1, 0.117647 )
-margin_left = 20.0
-margin_top = 10.0
-margin_right = 370.0
-margin_bottom = 260.0
-rect_min_size = Vector2( 350, 250 )
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 370.0
+offset_bottom = 260.0
+custom_minimum_size = Vector2( 350, 250 )
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
@@ -92,17 +92,17 @@ __meta__ = {
 }
 
 [node name="shot3" type="PanelContainer" parent="ScreenShots"]
-margin_left = 800.0
-margin_right = 1190.0
-margin_bottom = 270.0
+offset_left = 800.0
+offset_right = 1190.0
+offset_bottom = 270.0
 
 [node name="TextureRect" type="TextureRect" parent="ScreenShots/shot3"]
 self_modulate = Color( 1, 1, 1, 0.117647 )
-margin_left = 20.0
-margin_top = 10.0
-margin_right = 370.0
-margin_bottom = 260.0
-rect_min_size = Vector2( 350, 250 )
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 370.0
+offset_bottom = 260.0
+custom_minimum_size = Vector2( 350, 250 )
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
@@ -111,183 +111,183 @@ __meta__ = {
 }
 
 [node name="HSeparator2" type="HSeparator" parent="."]
-margin_top = 512.0
-margin_right = 1191.0
-margin_bottom = 520.0
+offset_top = 512.0
+offset_right = 1191.0
+offset_bottom = 520.0
 
 [node name="Label5" type="Label" parent="."]
-margin_top = 540.0
-margin_right = 1191.0
-margin_bottom = 567.0
-custom_fonts/font = ExtResource( 1 )
+offset_top = 540.0
+offset_right = 1191.0
+offset_bottom = 567.0
+theme_override_fonts/font = ExtResource( 1 )
 text = "Store Listing"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_top = 587.0
-margin_right = 1191.0
-margin_bottom = 634.0
-custom_constants/separation = 20
+offset_top = 587.0
+offset_right = 1191.0
+offset_bottom = 634.0
+theme_override_constants/separation = 20
 
 [node name="Genre" type="MenuButton" parent="HBoxContainer"]
-margin_right = 500.0
-margin_bottom = 47.0
-rect_min_size = Vector2( 500, 0 )
-custom_fonts/font = ExtResource( 1 )
+offset_right = 500.0
+offset_bottom = 47.0
+custom_minimum_size = Vector2( 500, 0 )
+theme_override_fonts/font = ExtResource( 1 )
 text = "Genre"
 flat = false
 align = 0
 script = ExtResource( 5 )
 
 [node name="subGenre" type="MenuButton" parent="HBoxContainer"]
-margin_left = 520.0
-margin_right = 1020.0
-margin_bottom = 47.0
-rect_min_size = Vector2( 500, 0 )
-custom_fonts/font = ExtResource( 1 )
+offset_left = 520.0
+offset_right = 1020.0
+offset_bottom = 47.0
+custom_minimum_size = Vector2( 500, 0 )
+theme_override_fonts/font = ExtResource( 1 )
 text = "Sub-Genre"
 flat = false
 align = 0
 script = ExtResource( 5 )
 
 [node name="rating" type="MenuButton" parent="HBoxContainer"]
-margin_left = 1040.0
-margin_right = 1160.0
-margin_bottom = 47.0
-rect_min_size = Vector2( 120, 0 )
+offset_left = 1040.0
+offset_right = 1160.0
+offset_bottom = 47.0
+custom_minimum_size = Vector2( 120, 0 )
 text = "Rating"
 flat = false
 align = 0
 script = ExtResource( 6 )
 
 [node name="Label3" type="Label" parent="."]
-margin_top = 654.0
-margin_right = 1191.0
-margin_bottom = 678.0
+offset_top = 654.0
+offset_right = 1191.0
+offset_bottom = 678.0
 text = "About:"
 
 [node name="About" type="TextEdit" parent="."]
-margin_top = 698.0
-margin_right = 1191.0
-margin_bottom = 998.0
+offset_top = 698.0
+offset_right = 1191.0
+offset_bottom = 998.0
 grow_horizontal = 2
-rect_min_size = Vector2( 0, 300 )
+custom_minimum_size = Vector2( 0, 300 )
 
 [node name="Label6" type="Label" parent="."]
-margin_top = 1018.0
-margin_right = 1191.0
-margin_bottom = 1045.0
-custom_fonts/font = ExtResource( 1 )
+offset_top = 1018.0
+offset_right = 1191.0
+offset_bottom = 1045.0
+theme_override_fonts/font = ExtResource( 1 )
 text = "Tags"
 
 [node name="tags" type="LineEdit" parent="."]
-margin_top = 1065.0
-margin_right = 1191.0
-margin_bottom = 1094.0
-rect_min_size = Vector2( 500, 0 )
-custom_fonts/font = ExtResource( 1 )
+offset_top = 1065.0
+offset_right = 1191.0
+offset_bottom = 1094.0
+custom_minimum_size = Vector2( 500, 0 )
+theme_override_fonts/font = ExtResource( 1 )
 placeholder_text = "comma,seperated,search,tags"
 
 [node name="Label7" type="Label" parent="."]
-margin_top = 1114.0
-margin_right = 1191.0
-margin_bottom = 1141.0
-custom_fonts/font = ExtResource( 1 )
+offset_top = 1114.0
+offset_right = 1191.0
+offset_bottom = 1141.0
+theme_override_fonts/font = ExtResource( 1 )
 text = "Price Options"
 
 [node name="HSeparator4" type="HSeparator" parent="."]
-margin_top = 1161.0
-margin_right = 1191.0
-margin_bottom = 1169.0
+offset_top = 1161.0
+offset_right = 1191.0
+offset_bottom = 1169.0
 
 [node name="priceOptions" type="HBoxContainer" parent="."]
-margin_top = 1189.0
-margin_right = 1191.0
-margin_bottom = 1269.0
-custom_constants/separation = 40
+offset_top = 1189.0
+offset_right = 1191.0
+offset_bottom = 1269.0
+theme_override_constants/separation = 40
 alignment = 1
 
 [node name="Free" type="Button" parent="priceOptions"]
-margin_left = 135.0
-margin_right = 335.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 80 )
+offset_left = 135.0
+offset_right = 335.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 80 )
 text = "Free"
 
 [node name="Price" type="Button" parent="priceOptions"]
-margin_left = 375.0
-margin_right = 575.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 60 )
+offset_left = 375.0
+offset_right = 575.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 60 )
 text = "Set Price"
 
 [node name="Donation" type="Button" parent="priceOptions"]
-margin_left = 615.0
-margin_right = 815.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 60 )
+offset_left = 615.0
+offset_right = 815.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 60 )
 text = "Donation"
 
 [node name="Support" type="Button" parent="priceOptions"]
-margin_left = 855.0
-margin_right = 1055.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 60 )
+offset_left = 855.0
+offset_right = 1055.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 60 )
 text = "Support"
 
 [node name="HSeparator3" type="HSeparator" parent="."]
-margin_top = 1289.0
-margin_right = 1191.0
-margin_bottom = 1297.0
+offset_top = 1289.0
+offset_right = 1191.0
+offset_bottom = 1297.0
 
 [node name="Label4" type="Label" parent="."]
-margin_top = 1317.0
-margin_right = 1191.0
-margin_bottom = 1344.0
-custom_fonts/font = ExtResource( 1 )
+offset_top = 1317.0
+offset_right = 1191.0
+offset_bottom = 1344.0
+theme_override_fonts/font = ExtResource( 1 )
 text = "Files"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="."]
-margin_top = 1364.0
-margin_right = 1191.0
-margin_bottom = 1408.0
-custom_constants/separation = 20
+offset_top = 1364.0
+offset_right = 1191.0
+offset_bottom = 1408.0
+theme_override_constants/separation = 20
 
 [node name="filepicker" type="Button" parent="HBoxContainer2"]
-margin_right = 152.0
-margin_bottom = 44.0
+offset_right = 152.0
+offset_bottom = 44.0
 grow_horizontal = 0
 grow_vertical = 2
 text = "Choose File"
 
 [node name="path" type="LineEdit" parent="HBoxContainer2"]
-margin_left = 172.0
-margin_right = 872.0
-margin_bottom = 44.0
+offset_left = 172.0
+offset_right = 872.0
+offset_bottom = 44.0
 grow_vertical = 2
-rect_min_size = Vector2( 700, 0 )
+custom_minimum_size = Vector2( 700, 0 )
 placeholder_text = "file path"
 
 [node name="version" type="LineEdit" parent="HBoxContainer2"]
-margin_left = 892.0
-margin_right = 1191.0
-margin_bottom = 44.0
-rect_min_size = Vector2( 100, 0 )
+offset_left = 892.0
+offset_right = 1191.0
+offset_bottom = 44.0
+custom_minimum_size = Vector2( 100, 0 )
 placeholder_text = "version number"
 
 [node name="Actions" type="Control" parent="."]
-margin_top = 1428.0
-margin_right = 1191.0
-margin_bottom = 1508.0
+offset_top = 1428.0
+offset_right = 1191.0
+offset_bottom = 1508.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 0, 80 )
+custom_minimum_size = Vector2( 0, 80 )
 
 [node name="Cancel" type="Button" parent="Actions"]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -22.0
-margin_right = 92.0
-margin_bottom = 22.0
+offset_top = -22.0
+offset_right = 92.0
+offset_bottom = 22.0
 grow_vertical = 2
 text = "Cancel"
 __meta__ = {
@@ -299,9 +299,9 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -92.0
-margin_top = -22.0
-margin_bottom = 22.0
+offset_left = -92.0
+offset_top = -22.0
+offset_bottom = 22.0
 grow_horizontal = 0
 grow_vertical = 2
 text = "Upload"
@@ -310,7 +310,7 @@ __meta__ = {
 }
 
 [node name="endbuffer" type="Control" parent="."]
-margin_top = 1528.0
-margin_right = 1191.0
-margin_bottom = 1578.0
-rect_min_size = Vector2( 0, 50 )
+offset_top = 1528.0
+offset_right = 1191.0
+offset_bottom = 1578.0
+custom_minimum_size = Vector2( 0, 50 )

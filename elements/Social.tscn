@@ -2,10 +2,10 @@
 
 [ext_resource path="res://elements/Social.gd" type="Script" id=1]
 [ext_resource path="res://menu.tres" type="StyleBox" id=2]
-[ext_resource path="res://Fonts/NaviFont.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Fonts/subtitle.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Fonts/NaviFont.tres" type="FontFile" id=3]
+[ext_resource path="res://Fonts/subtitle.tres" type="FontFile" id=4]
 [ext_resource path="res://elements/Contact.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Fonts/titleFont.tres" type="FontFile" id=6]
 [ext_resource path="res://OpenSeed-Godot/ChatLog.tscn" type="PackedScene" id=7]
 [ext_resource path="res://elements/History.gd" type="Script" id=8]
 [ext_resource path="res://elements/UserSettings.gd" type="Script" id=9]
@@ -38,12 +38,12 @@ __meta__ = {
 [node name="TopBanner" type="Panel" parent="."]
 visible = false
 anchor_right = 1.0
-margin_left = 360.0
-margin_top = -1.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 0, 100 )
-rect_clip_content = true
-custom_styles/panel = ExtResource( 2 )
+offset_left = 360.0
+offset_top = -1.0
+offset_bottom = 100.0
+custom_minimum_size = Vector2( 0, 100 )
+clip_contents = true
+theme_override_styles/panel = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -51,50 +51,50 @@ __meta__ = {
 [node name="TextInfo" type="VBoxContainer" parent="TopBanner"]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 96.0
-margin_top = -46.0
-margin_right = 1513.0
-margin_bottom = 39.0
-rect_clip_content = true
-custom_constants/separation = 20
+offset_left = 96.0
+offset_top = -46.0
+offset_right = 1513.0
+offset_bottom = 39.0
+clip_contents = true
+theme_override_constants/separation = 20
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Name" type="Label" parent="TopBanner/TextInfo"]
-margin_top = 6.0
-margin_right = 1417.0
-margin_bottom = 39.0
-rect_min_size = Vector2( 400, 0 )
-custom_fonts/font = ExtResource( 3 )
+offset_top = 6.0
+offset_right = 1417.0
+offset_bottom = 39.0
+custom_minimum_size = Vector2( 400, 0 )
+theme_override_fonts/font = ExtResource( 3 )
 text = "User Name"
 valign = 1
 autowrap = true
 
 [node name="TagLine" type="Label" parent="TopBanner/TextInfo"]
-margin_top = 59.0
-margin_right = 1417.0
-margin_bottom = 78.0
+offset_top = 59.0
+offset_right = 1417.0
+offset_bottom = 78.0
 grow_vertical = 0
-custom_fonts/font = ExtResource( 4 )
+theme_override_fonts/font = ExtResource( 4 )
 text = "TagLine:"
 valign = 2
 autowrap = true
 max_lines_visible = 2
 
 [node name="Contact" parent="TopBanner" instance=ExtResource( 5 )]
-margin_left = 10.75
-margin_top = 10.35
-margin_right = 86.75
-margin_bottom = 86.35
+offset_left = 10.75
+offset_top = 10.35
+offset_right = 86.75
+offset_bottom = 86.35
 
 [node name="Chat" type="Panel" parent="."]
 anchor_bottom = 1.0
-margin_right = 360.0
-margin_bottom = -2.0
-rect_min_size = Vector2( 360, 0 )
-custom_styles/panel = ExtResource( 2 )
+offset_right = 360.0
+offset_bottom = -2.0
+custom_minimum_size = Vector2( 360, 0 )
+theme_override_styles/panel = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -102,11 +102,11 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="Chat"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 55.0
-margin_right = -8.0
-margin_bottom = -12.0
-custom_constants/separation = 10
+offset_left = 8.0
+offset_top = 55.0
+offset_right = -8.0
+offset_bottom = -12.0
+theme_override_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -114,114 +114,114 @@ __meta__ = {
 [node name="User_info" parent="Chat/VBoxContainer" instance=ExtResource( 10 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 344.0
-margin_bottom = 60.0
+offset_right = 344.0
+offset_bottom = 60.0
 
 [node name="Friends" type="Label" parent="Chat/VBoxContainer"]
-margin_top = 70.0
-margin_right = 344.0
-margin_bottom = 97.0
-custom_fonts/font = ExtResource( 6 )
+offset_top = 70.0
+offset_right = 344.0
+offset_bottom = 97.0
+theme_override_fonts/font = ExtResource( 6 )
 text = "OpenSeed:"
 
 [node name="HSeparator" type="HSeparator" parent="Chat/VBoxContainer"]
-margin_top = 107.0
-margin_right = 344.0
-margin_bottom = 115.0
+offset_top = 107.0
+offset_right = 344.0
+offset_bottom = 115.0
 
 [node name="LineEdit" type="LineEdit" parent="Chat/VBoxContainer"]
-margin_top = 125.0
-margin_right = 344.0
-margin_bottom = 151.0
+offset_top = 125.0
+offset_right = 344.0
+offset_bottom = 151.0
 max_length = 255
 placeholder_text = "Search:"
 
 [node name="UserLists" type="ScrollContainer" parent="Chat/VBoxContainer"]
-margin_top = 161.0
-margin_right = 344.0
-margin_bottom = 871.0
-rect_min_size = Vector2( 344, 710 )
+offset_top = 161.0
+offset_right = 344.0
+offset_bottom = 871.0
+custom_minimum_size = Vector2( 344, 710 )
 
 [node name="VBox" type="VBoxContainer" parent="Chat/VBoxContainer/UserLists"]
-margin_right = 340.0
-margin_bottom = 800.0
-rect_min_size = Vector2( 340, 800 )
+offset_right = 340.0
+offset_bottom = 800.0
+custom_minimum_size = Vector2( 340, 800 )
 
 [node name="Online" type="PanelContainer" parent="Chat/VBoxContainer/UserLists/VBox"]
 self_modulate = Color( 1, 1, 1, 0.705882 )
-margin_right = 340.0
-margin_bottom = 62.0
+offset_right = 340.0
+offset_bottom = 62.0
 grow_horizontal = 2
-rect_min_size = Vector2( 340, 62 )
+custom_minimum_size = Vector2( 340, 62 )
 
 [node name="list" type="VBoxContainer" parent="Chat/VBoxContainer/UserLists/VBox/Online"]
-margin_left = 20.0
-margin_top = 10.0
-margin_right = 320.0
-margin_bottom = 52.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 320.0
+offset_bottom = 52.0
 grow_horizontal = 2
-custom_constants/separation = 10
+theme_override_constants/separation = 10
 
 [node name="Title" type="Label" parent="Chat/VBoxContainer/UserLists/VBox/Online/list"]
-margin_right = 300.0
-margin_bottom = 24.0
+offset_right = 300.0
+offset_bottom = 24.0
 text = "Connections:"
 
 [node name="HSeparator" type="HSeparator" parent="Chat/VBoxContainer/UserLists/VBox/Online/list"]
-margin_top = 34.0
-margin_right = 300.0
-margin_bottom = 42.0
+offset_top = 34.0
+offset_right = 300.0
+offset_bottom = 42.0
 
 [node name="Groups" type="PanelContainer" parent="Chat/VBoxContainer/UserLists/VBox"]
 self_modulate = Color( 1, 1, 1, 0.705882 )
-margin_top = 66.0
-margin_right = 340.0
-margin_bottom = 128.0
+offset_top = 66.0
+offset_right = 340.0
+offset_bottom = 128.0
 grow_horizontal = 2
-rect_min_size = Vector2( 340, 62 )
+custom_minimum_size = Vector2( 340, 62 )
 
 [node name="list" type="VBoxContainer" parent="Chat/VBoxContainer/UserLists/VBox/Groups"]
-margin_left = 20.0
-margin_top = 10.0
-margin_right = 320.0
-margin_bottom = 52.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 320.0
+offset_bottom = 52.0
 grow_horizontal = 2
-custom_constants/separation = 10
+theme_override_constants/separation = 10
 
 [node name="Title" type="Label" parent="Chat/VBoxContainer/UserLists/VBox/Groups/list"]
-margin_right = 300.0
-margin_bottom = 24.0
+offset_right = 300.0
+offset_bottom = 24.0
 text = "Groups"
 
 [node name="HSeparator" type="HSeparator" parent="Chat/VBoxContainer/UserLists/VBox/Groups/list"]
-margin_top = 34.0
-margin_right = 300.0
-margin_bottom = 42.0
+offset_top = 34.0
+offset_right = 300.0
+offset_bottom = 42.0
 
 [node name="Main" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 369.0
-margin_top = 4.0
-margin_right = -11.0
-rect_clip_content = true
+offset_left = 369.0
+offset_top = 4.0
+offset_right = -11.0
+clip_contents = true
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Recent" type="Panel" parent="Main"]
-margin_right = 1520.0
-margin_bottom = 200.0
-rect_min_size = Vector2( 1500, 200 )
+offset_right = 1520.0
+offset_bottom = 200.0
+custom_minimum_size = Vector2( 1500, 200 )
 
 [node name="banner" type="TextureRect" parent="Main/Recent"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -6.0
-margin_bottom = -5.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -6.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 expand = true
@@ -232,8 +232,8 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Main/Recent"]
-margin_right = 1500.0
-margin_bottom = 200.0
+offset_right = 1500.0
+offset_bottom = 200.0
 alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -242,19 +242,19 @@ __meta__ = {
 [node name="total" parent="Main/Recent/HBoxContainer" instance=ExtResource( 12 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 1252.0
-margin_right = 1500.0
-margin_bottom = 200.0
+offset_left = 1252.0
+offset_right = 1500.0
+offset_bottom = 200.0
 
 [node name="TextInfo" type="VBoxContainer" parent="Main/Recent"]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 172.0
-margin_top = -74.0
-margin_right = 909.0
-margin_bottom = 64.0
-rect_clip_content = true
-custom_constants/separation = 20
+offset_left = 172.0
+offset_top = -74.0
+offset_right = 909.0
+offset_bottom = 64.0
+clip_contents = true
+theme_override_constants/separation = 20
 alignment = 1
 __meta__ = {
 "_edit_group_": true,
@@ -262,21 +262,21 @@ __meta__ = {
 }
 
 [node name="Name" type="Label" parent="Main/Recent/TextInfo"]
-margin_top = 33.0
-margin_right = 737.0
-margin_bottom = 66.0
-rect_min_size = Vector2( 400, 0 )
-custom_fonts/font = ExtResource( 3 )
+offset_top = 33.0
+offset_right = 737.0
+offset_bottom = 66.0
+custom_minimum_size = Vector2( 400, 0 )
+theme_override_fonts/font = ExtResource( 3 )
 text = "User Name"
 valign = 1
 autowrap = true
 
 [node name="TagLine" type="Label" parent="Main/Recent/TextInfo"]
-margin_top = 86.0
-margin_right = 737.0
-margin_bottom = 105.0
+offset_top = 86.0
+offset_right = 737.0
+offset_bottom = 105.0
 grow_vertical = 0
-custom_fonts/font = ExtResource( 4 )
+theme_override_fonts/font = ExtResource( 4 )
 text = "TagLine:"
 valign = 2
 autowrap = true
@@ -285,57 +285,57 @@ max_lines_visible = 2
 [node name="Contact" parent="Main/Recent" instance=ExtResource( 5 )]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 20.0
-margin_top = -73.0
-margin_right = 156.0
-margin_bottom = 73.0
+offset_left = 20.0
+offset_top = -73.0
+offset_right = 156.0
+offset_bottom = 73.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Main"]
-margin_top = 204.0
-margin_right = 1520.0
-margin_bottom = 924.0
-custom_constants/separation = 18
+offset_top = 204.0
+offset_right = 1520.0
+offset_bottom = 924.0
+theme_override_constants/separation = 18
 alignment = 1
 
 [node name="UserSettings" type="PanelContainer" parent="Main/HBoxContainer"]
 visible = false
-margin_right = 910.0
-margin_bottom = 680.0
-rect_min_size = Vector2( 910, 630 )
+offset_right = 910.0
+offset_bottom = 680.0
+custom_minimum_size = Vector2( 910, 630 )
 script = ExtResource( 9 )
 
 [node name="ChatLog" parent="Main/HBoxContainer" instance=ExtResource( 7 )]
-margin_right = 912.0
-margin_bottom = 720.0
-rect_min_size = Vector2( 910, 500 )
+offset_right = 912.0
+offset_bottom = 720.0
+custom_minimum_size = Vector2( 910, 500 )
 
 [node name="History" type="PanelContainer" parent="Main/HBoxContainer"]
-margin_left = 930.0
-margin_right = 1520.0
-margin_bottom = 720.0
+offset_left = 930.0
+offset_right = 1520.0
+offset_bottom = 720.0
 script = ExtResource( 8 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main/HBoxContainer/History"]
-margin_left = 20.0
-margin_top = 10.0
-margin_right = 570.0
-margin_bottom = 710.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 570.0
+offset_bottom = 710.0
 
 [node name="Label" type="Label" parent="Main/HBoxContainer/History/VBoxContainer"]
-margin_right = 550.0
-margin_bottom = 24.0
+offset_right = 550.0
+offset_bottom = 24.0
 text = "History"
 
 [node name="HSeparator" type="HSeparator" parent="Main/HBoxContainer/History/VBoxContainer"]
-margin_top = 28.0
-margin_right = 550.0
-margin_bottom = 36.0
+offset_top = 28.0
+offset_right = 550.0
+offset_bottom = 36.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Main/HBoxContainer/History/VBoxContainer"]
-margin_top = 40.0
-margin_right = 550.0
-margin_bottom = 690.0
-rect_min_size = Vector2( 550, 650 )
+offset_top = 40.0
+offset_right = 550.0
+offset_bottom = 690.0
+custom_minimum_size = Vector2( 550, 650 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main/HBoxContainer/History/VBoxContainer/ScrollContainer"]
 

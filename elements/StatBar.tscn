@@ -1,13 +1,13 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Fonts/subtitle.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Fonts/subtitle.tres" type="FontFile" id=1]
 
 [node name="StatBar" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -1652.0
-margin_bottom = -960.0
-rect_min_size = Vector2( 248, 100 )
+offset_right = -1652.0
+offset_bottom = -960.0
+custom_minimum_size = Vector2( 248, 100 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -21,36 +21,36 @@ __meta__ = {
 }
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
-margin_top = 5.0
-margin_right = 248.0
-margin_bottom = 13.0
+offset_top = 5.0
+offset_right = 248.0
+offset_bottom = 13.0
 
 [node name="statTitle" type="Label" parent="VBoxContainer"]
-margin_top = 21.0
-margin_right = 248.0
-margin_bottom = 40.0
-custom_fonts/font = ExtResource( 1 )
+offset_top = 21.0
+offset_right = 248.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource( 1 )
 text = "Stat"
 
 [node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
-margin_top = 48.0
-margin_right = 248.0
-margin_bottom = 52.0
+offset_top = 48.0
+offset_right = 248.0
+offset_bottom = 52.0
 value = 50.0
 percent_visible = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 60.0
-margin_right = 248.0
-margin_bottom = 79.0
+offset_top = 60.0
+offset_right = 248.0
+offset_bottom = 79.0
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
-margin_right = 50.0
-margin_bottom = 19.0
-custom_fonts/font = ExtResource( 1 )
+offset_right = 50.0
+offset_bottom = 19.0
+theme_override_fonts/font = ExtResource( 1 )
 text = "Total"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
-margin_top = 87.0
-margin_right = 248.0
-margin_bottom = 95.0
+offset_top = 87.0
+offset_right = 248.0
+offset_bottom = 95.0

@@ -46,7 +46,7 @@ func user_search(search):
 			var result = reg.search(persons.to_lower().split('"')[1].split(':')[1])
 			if result:
 				$Panel/VBoxContainer/ScrollContainer/Main/UserSearch.show()
-				var c = User.instance()
+				var c = User.instantiate()
 				userTextureFile.append(ImageTexture.new())
 				#c.set("rect_min_size",Vector2(92,92))
 				c.get_node("UserName").text = persons.split('"')[1].split(':')[1]
@@ -74,7 +74,7 @@ func music_track_search(search):
 				$Panel/VBoxContainer/ScrollContainer/Main/MusicSearch.show()
 				$Panel/VBoxContainer/ScrollContainer/Main/MusicSearch/VBoxContainer/TrackSearch.show()
 				#trackTextureFile.append(ImageTexture.new())
-				var t = List.instance()
+				var t = List.instantiate()
 				t.title = title
 				t.post = post
 				t.image = img
@@ -115,7 +115,7 @@ func music_artist_search(search):
 			$Panel/VBoxContainer/ScrollContainer/Main/MusicSearch.show()
 			$Panel/VBoxContainer/ScrollContainer/Main/MusicSearch/VBoxContainer/ArtistsSearch.show()
 			artistTextureFile.append(ImageTexture.new())
-			var t = Artist.instance()
+			var t = Artist.instantiate()
 			t.title = artist
 			#t.connect("search",MusicRoot,"new_artist_search")
 			t.block = imageFile
@@ -198,6 +198,6 @@ func _on_AdvancedSearch_resized():
 
 
 func _on_resize_timeout():
-	$Panel/VBoxContainer/ScrollContainer.set("rect_size",Vector2(get_size().x,get_size().y))
+	$Panel/VBoxContainer/ScrollContainer.set("size",Vector2(get_size().x,get_size().y))
 	$resize.stop()
 	pass # Replace with function body.

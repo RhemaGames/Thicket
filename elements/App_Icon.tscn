@@ -2,20 +2,20 @@
 
 [ext_resource path="res://elements/App_Icon.gd" type="Script" id=1]
 [ext_resource path="res://elements/highlight_box.tres" type="StyleBox" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://icon.png" type="Texture2D" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "OptionView"
 length = 0.25
 tracks/0/type = "value"
-tracks/0/path = NodePath("Options:rect_position")
+tracks/0/path = NodePath("Options:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 312.754 ), Vector2( 0, 0 ) ]
 }
@@ -26,8 +26,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 1,
 "values": [ 2, 0 ]
 }
@@ -35,10 +35,10 @@ tracks/1/keys = {
 [node name="App_Icon" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -1772.0
-margin_bottom = -760.0
-rect_min_size = Vector2( 256, 300 )
-rect_clip_content = true
+offset_right = -1772.0
+offset_bottom = -760.0
+custom_minimum_size = Vector2( 256, 300 )
+clip_contents = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -49,18 +49,18 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-custom_styles/panel = ExtResource( 2 )
+theme_override_styles/panel = ExtResource( 2 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -64.0
-margin_top = 55.5185
-margin_right = 64.0
-margin_bottom = 183.518
+offset_left = -64.0
+offset_top = 55.5185
+offset_right = 64.0
+offset_bottom = 183.518
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 128, 128 )
+custom_minimum_size = Vector2( 128, 128 )
 mouse_filter = 2
 texture = ExtResource( 3 )
 expand = true
@@ -72,10 +72,10 @@ __meta__ = {
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 17.0
-margin_top = -99.0
-margin_right = -13.0
-margin_bottom = -43.0
+offset_left = 17.0
+offset_top = -99.0
+offset_right = -13.0
+offset_bottom = -43.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "App Name"
@@ -89,8 +89,8 @@ __meta__ = {
 [node name="Options" type="Panel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 312.754
-margin_bottom = 312.754
+offset_top = 312.754
+offset_bottom = 312.754
 mouse_filter = 2
 __meta__ = {
 "_edit_group_": true,
@@ -100,36 +100,36 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="Options"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 13.1494
-margin_top = 14.8506
-margin_right = -16.8506
-margin_bottom = -18.1494
+offset_left = 13.1494
+offset_top = 14.8506
+offset_right = -16.8506
+offset_bottom = -18.1494
 grow_horizontal = 2
 grow_vertical = 2
-custom_constants/separation = 20
+theme_override_constants/separation = 20
 
 [node name="Label" type="Label" parent="Options/VBoxContainer"]
-margin_right = 226.0
-margin_bottom = 25.0
+offset_right = 226.0
+offset_bottom = 25.0
 grow_horizontal = 2
 align = 1
 autowrap = true
 
 [node name="HSeparator" type="HSeparator" parent="Options/VBoxContainer"]
-margin_top = 45.0
-margin_right = 226.0
-margin_bottom = 53.0
+offset_top = 45.0
+offset_right = 226.0
+offset_bottom = 53.0
 
 [node name="add" type="Button" parent="Options/VBoxContainer"]
-margin_top = 73.0
-margin_right = 226.0
-margin_bottom = 110.0
+offset_top = 73.0
+offset_right = 226.0
+offset_bottom = 110.0
 text = "Favorite"
 
 [node name="cancel" type="Button" parent="Options/VBoxContainer"]
-margin_top = 130.0
-margin_right = 226.0
-margin_bottom = 167.0
+offset_top = 130.0
+offset_right = 226.0
+offset_bottom = 167.0
 text = "Cancel"
 
 [node name="Control" type="Control" parent="Options"]

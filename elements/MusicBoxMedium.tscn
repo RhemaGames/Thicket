@@ -2,16 +2,16 @@
 
 [ext_resource path="res://item.tres" type="StyleBox" id=1]
 [ext_resource path="res://elements/MusicBoxMedium.gd" type="Script" id=2]
-[ext_resource path="res://Img/folder-music-symbolic.svg" type="Texture" id=3]
-[ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Img/folder-music-symbolic.svg" type="Texture2D" id=3]
+[ext_resource path="res://Fonts/titleFont.tres" type="FontFile" id=4]
 
 [node name="MusicBoxMedium" type="Panel"]
 self_modulate = Color( 1, 1, 1, 0.352941 )
-margin_right = 375.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 375, 100 )
-rect_clip_content = true
-custom_styles/panel = ExtResource( 1 )
+offset_right = 375.0
+offset_bottom = 100.0
+custom_minimum_size = Vector2( 375, 100 )
+clip_contents = true
+theme_override_styles/panel = ExtResource( 1 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -20,11 +20,11 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 6.80188
-margin_top = -37.154
-margin_right = 81.8019
-margin_bottom = 37.846
-rect_min_size = Vector2( 75, 75 )
+offset_left = 6.80188
+offset_top = -37.154
+offset_right = 81.8019
+offset_bottom = 37.846
+custom_minimum_size = Vector2( 75, 75 )
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 7
@@ -32,12 +32,12 @@ stretch_mode = 7
 [node name="title" type="Label" parent="."]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 110.0
-margin_top = -30.0
-margin_right = 363.0
-margin_bottom = -1.0
+offset_left = 110.0
+offset_top = -30.0
+offset_right = 363.0
+offset_bottom = -1.0
 grow_vertical = 0
-custom_fonts/font = ExtResource( 4 )
+theme_override_fonts/font = ExtResource( 4 )
 text = "Song Title"
 valign = 1
 clip_text = true
@@ -46,10 +46,10 @@ max_lines_visible = 1
 [node name="artist" type="Label" parent="."]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 110.0
-margin_top = 7.0
-margin_right = 366.0
-margin_bottom = 21.0
+offset_left = 110.0
+offset_top = 7.0
+offset_right = 366.0
+offset_bottom = 21.0
 text = "Artist"
 valign = 1
 clip_text = true

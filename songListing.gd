@@ -27,7 +27,7 @@ func _ready():
 	else:
 		MusicRoot = get_tree().get_root().get_node("MainWindow").get_node("WindowContainer").get_node("Music")
 # warning-ignore:return_value_discarded
-	get_parent().get_parent().connect("resized",self,"_on_Music_resized")
+	get_parent().get_parent().connect("resized", Callable(self, "_on_Music_resized"))
 ##	get_image("http://142.93.27.131","8080",image)
 	$container/artist.text = artist
 	$container/duration.text = duration
@@ -49,7 +49,7 @@ func _on_songListing_gui_input(event):
 			emit_signal("postview",post,artist,image)
 			emit_signal("clear_highlight",fileName)
 	
-		if event is InputEventMouseButton and event.is_doubleclick():
+		if event is InputEventMouseButton and event.is_double_click():
 			emit_signal("play_now",tracknum)
 			#get_parent().get_parent().get_parent().get_parent()._on_play_pressed()
 

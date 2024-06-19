@@ -33,9 +33,9 @@ func _on_Button_pressed():
 func load_playlists():
 	$Control/OptionButton.clear()
 	
-	var dir = Directory.new()
+	var dir = DirAccess.new()
 	if dir.open("user://playlists") == OK:
-		dir.list_dir_begin(true,true)
+		dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 		var playlist = dir.get_next()
 		var count = 0
 		while playlist != "":
@@ -94,7 +94,7 @@ func get_image(image):
 
 	if imgfile.file_exists(image):
 		imgfile.open(image, File.READ)
-		var imagesize = imgfile.get_len()
+		var imagesize = imgfile.get_length()
 		
 		if imagesize < 999999:
 			var err = Imagedata.load_jpg_from_buffer(imgfile.get_buffer(imagesize))
@@ -105,9 +105,9 @@ func get_image(image):
 				if err !=OK:
 					Imagetex = fallback_audio
 				else:
-					Imagetex.create_from_image(Imagedata,0)
+					Imagetex.create_from_image(Imagedata) #,0
 			else:
-				Imagetex.create_from_image(Imagedata,0)
+				Imagetex.create_from_image(Imagedata) #,0
 		else:
 			Imagetex = fallback_audio
 		imgfile.close()

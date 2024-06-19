@@ -16,11 +16,11 @@ __meta__ = {
 }
 
 [node name="doublePaneView" parent="." instance=ExtResource( 1 )]
-margin_top = 129.0
+offset_top = 129.0
 
 [node name="Banner" parent="." instance=ExtResource( 2 )]
 anchor_right = 1.0
 anchor_bottom = 0.0
-margin_right = 0.0
-margin_bottom = 0.0
-rect_min_size = Vector2( 0, 128 )
+offset_right = 0.0
+offset_bottom = 0.0
+custom_minimum_size = Vector2( 0, 128 )

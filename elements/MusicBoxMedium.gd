@@ -24,7 +24,7 @@ func _ready():
 	OpenSeed.openSeedRequest("get_image",[img,"low"])
 	#set_box(img)
 # warning-ignore:return_value_discarded
-	OpenSeed.connect("imagestored",self,"refresh")
+	OpenSeed.connect("imagestored", Callable(self, "refresh"))
 
 func set_box(image):
 	var imagehash = "No_Image_found"
@@ -37,9 +37,9 @@ func set_box(image):
 		$TextureRect.set_texture(the_img)
 		
 func _on_MusicBoxMedium_gui_input(event):
-	if event is InputEventMouseButton and !event.is_doubleclick() and event.is_pressed():
+	if event is InputEventMouseButton and !event.is_double_click() and event.is_pressed():
 		emit_signal("info",[track,artist,title,img,post])
-	if event is InputEventMouseButton and event.is_doubleclick():
+	if event is InputEventMouseButton and event.is_double_click():
 		emit_signal("play",[track,artist,title,img,post])
 
 

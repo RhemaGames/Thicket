@@ -2,8 +2,8 @@
 
 [ext_resource path="res://item.tres" type="StyleBox" id=1]
 [ext_resource path="res://elements/MusicBoxLarge.gd" type="Script" id=2]
-[ext_resource path="res://Img/folder-music-symbolic.svg" type="Texture" id=3]
-[ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Img/folder-music-symbolic.svg" type="Texture2D" id=3]
+[ext_resource path="res://Fonts/titleFont.tres" type="FontFile" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "active"
@@ -15,20 +15,20 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.4 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_scale")
+tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.3, 0.4, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0.2, 0.2 ), Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
 }
@@ -37,14 +37,14 @@ tracks/1/keys = {
 resource_name = "highlight"
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ) ]
 }
@@ -52,13 +52,13 @@ tracks/0/keys = {
 [node name="MusicBoxLarge" type="Panel"]
 modulate = Color( 1, 1, 1, 0 )
 self_modulate = Color( 1, 1, 1, 0.235294 )
-margin_left = 1.36035
-margin_right = 301.36
-margin_bottom = 300.0
-rect_min_size = Vector2( 300, 300 )
-rect_scale = Vector2( 0.2, 0.2 )
-rect_pivot_offset = Vector2( 99.3522, 106.967 )
-custom_styles/panel = ExtResource( 1 )
+offset_left = 1.36035
+offset_right = 301.36
+offset_bottom = 300.0
+custom_minimum_size = Vector2( 300, 300 )
+scale = Vector2( 0.2, 0.2 )
+pivot_offset = Vector2( 99.3522, 106.967 )
+theme_override_styles/panel = ExtResource( 1 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -67,11 +67,11 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -119.0
-margin_top = -8.0
-margin_right = 111.0
-margin_bottom = 214.0
-rect_min_size = Vector2( 180, 180 )
+offset_left = -119.0
+offset_top = -8.0
+offset_right = 111.0
+offset_bottom = 214.0
+custom_minimum_size = Vector2( 180, 180 )
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 1
@@ -81,13 +81,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -83.0
-margin_top = -51.0
-margin_right = 83.0
-margin_bottom = -3.0
+offset_left = -83.0
+offset_top = -51.0
+offset_right = 83.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 0
-custom_fonts/font = ExtResource( 4 )
+theme_override_fonts/font = ExtResource( 4 )
 text = "Title"
 align = 1
 valign = 1
@@ -102,10 +102,10 @@ visible = false
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 2.0
-margin_top = -19.0
-margin_right = -1.0
-margin_bottom = -5.0
+offset_left = 2.0
+offset_top = -19.0
+offset_right = -1.0
+offset_bottom = -5.0
 text = "New Artist"
 align = 1
 valign = 1

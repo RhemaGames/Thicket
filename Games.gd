@@ -25,14 +25,14 @@ func load_library():
 		$Library/PanelContainer/ScrollContainer/recent.remove_child(child)
 		children -= 1
 		
-	var dir = Directory.new()
+	var dir = DirAccess.new()
 	if dir.open("user://games") == OK:
-		dir.list_dir_begin(true,true)
+		dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 		var thegame = dir.get_next()
 		var _count = 0
 		while thegame != "":
 			if !dir.current_is_dir():
-				var game = GameBox.instance()
+				var game = GameBox.instantiate()
 				game.game = "user://games/"+thegame
 				game.title = thegame.split(".pck")[0].replace("_"," ")
 				$Library/PanelContainer/ScrollContainer/recent.add_child(game)

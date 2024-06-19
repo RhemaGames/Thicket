@@ -18,10 +18,10 @@ func _ready():
 	chatbox.currentuser = currentuser
 	chatbox.SocialRoot = self
 # warning-ignore:return_value_discarded
-	OpenSeed.connect("profiledata",self,"on_profile_return")
-	OpenSeed.connect("userLoaded",self,"profileblock")
+	OpenSeed.connect("profiledata", Callable(self, "on_profile_return"))
+	OpenSeed.connect("userLoaded", Callable(self, "profileblock"))
 # warning-ignore:return_value_discarded
-	OpenSeed.connect("connections",self,"get_connections")
+	OpenSeed.connect("connections", Callable(self, "get_connections"))
 	
 	
 func profileblock():
@@ -35,7 +35,7 @@ func profileblock():
 	loggedIn.get_node("UserName").text = OpenSeed.profile_name
 	loggedIn.get_node("Activity").text = "Account: "+OpenSeed.username
 	loggedIn.get_node("Contact").emit_signal("refresh")
-	loggedIn.connect("view",self,"set_view")
+	loggedIn.connect("view", Callable(self, "set_view"))
 	texture_count += 1
 	currentuser = OpenSeed.username
 	set_view(OpenSeed.username)
@@ -53,7 +53,7 @@ func get_connections(_data):
 	
 	
 func setup_connection(dat,_count):
-	var next = con.instance()
+	var next = con.instantiate()
 	var name = ""
 	var image = ""
 	var perp = dat["profile"]
@@ -78,9 +78,9 @@ func setup_connection(dat,_count):
 			if dat.keys().has("linked"):
 				if dat["linked"] == 1:
 					next.get_node("Activity").text = "Please Wait"
-					next.connect("view",self,"_Show_connect_opts")
+					next.connect("view", Callable(self, "_Show_connect_opts"))
 				elif dat["linked"] == 2:
-					next.connect("view",self,"_on_Social_view")
+					next.connect("view", Callable(self, "_on_Social_view"))
 					next.get_node("Activity").text = "Please Wait"
 					
 			$Chat/VBoxContainer/UserLists/VBox/Online/list.add_child(next)

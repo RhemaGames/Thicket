@@ -3,9 +3,9 @@
 [ext_resource path="res://elements/MusicBoxMedium.tscn" type="PackedScene" id=1]
 
 [node name="NewMusic" type="GridContainer"]
-margin_top = 336.0
-margin_right = 375.0
-margin_bottom = 718.0
+offset_top = 336.0
+offset_right = 375.0
+offset_bottom = 718.0
 columns = 3
 
 [node name="MusicBoxMedium" parent="." instance=ExtResource( 1 )]

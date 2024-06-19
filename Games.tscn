@@ -2,14 +2,14 @@
 
 [ext_resource path="res://Games.gd" type="Script" id=1]
 [ext_resource path="res://menu.tres" type="StyleBox" id=3]
-[ext_resource path="res://Img/Games.png" type="Texture" id=4]
-[ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Img/Games.png" type="Texture2D" id=4]
+[ext_resource path="res://Fonts/titleFont.tres" type="FontFile" id=5]
 [ext_resource path="res://elements/GameMedium.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Img/folder-recent-symbolic.svg" type="Texture" id=7]
-[ext_resource path="res://Img/user-bookmarks-symbolic.svg" type="Texture" id=8]
-[ext_resource path="res://Img/gnome-software-symbolic.svg" type="Texture" id=9]
-[ext_resource path="res://Img/network-server-symbolic.svg" type="Texture" id=10]
-[ext_resource path="res://Img/view-filter-symbolic.svg" type="Texture" id=11]
+[ext_resource path="res://Img/folder-recent-symbolic.svg" type="Texture2D" id=7]
+[ext_resource path="res://Img/user-bookmarks-symbolic.svg" type="Texture2D" id=8]
+[ext_resource path="res://Img/gnome-software-symbolic.svg" type="Texture2D" id=9]
+[ext_resource path="res://Img/network-server-symbolic.svg" type="Texture2D" id=10]
+[ext_resource path="res://Img/view-filter-symbolic.svg" type="Texture2D" id=11]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_top = 10.0
@@ -32,7 +32,7 @@ visible = false
 self_modulate = Color( 1, 1, 1, 0.141176 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -1.0
+offset_top = -1.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
@@ -44,138 +44,138 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -7.0
-margin_right = 20.0
-margin_bottom = 7.0
+offset_left = -20.0
+offset_top = -7.0
+offset_right = 20.0
+offset_bottom = 7.0
 text = "No Games"
 
 [node name="mainMenu" type="Panel" parent="."]
 visible = false
 anchor_bottom = 1.0
-margin_right = 180.0
-rect_min_size = Vector2( 180, 0 )
-custom_styles/panel = ExtResource( 3 )
+offset_right = 180.0
+custom_minimum_size = Vector2( 180, 0 )
+theme_override_styles/panel = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="mainMenu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 9.0
-margin_top = 50.0
-margin_right = -8.0
-margin_bottom = -5.0
-custom_constants/separation = 20
+offset_left = 9.0
+offset_top = 50.0
+offset_right = -8.0
+offset_bottom = -5.0
+theme_override_constants/separation = 20
 
 [node name="TextureRect" type="TextureRect" parent="mainMenu/VBoxContainer"]
-margin_right = 163.0
-margin_bottom = 48.0
-rect_min_size = Vector2( 0, 48 )
+offset_right = 163.0
+offset_bottom = 48.0
+custom_minimum_size = Vector2( 0, 48 )
 texture = ExtResource( 4 )
 expand = true
 stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="mainMenu/VBoxContainer"]
-margin_top = 68.0
-margin_right = 163.0
-margin_bottom = 141.0
-custom_constants/separation = 5
+offset_top = 68.0
+offset_right = 163.0
+offset_bottom = 141.0
+theme_override_constants/separation = 5
 
 [node name="Label" type="Label" parent="mainMenu/VBoxContainer/VBoxContainer"]
-margin_right = 163.0
-margin_bottom = 14.0
+offset_right = 163.0
+offset_bottom = 14.0
 text = "General"
 align = 1
 uppercase = true
 
 [node name="HSeparator" type="HSeparator" parent="mainMenu/VBoxContainer/VBoxContainer"]
-margin_top = 19.0
-margin_right = 163.0
-margin_bottom = 23.0
+offset_top = 19.0
+offset_right = 163.0
+offset_bottom = 23.0
 
 [node name="Store" type="Button" parent="mainMenu/VBoxContainer/VBoxContainer"]
-margin_top = 28.0
-margin_right = 163.0
-margin_bottom = 48.0
+offset_top = 28.0
+offset_right = 163.0
+offset_bottom = 48.0
 text = " Store"
 flat = true
 align = 0
 
 [node name="Library" type="Button" parent="mainMenu/VBoxContainer/VBoxContainer"]
-margin_top = 53.0
-margin_right = 163.0
-margin_bottom = 73.0
+offset_top = 53.0
+offset_right = 163.0
+offset_bottom = 73.0
 text = " Library"
 flat = true
 align = 0
 
 [node name="spacer" type="Control" parent="mainMenu/VBoxContainer"]
-margin_top = 161.0
-margin_right = 163.0
-margin_bottom = 191.0
-rect_min_size = Vector2( 0, 30 )
+offset_top = 161.0
+offset_right = 163.0
+offset_bottom = 191.0
+custom_minimum_size = Vector2( 0, 30 )
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="mainMenu/VBoxContainer"]
-margin_top = 211.0
-margin_right = 163.0
-margin_bottom = 587.0
+offset_top = 211.0
+offset_right = 163.0
+offset_bottom = 587.0
 
 [node name="LineEdit" type="LineEdit" parent="mainMenu/VBoxContainer/VBoxContainer2"]
-margin_right = 163.0
-margin_bottom = 24.0
+offset_right = 163.0
+offset_bottom = 24.0
 placeholder_text = "Search"
 
 [node name="spacer" type="Control" parent="mainMenu/VBoxContainer/VBoxContainer2"]
-margin_top = 28.0
-margin_right = 163.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 0, 32 )
+offset_top = 28.0
+offset_right = 163.0
+offset_bottom = 60.0
+custom_minimum_size = Vector2( 0, 32 )
 
 [node name="Label" type="Label" parent="mainMenu/VBoxContainer/VBoxContainer2"]
-margin_top = 64.0
-margin_right = 163.0
-margin_bottom = 78.0
+offset_top = 64.0
+offset_right = 163.0
+offset_bottom = 78.0
 text = "Genre"
 valign = 1
 
 [node name="HSeparator" type="HSeparator" parent="mainMenu/VBoxContainer/VBoxContainer2"]
-margin_top = 82.0
-margin_right = 163.0
-margin_bottom = 86.0
+offset_top = 82.0
+offset_right = 163.0
+offset_bottom = 86.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="mainMenu/VBoxContainer/VBoxContainer2"]
-margin_top = 90.0
-margin_right = 163.0
-margin_bottom = 218.0
-rect_min_size = Vector2( 0, 128 )
+offset_top = 90.0
+offset_right = 163.0
+offset_bottom = 218.0
+custom_minimum_size = Vector2( 0, 128 )
 
 [node name="Genres" type="VBoxContainer" parent="mainMenu/VBoxContainer/VBoxContainer2/ScrollContainer"]
 
 [node name="Label2" type="Label" parent="mainMenu/VBoxContainer/VBoxContainer2"]
-margin_top = 222.0
-margin_right = 163.0
-margin_bottom = 236.0
+offset_top = 222.0
+offset_right = 163.0
+offset_bottom = 236.0
 text = "Release"
 valign = 1
 
 [node name="HSeparator2" type="HSeparator" parent="mainMenu/VBoxContainer/VBoxContainer2"]
-margin_top = 240.0
-margin_right = 163.0
-margin_bottom = 244.0
+offset_top = 240.0
+offset_right = 163.0
+offset_bottom = 244.0
 
 [node name="ScrollContainer2" type="ScrollContainer" parent="mainMenu/VBoxContainer/VBoxContainer2"]
-margin_top = 248.0
-margin_right = 163.0
-margin_bottom = 376.0
-rect_min_size = Vector2( 0, 128 )
+offset_top = 248.0
+offset_right = 163.0
+offset_bottom = 376.0
+custom_minimum_size = Vector2( 0, 128 )
 
 [node name="releases" type="VBoxContainer" parent="mainMenu/VBoxContainer/VBoxContainer2/ScrollContainer2"]
 
 [node name="Library" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 55.0
-margin_bottom = 1.0
+offset_left = 5.0
+offset_top = 55.0
+offset_bottom = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -183,230 +183,230 @@ __meta__ = {
 [node name="HSeparator" type="HSeparator" parent="Library"]
 visible = false
 anchor_right = 1.0
-margin_left = -3.0
-margin_top = 39.0
-margin_right = -3.0
-margin_bottom = 43.0
+offset_left = -3.0
+offset_top = 39.0
+offset_right = -3.0
+offset_bottom = 43.0
 
 [node name="PanelContainer" type="PanelContainer" parent="Library"]
 self_modulate = Color( 1, 1, 1, 0.219608 )
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = -300.0
-margin_bottom = 223.0
-custom_styles/panel = SubResource( 1 )
+offset_top = -300.0
+offset_bottom = 223.0
+theme_override_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Library/PanelContainer"]
-margin_top = 10.0
-margin_right = 1895.0
-margin_bottom = 523.0
+offset_top = 10.0
+offset_right = 1895.0
+offset_bottom = 523.0
 grow_vertical = 2
-rect_min_size = Vector2( 0, 400 )
-rect_clip_content = false
+custom_minimum_size = Vector2( 0, 400 )
+clip_contents = false
 scroll_vertical_enabled = false
 
 [node name="recent" type="GridContainer" parent="Library/PanelContainer/ScrollContainer"]
 grow_horizontal = 2
 grow_vertical = 2
-custom_constants/vseparation = 80
-custom_constants/hseparation = 80
+theme_override_constants/v_separation = 80
+theme_override_constants/h_separation = 80
 columns = 5
 
 [node name="Label2" type="Label" parent="Library"]
 visible = false
-margin_left = 21.0
-margin_top = 198.0
-margin_right = 1691.0
-margin_bottom = 222.0
-custom_fonts/font = ExtResource( 5 )
+offset_left = 21.0
+offset_top = 198.0
+offset_right = 1691.0
+offset_bottom = 222.0
+theme_override_fonts/font = ExtResource( 5 )
 text = "Recently Updated"
 
 [node name="spacers" type="Control" parent="Library"]
 visible = false
-margin_left = 21.0
-margin_top = 232.0
-margin_right = 1691.0
-margin_bottom = 252.0
-rect_min_size = Vector2( 0, 20 )
+offset_left = 21.0
+offset_top = 232.0
+offset_right = 1691.0
+offset_bottom = 252.0
+custom_minimum_size = Vector2( 0, 20 )
 
 [node name="HSeparator2" type="HSeparator" parent="Library"]
 visible = false
-margin_left = 21.0
-margin_top = 232.0
-margin_right = 1691.0
-margin_bottom = 236.0
-rect_min_size = Vector2( 945, 0 )
+offset_left = 21.0
+offset_top = 232.0
+offset_right = 1691.0
+offset_bottom = 236.0
+custom_minimum_size = Vector2( 945, 0 )
 
 [node name="spacers4" type="Control" parent="Library"]
 visible = false
-margin_left = 21.0
-margin_top = 246.0
-margin_right = 1691.0
-margin_bottom = 266.0
-rect_min_size = Vector2( 0, 20 )
+offset_left = 21.0
+offset_top = 246.0
+offset_right = 1691.0
+offset_bottom = 266.0
+custom_minimum_size = Vector2( 0, 20 )
 
 [node name="updated" type="GridContainer" parent="Library"]
 visible = false
-margin_left = 21.0
-margin_top = 276.0
-margin_right = 1691.0
-margin_bottom = 480.0
-custom_constants/hseparation = 20
+offset_left = 21.0
+offset_top = 276.0
+offset_right = 1691.0
+offset_bottom = 480.0
+theme_override_constants/h_separation = 20
 columns = 3
 
 [node name="GameMedium" parent="Library/updated" instance=ExtResource( 6 )]
-margin_right = 300.0
+offset_right = 300.0
 
 [node name="GameMedium2" parent="Library/updated" instance=ExtResource( 6 )]
-margin_left = 320.0
-margin_right = 620.0
+offset_left = 320.0
+offset_right = 620.0
 
 [node name="GameMedium3" parent="Library/updated" instance=ExtResource( 6 )]
-margin_left = 640.0
-margin_right = 940.0
+offset_left = 640.0
+offset_right = 940.0
 
 [node name="GameMedium4" parent="Library/updated" instance=ExtResource( 6 )]
-margin_top = 108.0
-margin_right = 300.0
-margin_bottom = 208.0
+offset_top = 108.0
+offset_right = 300.0
+offset_bottom = 208.0
 
 [node name="GameMedium5" parent="Library/updated" instance=ExtResource( 6 )]
-margin_left = 320.0
-margin_top = 108.0
-margin_right = 620.0
-margin_bottom = 208.0
+offset_left = 320.0
+offset_top = 108.0
+offset_right = 620.0
+offset_bottom = 208.0
 
 [node name="GameMedium6" parent="Library/updated" instance=ExtResource( 6 )]
-margin_left = 640.0
-margin_top = 108.0
-margin_right = 940.0
-margin_bottom = 208.0
+offset_left = 640.0
+offset_top = 108.0
+offset_right = 940.0
+offset_bottom = 208.0
 
 [node name="Label3" type="Label" parent="Library"]
 visible = false
-margin_left = 21.0
-margin_top = 520.0
-margin_right = 1121.0
-margin_bottom = 544.0
-custom_fonts/font = ExtResource( 5 )
+offset_left = 21.0
+offset_top = 520.0
+offset_right = 1121.0
+offset_bottom = 544.0
+theme_override_fonts/font = ExtResource( 5 )
 text = "Unplayed"
 
 [node name="HSeparator3" type="HSeparator" parent="Library"]
 visible = false
-margin_left = 21.0
-margin_top = 554.0
-margin_right = 1121.0
-margin_bottom = 558.0
-rect_min_size = Vector2( 945, 0 )
+offset_left = 21.0
+offset_top = 554.0
+offset_right = 1121.0
+offset_bottom = 558.0
+custom_minimum_size = Vector2( 945, 0 )
 
 [node name="spacers6" type="Control" parent="Library"]
 visible = false
-margin_left = 21.0
-margin_top = 568.0
-margin_right = 1121.0
-margin_bottom = 588.0
-rect_min_size = Vector2( 0, 20 )
+offset_left = 21.0
+offset_top = 568.0
+offset_right = 1121.0
+offset_bottom = 588.0
+custom_minimum_size = Vector2( 0, 20 )
 
 [node name="neverplayed" type="GridContainer" parent="Library"]
 visible = false
-margin_left = 21.0
-margin_top = 598.0
-margin_right = 1121.0
-margin_bottom = 802.0
-custom_constants/hseparation = 20
+offset_left = 21.0
+offset_top = 598.0
+offset_right = 1121.0
+offset_bottom = 802.0
+theme_override_constants/h_separation = 20
 columns = 3
 
 [node name="GameMedium10" parent="Library/neverplayed" instance=ExtResource( 6 )]
-margin_right = 300.0
+offset_right = 300.0
 
 [node name="GameMedium9" parent="Library/neverplayed" instance=ExtResource( 6 )]
-margin_left = 320.0
-margin_right = 620.0
+offset_left = 320.0
+offset_right = 620.0
 
 [node name="GameMedium12" parent="Library/neverplayed" instance=ExtResource( 6 )]
-margin_left = 640.0
-margin_right = 940.0
+offset_left = 640.0
+offset_right = 940.0
 
 [node name="GameMedium11" parent="Library/neverplayed" instance=ExtResource( 6 )]
-margin_top = 104.0
-margin_right = 300.0
-margin_bottom = 204.0
+offset_top = 104.0
+offset_right = 300.0
+offset_bottom = 204.0
 
 [node name="GameMedium8" parent="Library/neverplayed" instance=ExtResource( 6 )]
-margin_left = 320.0
-margin_top = 104.0
-margin_right = 620.0
-margin_bottom = 204.0
+offset_left = 320.0
+offset_top = 104.0
+offset_right = 620.0
+offset_bottom = 204.0
 
 [node name="GameMedium7" parent="Library/neverplayed" instance=ExtResource( 6 )]
-margin_left = 640.0
-margin_top = 104.0
-margin_right = 940.0
-margin_bottom = 204.0
+offset_left = 640.0
+offset_top = 104.0
+offset_right = 940.0
+offset_bottom = 204.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Library"]
-margin_left = 13.0
-margin_top = 52.0
-margin_right = 1683.0
-margin_bottom = 102.0
-rect_min_size = Vector2( 1670, 0 )
-custom_constants/separation = 10
+offset_left = 13.0
+offset_top = 52.0
+offset_right = 1683.0
+offset_bottom = 102.0
+custom_minimum_size = Vector2( 1670, 0 )
+theme_override_constants/separation = 10
 
 [node name="spacers5" type="Control" parent="Library/VBoxContainer"]
 visible = false
-margin_right = 1670.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 0, 20 )
+offset_right = 1670.0
+offset_bottom = 20.0
+custom_minimum_size = Vector2( 0, 20 )
 
 [node name="Label" type="Label" parent="Library/VBoxContainer"]
 visible = false
-margin_top = 30.0
-margin_right = 1670.0
-margin_bottom = 54.0
-custom_fonts/font = ExtResource( 5 )
+offset_top = 30.0
+offset_right = 1670.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource( 5 )
 text = "Recently Played"
 
 [node name="HSeparator" type="HSeparator" parent="Library/VBoxContainer"]
 visible = false
-margin_right = 1670.0
-margin_bottom = 4.0
-rect_min_size = Vector2( 1100, 0 )
+offset_right = 1670.0
+offset_bottom = 4.0
+custom_minimum_size = Vector2( 1100, 0 )
 
 [node name="spacers3" type="Control" parent="Library/VBoxContainer"]
-margin_right = 1670.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 0, 20 )
+offset_right = 1670.0
+offset_bottom = 20.0
+custom_minimum_size = Vector2( 0, 20 )
 
 [node name="spacers2" type="Control" parent="Library/VBoxContainer"]
-margin_top = 30.0
-margin_right = 1670.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 0, 20 )
+offset_top = 30.0
+offset_right = 1670.0
+offset_bottom = 50.0
+custom_minimum_size = Vector2( 0, 20 )
 
 [node name="Buttons" type="HBoxContainer" parent="Library"]
 visible = false
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -334.0
-margin_right = 334.0
-margin_bottom = 96.0
+offset_left = -334.0
+offset_right = 334.0
+offset_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_constants/separation = 50
+theme_override_constants/separation = 50
 alignment = 1
 
 [node name="Recent" type="Panel" parent="Library/Buttons"]
 self_modulate = Color( 0.219608, 0.384314, 0.419608, 1 )
-margin_right = 92.0
-margin_bottom = 96.0
+offset_right = 92.0
+offset_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 92, 92 )
-custom_styles/panel = SubResource( 2 )
+custom_minimum_size = Vector2( 92, 92 )
+theme_override_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -416,26 +416,26 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -32.0
-margin_top = -32.0
-margin_right = 32.0
-margin_bottom = 32.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 64, 64 )
+custom_minimum_size = Vector2( 64, 64 )
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
 
 [node name="Favorites" type="Panel" parent="Library/Buttons"]
 self_modulate = Color( 1, 0.796078, 0, 1 )
-margin_left = 142.0
-margin_right = 238.0
-margin_bottom = 96.0
+offset_left = 142.0
+offset_right = 238.0
+offset_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 96, 96 )
-custom_styles/panel = SubResource( 2 )
+custom_minimum_size = Vector2( 96, 96 )
+theme_override_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -445,26 +445,26 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -32.0
-margin_top = -32.0
-margin_right = 32.0
-margin_bottom = 32.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 64, 64 )
+custom_minimum_size = Vector2( 64, 64 )
 texture = ExtResource( 8 )
 expand = true
 stretch_mode = 6
 
 [node name="Store" type="Panel" parent="Library/Buttons"]
 self_modulate = Color( 1, 0.352941, 0, 1 )
-margin_left = 288.0
-margin_right = 384.0
-margin_bottom = 96.0
+offset_left = 288.0
+offset_right = 384.0
+offset_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 96, 96 )
-custom_styles/panel = SubResource( 2 )
+custom_minimum_size = Vector2( 96, 96 )
+theme_override_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -474,26 +474,26 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -32.0
-margin_top = -32.0
-margin_right = 32.0
-margin_bottom = 32.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 64, 64 )
+custom_minimum_size = Vector2( 64, 64 )
 texture = ExtResource( 9 )
 expand = true
 stretch_mode = 6
 
 [node name="Library" type="Panel" parent="Library/Buttons"]
 self_modulate = Color( 0.219608, 0.419608, 0.219608, 1 )
-margin_left = 434.0
-margin_right = 526.0
-margin_bottom = 96.0
+offset_left = 434.0
+offset_right = 526.0
+offset_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 92, 92 )
-custom_styles/panel = SubResource( 2 )
+custom_minimum_size = Vector2( 92, 92 )
+theme_override_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -503,26 +503,26 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -32.0
-margin_top = -32.0
-margin_right = 32.0
-margin_bottom = 32.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 64, 64 )
+custom_minimum_size = Vector2( 64, 64 )
 texture = ExtResource( 10 )
 expand = true
 stretch_mode = 6
 
 [node name="Genres" type="Panel" parent="Library/Buttons"]
 self_modulate = Color( 0.219608, 0.384314, 0.419608, 1 )
-margin_left = 576.0
-margin_right = 668.0
-margin_bottom = 96.0
+offset_left = 576.0
+offset_right = 668.0
+offset_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 92, 92 )
-custom_styles/panel = SubResource( 2 )
+custom_minimum_size = Vector2( 92, 92 )
+theme_override_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -532,13 +532,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -32.0
-margin_top = -32.0
-margin_right = 32.0
-margin_bottom = 32.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 64, 64 )
+custom_minimum_size = Vector2( 64, 64 )
 texture = ExtResource( 11 )
 expand = true
 stretch_mode = 6
@@ -547,11 +547,11 @@ stretch_mode = 6
 visible = false
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -29.0
-margin_top = 38.0001
-margin_right = 43.0
-margin_bottom = 62.0001
-custom_fonts/font = ExtResource( 5 )
+offset_left = -29.0
+offset_top = 38.0001
+offset_right = 43.0
+offset_bottom = 62.0001
+theme_override_fonts/font = ExtResource( 5 )
 text = "Libary"
 align = 1
 valign = 1

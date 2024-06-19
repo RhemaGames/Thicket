@@ -15,11 +15,11 @@ func _ready():
 	$Contact.emit_signal("refresh")
 	$newMessage.visible = false
 # warning-ignore:return_value_discarded
-	OpenSeed.connect("conversations",self,"_on_conversations_update")
+	OpenSeed.connect("conversations", Callable(self, "_on_conversations_update"))
 # warning-ignore:return_value_discarded
-	OpenSeed.connect("user_status",self,"_on_status_update")
+	OpenSeed.connect("user_status", Callable(self, "_on_status_update"))
 # warning-ignore:return_value_discarded
-	OpenSeed.connect("request_status",self,"_on_request_status_update")
+	OpenSeed.connect("request_status", Callable(self, "_on_request_status_update"))
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

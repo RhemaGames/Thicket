@@ -145,16 +145,22 @@ func gather_new_tracks():
 		for t in clean_list:
 			var json 
 			if t[0] != "[":
-				json = parse_json(t+"}")
+				var test_json_conv = JSON.new()
+				test_json_conv.parse(t+"}")
+				json = test_json_conv.get_data()
 			else:
-				json = parse_json(t.trim_prefix("[")+"}")
+				var test_json_conv = JSON.new()
+				test_json_conv.parse(t.trim_prefix("[")+"}")
+				json = test_json_conv.get_data()
 			Thicket.new_tracks.append(json)
 	return 1
 
 func gather_genres():
 	$Label.text = "Gathering Genres"
 	var genres = OpenSeed.get_from_socket('{"act":"genres","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'"}')
-	var list = parse_json(genres)
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(genres)
+	var list = test_json_conv.get_data()
 	print(list["results"])
 	if list:
 		for g in list["results"]:
@@ -165,7 +171,9 @@ func gather_all_tracks(g):
 	$Label.text = "Gathering Tracks ("+g+")"
 	var content = OpenSeed.get_from_socket('{"act":"genre_json","appPub":"'+str(OpenSeed.appPub)+'","devPub":"'+str(OpenSeed.devPub)+'","genre":"'+g+'"}')
 	if content:
-		var clean_list = parse_json(content)
+		var test_json_conv = JSON.new()
+		test_json_conv.parse(content)
+		var clean_list = test_json_conv.get_data()
 		if typeof(clean_list) == TYPE_DICTIONARY:
 			for t in clean_list["results"]:
 				Thicket.tracks.append(t)
@@ -216,9 +224,9 @@ func convert_lists(type):
 				var index = Thicket.find_track(s)
 				if index != -1:
 					if !newlist:
-						newlist = to_json(Thicket.tracks[index])
+						newlist = JSON.new().stringify(Thicket.tracks[index])
 					else:
-						newlist = newlist+", \n"+to_json(Thicket.tracks[index])
+						newlist = newlist+", \n"+JSON.new().stringify(Thicket.tracks[index])
 			file.open("user://database/"+type+".dat",File.WRITE)
 			file.store_string(newlist)
 			file.close()

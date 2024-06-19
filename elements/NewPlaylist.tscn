@@ -1,21 +1,21 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://elements/NewPlaylist.gd" type="Script" id=1]
-[ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Fonts/titleFont.tres" type="FontFile" id=2]
 
 [node name="NewPlaylist" type="Panel"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -150.0
-margin_top = -70.0
-margin_right = 150.0
-margin_bottom = 70.0
+offset_left = -150.0
+offset_top = -70.0
+offset_right = 150.0
+offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 300, 140 )
-rect_pivot_offset = Vector2( 101.52, 146.654 )
+custom_minimum_size = Vector2( 300, 140 )
+pivot_offset = Vector2( 101.52, 146.654 )
 script = ExtResource( 1 )
 
 [node name="Panel" type="Panel" parent="."]
@@ -23,40 +23,40 @@ modulate = Color( 0.0823529, 0.0784314, 0.0784314, 0.572549 )
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.90112
-margin_top = 4.10007
-margin_right = 4.90112
-margin_bottom = 4.10007
+offset_left = 4.90112
+offset_top = 4.10007
+offset_right = 4.90112
+offset_bottom = 4.10007
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 7.0
+offset_top = 7.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 300.0
-margin_bottom = 29.0
-custom_fonts/font = ExtResource( 2 )
+offset_right = 300.0
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource( 2 )
 text = "New Playlist"
 align = 1
 valign = 1
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
-margin_top = 37.0
-margin_right = 300.0
-margin_bottom = 45.0
+offset_top = 37.0
+offset_right = 300.0
+offset_bottom = 45.0
 
 [node name="Control" type="Control" parent="."]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -30.0
-margin_bottom = 2.0
-rect_min_size = Vector2( 0, 32 )
+offset_top = -30.0
+offset_bottom = 2.0
+custom_minimum_size = Vector2( 0, 32 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
@@ -65,10 +65,10 @@ __meta__ = {
 [node name="Cancel" type="Button" parent="Control"]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 4.62006
-margin_top = -13.5386
-margin_right = 58.6201
-margin_bottom = 7.4614
+offset_left = 4.62006
+offset_top = -13.5386
+offset_right = 58.6201
+offset_bottom = 7.4614
 text = "Cancel"
 
 [node name="Create" type="Button" parent="Control"]
@@ -76,19 +76,19 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -58.0133
-margin_top = -13.0247
-margin_right = -4.01331
-margin_bottom = 7.97534
+offset_left = -58.0133
+offset_top = -13.0247
+offset_right = -4.01331
+offset_bottom = 7.97534
 text = "Create"
 
 [node name="LineEdit" type="LineEdit" parent="."]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = 19.0
-margin_right = -14.0
-margin_bottom = 25.0
+offset_left = 19.0
+offset_right = -14.0
+offset_bottom = 25.0
 placeholder_text = "PlayList"
 __meta__ = {
 "_edit_group_": true,
@@ -98,10 +98,10 @@ __meta__ = {
 [node name="Label" type="Label" parent="LineEdit"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -52.5
-margin_top = -27.7164
-margin_right = 52.5
-margin_bottom = -12.7164
+offset_left = -52.5
+offset_top = -27.7164
+offset_right = 52.5
+offset_bottom = -12.7164
 grow_horizontal = 2
 grow_vertical = 2
 text = "Play List Name:"

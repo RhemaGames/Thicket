@@ -2,7 +2,7 @@
 
 [ext_resource path="res://default.theme" type="Theme" id=1]
 [ext_resource path="res://MainWindow.gd" type="Script" id=2]
-[ext_resource path="res://Img/window-close-symbolic.svg" type="Texture" id=5]
+[ext_resource path="res://Img/window-close-symbolic.svg" type="Texture2D" id=5]
 [ext_resource path="res://Games.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Music.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Videos.tscn" type="PackedScene" id=8]
@@ -15,35 +15,35 @@
 [ext_resource path="res://elements/control_backing.tres" type="StyleBox" id=15]
 [ext_resource path="res://TopBar.gd" type="Script" id=16]
 [ext_resource path="res://button_no_border.tres" type="StyleBox" id=17]
-[ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=18]
-[ext_resource path="res://Img/notification-alert-symbolic.svg" type="Texture" id=19]
-[ext_resource path="res://Img/edit-find-symbolic.svg" type="Texture" id=20]
-[ext_resource path="res://Fonts/NaviFont.tres" type="DynamicFont" id=21]
+[ext_resource path="res://Fonts/titleFont.tres" type="FontFile" id=18]
+[ext_resource path="res://Img/notification-alert-symbolic.svg" type="Texture2D" id=19]
+[ext_resource path="res://Img/edit-find-symbolic.svg" type="Texture2D" id=20]
+[ext_resource path="res://Fonts/NaviFont.tres" type="FontFile" id=21]
 [ext_resource path="res://elements/control_popout.tres" type="StyleBox" id=22]
-[ext_resource path="res://icon.png" type="Texture" id=23]
-[ext_resource path="res://Img/applications-engineering-symbolic.svg" type="Texture" id=24]
+[ext_resource path="res://icon.png" type="Texture2D" id=23]
+[ext_resource path="res://Img/applications-engineering-symbolic.svg" type="Texture2D" id=24]
 [ext_resource path="res://menu.tres" type="StyleBox" id=25]
-[ext_resource path="res://Fonts/subtitle.tres" type="DynamicFont" id=26]
-[ext_resource path="res://Img/avatar-default-symbolic.svg" type="Texture" id=27]
+[ext_resource path="res://Fonts/subtitle.tres" type="FontFile" id=26]
+[ext_resource path="res://Img/avatar-default-symbolic.svg" type="Texture2D" id=27]
 [ext_resource path="res://elements/bandaid.tres" type="StyleBox" id=28]
 [ext_resource path="res://DeveloperSetup.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Welcome.tscn" type="PackedScene" id=30]
 [ext_resource path="res://elements/WelcomeSetup.tscn" type="PackedScene" id=31]
 [ext_resource path="res://elements/Navi.tscn" type="PackedScene" id=32]
 [ext_resource path="res://elements/Loading.tscn" type="PackedScene" id=33]
-[ext_resource path="res://Img/preferences-system-symbolic.svg" type="Texture" id=34]
+[ext_resource path="res://Img/preferences-system-symbolic.svg" type="Texture2D" id=34]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Apps"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Applications:rect_position")
+tracks/0/path = NodePath("Applications:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 1000 ), Vector2( 0, 0 ) ]
 }
@@ -54,22 +54,22 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=2]
 tracks/0/type = "value"
-tracks/0/path = NodePath("Games:rect_position")
+tracks/0/path = NodePath("Games:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 1029 ), Vector2( 0, 0 ) ]
 }
@@ -80,8 +80,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -92,22 +92,22 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 1,
 "values": [ 2, 0 ]
 }
 
 [sub_resource type="Animation" id=3]
 tracks/0/type = "value"
-tracks/0/path = NodePath("Music:rect_position")
+tracks/0/path = NodePath("Music:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 1029 ), Vector2( 0, 0 ) ]
 }
@@ -118,8 +118,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -130,22 +130,22 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 1,
 "values": [ 2, 0 ]
 }
 
 [sub_resource type="Animation" id=4]
 tracks/0/type = "value"
-tracks/0/path = NodePath("Settings:rect_position")
+tracks/0/path = NodePath("Settings:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 1029 ), Vector2( 0, 0 ) ]
 }
@@ -156,8 +156,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -168,8 +168,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 1,
 "values": [ 2, 0 ]
 }
@@ -177,14 +177,14 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=5]
 resource_name = "Social"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Social:rect_position")
+tracks/0/path = NodePath("Social:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 1025 ), Vector2( 0, 0 ) ]
 }
@@ -195,8 +195,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 1,
 "values": [ 2, 0 ]
 }
@@ -207,22 +207,22 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=6]
 tracks/0/type = "value"
-tracks/0/path = NodePath("Videos:rect_position")
+tracks/0/path = NodePath("Videos:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 1029 ), Vector2( 0, 0 ) ]
 }
@@ -233,8 +233,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -245,8 +245,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 1,
 "values": [ 2, 0 ]
 }
@@ -254,15 +254,15 @@ tracks/2/keys = {
 [node name="MainWindow" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_min_size = Vector2( 1024, 600 )
-rect_clip_content = true
+custom_minimum_size = Vector2( 1024, 600 )
+clip_contents = true
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="background" type="ViewportContainer" parent="."]
+[node name="background" type="SubViewportContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -272,9 +272,9 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Viewport" type="Viewport" parent="background"]
+[node name="SubViewport" type="SubViewport" parent="background"]
 size = Vector2( 1900, 1060 )
-size_override_stretch = true
+size_2d_override_stretch = true
 handle_input_locally = false
 render_target_update_mode = 3
 
@@ -282,52 +282,52 @@ render_target_update_mode = 3
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 33.0
-margin_bottom = -37.0
+offset_top = 33.0
+offset_bottom = -37.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_clip_content = true
+clip_contents = true
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="OpenSeed" type="Control" parent="Status"]
-margin_left = 10.4736
-margin_top = 10.4211
-margin_right = 152.474
-margin_bottom = 77.4211
-rect_clip_content = true
+offset_left = 10.4736
+offset_top = 10.4211
+offset_right = 152.474
+offset_bottom = 77.4211
+clip_contents = true
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
 [node name="username" type="Label" parent="Status/OpenSeed"]
-margin_right = 70.0
-margin_bottom = 14.0
+offset_right = 70.0
+offset_bottom = 14.0
 text = "UserName:"
 uppercase = true
 
 [node name="games" type="Label" parent="Status/OpenSeed"]
-margin_top = 16.8421
-margin_right = 105.0
-margin_bottom = 30.8421
+offset_top = 16.8421
+offset_right = 105.0
+offset_bottom = 30.8421
 text = "Installed Games:"
 uppercase = true
 
 [node name="music" type="Label" parent="Status/OpenSeed"]
-margin_left = 1.05267
-margin_top = 31.6842
-margin_right = 47.0527
-margin_bottom = 45.6842
+offset_left = 1.05267
+offset_top = 31.6842
+offset_right = 47.0527
+offset_bottom = 45.6842
 text = "Music:"
 uppercase = true
 
 [node name="video" type="Label" parent="Status/OpenSeed"]
-margin_left = 1.05267
-margin_top = 49.0
-margin_right = 48.0527
-margin_bottom = 63.0
+offset_left = 1.05267
+offset_top = 49.0
+offset_right = 48.0527
+offset_bottom = 63.0
 text = "Videos:"
 uppercase = true
 
@@ -336,42 +336,42 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -135.842
-margin_top = -73.579
-margin_right = -13.8422
-margin_bottom = -7.57898
-rect_clip_content = true
+offset_left = -135.842
+offset_top = -73.579
+offset_right = -13.8422
+offset_bottom = -7.57898
+clip_contents = true
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="steemaccount" type="Label" parent="Status/Steem"]
-margin_right = 82.0
-margin_bottom = 14.0
+offset_right = 82.0
+offset_bottom = 14.0
 text = "steemname:"
 uppercase = true
 
 [node name="followers" type="Label" parent="Status/Steem"]
-margin_top = 19.0
-margin_right = 65.0
-margin_bottom = 33.0
+offset_top = 19.0
+offset_right = 65.0
+offset_bottom = 33.0
 text = "Followers:"
 uppercase = true
 
 [node name="lastpost" type="Label" parent="Status/Steem"]
-margin_top = 40.0
-margin_right = 108.0
-margin_bottom = 54.0
+offset_top = 40.0
+offset_right = 108.0
+offset_bottom = 54.0
 text = "Last Post Date:"
 uppercase = true
 
 [node name="WindowContainer" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 61.0
-margin_right = 1.0
-margin_bottom = -72.0
-rect_clip_content = true
+offset_top = 61.0
+offset_right = 1.0
+offset_bottom = -72.0
+clip_contents = true
 mouse_filter = 2
 __meta__ = {
 "_edit_group_": true,
@@ -388,26 +388,26 @@ anims/Videos = SubResource( 6 )
 
 [node name="Games" parent="WindowContainer" instance=ExtResource( 6 )]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 1029.0
-margin_bottom = 1053.0
+offset_top = 1029.0
+offset_bottom = 1053.0
 mouse_filter = 2
 
 [node name="Music" parent="WindowContainer" instance=ExtResource( 7 )]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 1029.0
-margin_bottom = 1111.0
+offset_top = 1029.0
+offset_bottom = 1111.0
 mouse_filter = 2
 
 [node name="Videos" parent="WindowContainer" instance=ExtResource( 8 )]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 1029.0
-margin_bottom = 1029.0
+offset_top = 1029.0
+offset_bottom = 1029.0
 mouse_filter = 2
 
 [node name="Settings" parent="WindowContainer" instance=ExtResource( 9 )]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 1029.0
-margin_bottom = 1045.0
+offset_top = 1029.0
+offset_bottom = 1045.0
 mouse_filter = 2
 
 [node name="DevConWindow" parent="WindowContainer" instance=ExtResource( 11 )]
@@ -417,31 +417,31 @@ grow_vertical = 2
 
 [node name="AdvancedSearch" parent="WindowContainer" instance=ExtResource( 12 )]
 visible = false
-margin_right = -4.0
+offset_right = -4.0
 
 [node name="Social" parent="WindowContainer" instance=ExtResource( 13 )]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 1025.0
-margin_bottom = 1025.0
+offset_top = 1025.0
+offset_bottom = 1025.0
 mouse_filter = 2
 
 [node name="Applications" parent="WindowContainer" instance=ExtResource( 14 )]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 1000.0
-margin_bottom = 1000.0
-rect_clip_content = true
+offset_top = 1000.0
+offset_bottom = 1000.0
+clip_contents = true
 
 [node name="AppView" parent="WindowContainer" instance=ExtResource( 10 )]
 visible = false
-margin_right = -1.0
+offset_right = -1.0
 
 [node name="TopBar" type="Panel" parent="."]
 anchor_right = 1.0
-margin_top = -12.0
-margin_right = 7.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 0, 64 )
-custom_styles/panel = ExtResource( 15 )
+offset_top = -12.0
+offset_right = 7.0
+offset_bottom = 60.0
+custom_minimum_size = Vector2( 0, 64 )
+theme_override_styles/panel = ExtResource( 15 )
 script = ExtResource( 16 )
 __meta__ = {
 "_edit_lock_": true,
@@ -452,41 +452,41 @@ __meta__ = {
 visible = false
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 1.89474
-margin_top = -18.9474
-margin_right = 263.895
-margin_bottom = 21.0526
+offset_left = 1.89474
+offset_top = -18.9474
+offset_right = 263.895
+offset_bottom = 21.0526
 grow_horizontal = 2
 grow_vertical = 2
-custom_constants/separation = 20
+theme_override_constants/separation = 20
 alignment = 1
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Games" type="Button" parent="TopBar/HBoxContainer"]
-margin_right = 80.0
-margin_bottom = 40.0
-custom_styles/focus = ExtResource( 17 )
-custom_fonts/font = ExtResource( 18 )
+offset_right = 80.0
+offset_bottom = 40.0
+theme_override_styles/focus = ExtResource( 17 )
+theme_override_fonts/font = ExtResource( 18 )
 text = "Games"
 flat = true
 
 [node name="Audio" type="Button" parent="TopBar/HBoxContainer"]
-margin_left = 100.0
-margin_right = 180.0
-margin_bottom = 40.0
-custom_styles/focus = ExtResource( 17 )
-custom_fonts/font = ExtResource( 18 )
+offset_left = 100.0
+offset_right = 180.0
+offset_bottom = 40.0
+theme_override_styles/focus = ExtResource( 17 )
+theme_override_fonts/font = ExtResource( 18 )
 text = "Music"
 flat = true
 
 [node name="Video" type="Button" parent="TopBar/HBoxContainer"]
-margin_left = 200.0
-margin_right = 294.0
-margin_bottom = 40.0
-custom_styles/focus = ExtResource( 17 )
-custom_fonts/font = ExtResource( 18 )
+offset_left = 200.0
+offset_right = 294.0
+offset_bottom = 40.0
+theme_override_styles/focus = ExtResource( 17 )
+theme_override_fonts/font = ExtResource( 18 )
 disabled = true
 text = "Videos"
 flat = true
@@ -498,8 +498,8 @@ anchor_right = 0.992659
 anchor_bottom = 0.972222
 grow_horizontal = 0
 grow_vertical = 2
-rect_min_size = Vector2( 0, 18 )
-custom_constants/separation = 20
+custom_minimum_size = Vector2( 0, 18 )
+theme_override_constants/separation = 20
 alignment = 2
 __meta__ = {
 "_edit_group_": true,
@@ -508,10 +508,10 @@ __meta__ = {
 
 [node name="Social" type="TextureButton" parent="TopBar/HBoxContainer2"]
 visible = false
-margin_left = 62.0
-margin_right = 80.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 18, 18 )
+offset_left = 62.0
+offset_right = 80.0
+offset_bottom = 60.0
+custom_minimum_size = Vector2( 18, 18 )
 texture_normal = ExtResource( 19 )
 texture_pressed = ExtResource( 19 )
 texture_hover = ExtResource( 19 )
@@ -522,12 +522,12 @@ stretch_mode = 5
 
 [node name="Search" type="TextureButton" parent="TopBar/HBoxContainer2"]
 visible = false
-margin_left = 62.0
-margin_right = 80.0
-margin_bottom = 60.0
+offset_left = 62.0
+offset_right = 80.0
+offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 18, 18 )
+custom_minimum_size = Vector2( 18, 18 )
 texture_normal = ExtResource( 20 )
 texture_pressed = ExtResource( 20 )
 texture_hover = ExtResource( 20 )
@@ -537,10 +537,10 @@ expand = true
 stretch_mode = 5
 
 [node name="Settings" type="TextureButton" parent="TopBar/HBoxContainer2"]
-margin_left = 94.0
-margin_right = 112.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 18, 18 )
+offset_left = 94.0
+offset_right = 112.0
+offset_bottom = 60.0
+custom_minimum_size = Vector2( 18, 18 )
 texture_normal = ExtResource( 34 )
 texture_pressed = ExtResource( 34 )
 texture_hover = ExtResource( 34 )
@@ -553,10 +553,10 @@ __meta__ = {
 }
 
 [node name="Power" type="TextureButton" parent="TopBar/HBoxContainer2"]
-margin_left = 132.0
-margin_right = 150.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 18, 18 )
+offset_left = 132.0
+offset_right = 150.0
+offset_bottom = 60.0
+custom_minimum_size = Vector2( 18, 18 )
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 5 )
 texture_hover = ExtResource( 5 )
@@ -570,10 +570,10 @@ __meta__ = {
 
 [node name="Account" type="TextureButton" parent="TopBar/HBoxContainer2"]
 visible = false
-margin_left = 122.0
-margin_right = 140.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 18, 18 )
+offset_left = 122.0
+offset_right = 140.0
+offset_bottom = 60.0
+custom_minimum_size = Vector2( 18, 18 )
 texture_normal = ExtResource( 27 )
 texture_pressed = ExtResource( 27 )
 texture_hover = ExtResource( 27 )
@@ -584,19 +584,19 @@ stretch_mode = 5
 
 [node name="Nav" type="Label" parent="TopBar/HBoxContainer2"]
 visible = false
-margin_left = 141.0
-margin_top = 10.0
-margin_right = 141.0
-margin_bottom = 39.0
+offset_left = 141.0
+offset_top = 10.0
+offset_right = 141.0
+offset_bottom = 39.0
 grow_horizontal = 0
-custom_fonts/font = ExtResource( 18 )
+theme_override_fonts/font = ExtResource( 18 )
 
 [node name="Main" type="Button" parent="TopBar/HBoxContainer2"]
 visible = false
-margin_left = 61.0
-margin_right = 141.0
-margin_bottom = 50.0
-custom_fonts/font = ExtResource( 26 )
+offset_left = 61.0
+offset_right = 141.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource( 26 )
 text = "Account"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -607,12 +607,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -48.0
-margin_top = -12.0
-margin_right = 48.0
-margin_bottom = 12.0
+offset_left = -48.0
+offset_top = -12.0
+offset_right = 48.0
+offset_bottom = 12.0
 grow_horizontal = 0
-custom_fonts/font = ExtResource( 21 )
+theme_override_fonts/font = ExtResource( 21 )
 text = "00:00:00"
 align = 2
 valign = 1
@@ -621,12 +621,12 @@ __meta__ = {
 }
 
 [node name="Controls" type="Panel" parent="TopBar"]
-margin_left = -11.0
-margin_top = -4.0
-margin_right = 300.0
-margin_bottom = 98.0
-rect_min_size = Vector2( 300, 100 )
-custom_styles/panel = ExtResource( 22 )
+offset_left = -11.0
+offset_top = -4.0
+offset_right = 300.0
+offset_bottom = 98.0
+custom_minimum_size = Vector2( 300, 100 )
+theme_override_styles/panel = ExtResource( 22 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -634,15 +634,15 @@ __meta__ = {
 [node name="Home" type="Button" parent="TopBar/Controls"]
 anchor_right = 0.334
 anchor_bottom = 1.0
-margin_left = 45.0
-margin_top = 19.0
-margin_right = 194.126
-margin_bottom = -10.0
-custom_styles/hover = ExtResource( 17 )
-custom_styles/pressed = ExtResource( 17 )
-custom_styles/focus = ExtResource( 17 )
-custom_styles/normal = ExtResource( 17 )
-custom_fonts/font = ExtResource( 21 )
+offset_left = 45.0
+offset_top = 19.0
+offset_right = 194.126
+offset_bottom = -10.0
+theme_override_styles/hover = ExtResource( 17 )
+theme_override_styles/pressed = ExtResource( 17 )
+theme_override_styles/focus = ExtResource( 17 )
+theme_override_styles/normal = ExtResource( 17 )
+theme_override_fonts/font = ExtResource( 21 )
 text = "Thicket"
 __meta__ = {
 "_edit_lock_": true,
@@ -652,13 +652,13 @@ __meta__ = {
 [node name="icon" type="TextureRect" parent="TopBar/Controls/Home"]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = -11.0
-margin_top = -32.5
-margin_right = 53.0
-margin_bottom = 31.5
+offset_left = -11.0
+offset_top = -32.5
+offset_right = 53.0
+offset_bottom = 31.5
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 64, 64 )
+custom_minimum_size = Vector2( 64, 64 )
 texture = ExtResource( 23 )
 expand = true
 stretch_mode = 6
@@ -670,10 +670,10 @@ __meta__ = {
 modulate = Color( 0, 0, 0, 1 )
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -20.0
-margin_right = 9.0
-margin_bottom = 71.0
-custom_styles/panel = ExtResource( 28 )
+offset_left = -20.0
+offset_right = 9.0
+offset_bottom = 71.0
+theme_override_styles/panel = ExtResource( 28 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -684,10 +684,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -52.0
-margin_top = -18.3298
-margin_right = -12.0
-margin_bottom = 21.6702
+offset_left = -52.0
+offset_top = -18.3298
+offset_right = -12.0
+offset_bottom = 21.6702
 texture = ExtResource( 24 )
 expand = true
 stretch_mode = 6
@@ -697,28 +697,28 @@ visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -252.0
-margin_top = 63.0
-margin_bottom = -107.0
+offset_left = -252.0
+offset_top = 63.0
+offset_bottom = -107.0
 grow_horizontal = 0
 grow_vertical = 0
-rect_min_size = Vector2( 250, 570 )
-rect_clip_content = true
-custom_styles/panel = ExtResource( 25 )
+custom_minimum_size = Vector2( 250, 570 )
+clip_contents = true
+theme_override_styles/panel = ExtResource( 25 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Social"]
-margin_left = 1.0
-margin_top = 3.0
-margin_right = 275.0
-margin_bottom = 888.0
+offset_left = 1.0
+offset_top = 3.0
+offset_right = 275.0
+offset_bottom = 888.0
 grow_horizontal = 2
-rect_min_size = Vector2( 250, 570 )
+custom_minimum_size = Vector2( 250, 570 )
 scroll_horizontal_enabled = false
 
 [node name="Connections" type="VBoxContainer" parent="Social/ScrollContainer"]
-margin_right = 250.0
-rect_min_size = Vector2( 250, 0 )
-custom_constants/separation = 12
+offset_right = 250.0
+custom_minimum_size = Vector2( 250, 0 )
+theme_override_constants/separation = 12
 alignment = 1
 
 [node name="iterate_connections" type="Timer" parent="Social"]
@@ -737,10 +737,10 @@ __meta__ = {
 
 [node name="DeveloperSetup" parent="Wizards" instance=ExtResource( 29 )]
 visible = false
-margin_left = -500.0
-margin_top = -300.0
-margin_right = 500.0
-margin_bottom = 300.0
+offset_left = -500.0
+offset_top = -300.0
+offset_right = 500.0
+offset_bottom = 300.0
 
 [node name="Welcome" parent="Wizards" instance=ExtResource( 30 )]
 visible = false
@@ -748,17 +748,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -300.0
-margin_top = -350.0
-margin_right = 300.0
-margin_bottom = 350.0
+offset_left = -300.0
+offset_top = -350.0
+offset_right = 300.0
+offset_bottom = 350.0
 
 [node name="WelcomeSetup" parent="Wizards" instance=ExtResource( 31 )]
 visible = false
 
 [node name="Navi" parent="." instance=ExtResource( 32 )]
-margin_top = -67.0
-margin_bottom = 14.0
+offset_top = -67.0
+offset_bottom = 14.0
 
 [node name="Loading" parent="." instance=ExtResource( 33 )]
 visible = false

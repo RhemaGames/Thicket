@@ -1,21 +1,21 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Fonts/NaviFont.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Img/window-maximize-symbolic.svg" type="Texture" id=2]
+[ext_resource path="res://Fonts/NaviFont.tres" type="FontFile" id=1]
+[ext_resource path="res://Img/window-maximize-symbolic.svg" type="Texture2D" id=2]
 [ext_resource path="res://elements/tabs/Applications.gd" type="Script" id=3]
 
-[node name="Applications" type="Tabs"]
+[node name="Applications" type="TabBar"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 34.0
-margin_right = -5.0
-margin_bottom = -5.0
+offset_left = 5.0
+offset_top = 34.0
+offset_right = -5.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 1820, 920 )
-rect_clip_content = true
+custom_minimum_size = Vector2( 1820, 920 )
+clip_contents = true
 script = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="."]
@@ -23,13 +23,13 @@ anchor_left = 0.464403
 anchor_top = 0.00482675
 anchor_right = 0.535597
 anchor_bottom = 0.0492242
-margin_left = 14.0
-margin_top = 4.5
-margin_right = -13.9999
-margin_bottom = -4.5
+offset_left = 14.0
+offset_top = 4.5
+offset_right = -13.9999
+offset_bottom = -4.5
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = ExtResource( 1 )
+theme_override_fonts/font = ExtResource( 1 )
 text = "Applications"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -38,24 +38,24 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 52.0382
-margin_right = 3.99988
-margin_bottom = -53.9619
-custom_constants/separation = 10
+offset_top = 52.0382
+offset_right = 3.99988
+offset_bottom = -53.9619
+theme_override_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_right = 400.0
-margin_bottom = 844.0
+offset_right = 400.0
+offset_bottom = 844.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
-margin_right = 400.0
-margin_bottom = 24.0
+offset_right = 400.0
+offset_bottom = 24.0
 text = "Applications:"
 
 [node name="TextureButton" type="TextureButton" parent="HBoxContainer/VBoxContainer/Label"]
@@ -75,54 +75,54 @@ __meta__ = {
 }
 
 [node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
-margin_top = 28.0
-margin_right = 400.0
-margin_bottom = 36.0
+offset_top = 28.0
+offset_right = 400.0
+offset_bottom = 36.0
 
 [node name="Tracks" type="ScrollContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 40.0
-margin_right = 400.0
-margin_bottom = 840.0
-rect_min_size = Vector2( 400, 800 )
+offset_top = 40.0
+offset_right = 400.0
+offset_bottom = 840.0
+custom_minimum_size = Vector2( 400, 800 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/Tracks"]
-margin_right = 400.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 400, 0 )
+offset_right = 400.0
+offset_bottom = 25.0
+custom_minimum_size = Vector2( 400, 0 )
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Tracks/VBoxContainer"]
-margin_right = 400.0
-margin_bottom = 24.0
+offset_right = 400.0
+offset_bottom = 24.0
 text = "Application"
 
 [node name="Info" type="ScrollContainer" parent="HBoxContainer"]
-margin_left = 410.0
-margin_right = 1610.0
-margin_bottom = 844.0
-rect_min_size = Vector2( 1200, 0 )
+offset_left = 410.0
+offset_right = 1610.0
+offset_bottom = 844.0
+custom_minimum_size = Vector2( 1200, 0 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Info"]
-margin_right = 1200.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 1200, 0 )
+offset_right = 1200.0
+offset_bottom = 25.0
+custom_minimum_size = Vector2( 1200, 0 )
 
 [node name="Label" type="Label" parent="HBoxContainer/Info/VBoxContainer"]
-margin_right = 1200.0
-margin_bottom = 24.0
+offset_right = 1200.0
+offset_bottom = 24.0
 text = "Info about Track"
 
 [node name="Statistics" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 1620.0
-margin_right = 1830.0
-margin_bottom = 844.0
-rect_min_size = Vector2( 210, 0 )
+offset_left = 1620.0
+offset_right = 1830.0
+offset_bottom = 844.0
+custom_minimum_size = Vector2( 210, 0 )
 
 [node name="Label" type="Label" parent="HBoxContainer/Statistics"]
-margin_right = 210.0
-margin_bottom = 24.0
+offset_right = 210.0
+offset_bottom = 24.0
 text = "Stats"
 
 [node name="HSeparator" type="HSeparator" parent="HBoxContainer/Statistics"]
-margin_top = 28.0
-margin_right = 210.0
-margin_bottom = 36.0
+offset_top = 28.0
+offset_right = 210.0
+offset_bottom = 36.0

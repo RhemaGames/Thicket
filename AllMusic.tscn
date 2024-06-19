@@ -1,16 +1,16 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://AllMusic.gd" type="Script" id=1]
-[ext_resource path="res://Img/view-grid-symbolic_small.svg" type="Texture" id=2]
+[ext_resource path="res://Img/view-grid-symbolic_small.svg" type="Texture2D" id=2]
 [ext_resource path="res://NewArtists.gd" type="Script" id=3]
-[ext_resource path="res://Img/media-playback-start-symbolic-small.svg" type="Texture" id=4]
+[ext_resource path="res://Img/media-playback-start-symbolic-small.svg" type="Texture2D" id=4]
 [ext_resource path="res://NewTracks.gd" type="Script" id=5]
 [ext_resource path="res://playlistGrid.gd" type="Script" id=6]
 
 [node name="AllMusic" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_clip_content = true
+clip_contents = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -21,111 +21,111 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -947.0
-margin_top = -485.0
-margin_right = 921.0
-margin_bottom = 393.0
+offset_left = -947.0
+offset_top = -485.0
+offset_right = 921.0
+offset_bottom = 393.0
 scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="MainView" type="VBoxContainer" parent="Main"]
-margin_right = 1800.0
-margin_bottom = 438.0
+offset_right = 1800.0
+offset_bottom = 438.0
 grow_horizontal = 2
 
 [node name="Control4" type="Control" parent="Main/MainView"]
-margin_right = 1800.0
-margin_bottom = 12.0
-rect_min_size = Vector2( 0, 12 )
+offset_right = 1800.0
+offset_bottom = 12.0
+custom_minimum_size = Vector2( 0, 12 )
 
 [node name="artists" type="Button" parent="Main/MainView"]
-margin_top = 20.0
-margin_right = 1800.0
-margin_bottom = 57.0
+offset_top = 20.0
+offset_right = 1800.0
+offset_bottom = 57.0
 text = "ARTISTS"
 icon = ExtResource( 2 )
 flat = true
 align = 0
 
 [node name="HSeparator2" type="HSeparator" parent="Main/MainView"]
-margin_top = 65.0
-margin_right = 1800.0
-margin_bottom = 73.0
+offset_top = 65.0
+offset_right = 1800.0
+offset_bottom = 73.0
 
 [node name="Control2" type="Control" parent="Main/MainView"]
-margin_top = 81.0
-margin_right = 1800.0
-margin_bottom = 121.0
-rect_min_size = Vector2( 0, 40 )
+offset_top = 81.0
+offset_right = 1800.0
+offset_bottom = 121.0
+custom_minimum_size = Vector2( 0, 40 )
 
 [node name="NewArtists" type="HBoxContainer" parent="Main/MainView"]
-margin_top = 129.0
-margin_right = 1800.0
-margin_bottom = 329.0
-rect_min_size = Vector2( 1800, 200 )
-custom_constants/separation = 20
+offset_top = 129.0
+offset_right = 1800.0
+offset_bottom = 329.0
+custom_minimum_size = Vector2( 1800, 200 )
+theme_override_constants/separation = 20
 alignment = 1
 script = ExtResource( 3 )
 
 [node name="Control" type="Control" parent="Main/MainView"]
-margin_top = 337.0
-margin_right = 1800.0
-margin_bottom = 369.0
-rect_min_size = Vector2( 0, 32 )
+offset_top = 337.0
+offset_right = 1800.0
+offset_bottom = 369.0
+custom_minimum_size = Vector2( 0, 32 )
 
 [node name="newMusic" type="Button" parent="Main/MainView"]
-margin_top = 377.0
-margin_right = 1800.0
-margin_bottom = 414.0
+offset_top = 377.0
+offset_right = 1800.0
+offset_bottom = 414.0
 text = "NEW MUSIC"
 icon = ExtResource( 4 )
 flat = true
 align = 0
 
 [node name="HSeparator" type="HSeparator" parent="Main/MainView"]
-margin_top = 422.0
-margin_right = 1800.0
-margin_bottom = 430.0
+offset_top = 422.0
+offset_right = 1800.0
+offset_bottom = 430.0
 
 [node name="NewTracks" type="GridContainer" parent="Main/MainView"]
-margin_top = 438.0
-margin_right = 1800.0
-margin_bottom = 438.0
+offset_top = 438.0
+offset_right = 1800.0
+offset_bottom = 438.0
 grow_horizontal = 2
-custom_constants/vseparation = 20
-custom_constants/hseparation = 20
+theme_override_constants/v_separation = 20
+theme_override_constants/h_separation = 20
 columns = 5
 script = ExtResource( 5 )
 
 [node name="Control3" type="Control" parent="Main/MainView"]
 visible = false
-margin_top = 372.0
-margin_right = 106.0
-margin_bottom = 404.0
-rect_min_size = Vector2( 0, 32 )
+offset_top = 372.0
+offset_right = 106.0
+offset_bottom = 404.0
+custom_minimum_size = Vector2( 0, 32 )
 
 [node name="nm_label3" type="Label" parent="Main/MainView"]
 visible = false
-margin_top = 408.0
-margin_right = 106.0
-margin_bottom = 422.0
+offset_top = 408.0
+offset_right = 106.0
+offset_bottom = 422.0
 text = "Play Lists"
 uppercase = true
 
 [node name="HSeparator3" type="HSeparator" parent="Main/MainView"]
 visible = false
-margin_top = 426.0
-margin_right = 106.0
-margin_bottom = 430.0
+offset_top = 426.0
+offset_right = 106.0
+offset_bottom = 430.0
 
 [node name="playlistGrid" type="GridContainer" parent="Main/MainView"]
 visible = false
-margin_top = 446.0
-margin_right = 1800.0
-margin_bottom = 446.0
-custom_constants/hseparation = 20
+offset_top = 446.0
+offset_right = 1800.0
+offset_bottom = 446.0
+theme_override_constants/h_separation = 20
 columns = 2
 script = ExtResource( 6 )
 

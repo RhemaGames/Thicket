@@ -10,26 +10,26 @@
 resource_name = "searching"
 length = 0.6
 tracks/0/type = "value"
-tracks/0/path = NodePath("search:margin_bottom")
+tracks/0/path = NodePath("search:offset_bottom")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.00827027, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0.00827027, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 1,
 "values": [ 287.002, 64.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("search:margin_top")
+tracks/1/path = NodePath("search:offset_top")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.00827027, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0.00827027, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 1,
 "values": [ 263.002, 40.0 ]
 }
@@ -54,26 +54,26 @@ anims/searching = SubResource( 1 )
 [node name="Artists found" type="Control" parent="."]
 visible = false
 anchor_right = 1.0
-margin_left = 9.0
-margin_top = 80.0
-margin_right = -7.0
-margin_bottom = 128.0
-rect_min_size = Vector2( 0, 48 )
+offset_left = 9.0
+offset_top = 80.0
+offset_right = -7.0
+offset_bottom = 128.0
+custom_minimum_size = Vector2( 0, 48 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Label" type="Label" parent="Artists found"]
-margin_top = -8.16447
-margin_right = 46.0
-margin_bottom = 5.83553
+offset_top = -8.16447
+offset_right = 46.0
+offset_bottom = 5.83553
 text = "Artists:"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Artists found"]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-rect_min_size = Vector2( 0, 38 )
+custom_minimum_size = Vector2( 0, 38 )
 scroll_vertical_enabled = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Artists found/ScrollContainer"]
@@ -82,26 +82,26 @@ alignment = 1
 [node name="Genres Found" type="Control" parent="."]
 visible = false
 anchor_right = 1.0
-margin_left = 10.0
-margin_top = 150.0
-margin_right = -6.0
-margin_bottom = 198.0
-rect_min_size = Vector2( 0, 48 )
+offset_left = 10.0
+offset_top = 150.0
+offset_right = -6.0
+offset_bottom = 198.0
+custom_minimum_size = Vector2( 0, 48 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Label" type="Label" parent="Genres Found"]
-margin_top = -8.16447
-margin_right = 46.0
-margin_bottom = 5.83553
+offset_top = -8.16447
+offset_right = 46.0
+offset_bottom = 5.83553
 text = "Genres:"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Genres Found"]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-rect_min_size = Vector2( 0, 38 )
+custom_minimum_size = Vector2( 0, 38 )
 scroll_vertical_enabled = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Genres Found/ScrollContainer"]
@@ -110,16 +110,16 @@ alignment = 1
 [node name="listView" type="ScrollContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 210.0
-margin_right = -9.0
-margin_bottom = -7.0
+offset_left = 8.0
+offset_top = 210.0
+offset_right = -9.0
+offset_bottom = -7.0
 
 [node name="list" type="VBoxContainer" parent="listView"]
 
 [node name="doublePaneView" parent="." instance=ExtResource( 3 )]
 visible = false
-margin_top = 101.0
+offset_top = 101.0
 
 [node name="leaves2" parent="." instance=ExtResource( 4 )]
 visible = false
@@ -129,28 +129,28 @@ modulate = Color( 0.882353, 0.298039, 0.298039, 0.32549 )
 visible = false
 anchor_right = 1.0
 anchor_bottom = 0.0
-margin_right = 0.0
-margin_bottom = 100.0
+offset_right = 0.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="search" type="LineEdit" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -132.0
-margin_top = 263.002
-margin_right = 123.0
-margin_bottom = 287.002
-rect_min_size = Vector2( 255, 0 )
+offset_left = -132.0
+offset_top = 263.002
+offset_right = 123.0
+offset_bottom = 287.002
+custom_minimum_size = Vector2( 255, 0 )
 max_length = 128
 
 [node name="Label" type="Label" parent="search"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -21.0
-margin_top = -18.6617
-margin_right = 21.0
-margin_bottom = -4.66165
+offset_left = -21.0
+offset_top = -18.6617
+offset_right = 21.0
+offset_bottom = -4.66165
 grow_horizontal = 2
 grow_vertical = 2
 text = "Search:"
@@ -163,9 +163,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -230.0
-margin_right = 229.0
-margin_bottom = 113.0
+offset_left = -230.0
+offset_right = 229.0
+offset_bottom = 113.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Looks like you searched for someone not currently known to Thicket. Due to the nature of the backend services it may take sometime to gather and serve the files. 
@@ -176,4 +176,4 @@ autowrap = true
 [connection signal="clear_search" from="." to="." method="_on_Search_clear_search"]
 [connection signal="go" from="." to="." method="_on_Search_go"]
 [connection signal="sort_children" from="listView/list" to="." method="_on_list_sort_children"]
-[connection signal="text_entered" from="search" to="." method="_on_search_text_entered"]
+[connection signal="text_submitted" from="search" to="." method="_on_search_text_entered"]

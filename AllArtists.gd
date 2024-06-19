@@ -41,17 +41,17 @@ func get_artists():
 		$ScrollContainer/GridContainer.remove_child(child)
 		children -= 1
 		
-	var dir = Directory.new()
+	var dir = DirAccess.new()
 	if dir.open("user://database/artists") == OK:
-		dir.list_dir_begin(true,true)
+		dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 		var artist = dir.get_next()
 		var count = 0
 		while artist != "":
 			textureFile.append(ImageTexture.new())
 			#fill_info(artist)
-			var g = artistView.instance()
+			var g = artistView.instantiate()
 			g.title = artist.split(".")[0]
-			g.connect("search",MusicRoot,"new_artist_search")
+			g.connect("search", Callable(MusicRoot, "new_artist_search"))
 			g.block = imageFile
 			g.texblock = textureFile[count]
 			$ScrollContainer/GridContainer.add_child(g)
@@ -66,9 +66,9 @@ func get_artists_new(anum):
 		if anum >= $ScrollContainer/GridContainer.get_child_count():
 			textureFile.append(ImageTexture.new())
 			var artist = Thicket.artists[anum]
-			var g = artistView.instance()
+			var g = artistView.instantiate()
 			g.title = artist
-			g.connect("search",MusicRoot,"new_artist_search")
+			g.connect("search", Callable(MusicRoot, "new_artist_search"))
 			g.block = imageFile
 			g.texblock = textureFile[anum]
 			$ScrollContainer/GridContainer.add_child(g)

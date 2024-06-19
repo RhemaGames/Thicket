@@ -28,9 +28,9 @@ func _process(_delta):
 
 func create_list():
 	for app in Thicket.applications:
-		var av = app_view.instance()
+		var av = app_view.instantiate()
 		av.path = app
-		av.connect("execute",self,"execute")
+		av.connect("execute", Callable(self, "execute"))
 		$applicationList/ScrollContainer/GridContainer.add_child(av)
 		
 func execute(program):
