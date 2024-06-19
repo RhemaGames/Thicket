@@ -4,3 +4,6 @@
 [submodule "Backend/Thicket-SDK"]
 	path = Backend/Thicket-SDK
 	url = git@github.com:RhemaGames/Thicket-SDK.git
+[submodule "addons/thicket_sdk"]
+	path = addons/thicket_sdk
+	url = git@github.com:RhemaGames/Thicket-SDK.git
