@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpg8oln4aa0n"]
+
+[ext_resource type="Texture2D" uid="uid://klxh4lw5s62b" path="res://Img/circle_mask.png" id="1_scb7r"]
+
+[node name="FillLight" type="Polygon2D"]
+modulate = Color(0, 0.960784, 0.968627, 1)
+polygon = PackedVector2Array(-16, -6, -16, 6, 15, 6, 15, -6)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.113433, 0.513542, 0.384591, 1)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("1_scb7r")

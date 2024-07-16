@@ -1,8 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://bh6kdmiad7axc"]
+[gd_scene load_steps=4 format=3 uid="uid://bh6kdmiad7axc"]
 
+[ext_resource type="Texture2D" uid="uid://driqu0vnwttoh" path="res://Img/theme/light.png" id="1_6josf"]
 [ext_resource type="PackedScene" uid="uid://dmnwrvqtq62io" path="res://elements/clouds.tscn" id="1_ql5jk"]
+[ext_resource type="PackedScene" uid="uid://bw5k01dheu84l" path="res://elements/diagnosis.tscn" id="2_2xpyt"]
 
 [node name="Loading" type="Node2D"]
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(958.5, 513)
+scale = Vector2(1.29323, 1.39444)
+texture = ExtResource("1_6josf")
+
 [node name="Clouds" parent="." instance=ExtResource("1_ql5jk")]
-position = Vector2(935, 464.5)
+position = Vector2(954.5, 506.5)
+scale = Vector2(4.88867, 2.97851)
+
+[node name="Diagnosis" parent="." node_paths=PackedStringArray("pivotpoint") instance=ExtResource("2_2xpyt")]
+self_modulate = Color(1, 1, 1, 0.631373)
+position = Vector2(952, 531)
+pivotpoint = NodePath(".")

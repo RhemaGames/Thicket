@@ -36,7 +36,7 @@ func genre_load():
 	for genre in Thicket.genres:
 		var g = gbutton.instantiate()
 		g.text = genre["name"]
-		g.connect("pressed", Callable(get_parent().get_parent().get_parent().get_parent(), "_on_g_pressed").bind(genre["name"))
+		#g.connect("pressed", Callable(get_parent().get_parent().get_parent().get_parent(), "_on_g_pressed").bind(genre["name"))
 		add_child(g)
 	#var dir = Directory.new()
 	#if dir.open("user://database/") == OK:

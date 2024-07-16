@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo3eiysp1kayx"]
+
+[ext_resource type="Texture2D" uid="uid://klxh4lw5s62b" path="res://Img/circle_mask.png" id="1_6cdo7"]
+
+[node name="Triangle" type="Polygon2D"]
+rotation = 4.3579
+scale = Vector2(1.90909, 1.90909)
+offset = Vector2(1.04762, 24.0952)
+polygon = PackedVector2Array(-1.04762, -78.0476, -49.7619, 4.19047, 48.1905, 4.19047)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(-60.7993, 36.2051)
+rotation = -0.0551064
+scale = Vector2(0.151329, 0.151329)
+texture = ExtResource("1_6cdo7")

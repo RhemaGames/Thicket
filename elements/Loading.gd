@@ -235,4 +235,3 @@ func _on_Loading_alldone():
 	if what:
 		what.show()
 		#hide()
-

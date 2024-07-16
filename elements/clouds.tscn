@@ -20,7 +20,7 @@ color_ramp = SubResource("Gradient_7q1b7")
 noise = SubResource("FastNoiseLite_kj4rd")
 
 [sub_resource type="Gradient" id="Gradient_rhe1o"]
-offsets = PackedFloat32Array(0, 0.45082, 0.704918, 1)
+offsets = PackedFloat32Array(0, 0.385246, 0.704918, 1)
 colors = PackedColorArray(0.346526, 0.200023, 0.326209, 0.607843, 0.374734, 0.0954397, 0.349661, 0.784635, 0.215274, 0.493785, 1, 0.87451, 0.927918, 0.461641, 0.680522, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_21f5f"]
@@ -48,17 +48,19 @@ noise = SubResource("FastNoiseLite_u7p2w")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xdc17"]
 shader = ExtResource("1_4pwu3")
 shader_parameter/Speed = 0.05
-shader_parameter/Layer3 = SubResource("NoiseTexture2D_3o6rb")
 shader_parameter/Layer2 = SubResource("NoiseTexture2D_dunq4")
 shader_parameter/Layer1 = SubResource("NoiseTexture2D_m82ln")
+shader_parameter/Layer3 = SubResource("NoiseTexture2D_3o6rb")
 
 [sub_resource type="Gradient" id="Gradient_oycj5"]
+offsets = PackedFloat32Array(0.207792, 0.701299, 1)
+colors = PackedColorArray(0, 0, 0, 0.584314, 0.344262, 0.344262, 0.344262, 0.383157, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_32eol"]
 gradient = SubResource("Gradient_oycj5")
 width = 512
 height = 512
-fill_from = Vector2(0.495413, 0.775229)
+fill_from = Vector2(0.142202, 0.788991)
 fill_to = Vector2(0.619266, 0.00458716)
 
 [node name="Clouds" type="Sprite2D"]

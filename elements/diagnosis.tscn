@@ -1,0 +1,105 @@
+[gd_scene load_steps=7 format=3 uid="uid://bw5k01dheu84l"]
+
+[ext_resource type="Script" path="res://elements/Diagnosis/diagnosis.gd" id="1_p46ci"]
+[ext_resource type="Script" path="res://elements/Diagnosis/system.gd" id="1_qedim"]
+[ext_resource type="Texture2D" uid="uid://kv7yafmj2ndn" path="res://Img/SystemDiscEmpty.svg" id="1_r84er"]
+[ext_resource type="Texture2D" uid="uid://dg0bn7i81uc8q" path="res://Img/SystemDisc.svg" id="2_duad1"]
+[ext_resource type="Texture2D" uid="uid://klxh4lw5s62b" path="res://Img/circle_mask.png" id="3_hw45w"]
+[ext_resource type="Script" path="res://elements/Diagnosis/input.gd" id="6_8bl81"]
+
+[node name="Diagnosis" type="Node2D"]
+script = ExtResource("1_p46ci")
+
+[node name="System" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0.709804)
+script = ExtResource("1_qedim")
+
+[node name="Storage" type="Sprite2D" parent="System"]
+texture = ExtResource("2_duad1")
+
+[node name="Pivot" type="Marker2D" parent="System/Storage"]
+
+[node name="Memory" type="Sprite2D" parent="System"]
+scale = Vector2(0.817, 0.817)
+texture = ExtResource("1_r84er")
+
+[node name="Pivot" type="Marker2D" parent="System/Memory"]
+
+[node name="Hardware" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0.670588)
+
+[node name="Network" type="Marker2D" parent="Hardware"]
+rotation = 0.698132
+
+[node name="img" type="Sprite2D" parent="Hardware/Network"]
+position = Vector2(-300, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_hw45w")
+
+[node name="GPU" type="Marker2D" parent="Hardware"]
+rotation = 0.349066
+
+[node name="img" type="Sprite2D" parent="Hardware/GPU"]
+position = Vector2(-300, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_hw45w")
+
+[node name="Sound" type="Marker2D" parent="Hardware"]
+
+[node name="img" type="Sprite2D" parent="Hardware/Sound"]
+position = Vector2(-300, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_hw45w")
+
+[node name="Input" type="Node2D" parent="."]
+script = ExtResource("6_8bl81")
+
+[node name="Controllers" type="Node2D" parent="Input"]
+
+[node name="controller" type="Sprite2D" parent="Input/Controllers"]
+self_modulate = Color(1, 1, 1, 0.196078)
+scale = Vector2(1.143, 1.143)
+texture = ExtResource("1_r84er")
+
+[node name="Pivot" type="Marker2D" parent="Input/Controllers/controller"]
+
+[node name="controller2" type="Sprite2D" parent="Input/Controllers"]
+self_modulate = Color(1, 1, 1, 0.196078)
+rotation = 1.5708
+scale = Vector2(1.143, 1.143)
+texture = ExtResource("1_r84er")
+
+[node name="Pivot" type="Marker2D" parent="Input/Controllers/controller2"]
+
+[node name="controller3" type="Sprite2D" parent="Input/Controllers"]
+self_modulate = Color(1, 1, 1, 0.196078)
+rotation = 3.14159
+scale = Vector2(1.143, 1.143)
+texture = ExtResource("1_r84er")
+
+[node name="Pivot" type="Marker2D" parent="Input/Controllers/controller3"]
+
+[node name="controller4" type="Sprite2D" parent="Input/Controllers"]
+self_modulate = Color(1, 1, 1, 0.196078)
+rotation = 4.71239
+scale = Vector2(1.143, 1.143)
+texture = ExtResource("1_r84er")
+
+[node name="Pivot" type="Marker2D" parent="Input/Controllers/controller4"]
+
+[node name="Rhema" type="Node2D" parent="Input"]
+
+[node name="Joystick3" type="Node2D" parent="Input/Rhema"]
+
+[node name="Joystick2" type="Node2D" parent="Input/Rhema"]
+
+[node name="Driving" type="Node2D" parent="Input/Rhema"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.8, 0.8)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Timer" to="System" method="_on_timer_timeout"]
