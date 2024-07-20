@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Thicket"
-run/main_scene="res://elements/clouds.tscn"
+run/main_scene="res://BG/loading.tscn"
 config/features=PackedStringArray("4.3")
 boot_splash/bg_color=Color(0.00351917, 0.00351917, 0.00351916, 1)
 boot_splash/image="res://icon.png"
@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 
 Thicket="res://elements/Thicket.tscn"
 OpenSeed="res://OpenSeed-Godot/OpenSeed.tscn"
+Service="*res://addons/thicket_sdk/network/service.gd"
 
 [display]
 
