@@ -17,23 +17,26 @@ func _on_from_peer(id,type,data):
 	match type:
 		"hello":
 			var requests = {}
-			requests["system"] = ["memory","storage","network","cpu"]
+			requests["system"] = ["memory","storage","network","cpu","sound"]
 			Service.rpc_id(id,"request",multiplayer.get_unique_id(),requests)
 		"network":
 			#print(data)
 			pass
 		"cpu":
-			#print(data)
+			print(data)
+			$PanelContainer/VBoxContainer/C/CPU.text = data["type"]
 			pass
 		"memory":
 			var used_mem = data["physical"] - data["free"]
 			var percent = float(used_mem) / float(data["physical"])
 			$System.fill_by_type("memory",percent*100)
+			$PanelContainer/VBoxContainer/M/Memory.text = str(used_mem/1024)
 		"storage":
 			for s in data:
 				if s["Type"] == "ext4" and s["Mounted"] == "/":
 					var fulldisk = int(s["Used"]) + int(s["Available"])
 					var percent = float(s["Used"]) / float(fulldisk)
 					$System.fill_by_type("storage",percent * 100)
+					$PanelContainer/VBoxContainer/S/Storage.text = str(int(s["Used"])/1024)
 					break
 					

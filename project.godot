@@ -20,9 +20,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Thicket="res://elements/Thicket.tscn"
-OpenSeed="res://OpenSeed-Godot/OpenSeed.tscn"
 Service="*res://addons/thicket_sdk/network/service.gd"
+Config="*res://addons/thicket_sdk/config.gd"
 
 [display]
 

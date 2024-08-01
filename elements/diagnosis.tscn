@@ -102,4 +102,48 @@ zoom = Vector2(0.8, 0.8)
 wait_time = 15.0
 autostart = true
 
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = -1180.0
+offset_top = 550.0
+offset_right = -1035.0
+offset_bottom = 647.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="M" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/M"]
+layout_mode = 2
+text = "Memory:"
+
+[node name="Memory" type="Label" parent="PanelContainer/VBoxContainer/M"]
+layout_mode = 2
+text = "5444"
+
+[node name="S" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/S"]
+layout_mode = 2
+text = "Storage:"
+
+[node name="Storage" type="Label" parent="PanelContainer/VBoxContainer/S"]
+layout_mode = 2
+text = "4645"
+
+[node name="C" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/C"]
+layout_mode = 2
+text = "CPU"
+horizontal_alignment = 2
+
+[node name="CPU" type="Label" parent="PanelContainer/VBoxContainer/C"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "45454"
+
 [connection signal="timeout" from="Timer" to="System" method="_on_timer_timeout"]

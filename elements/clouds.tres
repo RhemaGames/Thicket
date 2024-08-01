@@ -64,9 +64,10 @@ operator = 2
 [sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_fdr0j"]
 parameter_name = "Speed"
 hint = 2
-max = 5.0
+max = 10.0
+step = 1.0
 default_value_enabled = true
-default_value = 5.0
+default_value = 2.0
 
 [sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_rqvpg"]
 default_input_values = [1, Vector2(1, 0), 2, Vector2(0, 0)]
@@ -107,7 +108,7 @@ op_type = 0
 code = "shader_type canvas_item;
 render_mode blend_mix;
 
-uniform float Speed : hint_range(0, 5, 0.10000000149012) = 5;
+uniform float Speed : hint_range(0, 10, 1) = 2;
 uniform sampler2D Layer2 : hint_default_transparent, repeat_enable;
 uniform sampler2D Layer1 : hint_default_transparent, filter_nearest, repeat_enable;
 uniform sampler2D Layer3 : hint_default_transparent, filter_nearest, repeat_enable;

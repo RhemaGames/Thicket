@@ -1,15 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bh6kdmiad7axc"]
+[gd_scene load_steps=5 format=3 uid="uid://bh6kdmiad7axc"]
 
-[ext_resource type="Texture2D" uid="uid://driqu0vnwttoh" path="res://Img/theme/light.png" id="1_6josf"]
 [ext_resource type="PackedScene" uid="uid://dmnwrvqtq62io" path="res://elements/clouds.tscn" id="1_ql5jk"]
+[ext_resource type="Script" path="res://BG/loading.gd" id="1_vagh2"]
 [ext_resource type="PackedScene" uid="uid://bw5k01dheu84l" path="res://elements/diagnosis.tscn" id="2_2xpyt"]
+[ext_resource type="Texture2D" uid="uid://c4cs56wy54blh" path="res://Img/theme/pixel.png" id="2_gu701"]
 
 [node name="Loading" type="Node2D"]
+script = ExtResource("1_vagh2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(958.5, 513)
+self_modulate = Color(0.43134, 0.43134, 0.43134, 1)
+position = Vector2(1318, 509)
 scale = Vector2(1.29323, 1.39444)
-texture = ExtResource("1_6josf")
+texture = ExtResource("2_gu701")
 
 [node name="Clouds" parent="." instance=ExtResource("1_ql5jk")]
 position = Vector2(954.5, 506.5)

@@ -54,7 +54,7 @@ shader_parameter/Layer3 = SubResource("NoiseTexture2D_3o6rb")
 
 [sub_resource type="Gradient" id="Gradient_oycj5"]
 offsets = PackedFloat32Array(0.207792, 0.701299, 1)
-colors = PackedColorArray(0, 0, 0, 0.584314, 0.344262, 0.344262, 0.344262, 0.383157, 1, 1, 1, 0)
+colors = PackedColorArray(0, 0, 0, 0.92549, 0.345098, 0.345098, 0.345098, 0.701961, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_32eol"]
 gradient = SubResource("Gradient_oycj5")
