@@ -22,23 +22,30 @@ config/icon="res://icon.png"
 
 Service="*res://addons/thicket_sdk/network/service.gd"
 Config="*res://addons/thicket_sdk/config.gd"
+W4GD="*res://addons/w4gd/w4gd.gd"
 
 [display]
 
-window/size/viewport_width=1900
-window/size/viewport_height=1060
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/size/viewport_width=720
+window/size/viewport_height=720
 display_server/driver.linuxbsd="wayland"
 window/size/fullscreen=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/thicket_sdk/plugin.cfg")
+enabled=PackedStringArray("res://addons/thicket_sdk/plugin.cfg", "res://addons/w4gd/plugin/plugin.cfg")
 
 [gui]
 
 theme/use_hidpi=true
+
+[input]
+
+ui_fullscreen={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194342,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
 
 [memory]
 
@@ -50,3 +57,8 @@ environment/defaults/default_environment="res://default_env.tres"
 quality/driver/fallback_to_gles2=true
 threads/thread_model=2
 vram_compression/import_etc=true
+
+[w4games]
+
+w4rm/url="https://rhemagames.prod-01.w4games.cloud"
+w4rm/key="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE5MDI1NjQwMDAsImlhdCI6MTczNTY4NjAwMCwicm9sZSI6ImFub24ifQ.gS2vxOMGdcwsJAeXNwTipi8SG-Kyexo0z-Z8u1Jl4lk"

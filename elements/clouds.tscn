@@ -65,6 +65,4 @@ fill_to = Vector2(0.619266, 0.00458716)
 
 [node name="Clouds" type="Sprite2D"]
 material = SubResource("ShaderMaterial_xdc17")
-position = Vector2(936, 464.5)
-scale = Vector2(4.65625, 2.81445)
 texture = SubResource("GradientTexture2D_32eol")

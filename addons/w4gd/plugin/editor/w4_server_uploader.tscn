@@ -1,0 +1,131 @@
+[gd_scene load_steps=2 format=3 uid="uid://urrb5ctn6svw"]
+
+[ext_resource type="Script" path="res://addons/w4gd/plugin/editor/w4_server_uploader.gd" id="1_xmegm"]
+
+[node name="W4ServerUploader" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xmegm")
+
+[node name="Options" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="UploadLabel" type="Label" parent="Options"]
+layout_mode = 2
+text = "Upload Game Server Build"
+horizontal_alignment = 1
+
+[node name="OptionsGrid" type="GridContainer" parent="Options"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 5
+columns = 2
+
+[node name="ExportPresetLabel" type="Label" parent="Options/OptionsGrid"]
+layout_mode = 2
+text = "Export Preset:"
+
+[node name="ExportPresetField" type="OptionButton" parent="Options/OptionsGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Spacer1" type="Control" parent="Options/OptionsGrid"]
+layout_mode = 2
+
+[node name="DebugBuildField" type="CheckBox" parent="Options/OptionsGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+button_pressed = true
+text = "Export With Debug"
+
+[node name="BuildNameLabel" type="Label" parent="Options/OptionsGrid"]
+layout_mode = 2
+text = "Build Name:"
+
+[node name="BuildNameField" type="LineEdit" parent="Options/OptionsGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FleetLabel" type="Label" parent="Options/OptionsGrid"]
+layout_mode = 2
+text = "Fleet:"
+
+[node name="FleetField" type="OptionButton" parent="Options/OptionsGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="UploadButton" type="Button" parent="Options"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Upload"
+
+[node name="ErrorDialog" type="AcceptDialog" parent="."]
+unique_name_in_owner = true
+size = Vector2i(416, 287)
+popup_window = true
+dialog_autowrap = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ErrorDialog"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ErrorMessage" type="Label" parent="ErrorDialog/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "ERROR"
+
+[node name="ErrorDetails" type="TextEdit" parent="ErrorDialog/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Error details"
+editable = false
+
+[node name="ProgressWindow" type="PopupPanel" parent="."]
+unique_name_in_owner = true
+title = "Server Upload"
+size = Vector2i(600, 110)
+exclusive = true
+borderless = false
+unfocusable = true
+
+[node name="MarginContainer" type="MarginContainer" parent="ProgressWindow"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 596.0
+offset_bottom = 106.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ProgressWindow/MarginContainer"]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="ProgressWindow/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ProgressMessage" type="Label" parent="ProgressWindow/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+text = "Progress"
+horizontal_alignment = 1
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="Options/UploadButton" to="." method="_on_upload_button_pressed"]

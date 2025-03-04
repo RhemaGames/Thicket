@@ -57,6 +57,6 @@ func fill_by_type(type,percentage):
 func _on_timer_timeout() -> void:
 	var data = {}
 	data["system"] = ["memory","storage","network","cpu"]
-	print("sending RPC")
+	print_debug("sending RPC")
 	Service.rpc_id(1,"request",multiplayer.get_unique_id(),data)
 	

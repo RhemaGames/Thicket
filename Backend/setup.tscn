@@ -1,0 +1,380 @@
+[gd_scene load_steps=4 format=3 uid="uid://7npga7l4kidf"]
+
+[ext_resource type="Script" path="res://Backend/setup.gd" id="1_6oph3"]
+[ext_resource type="Texture2D" uid="uid://be4ubodla2jty" path="res://Img/thicket.png" id="2_1lo7j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v27rc"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.0761558, 0.16265, 0.183869, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_size = 8
+shadow_offset = Vector2(10, 5)
+
+[node name="Setup" type="CanvasLayer"]
+script = ExtResource("1_6oph3")
+
+[node name="Welcomne" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(400, 600)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v27rc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Welcomne"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Welcomne/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Welcome"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="HSeparator" type="HSeparator" parent="Welcomne/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Welcomne/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "This setup will guide you through setting up your Thicket connected Device. If you plan on connecting it to the internet you will need to setup an admin account using our online managment console. If you already have an account you can use it to connect this device to your account. "
+fit_content = true
+
+[node name="Control" type="Control" parent="Welcomne/VBoxContainer"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+
+[node name="Welcome" type="Button" parent="Welcomne/VBoxContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.5
+offset_top = -15.5
+offset_right = 39.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Continue"
+
+[node name="Network" type="PanelContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(400, 600)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v27rc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Network"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Network/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Network"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="HSeparator" type="HSeparator" parent="Network/VBoxContainer"]
+layout_mode = 2
+
+[node name="settingContainer" type="VBoxContainer" parent="Network/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="General" type="VBoxContainer" parent="Network/VBoxContainer/settingContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Network/VBoxContainer/settingContainer/General"]
+layout_mode = 2
+text = "General"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Network/VBoxContainer/settingContainer/General"]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+
+[node name="Connection" type="VBoxContainer" parent="Network/VBoxContainer/settingContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Network/VBoxContainer/settingContainer/Connection"]
+layout_mode = 2
+text = "Connection "
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Network/VBoxContainer/settingContainer/Connection"]
+layout_mode = 2
+
+[node name="local" type="CheckButton" parent="Network/VBoxContainer/settingContainer/Connection"]
+layout_mode = 2
+text = "Local Networking"
+
+[node name="internet" type="CheckButton" parent="Network/VBoxContainer/settingContainer/Connection"]
+layout_mode = 2
+text = "Internet Access"
+
+[node name="ConnectionType" type="VBoxContainer" parent="Network/VBoxContainer/settingContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="Network/VBoxContainer/settingContainer/ConnectionType"]
+layout_mode = 2
+text = "Connection Type"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Network/VBoxContainer/settingContainer/ConnectionType"]
+layout_mode = 2
+
+[node name="wifi" type="CheckButton" parent="Network/VBoxContainer/settingContainer/ConnectionType"]
+layout_mode = 2
+text = "Connect to WIFI"
+flat = true
+
+[node name="WifiOpts" type="VBoxContainer" parent="Network/VBoxContainer/settingContainer/ConnectionType"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="WifiSSID" type="HBoxContainer" parent="Network/VBoxContainer/settingContainer/ConnectionType/WifiOpts"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Network/VBoxContainer/settingContainer/ConnectionType/WifiOpts/WifiSSID"]
+layout_mode = 2
+text = "SSID:"
+
+[node name="NetworkName" type="LineEdit" parent="Network/VBoxContainer/settingContainer/ConnectionType/WifiOpts/WifiSSID"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WifiPassword" type="HBoxContainer" parent="Network/VBoxContainer/settingContainer/ConnectionType/WifiOpts"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Network/VBoxContainer/settingContainer/ConnectionType/WifiOpts/WifiPassword"]
+layout_mode = 2
+text = "Password:"
+
+[node name="Password" type="LineEdit" parent="Network/VBoxContainer/settingContainer/ConnectionType/WifiOpts/WifiPassword"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="wired" type="CheckButton" parent="Network/VBoxContainer/settingContainer/ConnectionType"]
+layout_mode = 2
+text = "Connect to Wired Network "
+flat = true
+
+[node name="Control" type="Control" parent="Network/VBoxContainer"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+
+[node name="Next" type="Button" parent="Network/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Next"
+
+[node name="Cancel" type="Button" parent="Network/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_right = 8.0
+offset_bottom = 4.0
+grow_vertical = 2
+text = "Cancel"
+
+[node name="Owner" type="PanelContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(400, 600)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v27rc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Owner"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Owner/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Thicket Login"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Owner/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="Owner/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("2_1lo7j")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Username" type="VBoxContainer" parent="Owner/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Owner/VBoxContainer/VBoxContainer/Username"]
+layout_mode = 2
+text = "User Name:"
+
+[node name="entry" type="LineEdit" parent="Owner/VBoxContainer/VBoxContainer/Username"]
+layout_mode = 2
+
+[node name="Passphrase" type="VBoxContainer" parent="Owner/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Owner/VBoxContainer/VBoxContainer/Passphrase"]
+layout_mode = 2
+text = "Password:"
+
+[node name="entry" type="LineEdit" parent="Owner/VBoxContainer/VBoxContainer/Passphrase"]
+layout_mode = 2
+
+[node name="info" type="Label" parent="Owner/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Owner/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="Owner/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Connect"
+
+[node name="Control" type="Control" parent="Owner/VBoxContainer"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+
+[node name="Back" type="Button" parent="Owner/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_right = 8.0
+offset_bottom = 4.0
+grow_vertical = 2
+text = "Back"
+
+[node name="Continue" type="Button" parent="Owner/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -4.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Continue"
+
+[node name="Device" type="PanelContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(400, 600)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v27rc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Device"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Device/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Device"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="HSeparator" type="HSeparator" parent="Device/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Device/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="Device/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Back" type="Button" parent="Device/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_right = 8.0
+offset_bottom = 4.0
+grow_vertical = 2
+text = "Back"
+
+[node name="Finish" type="Button" parent="Device/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -4.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Finish"

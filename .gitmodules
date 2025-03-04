@@ -1,6 +1,3 @@
-[submodule "OpenSeed-Godot"]
-	path = OpenSeed-Godot
-	url = https://github.com/OpenSeedINC/OpenSeed-Godot.git
 [submodule "Backend/Thicket-SDK"]
 	path = Backend/Thicket-SDK
 	url = git@github.com:RhemaGames/Thicket-SDK.git

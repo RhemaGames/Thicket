@@ -1,0 +1,363 @@
+[gd_scene load_steps=10 format=3 uid="uid://cnjr7xvc73c3e"]
+
+[ext_resource type="Script" path="res://addons/w4gd/plugin/editor/w4_dashboard.gd" id="1_7w01k"]
+[ext_resource type="Script" path="res://addons/w4gd/plugin/editor/w4_editor_auth_helper.gd" id="2_omphg"]
+[ext_resource type="Texture2D" uid="uid://k35pm7rs1v3d" path="res://addons/w4gd/plugin/icons/w4icon.svg" id="3_34gr0"]
+[ext_resource type="PackedScene" uid="uid://urrb5ctn6svw" path="res://addons/w4gd/plugin/editor/w4_server_uploader.tscn" id="4_41mws"]
+[ext_resource type="PackedScene" uid="uid://bhurh6h2vlnb2" path="res://addons/w4gd/plugin/editor/w4_editor_database.tscn" id="4_d1kcc"]
+[ext_resource type="PackedScene" uid="uid://dx3tfa2i0wjal" path="res://addons/w4gd/plugin/editor/w4_editor_web_uploader.tscn" id="6_bj5yd"]
+[ext_resource type="PackedScene" uid="uid://br1b7tn13qks7" path="res://addons/w4gd/plugin/editor/w4_edit_profile.tscn" id="6_qrwn1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1u01"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Theme" id="Theme_d3urq"]
+Panel/styles/panel = SubResource("StyleBoxFlat_j1u01")
+
+[node name="W4Dashboard" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_d3urq")
+script = ExtResource("1_7w01k")
+
+[node name="W4AuthHelper" type="Node" parent="."]
+script = ExtResource("2_omphg")
+
+[node name="ThemeProvider" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Auth" type="Panel" parent="ThemeProvider"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="LoginScreen" type="CenterContainer" parent="ThemeProvider/Auth"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Vertical" type="VBoxContainer" parent="ThemeProvider/Auth/LoginScreen"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ThemeProvider/Auth/LoginScreen/Vertical"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture = ExtResource("3_34gr0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="ThemeProvider/Auth/LoginScreen/Vertical"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "W4 Cloud Admin Login"
+horizontal_alignment = 1
+
+[node name="TitleSubText" type="Label" parent="ThemeProvider/Auth/LoginScreen/Vertical"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Login with your admin credentials to upload game servers builds and run database scripts."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Web" type="HBoxContainer" parent="ThemeProvider/Auth/LoginScreen/Vertical"]
+layout_mode = 2
+alignment = 1
+
+[node name="LinkButton" type="LinkButton" parent="ThemeProvider/Auth/LoginScreen/Vertical/Web"]
+layout_mode = 2
+text = "Visit the web dashboard for more"
+
+[node name="Control" type="Control" parent="ThemeProvider/Auth/LoginScreen/Vertical"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ProfileVBoxContainer" type="VBoxContainer" parent="ThemeProvider/Auth/LoginScreen/Vertical"]
+layout_mode = 2
+
+[node name="ProfileLabel" type="Label" parent="ThemeProvider/Auth/LoginScreen/Vertical/ProfileVBoxContainer"]
+layout_mode = 2
+text = "Profile
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ThemeProvider/Auth/LoginScreen/Vertical/ProfileVBoxContainer"]
+layout_mode = 2
+
+[node name="ProfilesOptionButton" type="OptionButton" parent="ThemeProvider/Auth/LoginScreen/Vertical/ProfileVBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text_overrun_behavior = 3
+clip_text = true
+fit_to_longest_item = false
+
+[node name="SettingsButton" type="MenuButton" parent="ThemeProvider/Auth/LoginScreen/Vertical/ProfileVBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "Edit profile"
+popup/item_0/id = 0
+popup/item_1/text = "Create a new profile"
+popup/item_1/id = 1
+popup/item_2/text = "Delete this profile"
+popup/item_2/id = 2
+
+[node name="EmailVBoxContainer" type="VBoxContainer" parent="ThemeProvider/Auth/LoginScreen/Vertical"]
+layout_mode = 2
+
+[node name="EmailLabel" type="Label" parent="ThemeProvider/Auth/LoginScreen/Vertical/EmailVBoxContainer"]
+layout_mode = 2
+text = "Email"
+
+[node name="EmailInput" type="LineEdit" parent="ThemeProvider/Auth/LoginScreen/Vertical/EmailVBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+virtual_keyboard_type = 5
+
+[node name="PasswordVBoxContainer" type="VBoxContainer" parent="ThemeProvider/Auth/LoginScreen/Vertical"]
+layout_mode = 2
+
+[node name="PasswordLabel" type="Label" parent="ThemeProvider/Auth/LoginScreen/Vertical/PasswordVBoxContainer"]
+layout_mode = 2
+text = "Password"
+
+[node name="PasswordInput" type="LineEdit" parent="ThemeProvider/Auth/LoginScreen/Vertical/PasswordVBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+virtual_keyboard_type = 6
+secret = true
+
+[node name="Buttons" type="HBoxContainer" parent="ThemeProvider/Auth/LoginScreen/Vertical"]
+layout_mode = 2
+alignment = 2
+
+[node name="ActionButton" type="Button" parent="ThemeProvider/Auth/LoginScreen/Vertical/Buttons"]
+layout_mode = 2
+text = "Login"
+
+[node name="ErrorLabel" type="Label" parent="ThemeProvider/Auth/LoginScreen/Vertical"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="W4EditProfile" parent="ThemeProvider/Auth" instance=ExtResource("6_qrwn1")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="ConfirmDeleteProfileDialog" type="ConfirmationDialog" parent="ThemeProvider/Auth"]
+unique_name_in_owner = true
+dialog_text = "Are you sure you want to delete this profile?"
+
+[node name="Main" type="Panel" parent="ThemeProvider"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="MarginContainer" type="MarginContainer" parent="ThemeProvider/Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="ThemeProvider/Main/MarginContainer"]
+layout_mode = 2
+
+[node name="Sidebar" type="MarginContainer" parent="ThemeProvider/Main/MarginContainer/HSplitContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ThemeProvider/Main/MarginContainer/HSplitContainer/Sidebar"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ThemeProvider/Main/MarginContainer/HSplitContainer/Sidebar/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture = ExtResource("3_34gr0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Buttons" type="VBoxContainer" parent="ThemeProvider/Main/MarginContainer/HSplitContainer/Sidebar/VBoxContainer"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="ThemeProvider/Main/MarginContainer/HSplitContainer/Sidebar/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Home" type="Button" parent="ThemeProvider/Main/MarginContainer/HSplitContainer/Sidebar/VBoxContainer/Buttons"]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+text = "Home"
+
+[node name="Servers" type="Button" parent="ThemeProvider/Main/MarginContainer/HSplitContainer/Sidebar/VBoxContainer/Buttons"]
+layout_mode = 2
+toggle_mode = true
+text = "Game Servers"
+
+[node name="Web" type="Button" parent="ThemeProvider/Main/MarginContainer/HSplitContainer/Sidebar/VBoxContainer/Buttons"]
+layout_mode = 2
+toggle_mode = true
+text = "Web Builds"
+
+[node name="Database" type="Button" parent="ThemeProvider/Main/MarginContainer/HSplitContainer/Sidebar/VBoxContainer/Buttons"]
+layout_mode = 2
+toggle_mode = true
+text = "Database"
+
+[node name="Spacer2" type="Control" parent="ThemeProvider/Main/MarginContainer/HSplitContainer/Sidebar/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Logout" type="Button" parent="ThemeProvider/Main/MarginContainer/HSplitContainer/Sidebar/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Logout"
+
+[node name="TabContainer" type="TabContainer" parent="ThemeProvider/Main/MarginContainer/HSplitContainer"]
+layout_mode = 2
+tabs_visible = false
+
+[node name="Home" type="MarginContainer" parent="ThemeProvider/Main/MarginContainer/HSplitContainer/TabContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ThemeProvider/Main/MarginContainer/HSplitContainer/TabContainer/Home"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Title" type="Label" parent="ThemeProvider/Main/MarginContainer/HSplitContainer/TabContainer/Home/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "W4 Cloud Admin Dashboard"
+horizontal_alignment = 1
+
+[node name="TitleSubText" type="Label" parent="ThemeProvider/Main/MarginContainer/HSplitContainer/TabContainer/Home/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Welcome to the W4 Cloud admin in-editor dashboard.
+Use the sidebar to upload game servers and web builds, or run database scripts."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Web" type="HBoxContainer" parent="ThemeProvider/Main/MarginContainer/HSplitContainer/TabContainer/Home/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LinkButton" type="LinkButton" parent="ThemeProvider/Main/MarginContainer/HSplitContainer/TabContainer/Home/VBoxContainer/Web"]
+layout_mode = 2
+text = "Visit the web dashboard for more"
+
+[node name="Servers" type="MarginContainer" parent="ThemeProvider/Main/MarginContainer/HSplitContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ThemeProvider/Main/MarginContainer/HSplitContainer/TabContainer/Servers"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Servers" parent="ThemeProvider/Main/MarginContainer/HSplitContainer/TabContainer/Servers/VBoxContainer" instance=ExtResource("4_41mws")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Web" type="MarginContainer" parent="ThemeProvider/Main/MarginContainer/HSplitContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ThemeProvider/Main/MarginContainer/HSplitContainer/TabContainer/Web"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Web" parent="ThemeProvider/Main/MarginContainer/HSplitContainer/TabContainer/Web/VBoxContainer" instance=ExtResource("6_bj5yd")]
+layout_mode = 2
+
+[node name="Database" type="MarginContainer" parent="ThemeProvider/Main/MarginContainer/HSplitContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ThemeProvider/Main/MarginContainer/HSplitContainer/TabContainer/Database"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Database" parent="ThemeProvider/Main/MarginContainer/HSplitContainer/TabContainer/Database/VBoxContainer" instance=ExtResource("4_d1kcc")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ErrorDialog" type="AcceptDialog" parent="ThemeProvider"]
+size = Vector2i(416, 287)
+popup_window = true
+dialog_autowrap = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ThemeProvider/ErrorDialog"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ErrorMessage" type="Label" parent="ThemeProvider/ErrorDialog/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "ERROR"
+
+[node name="ErrorDetails" type="TextEdit" parent="ThemeProvider/ErrorDialog/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Error details"
+editable = false
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="logged_in" from="W4AuthHelper" to="." method="_on_w_4_auth_helper_logged_in"]
+[connection signal="logged_out" from="W4AuthHelper" to="." method="_on_w_4_auth_helper_logged_out"]
+[connection signal="login_error" from="W4AuthHelper" to="." method="_set_login_message"]
+[connection signal="item_selected" from="ThemeProvider/Auth/LoginScreen/Vertical/ProfileVBoxContainer/HBoxContainer/ProfilesOptionButton" to="." method="_on_profiles_option_button_item_selected"]
+[connection signal="text_submitted" from="ThemeProvider/Auth/LoginScreen/Vertical/EmailVBoxContainer/EmailInput" to="." method="_on_login_input_submitted"]
+[connection signal="text_submitted" from="ThemeProvider/Auth/LoginScreen/Vertical/PasswordVBoxContainer/PasswordInput" to="." method="_on_login_input_submitted"]
+[connection signal="pressed" from="ThemeProvider/Auth/LoginScreen/Vertical/Buttons/ActionButton" to="." method="_on_login_input_submitted"]
+[connection signal="profile_saved" from="ThemeProvider/Auth/W4EditProfile" to="." method="_on_w_4_edit_profile_profile_saved"]
+[connection signal="confirmed" from="ThemeProvider/Auth/ConfirmDeleteProfileDialog" to="." method="_on_confirm_delete_profile_dialog_confirmed"]
+[connection signal="pressed" from="ThemeProvider/Main/MarginContainer/HSplitContainer/Sidebar/VBoxContainer/Buttons/Logout" to="." method="_on_logout_pressed"]
