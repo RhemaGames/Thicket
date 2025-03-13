@@ -1,16 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://cxi04kad54vnd"]
 
-[ext_resource path="res://Img/halfcircle.png" type="Texture2D" id=1]
-[ext_resource path="res://elements/StatCircle.gd" type="Script" id=2]
+[ext_resource type="Texture2D" uid="uid://oas53v7hvm0q" path="res://Img/halfcircle.png" id="1"]
+[ext_resource type="Script" uid="uid://d1gcb6yry8hkj" path="res://elements/StatCircle.gd" id="2"]
 
 [node name="StatCircle" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -1652.0
 offset_bottom = -860.0
-custom_minimum_size = Vector2( 248, 200 )
+custom_minimum_size = Vector2(248, 200)
 clip_contents = true
-script = ExtResource( 2 )
+script = ExtResource("2")
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -29,9 +29,9 @@ offset_left = 2.0
 offset_top = 23.0
 offset_right = -2.0
 offset_bottom = 58.0
-pivot_offset = Vector2( 117.5, 117.5 )
+pivot_offset = Vector2(117.5, 117.5)
 clip_contents = true
-texture = ExtResource( 1 )
+texture = ExtResource("1")
 expand = true
 stretch_mode = 5
 __meta__ = {
@@ -44,8 +44,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -65.0
 offset_bottom = 1.0
-custom_minimum_size = Vector2( 0, 50 )
-pivot_offset = Vector2( 104.322, 119.996 )
+custom_minimum_size = Vector2(0, 50)
+pivot_offset = Vector2(104.322, 119.996)
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -79,4 +79,5 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="set_num" from="." to="." method="_on_StatCircle_set_num"]

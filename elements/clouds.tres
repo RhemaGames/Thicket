@@ -108,7 +108,7 @@ op_type = 0
 code = "shader_type canvas_item;
 render_mode blend_mix;
 
-uniform float Speed : hint_range(0, 10, 1) = 2;
+uniform float Speed : hint_range(0.0, 10.0, 1.0) = 2.0;
 uniform sampler2D Layer2 : hint_default_transparent, repeat_enable;
 uniform sampler2D Layer1 : hint_default_transparent, filter_nearest, repeat_enable;
 uniform sampler2D Layer3 : hint_default_transparent, filter_nearest, repeat_enable;

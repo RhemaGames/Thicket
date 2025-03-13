@@ -1,14 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://batoyipvak30f"]
 
-[ext_resource path="res://menu.tres" type="StyleBox" id=1]
-[ext_resource path="res://icon.png" type="Texture2D" id=2]
-[ext_resource path="res://elements/AppView.gd" type="Script" id=3]
-[ext_resource path="res://elements/InfoBox.tscn" type="PackedScene" id=4]
+[ext_resource type="StyleBox" path="res://menu.tres" id="1"]
+[ext_resource type="Texture2D" uid="uid://d2f2u5kc018nl" path="res://icon.png" id="2"]
+[ext_resource type="Script" uid="uid://bbge1dv5552x5" path="res://elements/AppView.gd" id="3"]
+[ext_resource type="PackedScene" path="res://elements/InfoBox.tscn" id="4"]
 
 [node name="AppView" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 3 )
+script = ExtResource("3")
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -21,8 +21,8 @@ anchor_bottom = 1.0
 anchor_bottom = 1.0
 offset_top = 21.0
 offset_right = 200.0
-custom_minimum_size = Vector2( 300, 0 )
-theme_override_styles/panel = ExtResource( 1 )
+custom_minimum_size = Vector2(300, 0)
+theme_override_styles/panel = ExtResource("1")
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -43,8 +43,8 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="Menu/VBoxContainer"]
 offset_right = 279.0
 offset_bottom = 128.0
-custom_minimum_size = Vector2( 279, 128 )
-texture = ExtResource( 2 )
+custom_minimum_size = Vector2(279, 128)
+texture = ExtResource("2")
 expand = true
 stretch_mode = 6
 
@@ -67,7 +67,7 @@ offset_bottom = 191.0
 offset_top = 206.0
 offset_right = 279.0
 offset_bottom = 302.0
-custom_minimum_size = Vector2( 0, 96 )
+custom_minimum_size = Vector2(0, 96)
 text = "LAUNCH"
 
 [node name="CheckButton" type="CheckButton" parent="Menu/VBoxContainer"]
@@ -101,4 +101,4 @@ __meta__ = {
 offset_right = 1555.0
 offset_bottom = 150.0
 
-[node name="InfoBox" parent="Info/ScrollContainer/VBoxContainer" instance=ExtResource( 4 )]
+[node name="InfoBox" parent="Info/ScrollContainer/VBoxContainer" instance=ExtResource("4")]

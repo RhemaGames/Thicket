@@ -1,263 +1,263 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=39 format=3 uid="uid://dk5j60l1x5ivx"]
 
-[ext_resource path="res://default.theme" type="Theme" id=1]
-[ext_resource path="res://MainWindow.gd" type="Script" id=2]
-[ext_resource path="res://Img/window-close-symbolic.svg" type="Texture2D" id=5]
-[ext_resource path="res://Games.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Music.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Videos.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Settings.tscn" type="PackedScene" id=9]
-[ext_resource path="res://elements/AppView.tscn" type="PackedScene" id=10]
-[ext_resource path="res://DevConWindow.tscn" type="PackedScene" id=11]
-[ext_resource path="res://AdvancedSearch.tscn" type="PackedScene" id=12]
-[ext_resource path="res://elements/Social.tscn" type="PackedScene" id=13]
-[ext_resource path="res://elements/Applications.tscn" type="PackedScene" id=14]
-[ext_resource path="res://elements/control_backing.tres" type="StyleBox" id=15]
-[ext_resource path="res://TopBar.gd" type="Script" id=16]
-[ext_resource path="res://button_no_border.tres" type="StyleBox" id=17]
-[ext_resource path="res://Fonts/titleFont.tres" type="FontFile" id=18]
-[ext_resource path="res://Img/notification-alert-symbolic.svg" type="Texture2D" id=19]
-[ext_resource path="res://Img/edit-find-symbolic.svg" type="Texture2D" id=20]
-[ext_resource path="res://Fonts/NaviFont.tres" type="FontFile" id=21]
-[ext_resource path="res://elements/control_popout.tres" type="StyleBox" id=22]
-[ext_resource path="res://icon.png" type="Texture2D" id=23]
-[ext_resource path="res://Img/applications-engineering-symbolic.svg" type="Texture2D" id=24]
-[ext_resource path="res://menu.tres" type="StyleBox" id=25]
-[ext_resource path="res://Fonts/subtitle.tres" type="FontFile" id=26]
-[ext_resource path="res://Img/avatar-default-symbolic.svg" type="Texture2D" id=27]
-[ext_resource path="res://elements/bandaid.tres" type="StyleBox" id=28]
-[ext_resource path="res://DeveloperSetup.tscn" type="PackedScene" id=29]
-[ext_resource path="res://Welcome.tscn" type="PackedScene" id=30]
-[ext_resource path="res://elements/WelcomeSetup.tscn" type="PackedScene" id=31]
-[ext_resource path="res://elements/Navi.tscn" type="PackedScene" id=32]
-[ext_resource path="res://elements/Loading.tscn" type="PackedScene" id=33]
-[ext_resource path="res://Img/preferences-system-symbolic.svg" type="Texture2D" id=34]
+[ext_resource type="Theme" path="res://default.theme" id="1"]
+[ext_resource type="Script" uid="uid://uxr62i7jsx7f" path="res://MainWindow.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://cfj7lqnvo570g" path="res://Img/window-close-symbolic.svg" id="5"]
+[ext_resource type="PackedScene" uid="uid://epof1y4vpkaq" path="res://Games.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://Music.tscn" id="7"]
+[ext_resource type="PackedScene" path="res://Videos.tscn" id="8"]
+[ext_resource type="PackedScene" path="res://Settings.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://batoyipvak30f" path="res://elements/AppView.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://cui5pc1b7snwm" path="res://DevConWindow.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://b5i1i635jaepk" path="res://AdvancedSearch.tscn" id="12"]
+[ext_resource type="PackedScene" uid="uid://cnlkvybvnlxsi" path="res://elements/Social.tscn" id="13"]
+[ext_resource type="PackedScene" uid="uid://efuvdi4s154o" path="res://elements/Applications.tscn" id="14"]
+[ext_resource type="StyleBox" path="res://elements/control_backing.tres" id="15"]
+[ext_resource type="Script" uid="uid://dwnjlpwu1c43m" path="res://TopBar.gd" id="16"]
+[ext_resource type="StyleBox" path="res://button_no_border.tres" id="17"]
+[ext_resource type="FontFile" path="res://Fonts/titleFont.tres" id="18"]
+[ext_resource type="Texture2D" uid="uid://cwsh351gj44x4" path="res://Img/notification-alert-symbolic.svg" id="19"]
+[ext_resource type="Texture2D" uid="uid://bteo2lqr6coqn" path="res://Img/edit-find-symbolic.svg" id="20"]
+[ext_resource type="FontFile" path="res://Fonts/NaviFont.tres" id="21"]
+[ext_resource type="StyleBox" path="res://elements/control_popout.tres" id="22"]
+[ext_resource type="Texture2D" uid="uid://d2f2u5kc018nl" path="res://icon.png" id="23"]
+[ext_resource type="Texture2D" uid="uid://cim3fen4cyiqe" path="res://Img/applications-engineering-symbolic.svg" id="24"]
+[ext_resource type="StyleBox" path="res://menu.tres" id="25"]
+[ext_resource type="FontFile" path="res://Fonts/subtitle.tres" id="26"]
+[ext_resource type="Texture2D" uid="uid://dscwogwtb8vos" path="res://Img/avatar-default-symbolic.svg" id="27"]
+[ext_resource type="StyleBox" path="res://elements/bandaid.tres" id="28"]
+[ext_resource type="PackedScene" uid="uid://j200ck24c3jx" path="res://DeveloperSetup.tscn" id="29"]
+[ext_resource type="PackedScene" path="res://Welcome.tscn" id="30"]
+[ext_resource type="PackedScene" uid="uid://dlbwbb5nk6w54" path="res://elements/WelcomeSetup.tscn" id="31"]
+[ext_resource type="PackedScene" uid="uid://8nxri882d5li" path="res://elements/Navi.tscn" id="32"]
+[ext_resource type="PackedScene" uid="uid://bgb4y478211f" path="res://elements/Loading.tscn" id="33"]
+[ext_resource type="Texture2D" uid="uid://dykb64242mxmk" path="res://Img/preferences-system-symbolic.svg" id="34"]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id="1"]
 resource_name = "Apps"
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Applications:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector2( 0, 1000 ), Vector2( 0, 0 ) ]
+"values": [Vector2(0, 1000), Vector2(0, 0)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Applications:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0, 1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Games:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector2( 0, 1029 ), Vector2( 0, 0 ) ]
+"values": [Vector2(0, 1029), Vector2(0, 0)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Games:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0, 1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Games:mouse_filter")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PackedFloat32Array( 0, 1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ 2, 0 ]
+"values": [2, 0]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id="3"]
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Music:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector2( 0, 1029 ), Vector2( 0, 0 ) ]
+"values": [Vector2(0, 1029), Vector2(0, 0)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Music:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0, 1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Music:mouse_filter")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PackedFloat32Array( 0, 1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ 2, 0 ]
+"values": [2, 0]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id="4"]
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Settings:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector2( 0, 1029 ), Vector2( 0, 0 ) ]
+"values": [Vector2(0, 1029), Vector2(0, 0)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Settings:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0, 1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Settings:mouse_filter")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PackedFloat32Array( 0, 1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ 2, 0 ]
+"values": [2, 0]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id="5"]
 resource_name = "Social"
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Social:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector2( 0, 1025 ), Vector2( 0, 0 ) ]
+"values": [Vector2(0, 1025), Vector2(0, 0)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Social:mouse_filter")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0, 1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ 2, 0 ]
+"values": [2, 0]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Social:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PackedFloat32Array( 0, 1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id="6"]
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Videos:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector2( 0, 1029 ), Vector2( 0, 0 ) ]
+"values": [Vector2(0, 1029), Vector2(0, 0)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Videos:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0, 1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Videos:mouse_filter")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PackedFloat32Array( 0, 1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ 2, 0 ]
+"values": [2, 0]
 }
 
 [node name="MainWindow" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_minimum_size = Vector2( 1024, 600 )
+custom_minimum_size = Vector2(1024, 600)
 clip_contents = true
-theme = ExtResource( 1 )
-script = ExtResource( 2 )
+theme = ExtResource("1")
+script = ExtResource("2")
 __meta__ = {
 "_edit_lock_": true
 }
@@ -273,7 +273,7 @@ __meta__ = {
 }
 
 [node name="SubViewport" type="SubViewport" parent="background"]
-size = Vector2( 1900, 1060 )
+size = Vector2(1900, 1060)
 size_2d_override_stretch = true
 handle_input_locally = false
 render_target_update_mode = 3
@@ -379,59 +379,59 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WindowContainer"]
-anims/Apps = SubResource( 1 )
-anims/Games = SubResource( 2 )
-anims/Music = SubResource( 3 )
-anims/Settings = SubResource( 4 )
-anims/Social = SubResource( 5 )
-anims/Videos = SubResource( 6 )
+anims/Apps = SubResource("1")
+anims/Games = SubResource("2")
+anims/Music = SubResource("3")
+anims/Settings = SubResource("4")
+anims/Social = SubResource("5")
+anims/Videos = SubResource("6")
 
-[node name="Games" parent="WindowContainer" instance=ExtResource( 6 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="Games" parent="WindowContainer" instance=ExtResource("6")]
+modulate = Color(1, 1, 1, 0)
 offset_top = 1029.0
 offset_bottom = 1053.0
 mouse_filter = 2
 
-[node name="Music" parent="WindowContainer" instance=ExtResource( 7 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="Music" parent="WindowContainer" instance=ExtResource("7")]
+modulate = Color(1, 1, 1, 0)
 offset_top = 1029.0
 offset_bottom = 1111.0
 mouse_filter = 2
 
-[node name="Videos" parent="WindowContainer" instance=ExtResource( 8 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="Videos" parent="WindowContainer" instance=ExtResource("8")]
+modulate = Color(1, 1, 1, 0)
 offset_top = 1029.0
 offset_bottom = 1029.0
 mouse_filter = 2
 
-[node name="Settings" parent="WindowContainer" instance=ExtResource( 9 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="Settings" parent="WindowContainer" instance=ExtResource("9")]
+modulate = Color(1, 1, 1, 0)
 offset_top = 1029.0
 offset_bottom = 1045.0
 mouse_filter = 2
 
-[node name="DevConWindow" parent="WindowContainer" instance=ExtResource( 11 )]
+[node name="DevConWindow" parent="WindowContainer" instance=ExtResource("11")]
 visible = false
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AdvancedSearch" parent="WindowContainer" instance=ExtResource( 12 )]
+[node name="AdvancedSearch" parent="WindowContainer" instance=ExtResource("12")]
 visible = false
 offset_right = -4.0
 
-[node name="Social" parent="WindowContainer" instance=ExtResource( 13 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="Social" parent="WindowContainer" instance=ExtResource("13")]
+modulate = Color(1, 1, 1, 0)
 offset_top = 1025.0
 offset_bottom = 1025.0
 mouse_filter = 2
 
-[node name="Applications" parent="WindowContainer" instance=ExtResource( 14 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="Applications" parent="WindowContainer" instance=ExtResource("14")]
+modulate = Color(1, 1, 1, 0)
 offset_top = 1000.0
 offset_bottom = 1000.0
 clip_contents = true
 
-[node name="AppView" parent="WindowContainer" instance=ExtResource( 10 )]
+[node name="AppView" parent="WindowContainer" instance=ExtResource("10")]
 visible = false
 offset_right = -1.0
 
@@ -440,9 +440,9 @@ anchor_right = 1.0
 offset_top = -12.0
 offset_right = 7.0
 offset_bottom = 60.0
-custom_minimum_size = Vector2( 0, 64 )
-theme_override_styles/panel = ExtResource( 15 )
-script = ExtResource( 16 )
+custom_minimum_size = Vector2(0, 64)
+theme_override_styles/panel = ExtResource("15")
+script = ExtResource("16")
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -467,8 +467,8 @@ __meta__ = {
 [node name="Games" type="Button" parent="TopBar/HBoxContainer"]
 offset_right = 80.0
 offset_bottom = 40.0
-theme_override_styles/focus = ExtResource( 17 )
-theme_override_fonts/font = ExtResource( 18 )
+theme_override_styles/focus = ExtResource("17")
+theme_override_fonts/font = ExtResource("18")
 text = "Games"
 flat = true
 
@@ -476,8 +476,8 @@ flat = true
 offset_left = 100.0
 offset_right = 180.0
 offset_bottom = 40.0
-theme_override_styles/focus = ExtResource( 17 )
-theme_override_fonts/font = ExtResource( 18 )
+theme_override_styles/focus = ExtResource("17")
+theme_override_fonts/font = ExtResource("18")
 text = "Music"
 flat = true
 
@@ -485,8 +485,8 @@ flat = true
 offset_left = 200.0
 offset_right = 294.0
 offset_bottom = 40.0
-theme_override_styles/focus = ExtResource( 17 )
-theme_override_fonts/font = ExtResource( 18 )
+theme_override_styles/focus = ExtResource("17")
+theme_override_fonts/font = ExtResource("18")
 disabled = true
 text = "Videos"
 flat = true
@@ -498,7 +498,7 @@ anchor_right = 0.992659
 anchor_bottom = 0.972222
 grow_horizontal = 0
 grow_vertical = 2
-custom_minimum_size = Vector2( 0, 18 )
+custom_minimum_size = Vector2(0, 18)
 theme_override_constants/separation = 20
 alignment = 2
 __meta__ = {
@@ -511,12 +511,12 @@ visible = false
 offset_left = 62.0
 offset_right = 80.0
 offset_bottom = 60.0
-custom_minimum_size = Vector2( 18, 18 )
-texture_normal = ExtResource( 19 )
-texture_pressed = ExtResource( 19 )
-texture_hover = ExtResource( 19 )
-texture_disabled = ExtResource( 19 )
-texture_focused = ExtResource( 19 )
+custom_minimum_size = Vector2(18, 18)
+texture_normal = ExtResource("19")
+texture_pressed = ExtResource("19")
+texture_hover = ExtResource("19")
+texture_disabled = ExtResource("19")
+texture_focused = ExtResource("19")
 expand = true
 stretch_mode = 5
 
@@ -527,12 +527,12 @@ offset_right = 80.0
 offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_minimum_size = Vector2( 18, 18 )
-texture_normal = ExtResource( 20 )
-texture_pressed = ExtResource( 20 )
-texture_hover = ExtResource( 20 )
-texture_disabled = ExtResource( 20 )
-texture_focused = ExtResource( 20 )
+custom_minimum_size = Vector2(18, 18)
+texture_normal = ExtResource("20")
+texture_pressed = ExtResource("20")
+texture_hover = ExtResource("20")
+texture_disabled = ExtResource("20")
+texture_focused = ExtResource("20")
 expand = true
 stretch_mode = 5
 
@@ -540,12 +540,12 @@ stretch_mode = 5
 offset_left = 94.0
 offset_right = 112.0
 offset_bottom = 60.0
-custom_minimum_size = Vector2( 18, 18 )
-texture_normal = ExtResource( 34 )
-texture_pressed = ExtResource( 34 )
-texture_hover = ExtResource( 34 )
-texture_disabled = ExtResource( 34 )
-texture_focused = ExtResource( 34 )
+custom_minimum_size = Vector2(18, 18)
+texture_normal = ExtResource("34")
+texture_pressed = ExtResource("34")
+texture_hover = ExtResource("34")
+texture_disabled = ExtResource("34")
+texture_focused = ExtResource("34")
 expand = true
 stretch_mode = 5
 __meta__ = {
@@ -556,12 +556,12 @@ __meta__ = {
 offset_left = 132.0
 offset_right = 150.0
 offset_bottom = 60.0
-custom_minimum_size = Vector2( 18, 18 )
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 5 )
-texture_disabled = ExtResource( 5 )
-texture_focused = ExtResource( 5 )
+custom_minimum_size = Vector2(18, 18)
+texture_normal = ExtResource("5")
+texture_pressed = ExtResource("5")
+texture_hover = ExtResource("5")
+texture_disabled = ExtResource("5")
+texture_focused = ExtResource("5")
 expand = true
 stretch_mode = 5
 __meta__ = {
@@ -573,12 +573,12 @@ visible = false
 offset_left = 122.0
 offset_right = 140.0
 offset_bottom = 60.0
-custom_minimum_size = Vector2( 18, 18 )
-texture_normal = ExtResource( 27 )
-texture_pressed = ExtResource( 27 )
-texture_hover = ExtResource( 27 )
-texture_disabled = ExtResource( 27 )
-texture_focused = ExtResource( 27 )
+custom_minimum_size = Vector2(18, 18)
+texture_normal = ExtResource("27")
+texture_pressed = ExtResource("27")
+texture_hover = ExtResource("27")
+texture_disabled = ExtResource("27")
+texture_focused = ExtResource("27")
 expand = true
 stretch_mode = 5
 
@@ -589,14 +589,14 @@ offset_top = 10.0
 offset_right = 141.0
 offset_bottom = 39.0
 grow_horizontal = 0
-theme_override_fonts/font = ExtResource( 18 )
+theme_override_fonts/font = ExtResource("18")
 
 [node name="Main" type="Button" parent="TopBar/HBoxContainer2"]
 visible = false
 offset_left = 61.0
 offset_right = 141.0
 offset_bottom = 50.0
-theme_override_fonts/font = ExtResource( 26 )
+theme_override_fonts/font = ExtResource("26")
 text = "Account"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -612,7 +612,7 @@ offset_top = -12.0
 offset_right = 48.0
 offset_bottom = 12.0
 grow_horizontal = 0
-theme_override_fonts/font = ExtResource( 21 )
+theme_override_fonts/font = ExtResource("21")
 text = "00:00:00"
 align = 2
 valign = 1
@@ -625,8 +625,8 @@ offset_left = -11.0
 offset_top = -4.0
 offset_right = 300.0
 offset_bottom = 98.0
-custom_minimum_size = Vector2( 300, 100 )
-theme_override_styles/panel = ExtResource( 22 )
+custom_minimum_size = Vector2(300, 100)
+theme_override_styles/panel = ExtResource("22")
 __meta__ = {
 "_edit_lock_": true
 }
@@ -638,11 +638,11 @@ offset_left = 45.0
 offset_top = 19.0
 offset_right = 194.126
 offset_bottom = -10.0
-theme_override_styles/hover = ExtResource( 17 )
-theme_override_styles/pressed = ExtResource( 17 )
-theme_override_styles/focus = ExtResource( 17 )
-theme_override_styles/normal = ExtResource( 17 )
-theme_override_fonts/font = ExtResource( 21 )
+theme_override_styles/hover = ExtResource("17")
+theme_override_styles/pressed = ExtResource("17")
+theme_override_styles/focus = ExtResource("17")
+theme_override_styles/normal = ExtResource("17")
+theme_override_fonts/font = ExtResource("21")
 text = "Thicket"
 __meta__ = {
 "_edit_lock_": true,
@@ -658,8 +658,8 @@ offset_right = 53.0
 offset_bottom = 31.5
 grow_horizontal = 2
 grow_vertical = 2
-custom_minimum_size = Vector2( 64, 64 )
-texture = ExtResource( 23 )
+custom_minimum_size = Vector2(64, 64)
+texture = ExtResource("23")
 expand = true
 stretch_mode = 6
 __meta__ = {
@@ -667,13 +667,13 @@ __meta__ = {
 }
 
 [node name="bandaid" type="Panel" parent="TopBar/Controls"]
-modulate = Color( 0, 0, 0, 1 )
+modulate = Color(0, 0, 0, 1)
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -20.0
 offset_right = 9.0
 offset_bottom = 71.0
-theme_override_styles/panel = ExtResource( 28 )
+theme_override_styles/panel = ExtResource("28")
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -688,7 +688,7 @@ offset_left = -52.0
 offset_top = -18.3298
 offset_right = -12.0
 offset_bottom = 21.6702
-texture = ExtResource( 24 )
+texture = ExtResource("24")
 expand = true
 stretch_mode = 6
 
@@ -702,9 +702,9 @@ offset_top = 63.0
 offset_bottom = -107.0
 grow_horizontal = 0
 grow_vertical = 0
-custom_minimum_size = Vector2( 250, 570 )
+custom_minimum_size = Vector2(250, 570)
 clip_contents = true
-theme_override_styles/panel = ExtResource( 25 )
+theme_override_styles/panel = ExtResource("25")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Social"]
 offset_left = 1.0
@@ -712,12 +712,12 @@ offset_top = 3.0
 offset_right = 275.0
 offset_bottom = 888.0
 grow_horizontal = 2
-custom_minimum_size = Vector2( 250, 570 )
+custom_minimum_size = Vector2(250, 570)
 scroll_horizontal_enabled = false
 
 [node name="Connections" type="VBoxContainer" parent="Social/ScrollContainer"]
 offset_right = 250.0
-custom_minimum_size = Vector2( 250, 0 )
+custom_minimum_size = Vector2(250, 0)
 theme_override_constants/separation = 12
 alignment = 1
 
@@ -735,14 +735,14 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="DeveloperSetup" parent="Wizards" instance=ExtResource( 29 )]
+[node name="DeveloperSetup" parent="Wizards" instance=ExtResource("29")]
 visible = false
 offset_left = -500.0
 offset_top = -300.0
 offset_right = 500.0
 offset_bottom = 300.0
 
-[node name="Welcome" parent="Wizards" instance=ExtResource( 30 )]
+[node name="Welcome" parent="Wizards" instance=ExtResource("30")]
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
@@ -753,16 +753,17 @@ offset_top = -350.0
 offset_right = 300.0
 offset_bottom = 350.0
 
-[node name="WelcomeSetup" parent="Wizards" instance=ExtResource( 31 )]
+[node name="WelcomeSetup" parent="Wizards" instance=ExtResource("31")]
 visible = false
 
-[node name="Navi" parent="." instance=ExtResource( 32 )]
+[node name="Navi" parent="." instance=ExtResource("32")]
 offset_top = -67.0
 offset_bottom = 14.0
 
-[node name="Loading" parent="." instance=ExtResource( 33 )]
+[node name="Loading" parent="." instance=ExtResource("33")]
 visible = false
 mouse_default_cursor_shape = 5
+
 [connection signal="checksteem" from="." to="." method="_on_MainWindow_checksteem"]
 [connection signal="loading_complete" from="." to="." method="_on_MainWindow_loading_complete"]
 [connection signal="loading_start" from="." to="." method="_on_MainWindow_loading_start"]

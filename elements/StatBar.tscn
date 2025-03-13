@@ -1,13 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://boyfkwmakmmyy"]
 
-[ext_resource path="res://Fonts/subtitle.tres" type="FontFile" id=1]
+[ext_resource type="FontFile" path="res://Fonts/subtitle.tres" id="1"]
 
 [node name="StatBar" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -1652.0
 offset_bottom = -960.0
-custom_minimum_size = Vector2( 248, 100 )
+custom_minimum_size = Vector2(248, 100)
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -29,7 +29,7 @@ offset_bottom = 13.0
 offset_top = 21.0
 offset_right = 248.0
 offset_bottom = 40.0
-theme_override_fonts/font = ExtResource( 1 )
+theme_override_fonts/font = ExtResource("1")
 text = "Stat"
 
 [node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
@@ -47,7 +47,7 @@ offset_bottom = 79.0
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
 offset_right = 50.0
 offset_bottom = 19.0
-theme_override_fonts/font = ExtResource( 1 )
+theme_override_fonts/font = ExtResource("1")
 text = "Total"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]

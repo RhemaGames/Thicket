@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://bm08mvpg425c5"]
 
-[ext_resource path="res://doublePaneView.gd" type="Script" id=1]
-[ext_resource path="res://elements/MusicInfo.tscn" type="PackedScene" id=2]
+[ext_resource type="Script" uid="uid://hqoep55vyc7p" path="res://doublePaneView.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://duqn3xfir7vf1" path="res://elements/MusicInfo.tscn" id="2"]
 
 [node name="doublePaneView" type="HSplitContainer"]
 anchor_right = 1.0
@@ -9,17 +9,17 @@ anchor_bottom = 1.0
 grow_vertical = 2
 split_offset = 140
 dragger_visibility = 2
-script = ExtResource( 1 )
+script = ExtResource("1")
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Panel" type="Panel" parent="."]
 editor/display_folded = true
-self_modulate = Color( 1, 1, 1, 0.513726 )
+self_modulate = Color(1, 1, 1, 0.513726)
 offset_right = 1340.0
 offset_bottom = 1060.0
-custom_minimum_size = Vector2( 1200, 800 )
+custom_minimum_size = Vector2(1200, 800)
 
 [node name="listView" type="ScrollContainer" parent="Panel"]
 editor/display_folded = true
@@ -27,19 +27,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 3.0
 offset_bottom = -26.0
-custom_minimum_size = Vector2( 500, 500 )
+custom_minimum_size = Vector2(500, 500)
 
 [node name="list" type="VBoxContainer" parent="Panel/listView"]
 theme_override_constants/separation = 0
 
-[node name="MusicInfo" parent="." instance=ExtResource( 2 )]
+[node name="MusicInfo" parent="." instance=ExtResource("2")]
 offset_left = 1340.0
 offset_right = 1900.0
 offset_bottom = 1060.0
-custom_minimum_size = Vector2( 400, 0 )
+custom_minimum_size = Vector2(400, 0)
 
 [node name="resize_timer" type="Timer" parent="."]
 wait_time = 0.1
+
 [connection signal="create_list" from="." to="." method="create_list"]
 [connection signal="get_playlist" from="." to="." method="_on_doublePaneView_get_playlist"]
 [connection signal="timeout" from="resize_timer" to="." method="_on_resize_timer_timeout"]

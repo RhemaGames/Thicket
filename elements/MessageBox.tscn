@@ -1,24 +1,24 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://ckj6kq4ud8b6h"]
 
-[ext_resource path="res://elements/MessageBox.gd" type="Script" id=1]
-[ext_resource path="res://elements/Contact.tscn" type="PackedScene" id=2]
+[ext_resource type="Script" uid="uid://wvwef6lti3ff" path="res://elements/MessageBox.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://7ebs108gkwir" path="res://elements/Contact.tscn" id="2"]
 
 [node name="MessageBox" type="Panel"]
 offset_right = 840.0
 offset_bottom = 80.0
-custom_minimum_size = Vector2( 840, 80 )
+custom_minimum_size = Vector2(840, 80)
 clip_contents = true
-script = ExtResource( 1 )
+script = ExtResource("1")
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Contact" parent="." instance=ExtResource( 2 )]
+[node name="Contact" parent="." instance=ExtResource("2")]
 offset_left = 10.4455
 offset_top = 8.10462
 offset_right = 70.4455
 offset_bottom = 68.1046
-custom_minimum_size = Vector2( 60, 60 )
+custom_minimum_size = Vector2(60, 60)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = 84.0
@@ -32,13 +32,13 @@ offset_bottom = 25.0
 theme_override_constants/separation = 40
 
 [node name="name" type="Label" parent="VBoxContainer/HBoxContainer"]
-self_modulate = Color( 0.917647, 0.94902, 0.235294, 1 )
+self_modulate = Color(0.917647, 0.94902, 0.235294, 1)
 offset_right = 119.0
 offset_bottom = 25.0
 text = "User name"
 
 [node name="date" type="Label" parent="VBoxContainer/HBoxContainer"]
-self_modulate = Color( 0.662745, 0.662745, 0.662745, 1 )
+self_modulate = Color(0.662745, 0.662745, 0.662745, 1)
 offset_left = 159.0
 offset_right = 207.0
 offset_bottom = 25.0
@@ -51,4 +51,5 @@ offset_left = 95.0
 offset_top = 44.0
 grow_horizontal = 2
 autowrap = true
+
 [connection signal="size_flags_changed" from="msg" to="." method="_on_msg_size_flags_changed"]

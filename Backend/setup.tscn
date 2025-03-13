@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://7npga7l4kidf"]
 
-[ext_resource type="Script" path="res://Backend/setup.gd" id="1_6oph3"]
+[ext_resource type="Script" uid="uid://clg8r7xrrc4c6" path="res://Backend/setup.gd" id="1_6oph3"]
 [ext_resource type="Texture2D" uid="uid://be4ubodla2jty" path="res://Img/thicket.png" id="2_1lo7j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v27rc"]

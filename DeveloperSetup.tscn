@@ -1,12 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=8 format=3 uid="uid://j200ck24c3jx"]
 
-[ext_resource path="res://default.theme" type="Theme" id=1]
-[ext_resource path="res://DeveloperSetup.gd" type="Script" id=2]
-[ext_resource path="res://popup.tres" type="StyleBox" id=3]
-[ext_resource path="res://icon.png" type="Texture2D" id=4]
-[ext_resource path="res://Fonts/titleFont.tres" type="FontFile" id=5]
-[ext_resource path="res://Img/Games.png" type="Texture2D" id=6]
-[ext_resource path="res://border.tres" type="StyleBox" id=7]
+[ext_resource type="Theme" path="res://default.theme" id="1"]
+[ext_resource type="Script" uid="uid://bc2555u8f1wpg" path="res://DeveloperSetup.gd" id="2"]
+[ext_resource type="StyleBox" path="res://popup.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://d2f2u5kc018nl" path="res://icon.png" id="4"]
+[ext_resource type="FontFile" path="res://Fonts/titleFont.tres" id="5"]
+[ext_resource type="Texture2D" uid="uid://cyp8dtdypiniw" path="res://Img/Games.png" id="6"]
+[ext_resource type="StyleBox" path="res://border.tres" id="7"]
 
 [node name="DeveloperSetup" type="Control"]
 anchor_left = 0.5
@@ -17,22 +17,22 @@ offset_left = -394.5
 offset_top = -263.5
 offset_right = 394.5
 offset_bottom = 263.5
-custom_minimum_size = Vector2( 1000, 600 )
-theme = ExtResource( 1 )
-script = ExtResource( 2 )
+custom_minimum_size = Vector2(1000, 600)
+theme = ExtResource("1")
+script = ExtResource("2")
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="shadow" type="Panel" parent="."]
-modulate = Color( 0.0784314, 0.945098, 0.211765, 0.635294 )
+modulate = Color(0.0784314, 0.945098, 0.211765, 0.635294)
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 35.0
 offset_top = 18.0
 offset_right = 13.0
 offset_bottom = -6.0
-theme_override_styles/panel = ExtResource( 3 )
+theme_override_styles/panel = ExtResource("3")
 __meta__ = {
 "_edit_lock_": true
 }
@@ -44,22 +44,22 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-custom_minimum_size = Vector2( 999, 599 )
+custom_minimum_size = Vector2(999, 599)
 clip_contents = true
-theme_override_styles/panel = ExtResource( 3 )
+theme_override_styles/panel = ExtResource("3")
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="TextureRect" type="TextureRect" parent="Panel"]
-modulate = Color( 1, 1, 1, 0.0117647 )
+modulate = Color(1, 1, 1, 0.0117647)
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 34.0
 offset_top = 34.0
 offset_right = -28.0
 offset_bottom = -15.0
-texture = ExtResource( 4 )
+texture = ExtResource("4")
 expand = true
 stretch_mode = 6
 __meta__ = {
@@ -99,7 +99,7 @@ offset_left = -482.5
 offset_top = -185.5
 offset_right = 486.5
 offset_bottom = 208.5
-custom_minimum_size = Vector2( 0, 220 )
+custom_minimum_size = Vector2(0, 220)
 bbcode_enabled = true
 text = "Greetings, 
 
@@ -138,7 +138,7 @@ offset_left = -61.608
 offset_top = -271.678
 offset_right = 106.392
 offset_bottom = -242.678
-theme_override_fonts/font = ExtResource( 5 )
+theme_override_fonts/font = ExtResource("5")
 text = "General Info"
 uppercase = true
 __meta__ = {
@@ -316,7 +316,7 @@ __meta__ = {
 [node name="title" type="Label" parent="Panel/Verify/VBoxContainer"]
 offset_right = 987.0
 offset_bottom = 29.0
-theme_override_fonts/font = ExtResource( 5 )
+theme_override_fonts/font = ExtResource("5")
 text = "Verify your Account"
 align = 1
 valign = 1
@@ -355,7 +355,7 @@ offset_left = -41.5
 offset_top = 14.0
 offset_right = 41.5
 offset_bottom = 28.0
-theme_override_fonts/font = ExtResource( 5 )
+theme_override_fonts/font = ExtResource("5")
 text = "Look & Feel"
 uppercase = true
 
@@ -370,7 +370,7 @@ offset_left = 14.0
 offset_top = 70.0
 offset_right = -14.0
 offset_bottom = 185.0
-texture_normal = ExtResource( 6 )
+texture_normal = ExtResource("6")
 expand = true
 stretch_mode = 6
 __meta__ = {
@@ -395,7 +395,7 @@ offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = ExtResource( 7 )
+theme_override_styles/panel = ExtResource("7")
 
 [node name="Avatar" type="TextureButton" parent="Panel/Files"]
 anchor_right = 1.0
@@ -403,7 +403,7 @@ offset_left = 11.39
 offset_top = 229.707
 offset_right = -642.61
 offset_bottom = 350.707
-texture_normal = ExtResource( 4 )
+texture_normal = ExtResource("4")
 expand = true
 stretch_mode = 5
 __meta__ = {
@@ -427,7 +427,7 @@ offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = ExtResource( 7 )
+theme_override_styles/panel = ExtResource("7")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel/Files"]
 anchor_right = 1.0
@@ -472,7 +472,7 @@ offset_left = -481.5
 offset_top = -219.5
 offset_right = 480.5
 offset_bottom = 73.5
-custom_minimum_size = Vector2( 0, 160 )
+custom_minimum_size = Vector2(0, 160)
 bbcode_enabled = true
 text = "Your Developer Account has been created, and the world now knows of your existance (Well a very small part of the world).
 
@@ -500,7 +500,7 @@ offset_right = 223.0
 offset_bottom = 154.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_minimum_size = Vector2( 300, 0 )
+custom_minimum_size = Vector2(300, 0)
 max_length = 255
 expand_to_text_length = true
 placeholder_text = "Developer ID"
@@ -549,12 +549,13 @@ offset_left = 347.503
 offset_top = 74.5717
 offset_right = 696.503
 offset_bottom = 475.572
-theme = ExtResource( 1 )
+theme = ExtResource("1")
 window_title = "Open a File"
 mode = 0
 access = 2
 current_dir = "/mnt/extended/Games/Thicket"
 current_path = "/mnt/extended/Games/Thicket/"
+
 [connection signal="display" from="." to="." method="_on_DeveloperSetup_display"]
 [connection signal="pressed" from="Panel/Files/Banner" to="." method="_on_Banner_pressed"]
 [connection signal="pressed" from="Panel/Files/Avatar" to="." method="_on_Avatar_pressed"]

@@ -1,29 +1,29 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://bgb4y478211f"]
 
-[ext_resource path="res://elements/Loading.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture2D" id=2]
+[ext_resource type="Script" uid="uid://b6s4i5tjvev6q" path="res://elements/Loading.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://d2f2u5kc018nl" path="res://icon.png" id="2"]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id="1"]
 resource_name = "loop"
 length = 3.0
-loop = true
+loop_mode = 1
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("TextureRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 1.4, 2.9 ),
-"transitions": PackedFloat32Array( 1, 1, 1 ),
+"times": PackedFloat32Array(0, 1.4, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.160784 ), Color( 1, 1, 1, 0.988235 ) ]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.160784), Color(1, 1, 1, 0.988235)]
 }
 
 [node name="Loading" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
+script = ExtResource("1")
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -33,7 +33,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color( 1, 1, 1, 0.988235 )
+modulate = Color(1, 1, 1, 0.988235)
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -42,10 +42,10 @@ offset_left = -62.5
 offset_top = -62.5
 offset_right = 62.5
 offset_bottom = 62.5
-texture = ExtResource( 2 )
+texture = ExtResource("2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/loop = SubResource( 1 )
+anims/loop = SubResource("1")
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
@@ -64,6 +64,7 @@ valign = 1
 
 [node name="trackandartist" type="Timer" parent="."]
 wait_time = 0.5
+
 [connection signal="alldone" from="." to="." method="_on_Loading_alldone"]
 [connection signal="bootup" from="." to="." method="_on_Loading_bootup"]
 [connection signal="next" from="." to="." method="_on_Loading_next"]

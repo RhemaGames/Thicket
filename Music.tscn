@@ -1,33 +1,33 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=17 format=3 uid="uid://dv5rqxmrvavkg"]
 
-[ext_resource path="res://default.theme" type="Theme" id=1]
-[ext_resource path="res://Music.gd" type="Script" id=2]
-[ext_resource path="res://Fonts/titleFont.tres" type="FontFile" id=3]
-[ext_resource path="res://menu.tres" type="StyleBox" id=4]
-[ext_resource path="res://Img/Music.png" type="Texture2D" id=5]
-[ext_resource path="res://playlists.gd" type="Script" id=6]
-[ext_resource path="res://Img/view-list-symbolic.svg" type="Texture2D" id=7]
-[ext_resource path="res://Img/view-grid-symbolic.svg" type="Texture2D" id=8]
-[ext_resource path="res://AllMusic.tscn" type="PackedScene" id=9]
-[ext_resource path="res://ArtistView.tscn" type="PackedScene" id=10]
-[ext_resource path="res://doublePaneView.tscn" type="PackedScene" id=11]
-[ext_resource path="res://AllArtists.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Search.tscn" type="PackedScene" id=13]
-[ext_resource path="res://elements/libraryView_Music.tscn" type="PackedScene" id=14]
-[ext_resource path="res://elements/PlaylistAdd.tscn" type="PackedScene" id=15]
-[ext_resource path="res://elements/NewPlaylist.tscn" type="PackedScene" id=16]
+[ext_resource type="Theme" path="res://default.theme" id="1"]
+[ext_resource type="Script" uid="uid://c71jpvucq8j1w" path="res://Music.gd" id="2"]
+[ext_resource type="FontFile" path="res://Fonts/titleFont.tres" id="3"]
+[ext_resource type="StyleBox" path="res://menu.tres" id="4"]
+[ext_resource type="Texture2D" uid="uid://dcmjb56xccwdv" path="res://Img/Music.png" id="5"]
+[ext_resource type="Script" uid="uid://bqlk4el4e7b38" path="res://playlists.gd" id="6"]
+[ext_resource type="Texture2D" uid="uid://hk3x7d0tmdy5" path="res://Img/view-list-symbolic.svg" id="7"]
+[ext_resource type="Texture2D" uid="uid://c6m7usgh8k0pi" path="res://Img/view-grid-symbolic.svg" id="8"]
+[ext_resource type="PackedScene" uid="uid://b82q482ufxmil" path="res://AllMusic.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://c646y81bwbytr" path="res://ArtistView.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://bm08mvpg425c5" path="res://doublePaneView.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://b10j8eg78ym23" path="res://AllArtists.tscn" id="12"]
+[ext_resource type="PackedScene" path="res://Search.tscn" id="13"]
+[ext_resource type="PackedScene" uid="uid://bkdumcmm1u6n3" path="res://elements/libraryView_Music.tscn" id="14"]
+[ext_resource type="PackedScene" uid="uid://b6tk4xy51523o" path="res://elements/PlaylistAdd.tscn" id="15"]
+[ext_resource type="PackedScene" uid="uid://ctkdkqt8sjn7m" path="res://elements/NewPlaylist.tscn" id="16"]
 
 [node name="Music" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 1 )
-script = ExtResource( 2 )
+theme = ExtResource("1")
+script = ExtResource("2")
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Panel" type="Panel" parent="."]
-self_modulate = Color( 1, 1, 1, 0.917647 )
+self_modulate = Color(1, 1, 1, 0.917647)
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -39,7 +39,7 @@ offset_left = -39.0444
 offset_top = 10.0
 offset_right = 11.9556
 offset_bottom = 25.0
-theme_override_fonts/font = ExtResource( 3 )
+theme_override_fonts/font = ExtResource("3")
 text = "Where?"
 align = 1
 valign = 1
@@ -52,9 +52,9 @@ __meta__ = {
 visible = false
 anchor_bottom = 1.0
 offset_right = 220.0
-custom_minimum_size = Vector2( 220, 0 )
+custom_minimum_size = Vector2(220, 0)
 clip_contents = true
-theme_override_styles/panel = ExtResource( 4 )
+theme_override_styles/panel = ExtResource("4")
 
 [node name="TextureRect" type="TextureRect" parent="mainMenu"]
 anchor_left = 0.5
@@ -63,7 +63,7 @@ offset_left = -81.108
 offset_top = 42.8678
 offset_right = 80.892
 offset_bottom = 105.868
-texture = ExtResource( 5 )
+texture = ExtResource("5")
 expand = true
 stretch_mode = 6
 
@@ -101,7 +101,7 @@ align = 0
 offset_top = 78.0
 offset_right = 163.0
 offset_bottom = 88.0
-custom_minimum_size = Vector2( 0, 10 )
+custom_minimum_size = Vector2(0, 10)
 
 [node name="all" type="Button" parent="mainMenu/generalOpts"]
 offset_top = 92.0
@@ -179,8 +179,8 @@ offset_right = 190.0
 offset_bottom = 188.0
 text = "Others"
 align = 0
-items = [ "", null, 0, false, false, -1, 0, null, "", true, "New", null, 0, false, false, -1, 0, null, "", false, "", null, 0, false, false, -1, 0, null, "", true ]
-script = ExtResource( 6 )
+items = ["", null, 0, false, false, -1, 0, null, "", true, "New", null, 0, false, false, -1, 0, null, "", false, "", null, 0, false, false, -1, 0, null, "", true]
+script = ExtResource("6")
 
 [node name="curated" type="VBoxContainer" parent="mainMenu"]
 anchor_left = 0.5
@@ -282,7 +282,7 @@ __meta__ = {
 [node name="listview" type="Button" parent="viewOpts"]
 offset_right = 26.0
 offset_bottom = 106.0
-icon = ExtResource( 7 )
+icon = ExtResource("7")
 flat = true
 
 [node name="VSeparator" type="VSeparator" parent="viewOpts"]
@@ -294,7 +294,7 @@ offset_bottom = 106.0
 offset_left = 42.0
 offset_right = 148.0
 offset_bottom = 106.0
-icon = ExtResource( 8 )
+icon = ExtResource("8")
 flat = true
 
 [node name="ListViewLegend" type="HBoxContainer" parent="."]
@@ -312,7 +312,7 @@ __meta__ = {
 offset_top = 2.0
 offset_right = 500.0
 offset_bottom = 16.0
-custom_minimum_size = Vector2( 500, 0 )
+custom_minimum_size = Vector2(500, 0)
 text = "Song Title"
 
 [node name="VSeparator" type="VSeparator" parent="ListViewLegend"]
@@ -325,7 +325,7 @@ offset_left = 512.0
 offset_top = 2.0
 offset_right = 692.0
 offset_bottom = 16.0
-custom_minimum_size = Vector2( 180, 0 )
+custom_minimum_size = Vector2(180, 0)
 text = "Artist"
 
 [node name="VSeparator2" type="VSeparator" parent="ListViewLegend"]
@@ -338,7 +338,7 @@ offset_left = 704.0
 offset_top = 2.0
 offset_right = 759.0
 offset_bottom = 16.0
-custom_minimum_size = Vector2( 55, 0 )
+custom_minimum_size = Vector2(55, 0)
 text = "Duration"
 valign = 1
 
@@ -353,7 +353,7 @@ offset_left = 771.0
 offset_top = 2.0
 offset_right = 951.0
 offset_bottom = 16.0
-custom_minimum_size = Vector2( 180, 0 )
+custom_minimum_size = Vector2(180, 0)
 text = "File Name"
 
 [node name="HSeparator" type="HSeparator" parent="."]
@@ -367,29 +367,29 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="AllMusic" parent="." instance=ExtResource( 9 )]
+[node name="AllMusic" parent="." instance=ExtResource("9")]
 offset_left = 1.0
 offset_top = 1.0
 offset_bottom = -3.0
 
-[node name="ArtistView" parent="." instance=ExtResource( 10 )]
+[node name="ArtistView" parent="." instance=ExtResource("10")]
 visible = false
 offset_top = -1.0
 
-[node name="OptionView" parent="." instance=ExtResource( 11 )]
+[node name="OptionView" parent="." instance=ExtResource("11")]
 visible = false
 offset_bottom = -53.0
 
-[node name="AllArtists" parent="." instance=ExtResource( 12 )]
+[node name="AllArtists" parent="." instance=ExtResource("12")]
 visible = false
 offset_left = 2.0
 offset_right = -1.0
 offset_bottom = -1.0
 
-[node name="Search" parent="." instance=ExtResource( 13 )]
+[node name="Search" parent="." instance=ExtResource("13")]
 visible = false
 
-[node name="libraryView" parent="." instance=ExtResource( 14 )]
+[node name="libraryView" parent="." instance=ExtResource("14")]
 visible = false
 offset_left = 4.0
 offset_top = -1.0
@@ -404,11 +404,12 @@ use_threads = true
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 
-[node name="PlaylistAdd" parent="." instance=ExtResource( 15 )]
+[node name="PlaylistAdd" parent="." instance=ExtResource("15")]
 visible = false
 
-[node name="NewPlaylist" parent="." instance=ExtResource( 16 )]
+[node name="NewPlaylist" parent="." instance=ExtResource("16")]
 visible = false
+
 [connection signal="download" from="." to="." method="_on_Music_download"]
 [connection signal="download_complete" from="." to="." method="_on_Music_download_complete"]
 [connection signal="play" from="." to="." method="_on_Music_play"]

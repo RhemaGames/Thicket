@@ -1,65 +1,65 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=7 format=3 uid="uid://wb4g58wpxxuq"]
 
-[ext_resource path="res://item.tres" type="StyleBox" id=1]
-[ext_resource path="res://elements/MusicBoxLarge.gd" type="Script" id=2]
-[ext_resource path="res://Img/folder-music-symbolic.svg" type="Texture2D" id=3]
-[ext_resource path="res://Fonts/titleFont.tres" type="FontFile" id=4]
+[ext_resource type="StyleBox" path="res://item.tres" id="1"]
+[ext_resource type="Script" uid="uid://ceskhcxqvyssl" path="res://elements/MusicBoxLarge.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://bhwprl3ou23oo" path="res://Img/folder-music-symbolic.svg" id="3"]
+[ext_resource type="FontFile" path="res://Fonts/titleFont.tres" id="4"]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id="1"]
 resource_name = "active"
 length = 0.5
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.4 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0, 0.3, 0.4, 0.5 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [ Vector2( 0.2, 0.2 ), Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+"values": [Vector2(0.2, 0.2), Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 resource_name = "highlight"
 length = 0.3
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ) ]
+"values": [Vector2(1, 1), Vector2(1.1, 1.1)]
 }
 
 [node name="MusicBoxLarge" type="Panel"]
-modulate = Color( 1, 1, 1, 0 )
-self_modulate = Color( 1, 1, 1, 0.235294 )
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0.235294)
 offset_left = 1.36035
 offset_right = 301.36
 offset_bottom = 300.0
-custom_minimum_size = Vector2( 300, 300 )
-scale = Vector2( 0.2, 0.2 )
-pivot_offset = Vector2( 99.3522, 106.967 )
-theme_override_styles/panel = ExtResource( 1 )
-script = ExtResource( 2 )
+custom_minimum_size = Vector2(300, 300)
+scale = Vector2(0.2, 0.2)
+pivot_offset = Vector2(99.3522, 106.967)
+theme_override_styles/panel = ExtResource("1")
+script = ExtResource("2")
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -71,8 +71,8 @@ offset_left = -119.0
 offset_top = -8.0
 offset_right = 111.0
 offset_bottom = 214.0
-custom_minimum_size = Vector2( 180, 180 )
-texture = ExtResource( 3 )
+custom_minimum_size = Vector2(180, 180)
+texture = ExtResource("3")
 expand = true
 stretch_mode = 1
 
@@ -87,7 +87,7 @@ offset_right = 83.0
 offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource( 4 )
+theme_override_fonts/font = ExtResource("4")
 text = "Title"
 align = 1
 valign = 1
@@ -117,13 +117,14 @@ __meta__ = {
 use_threads = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/active = SubResource( 1 )
-anims/highlight = SubResource( 2 )
+anims/active = SubResource("1")
+anims/highlight = SubResource("2")
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="highlight_timer" type="Timer" parent="."]
 wait_time = 0.2
+
 [connection signal="gui_input" from="." to="." method="_on_MusicBoxLarge_gui_input"]
 [connection signal="refresh" from="." to="." method="_on_MusicBoxLarge_refresh"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

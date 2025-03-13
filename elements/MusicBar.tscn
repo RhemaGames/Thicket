@@ -1,14 +1,14 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=10 format=3 uid="uid://bhfqsu0c1c2ds"]
 
-[ext_resource path="res://default.theme" type="Theme" id=1]
-[ext_resource path="res://elements/control_backing.tres" type="StyleBox" id=2]
-[ext_resource path="res://elements/MusicBar.gd" type="Script" id=3]
-[ext_resource path="res://elements/control_popout.tres" type="StyleBox" id=4]
-[ext_resource path="res://Img/media-skip-backward-symbolic.svg" type="Texture2D" id=5]
-[ext_resource path="res://Img/media-playback-start-symbolic.svg" type="Texture2D" id=6]
-[ext_resource path="res://Img/media-skip-forward-symbolic.svg" type="Texture2D" id=7]
-[ext_resource path="res://icon.png" type="Texture2D" id=8]
-[ext_resource path="res://elements/bandaid.tres" type="StyleBox" id=9]
+[ext_resource type="Theme" path="res://default.theme" id="1"]
+[ext_resource type="StyleBox" path="res://elements/control_backing.tres" id="2"]
+[ext_resource type="Script" uid="uid://donc01ovnly7c" path="res://elements/MusicBar.gd" id="3"]
+[ext_resource type="StyleBox" path="res://elements/control_popout.tres" id="4"]
+[ext_resource type="Texture2D" uid="uid://bu4gi2qf3f4bc" path="res://Img/media-skip-backward-symbolic.svg" id="5"]
+[ext_resource type="Texture2D" uid="uid://dm02axafr5ndf" path="res://Img/media-playback-start-symbolic.svg" id="6"]
+[ext_resource type="Texture2D" uid="uid://c7h8srencrouh" path="res://Img/media-skip-forward-symbolic.svg" id="7"]
+[ext_resource type="Texture2D" uid="uid://d2f2u5kc018nl" path="res://icon.png" id="8"]
+[ext_resource type="StyleBox" path="res://elements/bandaid.tres" id="9"]
 
 [node name="MusicBar" type="Panel"]
 anchor_top = 1.0
@@ -18,10 +18,10 @@ offset_left = -8.0
 offset_top = -80.2959
 offset_right = 4.0
 offset_bottom = 1.7041
-custom_minimum_size = Vector2( 0, 76 )
-theme = ExtResource( 1 )
-theme_override_styles/panel = ExtResource( 2 )
-script = ExtResource( 3 )
+custom_minimum_size = Vector2(0, 76)
+theme = ExtResource("1")
+theme_override_styles/panel = ExtResource("2")
+script = ExtResource("3")
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -33,7 +33,7 @@ anchor_right = 1.00575
 anchor_bottom = 0.996581
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource( 4 )
+theme_override_styles/panel = ExtResource("4")
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": true
@@ -50,7 +50,7 @@ offset_right = 76.0
 offset_bottom = 5.54517
 grow_horizontal = 2
 grow_vertical = 2
-custom_minimum_size = Vector2( 0, 28 )
+custom_minimum_size = Vector2(0, 28)
 theme_override_constants/separation = 20
 alignment = 1
 __meta__ = {
@@ -60,12 +60,12 @@ __meta__ = {
 [node name="lasttrack" type="TextureButton" parent="PlayerControls/HBoxContainer"]
 offset_right = 32.0
 offset_bottom = 48.0
-custom_minimum_size = Vector2( 32, 32 )
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 5 )
-texture_disabled = ExtResource( 5 )
-texture_focused = ExtResource( 5 )
+custom_minimum_size = Vector2(32, 32)
+texture_normal = ExtResource("5")
+texture_pressed = ExtResource("5")
+texture_hover = ExtResource("5")
+texture_disabled = ExtResource("5")
+texture_focused = ExtResource("5")
 expand = true
 stretch_mode = 5
 
@@ -73,12 +73,12 @@ stretch_mode = 5
 offset_left = 52.0
 offset_right = 100.0
 offset_bottom = 48.0
-custom_minimum_size = Vector2( 48, 48 )
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 6 )
-texture_hover = ExtResource( 6 )
-texture_disabled = ExtResource( 6 )
-texture_focused = ExtResource( 6 )
+custom_minimum_size = Vector2(48, 48)
+texture_normal = ExtResource("6")
+texture_pressed = ExtResource("6")
+texture_hover = ExtResource("6")
+texture_disabled = ExtResource("6")
+texture_focused = ExtResource("6")
 expand = true
 stretch_mode = 5
 
@@ -86,36 +86,36 @@ stretch_mode = 5
 offset_left = 120.0
 offset_right = 152.0
 offset_bottom = 48.0
-custom_minimum_size = Vector2( 32, 32 )
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 7 )
-texture_hover = ExtResource( 7 )
-texture_disabled = ExtResource( 7 )
-texture_focused = ExtResource( 7 )
+custom_minimum_size = Vector2(32, 32)
+texture_normal = ExtResource("7")
+texture_pressed = ExtResource("7")
+texture_hover = ExtResource("7")
+texture_disabled = ExtResource("7")
+texture_focused = ExtResource("7")
 expand = true
 stretch_mode = 5
 
 [node name="Panel" type="Panel" parent="PlayerControls"]
-modulate = Color( 0, 0, 0, 1 )
+modulate = Color(0, 0, 0, 1)
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = -11.0
 offset_top = -14.0
 offset_right = 12.0
 offset_bottom = 57.0
-theme_override_styles/panel = ExtResource( 9 )
+theme_override_styles/panel = ExtResource("9")
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PlayerStatus" type="Panel" parent="."]
-self_modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color(1, 1, 1, 0)
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = -35.0
 offset_right = 693.0
 offset_bottom = 36.0
-theme_override_styles/panel = ExtResource( 2 )
+theme_override_styles/panel = ExtResource("2")
 
 [node name="playing" type="TextureRect" parent="PlayerStatus"]
 anchor_top = 0.5
@@ -124,7 +124,7 @@ offset_left = 18.7675
 offset_top = -35.6088
 offset_right = 78.7671
 offset_bottom = 24.3913
-texture = ExtResource( 8 )
+texture = ExtResource("8")
 expand = true
 stretch_mode = 6
 
@@ -135,7 +135,7 @@ offset_left = 71.0
 offset_top = -21.0001
 offset_right = 469.0
 offset_bottom = 2.99995
-custom_minimum_size = Vector2( 305, 14 )
+custom_minimum_size = Vector2(305, 14)
 text = "No Track Selected"
 autowrap = true
 max_lines_visible = 2
@@ -148,7 +148,7 @@ offset_left = 450.0
 offset_top = -14.0
 offset_right = 663.0
 offset_bottom = 10.0
-custom_minimum_size = Vector2( 213, 14 )
+custom_minimum_size = Vector2(213, 14)
 text = "No Artist"
 clip_text = true
 
@@ -202,6 +202,7 @@ offset_right = -88.446
 offset_bottom = 19.7293
 text = "Please Wait..."
 uppercase = true
+
 [connection signal="playing" from="." to="." method="_on_MusicBar_playing"]
 [connection signal="playlist_loaded" from="." to="." method="_on_MusicBar_playlist_loaded"]
 [connection signal="playposition" from="." to="." method="_on_MusicBar_playposition"]

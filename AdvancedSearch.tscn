@@ -1,16 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://b5i1i635jaepk"]
 
-[ext_resource path="res://default.theme" type="Theme" id=1]
-[ext_resource path="res://AdvancedSearch.gd" type="Script" id=2]
-[ext_resource path="res://Fonts/titleFont.tres" type="FontFile" id=3]
-[ext_resource path="res://popup.tres" type="StyleBox" id=4]
+[ext_resource type="Theme" path="res://default.theme" id="1"]
+[ext_resource type="Script" uid="uid://j5vtstqoi52n" path="res://AdvancedSearch.gd" id="2"]
+[ext_resource type="FontFile" path="res://Fonts/titleFont.tres" id="3"]
+[ext_resource type="StyleBox" path="res://popup.tres" id="4"]
 
 [node name="AdvancedSearch" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 clip_contents = true
-theme = ExtResource( 1 )
-script = ExtResource( 2 )
+theme = ExtResource("1")
+script = ExtResource("2")
 
 [node name="Panel" type="Panel" parent="."]
 anchor_right = 1.0
@@ -19,7 +19,7 @@ anchor_bottom = 1.0
 [node name="Search" type="Control" parent="Panel"]
 anchor_bottom = 1.0
 offset_right = 180.0
-custom_minimum_size = Vector2( 180, 720 )
+custom_minimum_size = Vector2(180, 720)
 
 [node name="Panel" type="Panel" parent="Panel/Search"]
 anchor_right = 1.0
@@ -54,7 +54,7 @@ offset_right = 1148.0
 offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource( 3 )
+theme_override_fonts/font = ExtResource("3")
 text = "Search"
 align = 1
 valign = 1
@@ -69,29 +69,29 @@ offset_bottom = 28.0
 offset_top = 32.0
 offset_right = 1148.0
 offset_bottom = 662.0
-custom_minimum_size = Vector2( 600, 630 )
+custom_minimum_size = Vector2(600, 630)
 
 [node name="Main" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer"]
 offset_right = 1120.0
 offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_minimum_size = Vector2( 1120, 0 )
+custom_minimum_size = Vector2(1120, 0)
 theme_override_constants/separation = 40
 
 [node name="spacer" type="Control" parent="Panel/VBoxContainer/ScrollContainer/Main"]
 offset_right = 1120.0
 offset_bottom = 5.0
-custom_minimum_size = Vector2( 0, 5 )
+custom_minimum_size = Vector2(0, 5)
 
 [node name="UserSearch" type="PanelContainer" parent="Panel/VBoxContainer/ScrollContainer/Main"]
 visible = false
 offset_top = 45.0
 offset_right = 1130.0
 offset_bottom = 105.0
-custom_minimum_size = Vector2( 1130, 0 )
+custom_minimum_size = Vector2(1130, 0)
 clip_contents = true
-theme_override_styles/panel = ExtResource( 4 )
+theme_override_styles/panel = ExtResource("4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/Main/UserSearch"]
 offset_left = 10.0
@@ -102,7 +102,7 @@ offset_bottom = 50.0
 [node name="Title" type="Label" parent="Panel/VBoxContainer/ScrollContainer/Main/UserSearch/VBoxContainer"]
 offset_right = 1110.0
 offset_bottom = 19.0
-theme_override_fonts/font = ExtResource( 3 )
+theme_override_fonts/font = ExtResource("3")
 text = "Users"
 
 [node name="HSeparator" type="HSeparator" parent="Panel/VBoxContainer/ScrollContainer/Main/UserSearch/VBoxContainer"]
@@ -114,7 +114,7 @@ offset_bottom = 27.0
 offset_top = 31.0
 offset_right = 1110.0
 offset_bottom = 36.0
-custom_minimum_size = Vector2( 0, 5 )
+custom_minimum_size = Vector2(0, 5)
 
 [node name="none" type="Control" parent="Panel/VBoxContainer/ScrollContainer/Main/UserSearch/VBoxContainer"]
 visible = false
@@ -123,7 +123,7 @@ offset_right = 1320.0
 offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_minimum_size = Vector2( 0, 50 )
+custom_minimum_size = Vector2(0, 50)
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/ScrollContainer/Main/UserSearch/VBoxContainer/none"]
 anchor_left = 0.5
@@ -136,7 +136,7 @@ offset_right = 20.0
 offset_bottom = 7.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource( 3 )
+theme_override_fonts/font = ExtResource("3")
 text = "No Users Found"
 align = 1
 valign = 1
@@ -157,9 +157,9 @@ offset_right = 1130.0
 offset_bottom = 206.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_minimum_size = Vector2( 1130, 0 )
+custom_minimum_size = Vector2(1130, 0)
 clip_contents = true
-theme_override_styles/panel = ExtResource( 4 )
+theme_override_styles/panel = ExtResource("4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/Main/MusicSearch"]
 offset_left = 10.0
@@ -170,7 +170,7 @@ offset_bottom = 51.0
 [node name="title" type="Label" parent="Panel/VBoxContainer/ScrollContainer/Main/MusicSearch/VBoxContainer"]
 offset_right = 1110.0
 offset_bottom = 19.0
-theme_override_fonts/font = ExtResource( 3 )
+theme_override_fonts/font = ExtResource("3")
 text = "Music"
 valign = 3
 
@@ -178,7 +178,7 @@ valign = 3
 offset_top = 31.0
 offset_right = 1110.0
 offset_bottom = 41.0
-custom_minimum_size = Vector2( 0, 10 )
+custom_minimum_size = Vector2(0, 10)
 
 [node name="ArtistsSearch" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/Main/MusicSearch/VBoxContainer"]
 visible = false
@@ -203,7 +203,7 @@ offset_bottom = 27.0
 offset_top = 31.0
 offset_right = 1300.0
 offset_bottom = 63.0
-custom_minimum_size = Vector2( 0, 48 )
+custom_minimum_size = Vector2(0, 48)
 
 [node name="none" type="Control" parent="Panel/VBoxContainer/ScrollContainer/Main/MusicSearch/VBoxContainer/ArtistsSearch"]
 editor/display_folded = true
@@ -213,7 +213,7 @@ offset_right = 1300.0
 offset_bottom = 117.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_minimum_size = Vector2( 0, 50 )
+custom_minimum_size = Vector2(0, 50)
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/ScrollContainer/Main/MusicSearch/VBoxContainer/ArtistsSearch/none"]
 anchor_left = 0.5
@@ -226,7 +226,7 @@ offset_right = 20.0
 offset_bottom = 7.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource( 3 )
+theme_override_fonts/font = ExtResource("3")
 text = "No Users Found"
 align = 1
 valign = 1
@@ -235,7 +235,7 @@ valign = 1
 offset_top = 94.0
 offset_right = 1300.0
 offset_bottom = 394.0
-custom_minimum_size = Vector2( 0, 200 )
+custom_minimum_size = Vector2(0, 200)
 theme_override_constants/v_separation = 60
 theme_override_constants/h_separation = 20
 columns = 5
@@ -244,7 +244,7 @@ columns = 5
 offset_top = 31.0
 offset_right = 1110.0
 offset_bottom = 41.0
-custom_minimum_size = Vector2( 0, 30 )
+custom_minimum_size = Vector2(0, 30)
 
 [node name="TrackSearch" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/Main/MusicSearch/VBoxContainer"]
 visible = false
@@ -268,7 +268,7 @@ offset_bottom = 27.0
 offset_top = 31.0
 offset_right = 1280.0
 offset_bottom = 36.0
-custom_minimum_size = Vector2( 0, 5 )
+custom_minimum_size = Vector2(0, 5)
 
 [node name="none" type="Control" parent="Panel/VBoxContainer/ScrollContainer/Main/MusicSearch/VBoxContainer/TrackSearch"]
 editor/display_folded = true
@@ -278,7 +278,7 @@ offset_right = 1300.0
 offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_minimum_size = Vector2( 0, 50 )
+custom_minimum_size = Vector2(0, 50)
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/ScrollContainer/Main/MusicSearch/VBoxContainer/TrackSearch/none"]
 anchor_left = 0.5
@@ -291,7 +291,7 @@ offset_right = 20.0
 offset_bottom = 7.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource( 3 )
+theme_override_fonts/font = ExtResource("3")
 text = "No Tracks Found"
 align = 1
 valign = 1
@@ -306,7 +306,7 @@ theme_override_constants/v_separation = 0
 offset_top = 31.0
 offset_right = 1110.0
 offset_bottom = 41.0
-custom_minimum_size = Vector2( 0, 30 )
+custom_minimum_size = Vector2(0, 30)
 
 [node name="GenreSearch" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/Main/MusicSearch/VBoxContainer"]
 editor/display_folded = true
@@ -318,7 +318,7 @@ offset_bottom = 85.0
 [node name="Title" type="Label" parent="Panel/VBoxContainer/ScrollContainer/Main/MusicSearch/VBoxContainer/GenreSearch"]
 offset_right = 1280.0
 offset_bottom = 19.0
-theme_override_fonts/font = ExtResource( 3 )
+theme_override_fonts/font = ExtResource("3")
 text = "Genre"
 
 [node name="HSeparator" type="HSeparator" parent="Panel/VBoxContainer/ScrollContainer/Main/MusicSearch/VBoxContainer/GenreSearch"]
@@ -330,7 +330,7 @@ offset_bottom = 27.0
 offset_top = 31.0
 offset_right = 1280.0
 offset_bottom = 36.0
-custom_minimum_size = Vector2( 0, 5 )
+custom_minimum_size = Vector2(0, 5)
 
 [node name="none" type="Control" parent="Panel/VBoxContainer/ScrollContainer/Main/MusicSearch/VBoxContainer/GenreSearch"]
 editor/display_folded = true
@@ -340,7 +340,7 @@ offset_right = 1300.0
 offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_minimum_size = Vector2( 0, 50 )
+custom_minimum_size = Vector2(0, 50)
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/ScrollContainer/Main/MusicSearch/VBoxContainer/GenreSearch/none"]
 anchor_left = 0.5
@@ -353,7 +353,7 @@ offset_right = 20.0
 offset_bottom = 7.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource( 3 )
+theme_override_fonts/font = ExtResource("3")
 text = "No Tracks Found"
 align = 1
 valign = 1
@@ -369,9 +369,9 @@ visible = false
 offset_top = 45.0
 offset_right = 1130.0
 offset_bottom = 106.0
-custom_minimum_size = Vector2( 1130, 0 )
+custom_minimum_size = Vector2(1130, 0)
 clip_contents = true
-theme_override_styles/panel = ExtResource( 4 )
+theme_override_styles/panel = ExtResource("4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/Main/GamesSearch"]
 offset_left = 10.0
@@ -382,7 +382,7 @@ offset_bottom = 51.0
 [node name="title" type="Label" parent="Panel/VBoxContainer/ScrollContainer/Main/GamesSearch/VBoxContainer"]
 offset_right = 1120.0
 offset_bottom = 19.0
-theme_override_fonts/font = ExtResource( 3 )
+theme_override_fonts/font = ExtResource("3")
 text = "Games / Applications"
 
 [node name="HSeparator" type="HSeparator" parent="Panel/VBoxContainer/ScrollContainer/Main/GamesSearch/VBoxContainer"]
@@ -394,7 +394,7 @@ offset_bottom = 27.0
 offset_top = 31.0
 offset_right = 1120.0
 offset_bottom = 41.0
-custom_minimum_size = Vector2( 0, 10 )
+custom_minimum_size = Vector2(0, 10)
 
 [node name="Games" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/Main/GamesSearch/VBoxContainer"]
 visible = false
@@ -405,7 +405,7 @@ offset_bottom = 85.0
 [node name="Title" type="Label" parent="Panel/VBoxContainer/ScrollContainer/Main/GamesSearch/VBoxContainer/Games"]
 offset_right = 1280.0
 offset_bottom = 19.0
-theme_override_fonts/font = ExtResource( 3 )
+theme_override_fonts/font = ExtResource("3")
 text = "Games"
 
 [node name="HSeparator" type="HSeparator" parent="Panel/VBoxContainer/ScrollContainer/Main/GamesSearch/VBoxContainer/Games"]
@@ -417,7 +417,7 @@ offset_bottom = 27.0
 offset_top = 31.0
 offset_right = 1280.0
 offset_bottom = 36.0
-custom_minimum_size = Vector2( 0, 5 )
+custom_minimum_size = Vector2(0, 5)
 
 [node name="none" type="Control" parent="Panel/VBoxContainer/ScrollContainer/Main/GamesSearch/VBoxContainer/Games"]
 editor/display_folded = true
@@ -427,7 +427,7 @@ offset_right = 1300.0
 offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_minimum_size = Vector2( 0, 50 )
+custom_minimum_size = Vector2(0, 50)
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/ScrollContainer/Main/GamesSearch/VBoxContainer/Games/none"]
 anchor_left = 0.5
@@ -440,7 +440,7 @@ offset_right = 70.0
 offset_bottom = 9.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource( 3 )
+theme_override_fonts/font = ExtResource("3")
 text = "No Games Found"
 align = 1
 valign = 1
@@ -464,7 +464,7 @@ offset_bottom = 139.0
 [node name="Title" type="Label" parent="Panel/VBoxContainer/ScrollContainer/Main/GamesSearch/VBoxContainer/Apps"]
 offset_right = 1280.0
 offset_bottom = 19.0
-theme_override_fonts/font = ExtResource( 3 )
+theme_override_fonts/font = ExtResource("3")
 text = "Applications"
 
 [node name="HSeparator" type="HSeparator" parent="Panel/VBoxContainer/ScrollContainer/Main/GamesSearch/VBoxContainer/Apps"]
@@ -476,7 +476,7 @@ offset_bottom = 27.0
 offset_top = 31.0
 offset_right = 1280.0
 offset_bottom = 36.0
-custom_minimum_size = Vector2( 0, 5 )
+custom_minimum_size = Vector2(0, 5)
 
 [node name="none" type="Control" parent="Panel/VBoxContainer/ScrollContainer/Main/GamesSearch/VBoxContainer/Apps"]
 editor/display_folded = true
@@ -485,7 +485,7 @@ offset_right = 1280.0
 offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_minimum_size = Vector2( 0, 50 )
+custom_minimum_size = Vector2(0, 50)
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/ScrollContainer/Main/GamesSearch/VBoxContainer/Apps/none"]
 anchor_left = 0.5
@@ -498,7 +498,7 @@ offset_right = 70.0
 offset_bottom = 9.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource( 3 )
+theme_override_fonts/font = ExtResource("3")
 text = "No Applications Found"
 align = 1
 valign = 1
@@ -521,6 +521,7 @@ wait_time = 0.05
 
 [node name="resize" type="Timer" parent="."]
 wait_time = 0.2
+
 [connection signal="next_track" from="." to="." method="_on_AdvancedSearch_next_track"]
 [connection signal="resized" from="." to="." method="_on_AdvancedSearch_resized"]
 [connection signal="tracks_found" from="." to="." method="_on_AdvancedSearch_tracks_found"]

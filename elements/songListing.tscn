@@ -1,20 +1,20 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=7 format=3 uid="uid://b84hrcky1lgid"]
 
-[ext_resource path="res://songListing.gd" type="Script" id=1]
-[ext_resource path="res://elements/Underline.tres" type="StyleBox" id=2]
-[ext_resource path="res://Img/window-maximize-symbolic.svg" type="Texture2D" id=3]
-[ext_resource path="res://Img/user-bookmarks-symbolic.svg" type="Texture2D" id=4]
-[ext_resource path="res://Img/emote-love-symbolic.svg" type="Texture2D" id=5]
-[ext_resource path="res://Fonts/NaviFont.tres" type="FontFile" id=6]
+[ext_resource type="Script" uid="uid://bepehctbyajae" path="res://songListing.gd" id="1"]
+[ext_resource type="StyleBox" path="res://elements/Underline.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://bfma2s5ywee23" path="res://Img/window-maximize-symbolic.svg" id="3"]
+[ext_resource type="Texture2D" uid="uid://bmuafa3o6bvwr" path="res://Img/user-bookmarks-symbolic.svg" id="4"]
+[ext_resource type="Texture2D" uid="uid://dlaxu42vd1x8c" path="res://Img/emote-love-symbolic.svg" id="5"]
+[ext_resource type="FontFile" path="res://Fonts/NaviFont.tres" id="6"]
 
 [node name="songListing" type="Control"]
 offset_right = 850.0
 offset_bottom = 64.0
-custom_minimum_size = Vector2( 850, 96 )
-script = ExtResource( 1 )
+custom_minimum_size = Vector2(850, 96)
+script = ExtResource("1")
 
 [node name="bg" type="Panel" parent="."]
-self_modulate = Color( 1, 1, 1, 0.333333 )
+self_modulate = Color(1, 1, 1, 0.333333)
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 502.0
@@ -25,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 501.0
 offset_bottom = -1.0
-theme_override_styles/panel = ExtResource( 2 )
+theme_override_styles/panel = ExtResource("2")
 
 [node name="container" type="HBoxContainer" parent="."]
 anchor_right = 1.0
@@ -35,7 +35,7 @@ offset_right = 398.0
 [node name="playlist" type="Button" parent="container"]
 offset_right = 40.0
 offset_bottom = 96.0
-icon = ExtResource( 3 )
+icon = ExtResource("3")
 flat = true
 
 [node name="Favorite" type="Button" parent="container"]
@@ -43,7 +43,7 @@ visible = false
 offset_left = 32.0
 offset_right = 60.0
 offset_bottom = 36.0
-icon = ExtResource( 4 )
+icon = ExtResource("4")
 flat = true
 
 [node name="Like" type="Button" parent="container"]
@@ -51,7 +51,7 @@ visible = false
 offset_left = 32.0
 offset_right = 60.0
 offset_bottom = 36.0
-icon = ExtResource( 5 )
+icon = ExtResource("5")
 flat = true
 
 [node name="title" type="Label" parent="container"]
@@ -60,8 +60,8 @@ offset_top = 31.0
 offset_right = 848.0
 offset_bottom = 64.0
 grow_vertical = 2
-custom_minimum_size = Vector2( 800, 0 )
-theme_override_fonts/font = ExtResource( 6 )
+custom_minimum_size = Vector2(800, 0)
+theme_override_fonts/font = ExtResource("6")
 text = "Song Title"
 valign = 3
 clip_text = true
@@ -75,8 +75,8 @@ offset_bottom = 96.0
 offset_left = 872.0
 offset_right = 1172.0
 offset_bottom = 96.0
-custom_minimum_size = Vector2( 300, 0 )
-theme_override_fonts/font = ExtResource( 6 )
+custom_minimum_size = Vector2(300, 0)
+theme_override_fonts/font = ExtResource("6")
 text = "Artist"
 flat = true
 align = 0
@@ -91,8 +91,8 @@ offset_left = 1196.0
 offset_top = 31.0
 offset_right = 1332.0
 offset_bottom = 64.0
-custom_minimum_size = Vector2( 136, 0 )
-theme_override_fonts/font = ExtResource( 6 )
+custom_minimum_size = Vector2(136, 0)
+theme_override_fonts/font = ExtResource("6")
 text = "Duration"
 align = 1
 valign = 3
@@ -108,7 +108,7 @@ offset_left = 451.0
 offset_top = 11.0
 offset_right = 651.0
 offset_bottom = 25.0
-custom_minimum_size = Vector2( 200, 0 )
+custom_minimum_size = Vector2(200, 0)
 text = "File Name"
 valign = 3
 
@@ -123,6 +123,7 @@ offset_top = -4.0
 wait_time = 0.05
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
+
 [connection signal="gui_input" from="." to="." method="_on_songListing_gui_input"]
 [connection signal="pressed" from="container/playlist" to="." method="_on_playlist_pressed"]
 [connection signal="pressed" from="container/artist" to="." method="_on_artist_pressed"]

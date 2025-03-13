@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://bicg3mi2v42vj"]
 
-[ext_resource path="res://Fonts/titleFont.tres" type="FontFile" id=1]
+[ext_resource type="FontFile" path="res://Fonts/titleFont.tres" id="1"]
 
 [node name="Button" type="Button"]
 offset_left = -37.0
@@ -9,7 +9,7 @@ offset_right = 84.0
 offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource( 1 )
+theme_override_fonts/font = ExtResource("1")
 text = "genre"
 flat = true
 align = 0

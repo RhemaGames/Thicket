@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://duqn3xfir7vf1"]
 
-[ext_resource path="res://elements/MusicInfo.gd" type="Script" id=1]
-[ext_resource path="res://Img/Music.png" type="Texture2D" id=2]
+[ext_resource type="Script" uid="uid://by03v4um0wysx" path="res://elements/MusicInfo.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dcmjb56xccwdv" path="res://Img/Music.png" id="2"]
 
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+[sub_resource type="StyleBoxFlat" id="1"]
+bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
 shadow_size = 20
 
 [node name="MusicInfo" type="Control"]
@@ -12,9 +12,9 @@ offset_right = 400.0
 offset_bottom = 1057.0
 grow_horizontal = 0
 grow_vertical = 2
-custom_minimum_size = Vector2( 400, 720 )
+custom_minimum_size = Vector2(400, 720)
 clip_contents = true
-script = ExtResource( 1 )
+script = ExtResource("1")
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -22,7 +22,7 @@ __meta__ = {
 [node name="Panel" type="Panel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme_override_styles/panel = SubResource( 1 )
+theme_override_styles/panel = SubResource("1")
 __meta__ = {
 "_edit_lock_": true
 }
@@ -34,7 +34,7 @@ offset_left = -170.0
 offset_top = 40.0
 offset_right = 171.0
 offset_bottom = 240.0
-texture = ExtResource( 2 )
+texture = ExtResource("2")
 expand = true
 stretch_mode = 6
 
@@ -65,21 +65,21 @@ __meta__ = {
 offset_left = 11.0
 offset_right = 86.0
 offset_bottom = 37.0
-custom_minimum_size = Vector2( 75, 0 )
+custom_minimum_size = Vector2(75, 0)
 text = "Like"
 
 [node name="Favorite" type="Button" parent="buttons"]
 offset_left = 116.0
 offset_right = 228.0
 offset_bottom = 37.0
-custom_minimum_size = Vector2( 75, 0 )
+custom_minimum_size = Vector2(75, 0)
 text = "Favorite"
 
 [node name="Comment" type="Button" parent="buttons"]
 offset_left = 258.0
 offset_right = 389.0
 offset_bottom = 37.0
-custom_minimum_size = Vector2( 75, 0 )
+custom_minimum_size = Vector2(75, 0)
 text = "Comment"
 
 [node name="Download" type="Button" parent="buttons"]
@@ -87,9 +87,10 @@ visible = false
 offset_left = 323.0
 offset_right = 398.0
 offset_bottom = 31.0
-custom_minimum_size = Vector2( 75, 0 )
+custom_minimum_size = Vector2(75, 0)
 disabled = true
 text = "Tip"
+
 [connection signal="postview" from="." to="." method="_on_MusicInfo_postview"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="buttons/Like" to="." method="_on_Like_pressed"]

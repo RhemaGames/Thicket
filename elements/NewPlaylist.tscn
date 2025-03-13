@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://ctkdkqt8sjn7m"]
 
-[ext_resource path="res://elements/NewPlaylist.gd" type="Script" id=1]
-[ext_resource path="res://Fonts/titleFont.tres" type="FontFile" id=2]
+[ext_resource type="Script" uid="uid://d3hc0rgtbgbw3" path="res://elements/NewPlaylist.gd" id="1"]
+[ext_resource type="FontFile" path="res://Fonts/titleFont.tres" id="2"]
 
 [node name="NewPlaylist" type="Panel"]
 anchor_left = 0.5
@@ -14,12 +14,12 @@ offset_right = 150.0
 offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_minimum_size = Vector2( 300, 140 )
-pivot_offset = Vector2( 101.52, 146.654 )
-script = ExtResource( 1 )
+custom_minimum_size = Vector2(300, 140)
+pivot_offset = Vector2(101.52, 146.654)
+script = ExtResource("1")
 
 [node name="Panel" type="Panel" parent="."]
-modulate = Color( 0.0823529, 0.0784314, 0.0784314, 0.572549 )
+modulate = Color(0.0823529, 0.0784314, 0.0784314, 0.572549)
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -40,7 +40,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="VBoxContainer"]
 offset_right = 300.0
 offset_bottom = 29.0
-theme_override_fonts/font = ExtResource( 2 )
+theme_override_fonts/font = ExtResource("2")
 text = "New Playlist"
 align = 1
 valign = 1
@@ -56,7 +56,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -30.0
 offset_bottom = 2.0
-custom_minimum_size = Vector2( 0, 32 )
+custom_minimum_size = Vector2(0, 32)
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
@@ -107,5 +107,6 @@ grow_vertical = 2
 text = "Play List Name:"
 align = 1
 valign = 1
+
 [connection signal="pressed" from="Control/Cancel" to="." method="_on_Cancel_pressed"]
 [connection signal="pressed" from="Control/Create" to="." method="_on_Create_pressed"]

@@ -1,21 +1,21 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://7ebs108gkwir"]
 
-[ext_resource path="res://Img/avatar-default-symbolic.svg" type="Texture2D" id=1]
-[ext_resource path="res://elements/Contact.gd" type="Script" id=2]
-[ext_resource path="res://icon.png" type="Texture2D" id=3]
+[ext_resource type="Texture2D" uid="uid://dscwogwtb8vos" path="res://Img/avatar-default-symbolic.svg" id="1"]
+[ext_resource type="Script" uid="uid://cv4mg8mx76aio" path="res://elements/Contact.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://d2f2u5kc018nl" path="res://icon.png" id="3"]
 
-[sub_resource type="CanvasItemMaterial" id=1]
+[sub_resource type="CanvasItemMaterial" id="1"]
 
 [node name="Contact" type="TextureRect"]
 offset_right = 42.0
 offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_minimum_size = Vector2( 42, 42 )
-texture = ExtResource( 1 )
+custom_minimum_size = Vector2(42, 42)
+texture = ExtResource("1")
 expand = true
 stretch_mode = 6
-script = ExtResource( 2 )
+script = ExtResource("2")
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -23,10 +23,10 @@ __meta__ = {
 [node name="cImage" type="TextureRect" parent="."]
 visible = false
 show_behind_parent = true
-material = SubResource( 1 )
+material = SubResource("1")
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 1 )
+texture = ExtResource("1")
 expand = true
 __meta__ = {
 "_edit_use_anchors_": true
@@ -39,11 +39,12 @@ anchor_right = 1.0124
 anchor_bottom = 1.03009
 grow_horizontal = 2
 grow_vertical = 2
-custom_minimum_size = Vector2( 10, 10 )
-texture = ExtResource( 3 )
+custom_minimum_size = Vector2(10, 10)
+texture = ExtResource("3")
 expand = true
 stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
 [connection signal="refresh" from="." to="." method="_on_Contact_refresh"]

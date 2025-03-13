@@ -1,24 +1,24 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=7 format=3 uid="uid://bkdumcmm1u6n3"]
 
-[ext_resource path="res://default.theme" type="Theme" id=1]
-[ext_resource path="res://elements/libraryView_Music.gd" type="Script" id=2]
-[ext_resource path="res://menu.tres" type="StyleBox" id=3]
-[ext_resource path="res://elements/GenreBox.tscn" type="PackedScene" id=4]
-[ext_resource path="res://elements/MusicInfo.tscn" type="PackedScene" id=5]
+[ext_resource type="Theme" path="res://default.theme" id="1"]
+[ext_resource type="Script" uid="uid://beehh251bqvcn" path="res://elements/libraryView_Music.gd" id="2"]
+[ext_resource type="StyleBox" path="res://menu.tres" id="3"]
+[ext_resource type="PackedScene" uid="uid://cfcvfuvnwet2o" path="res://elements/GenreBox.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://elements/MusicInfo.tscn" id="5"]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id="1"]
 resource_name = "show_info"
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("MusicInfo:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.5 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector2( 1905.15, 0 ), Vector2( 1500, 0 ) ]
+"values": [Vector2(1905.15, 0), Vector2(1500, 0)]
 }
 
 [node name="libraryView" type="Control"]
@@ -29,8 +29,8 @@ offset_top = 0.902527
 offset_right = 3.60999
 offset_bottom = 0.902588
 clip_contents = true
-theme = ExtResource( 1 )
-script = ExtResource( 2 )
+theme = ExtResource("1")
+script = ExtResource("2")
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -41,14 +41,14 @@ anchor_bottom = 1.0
 offset_top = 1.0
 offset_right = 312.0
 offset_bottom = 4.0
-theme_override_styles/panel = ExtResource( 3 )
+theme_override_styles/panel = ExtResource("3")
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="GenreBox" parent="Menu" instance=ExtResource( 4 )]
+[node name="GenreBox" parent="Menu" instance=ExtResource("4")]
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 98.0
@@ -67,7 +67,7 @@ clip_contents = true
 placeholder_text = "Search"
 
 [node name="Panel" type="Panel" parent="."]
-self_modulate = Color( 1, 1, 1, 0.309804 )
+self_modulate = Color(1, 1, 1, 0.309804)
 anchor_bottom = 1.0
 offset_left = 312.0
 offset_right = 1898.0
@@ -87,7 +87,7 @@ __meta__ = {
 
 [node name="list" type="VBoxContainer" parent="Panel/listView"]
 
-[node name="MusicInfo" parent="." instance=ExtResource( 5 )]
+[node name="MusicInfo" parent="." instance=ExtResource("5")]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -96,7 +96,8 @@ offset_right = 405.158
 offset_bottom = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/show_info = SubResource( 1 )
+anims/show_info = SubResource("1")
+
 [connection signal="visibility_changed" from="." to="." method="_on_libraryView_visibility_changed"]
 [connection signal="text_changed" from="Menu/LineEdit" to="." method="_on_LineEdit_text_changed"]
 [connection signal="loaded" from="MusicInfo" to="." method="_on_MusicInfo_loaded"]

@@ -1,13 +1,14 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://c746g5cce37l7"]
 
-[ext_resource path="res://elements/Genres.gd" type="Script" id=1]
+[ext_resource type="Script" uid="uid://djt6phtwdxnx7" path="res://elements/Genres.gd" id="1"]
 
 [node name="Genres" type="GridContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
 columns = 4
-script = ExtResource( 1 )
+script = ExtResource("1")
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="loadup" from="." to="." method="_on_Genres_loadup"]

@@ -1,13 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://oewgvm1vgasj"]
 
-[ext_resource path="res://elements/playList.gd" type="Script" id=1]
-[ext_resource path="res://Img/media-playback-start-symbolic-small.svg" type="Texture2D" id=2]
+[ext_resource type="Script" uid="uid://xw4k0w4yv4cu" path="res://elements/playList.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dolfm1o7cynt6" path="res://Img/media-playback-start-symbolic-small.svg" id="2"]
 
 [node name="playList" type="VBoxContainer"]
 offset_right = 585.0
 offset_bottom = 36.0
 clip_contents = true
-script = ExtResource( 1 )
+script = ExtResource("1")
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -15,7 +15,7 @@ __meta__ = {
 [node name="Controls" type="Control" parent="."]
 offset_right = 680.0
 offset_bottom = 32.0
-custom_minimum_size = Vector2( 680, 32 )
+custom_minimum_size = Vector2(680, 32)
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
@@ -53,7 +53,7 @@ flat = true
 offset_left = 32.0
 offset_right = 72.0
 offset_bottom = 37.0
-icon = ExtResource( 2 )
+icon = ExtResource("2")
 flat = true
 
 [node name="HSeparator" type="HSeparator" parent="Controls"]
@@ -64,5 +64,6 @@ offset_top = -4.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 300.0
+
 [connection signal="pressed" from="Controls/buttons/Play" to="." method="_on_Play_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

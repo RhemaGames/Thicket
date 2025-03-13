@@ -1,17 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=7 format=3 uid="uid://b82q482ufxmil"]
 
-[ext_resource path="res://AllMusic.gd" type="Script" id=1]
-[ext_resource path="res://Img/view-grid-symbolic_small.svg" type="Texture2D" id=2]
-[ext_resource path="res://NewArtists.gd" type="Script" id=3]
-[ext_resource path="res://Img/media-playback-start-symbolic-small.svg" type="Texture2D" id=4]
-[ext_resource path="res://NewTracks.gd" type="Script" id=5]
-[ext_resource path="res://playlistGrid.gd" type="Script" id=6]
+[ext_resource type="Script" uid="uid://o7waqj2qijcw" path="res://AllMusic.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dbcvlqim6qxhj" path="res://Img/view-grid-symbolic_small.svg" id="2"]
+[ext_resource type="Script" uid="uid://bpnidyf3ft5m" path="res://NewArtists.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://dolfm1o7cynt6" path="res://Img/media-playback-start-symbolic-small.svg" id="4"]
+[ext_resource type="Script" uid="uid://cbp1oekqif62w" path="res://NewTracks.gd" id="5"]
+[ext_resource type="Script" uid="uid://bvm2kgy5tfo6y" path="res://playlistGrid.gd" id="6"]
 
 [node name="AllMusic" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 clip_contents = true
-script = ExtResource( 1 )
+script = ExtResource("1")
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -38,14 +38,14 @@ grow_horizontal = 2
 [node name="Control4" type="Control" parent="Main/MainView"]
 offset_right = 1800.0
 offset_bottom = 12.0
-custom_minimum_size = Vector2( 0, 12 )
+custom_minimum_size = Vector2(0, 12)
 
 [node name="artists" type="Button" parent="Main/MainView"]
 offset_top = 20.0
 offset_right = 1800.0
 offset_bottom = 57.0
 text = "ARTISTS"
-icon = ExtResource( 2 )
+icon = ExtResource("2")
 flat = true
 align = 0
 
@@ -58,29 +58,29 @@ offset_bottom = 73.0
 offset_top = 81.0
 offset_right = 1800.0
 offset_bottom = 121.0
-custom_minimum_size = Vector2( 0, 40 )
+custom_minimum_size = Vector2(0, 40)
 
 [node name="NewArtists" type="HBoxContainer" parent="Main/MainView"]
 offset_top = 129.0
 offset_right = 1800.0
 offset_bottom = 329.0
-custom_minimum_size = Vector2( 1800, 200 )
+custom_minimum_size = Vector2(1800, 200)
 theme_override_constants/separation = 20
 alignment = 1
-script = ExtResource( 3 )
+script = ExtResource("3")
 
 [node name="Control" type="Control" parent="Main/MainView"]
 offset_top = 337.0
 offset_right = 1800.0
 offset_bottom = 369.0
-custom_minimum_size = Vector2( 0, 32 )
+custom_minimum_size = Vector2(0, 32)
 
 [node name="newMusic" type="Button" parent="Main/MainView"]
 offset_top = 377.0
 offset_right = 1800.0
 offset_bottom = 414.0
 text = "NEW MUSIC"
-icon = ExtResource( 4 )
+icon = ExtResource("4")
 flat = true
 align = 0
 
@@ -97,14 +97,14 @@ grow_horizontal = 2
 theme_override_constants/v_separation = 20
 theme_override_constants/h_separation = 20
 columns = 5
-script = ExtResource( 5 )
+script = ExtResource("5")
 
 [node name="Control3" type="Control" parent="Main/MainView"]
 visible = false
 offset_top = 372.0
 offset_right = 106.0
 offset_bottom = 404.0
-custom_minimum_size = Vector2( 0, 32 )
+custom_minimum_size = Vector2(0, 32)
 
 [node name="nm_label3" type="Label" parent="Main/MainView"]
 visible = false
@@ -127,7 +127,7 @@ offset_right = 1800.0
 offset_bottom = 446.0
 theme_override_constants/h_separation = 20
 columns = 2
-script = ExtResource( 6 )
+script = ExtResource("6")
 
 [node name="NewArtistTimer" type="Timer" parent="."]
 wait_time = 40.0
@@ -140,6 +140,7 @@ wait_time = 20.0
 
 [node name="resize" type="Timer" parent="."]
 wait_time = 0.1
+
 [connection signal="visibility_changed" from="." to="." method="_on_AllMusic_visibility_changed"]
 [connection signal="pressed" from="Main/MainView/artists" to="." method="_on_artists_pressed"]
 [connection signal="getNew" from="Main/MainView/NewArtists" to="Main/MainView/NewArtists" method="_on_NewArtists_getNew"]

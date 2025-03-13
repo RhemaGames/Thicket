@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=7 format=3 uid="uid://c2bpbo0qbkmra"]
 
-[ext_resource path="res://Fonts/NaviFont.tres" type="FontFile" id=1]
-[ext_resource path="res://Img/window-maximize-symbolic.svg" type="Texture2D" id=2]
-[ext_resource path="res://elements/StatBar.tscn" type="PackedScene" id=3]
-[ext_resource path="res://elements/tabs/Music.gd" type="Script" id=4]
-[ext_resource path="res://elements/Post.tscn" type="PackedScene" id=7]
-[ext_resource path="res://elements/StatCircle.tscn" type="PackedScene" id=8]
+[ext_resource type="FontFile" path="res://Fonts/NaviFont.tres" id="1"]
+[ext_resource type="Texture2D" uid="uid://bfma2s5ywee23" path="res://Img/window-maximize-symbolic.svg" id="2"]
+[ext_resource type="PackedScene" path="res://elements/StatBar.tscn" id="3"]
+[ext_resource type="Script" uid="uid://6r7x1d4pl85q" path="res://elements/tabs/Music.gd" id="4"]
+[ext_resource type="PackedScene" path="res://elements/Post.tscn" id="7"]
+[ext_resource type="PackedScene" path="res://elements/StatCircle.tscn" id="8"]
 
 [node name="Music" type="TabBar"]
 anchor_right = 1.0
@@ -17,7 +17,7 @@ offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 clip_contents = true
-script = ExtResource( 4 )
+script = ExtResource("4")
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -33,7 +33,7 @@ offset_right = -22.4999
 offset_bottom = -4.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource( 1 )
+theme_override_fonts/font = ExtResource("1")
 text = "Music"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -67,11 +67,11 @@ anchor_left = 0.945146
 anchor_top = 0.144337
 anchor_right = 0.995146
 anchor_bottom = 0.97767
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 2 )
-texture_hover = ExtResource( 2 )
-texture_disabled = ExtResource( 2 )
-texture_focused = ExtResource( 2 )
+texture_normal = ExtResource("2")
+texture_pressed = ExtResource("2")
+texture_hover = ExtResource("2")
+texture_disabled = ExtResource("2")
+texture_focused = ExtResource("2")
 expand = true
 stretch_mode = 5
 __meta__ = {
@@ -87,24 +87,24 @@ offset_bottom = 41.0
 offset_top = 49.0
 offset_right = 400.0
 offset_bottom = 789.0
-custom_minimum_size = Vector2( 400, 740 )
+custom_minimum_size = Vector2(400, 740)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/Tracks"]
 offset_right = 400.0
-custom_minimum_size = Vector2( 400, 0 )
+custom_minimum_size = Vector2(400, 0)
 
 [node name="Info" type="ScrollContainer" parent="HBoxContainer"]
 offset_left = 410.0
 offset_right = 1580.0
 offset_bottom = 914.0
-custom_minimum_size = Vector2( 1170, 0 )
+custom_minimum_size = Vector2(1170, 0)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Info"]
 offset_right = 1180.0
 offset_bottom = 28.0
-custom_minimum_size = Vector2( 1180, 0 )
+custom_minimum_size = Vector2(1180, 0)
 
-[node name="Post" parent="HBoxContainer/Info/VBoxContainer" instance=ExtResource( 7 )]
+[node name="Post" parent="HBoxContainer/Info/VBoxContainer" instance=ExtResource("7")]
 offset_right = 1180.0
 offset_bottom = 28.0
 
@@ -112,7 +112,7 @@ offset_bottom = 28.0
 offset_left = 1590.0
 offset_right = 1838.0
 offset_bottom = 914.0
-custom_minimum_size = Vector2( 240, 0 )
+custom_minimum_size = Vector2(240, 0)
 
 [node name="Label" type="Label" parent="HBoxContainer/Statistics"]
 offset_right = 248.0
@@ -124,14 +124,14 @@ offset_top = 33.0
 offset_right = 248.0
 offset_bottom = 41.0
 
-[node name="StatCircle" parent="HBoxContainer/Statistics" instance=ExtResource( 8 )]
+[node name="StatCircle" parent="HBoxContainer/Statistics" instance=ExtResource("8")]
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_top = 49.0
 offset_right = 248.0
 offset_bottom = 249.0
 
-[node name="StatBar" parent="HBoxContainer/Statistics" instance=ExtResource( 3 )]
+[node name="StatBar" parent="HBoxContainer/Statistics" instance=ExtResource("3")]
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_top = 257.0

@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://8nxri882d5li"]
 
-[ext_resource path="res://Navi.gd" type="Script" id=1]
-[ext_resource path="res://elements/MusicBar.tscn" type="PackedScene" id=2]
+[ext_resource type="Script" uid="uid://bs5b5yuclxh0v" path="res://Navi.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://bhfqsu0c1c2ds" path="res://elements/MusicBar.tscn" id="2"]
 
 [node name="Navi" type="Control"]
 anchor_top = 1.0
@@ -9,12 +9,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -82.0
 offset_bottom = 7.0
-script = ExtResource( 1 )
+script = ExtResource("1")
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MusicBar" parent="." instance=ExtResource( 2 )]
+[node name="MusicBar" parent="." instance=ExtResource("2")]
 anchor_top = 0.0
 offset_top = -6.48608
 offset_right = 0.0
@@ -37,4 +37,5 @@ alignment = 1
 __meta__ = {
 "_edit_group_": true
 }
+
 [connection signal="activeRelease" from="." to="." method="_on_Navi_activeRelease"]

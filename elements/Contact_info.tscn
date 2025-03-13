@@ -1,32 +1,32 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=7 format=3 uid="uid://crrwjvskxiclc"]
 
-[ext_resource path="res://elements/Contact_info.gd" type="Script" id=1]
-[ext_resource path="res://popup.tres" type="StyleBox" id=2]
-[ext_resource path="res://elements/Contact.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Fonts/titleFont.tres" type="FontFile" id=4]
-[ext_resource path="res://Fonts/subtitle.tres" type="FontFile" id=5]
-[ext_resource path="res://Img/notification-alert-symbolic.svg" type="Texture2D" id=6]
+[ext_resource type="Script" uid="uid://400yqqfc036r" path="res://elements/Contact_info.gd" id="1"]
+[ext_resource type="StyleBox" path="res://popup.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://7ebs108gkwir" path="res://elements/Contact.tscn" id="3"]
+[ext_resource type="FontFile" path="res://Fonts/titleFont.tres" id="4"]
+[ext_resource type="FontFile" path="res://Fonts/subtitle.tres" id="5"]
+[ext_resource type="Texture2D" uid="uid://cwsh351gj44x4" path="res://Img/notification-alert-symbolic.svg" id="6"]
 
 [node name="Contact_info" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -1620.0
 offset_bottom = -1000.0
-custom_minimum_size = Vector2( 280, 60 )
-script = ExtResource( 1 )
+custom_minimum_size = Vector2(280, 60)
+script = ExtResource("1")
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Panel" type="Panel" parent="."]
-self_modulate = Color( 1, 1, 1, 0.678431 )
+self_modulate = Color(1, 1, 1, 0.678431)
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_minimum_size = Vector2( 280, 60 )
+custom_minimum_size = Vector2(280, 60)
 mouse_filter = 1
-theme_override_styles/panel = ExtResource( 2 )
+theme_override_styles/panel = ExtResource("2")
 
-[node name="Contact" parent="." instance=ExtResource( 3 )]
+[node name="Contact" parent="." instance=ExtResource("3")]
 offset_left = 11.2038
 offset_top = 8.19116
 offset_right = 58.2038
@@ -39,7 +39,7 @@ anchor_bottom = 0.5
 offset_left = 65.0
 offset_top = -22.0
 offset_bottom = 7.0
-theme_override_fonts/font = ExtResource( 4 )
+theme_override_fonts/font = ExtResource("4")
 text = "User Name"
 clip_text = true
 __meta__ = {
@@ -51,7 +51,7 @@ offset_left = 65.0
 offset_top = 32.0
 offset_right = 257.0
 offset_bottom = 56.0
-theme_override_fonts/font = ExtResource( 5 )
+theme_override_fonts/font = ExtResource("5")
 text = "Not on OpenSeed"
 valign = 2
 __meta__ = {
@@ -66,7 +66,7 @@ offset_left = -16.0
 offset_top = -6.00003
 offset_right = 8.0
 offset_bottom = 18.0
-texture = ExtResource( 6 )
+texture = ExtResource("6")
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -78,5 +78,6 @@ bus = "Interface"
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
 [connection signal="gui_input" from="." to="." method="_on_Contact_info_gui_input"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

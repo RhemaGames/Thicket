@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://b6tk4xy51523o"]
 
-[ext_resource path="res://elements/PlaylistAdd.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture2D" id=2]
-[ext_resource path="res://Fonts/titleFont.tres" type="FontFile" id=5]
+[ext_resource type="Script" uid="uid://ddhycqrmr3g87" path="res://elements/PlaylistAdd.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://d2f2u5kc018nl" path="res://icon.png" id="2"]
+[ext_resource type="FontFile" path="res://Fonts/titleFont.tres" id="5"]
 
 [node name="PlaylistAdd" type="Panel"]
 anchor_left = 0.5
@@ -13,15 +13,15 @@ offset_left = -175.0
 offset_top = -175.0
 offset_right = 175.0
 offset_bottom = 175.0
-custom_minimum_size = Vector2( 350, 350 )
-pivot_offset = Vector2( 316.078, 86.5961 )
-script = ExtResource( 1 )
+custom_minimum_size = Vector2(350, 350)
+pivot_offset = Vector2(316.078, 86.5961)
+script = ExtResource("1")
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Panel" type="Panel" parent="."]
-self_modulate = Color( 0.0352941, 0.0352941, 0.0352941, 0.521569 )
+self_modulate = Color(0.0352941, 0.0352941, 0.0352941, 0.521569)
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -42,7 +42,7 @@ offset_left = 2.5
 offset_top = -35.0
 offset_right = 2.5
 offset_bottom = -3.0
-custom_minimum_size = Vector2( 0, 32 )
+custom_minimum_size = Vector2(0, 32)
 __meta__ = {
 "_edit_group_": true
 }
@@ -65,7 +65,7 @@ offset_left = -72.0
 offset_top = -10.0
 offset_right = -6.0
 offset_bottom = 11.0
-pivot_offset = Vector2( 32.8605, -0.16687 )
+pivot_offset = Vector2(32.8605, -0.16687)
 text = "Add"
 
 [node name="OptionButton" type="OptionButton" parent="Control"]
@@ -77,7 +77,7 @@ offset_left = -111.395
 offset_top = -31.7899
 offset_right = 105.935
 offset_bottom = -4.78989
-custom_minimum_size = Vector2( 217.33, 0 )
+custom_minimum_size = Vector2(217.33, 0)
 text = "Play List"
 align = 1
 
@@ -88,8 +88,8 @@ offset_left = -127.5
 offset_top = -85.0
 offset_right = 128.5
 offset_bottom = 171.0
-custom_minimum_size = Vector2( 256, 256 )
-texture = ExtResource( 2 )
+custom_minimum_size = Vector2(256, 256)
+texture = ExtResource("2")
 expand = true
 
 [node name="title" type="Label" parent="."]
@@ -101,7 +101,7 @@ offset_left = -144.0
 offset_top = 10.0
 offset_right = 144.0
 offset_bottom = 58.0
-theme_override_fonts/font = ExtResource( 5 )
+theme_override_fonts/font = ExtResource("5")
 text = "Song Title"
 align = 1
 valign = 1
@@ -135,6 +135,7 @@ offset_bottom = -46.0
 text = "Add to play list"
 align = 1
 valign = 1
+
 [connection signal="add_track" from="." to="." method="_on_PlaylistAdd_add_track"]
 [connection signal="visibility_changed" from="." to="." method="_on_PlaylistAdd_visibility_changed"]
 [connection signal="pressed" from="Control/Cancel" to="." method="_on_Cancel_pressed"]

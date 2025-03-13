@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://bflnilllbb8gi"]
 
-[ext_resource path="res://Fonts/NaviFont.tres" type="FontFile" id=1]
-[ext_resource path="res://Img/window-maximize-symbolic.svg" type="Texture2D" id=2]
-[ext_resource path="res://elements/tabs/Digital Goods.gd" type="Script" id=3]
+[ext_resource type="FontFile" path="res://Fonts/NaviFont.tres" id="1"]
+[ext_resource type="Texture2D" uid="uid://bfma2s5ywee23" path="res://Img/window-maximize-symbolic.svg" id="2"]
+[ext_resource type="Script" uid="uid://cjbfm7p0a43ik" path="res://elements/tabs/Digital Goods.gd" id="3"]
 
 [node name="Digital Goods" type="TabBar"]
 visible = false
@@ -15,7 +15,7 @@ offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 clip_contents = true
-script = ExtResource( 3 )
+script = ExtResource("3")
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.464403
@@ -28,7 +28,7 @@ offset_right = -13.9999
 offset_bottom = -4.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource( 1 )
+theme_override_fonts/font = ExtResource("1")
 text = "Digital Goods"
 align = 1
 __meta__ = {
@@ -63,11 +63,11 @@ anchor_left = 0.945146
 anchor_top = 0.144337
 anchor_right = 0.995146
 anchor_bottom = 0.97767
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 2 )
-texture_hover = ExtResource( 2 )
-texture_disabled = ExtResource( 2 )
-texture_focused = ExtResource( 2 )
+texture_normal = ExtResource("2")
+texture_pressed = ExtResource("2")
+texture_hover = ExtResource("2")
+texture_disabled = ExtResource("2")
+texture_focused = ExtResource("2")
 expand = true
 stretch_mode = 5
 __meta__ = {
@@ -83,12 +83,12 @@ offset_bottom = 36.0
 offset_top = 40.0
 offset_right = 400.0
 offset_bottom = 840.0
-custom_minimum_size = Vector2( 400, 800 )
+custom_minimum_size = Vector2(400, 800)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/Tracks"]
 offset_right = 400.0
 offset_bottom = 24.0
-custom_minimum_size = Vector2( 400, 0 )
+custom_minimum_size = Vector2(400, 0)
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Tracks/VBoxContainer"]
 offset_right = 400.0
@@ -99,12 +99,12 @@ text = "NFT"
 offset_left = 410.0
 offset_right = 1610.0
 offset_bottom = 844.0
-custom_minimum_size = Vector2( 1200, 0 )
+custom_minimum_size = Vector2(1200, 0)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Info"]
 offset_right = 1200.0
 offset_bottom = 24.0
-custom_minimum_size = Vector2( 1200, 0 )
+custom_minimum_size = Vector2(1200, 0)
 
 [node name="Label" type="Label" parent="HBoxContainer/Info/VBoxContainer"]
 offset_right = 1200.0
@@ -115,7 +115,7 @@ text = "Info about Track"
 offset_left = 1620.0
 offset_right = 1830.0
 offset_bottom = 844.0
-custom_minimum_size = Vector2( 210, 0 )
+custom_minimum_size = Vector2(210, 0)
 
 [node name="Label" type="Label" parent="HBoxContainer/Statistics"]
 offset_right = 210.0

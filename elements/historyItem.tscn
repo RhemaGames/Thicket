@@ -1,14 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://ubotxkoj76vi"]
 
-[ext_resource path="res://Img/folder-recent-symbolic.svg" type="Texture2D" id=1]
-[ext_resource path="res://elements/historyItem.gd" type="Script" id=2]
-[ext_resource path="res://Fonts/subtitle.tres" type="FontFile" id=3]
+[ext_resource type="Texture2D" uid="uid://dox5c6m48d3q3" path="res://Img/folder-recent-symbolic.svg" id="1"]
+[ext_resource type="Script" uid="uid://d32rxf46gih17" path="res://elements/historyItem.gd" id="2"]
+[ext_resource type="FontFile" path="res://Fonts/subtitle.tres" id="3"]
 
 [node name="historyItem" type="Panel"]
 offset_right = 500.0
 offset_bottom = 100.0
-custom_minimum_size = Vector2( 500, 100 )
-script = ExtResource( 2 )
+custom_minimum_size = Vector2(500, 100)
+script = ExtResource("2")
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -30,8 +30,8 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
 offset_right = 64.0
 offset_bottom = 80.0
-custom_minimum_size = Vector2( 64, 64 )
-texture = ExtResource( 1 )
+custom_minimum_size = Vector2(64, 64)
+texture = ExtResource("1")
 expand = true
 stretch_mode = 6
 
@@ -39,7 +39,7 @@ stretch_mode = 6
 offset_left = 84.0
 offset_right = 474.0
 offset_bottom = 80.0
-custom_minimum_size = Vector2( 390, 80 )
+custom_minimum_size = Vector2(390, 80)
 theme_override_constants/separation = 20
 alignment = 1
 
@@ -55,7 +55,7 @@ max_lines_visible = 2
 offset_top = 53.0
 offset_right = 390.0
 offset_bottom = 72.0
-theme_override_fonts/font = ExtResource( 3 )
-theme_override_colors/font_color = Color( 0, 0.996078, 0.890196, 1 )
+theme_override_fonts/font = ExtResource("3")
+theme_override_colors/font_color = Color(0, 0.996078, 0.890196, 1)
 text = "Date"
 align = 2
