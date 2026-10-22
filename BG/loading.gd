@@ -1,13 +1,21 @@
 extends Node2D
 
+const GameList = preload("res://elements/game_list.gd")
+
 var current_bg = 0
+var game_list
 
 var initial_window_size
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Config.open_config()
-	Config.connect("loaded",Callable(self,"_on_config_loaded"))
-	Config.connect("from_config",Callable(self,"_from_config"))
+	# Diagnosis loads the config and connects to the service before this runs.
+	if Config.data.is_empty():
+		Config.loaded.connect(_on_config_loaded, CONNECT_ONE_SHOT)
+	else:
+		$Timer.start()
+	game_list = GameList.new()
+	game_list.name = "GameList"
+	add_child(game_list)
 	get_window().size_changed.connect(screen_resize)
 	initial_window_size = get_window().size
 	if get_window().mode == 3:
@@ -20,10 +28,6 @@ func _process(delta: float) -> void:
 
 
 func _on_config_loaded():
-	Service.connection_up = true
-	$Timer.start()
-
-func _on_from_config(_data):
 	$Timer.start()
 
 func _on_timer_timeout() -> void:
@@ -37,17 +41,19 @@ func _input(event):
 		else:
 			get_tree().root.mode = 0
 	if event.is_action_pressed("Start"):
-		print("Pressed Start")
-		OS.execute("../Games/Discourse.sh",[])
+		game_list.toggle()
 
 func change_background():
-	var data = Config.data["shared"]["Background"]["Image"]["data"]
+	var data = Config.data.get("shared", {}).get("Background", {}).get("Image", {}).get("data", {})
+	if data.is_empty():
+		return
 	if current_bg < data.keys().size()-1:
 		current_bg += 1
 	else:
 		current_bg = 0
-	var text = ImageTexture.create_from_image(data[data.keys()[current_bg]])	
-	$Sprite2D.texture = text
+	var image = Config.to_image(data[data.keys()[current_bg]])
+	if image:
+		$Sprite2D.texture = ImageTexture.create_from_image(image)
 
 func screen_resize():
 	var screen_size = get_window().size

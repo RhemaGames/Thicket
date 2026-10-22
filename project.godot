@@ -27,7 +27,6 @@ config/icon="res://icon.png"
 
 Storage="*uid://hh3waxmt3qh7"
 Config="*uid://b4uvdk7cixpy3"
-Supabase="*uid://0wjrkpo7l7mq"
 Service="*uid://nu0idl261rtr"
 
 [display]
@@ -71,7 +70,3 @@ quality/driver/fallback_to_gles2=true
 threads/thread_model=2
 vram_compression/import_etc=true
 
-[w4games]
-
-w4rm/url="https://rhemagames.prod-01.w4games.cloud"
-w4rm/key="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE5MDI1NjQwMDAsImlhdCI6MTczNTY4NjAwMCwicm9sZSI6ImFub24ifQ.gS2vxOMGdcwsJAeXNwTipi8SG-Kyexo0z-Z8u1Jl4lk"

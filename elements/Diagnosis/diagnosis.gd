@@ -19,9 +19,9 @@ func _on_from_peer(id,type,data):
 	print_debug(id," ",type)
 	match type:
 		"hello":
-			var requests = {}
-			requests["system"] = ["memory","storage","network","cpu","sound"]
-			Service.rpc_id(id,"request",multiplayer.get_unique_id(),requests)
+			Service.request_system(["memory","storage","network","cpu","sound","input"])
+		"input":
+			$Input.show_joypads(data.get("joypads", []))
 		"network":
 			#print(data)
 			pass

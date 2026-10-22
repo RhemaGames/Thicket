@@ -5,12 +5,22 @@ var circ = preload("res://elements/Diagnosis/circle.tscn")
 var tri = preload("res://elements/Diagnosis/triangle.tscn")
 
 # Called when the node enters the scene tree for the first time.
+var shown_joypads:Array = []
+
 func _ready() -> void:
-	fill($Controllers/controller,24,"generic")
-	fill($Controllers/controller2,24,"rhema_driving")
-	fill($Controllers/controller3,24,"rhema_joystick2")
-	#fill($Controllers/controller4,24,"generic")
-	pass # Replace with function body.
+	show_joypads([])
+
+## One full ring per connected joypad, up to the rings in the scene. Wheels get the driving marker.
+func show_joypads(joypads:Array) -> void:
+	if joypads == shown_joypads and !shown_joypads.is_empty():
+		return
+	shown_joypads = joypads
+	var rings = $Controllers.get_children()
+	for i in rings.size():
+		rings[i].visible = i < joypads.size()
+		if rings[i].visible:
+			var joy_name = str(joypads[i].get("name", "")).to_lower()
+			fill(rings[i], 100, "rhema_driving" if "wheel" in joy_name or "driv" in joy_name else "generic")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
