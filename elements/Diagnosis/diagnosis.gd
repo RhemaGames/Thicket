@@ -11,8 +11,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if $Input.rotation >= PI * 2:
+		$Input.rotation = 0.0
 	$Input.rotation += delta * 0.1
-	pass
 
 func _on_from_peer(id,type,data):
 	print_debug(id," ",type)

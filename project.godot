@@ -8,22 +8,27 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Thicket"
+config/tags=PackedStringArray("thicket")
 run/main_scene="res://BG/loading.tscn"
-config/features=PackedStringArray("4.4")
+config/features=PackedStringArray("4.6")
 boot_splash/bg_color=Color(0.00351917, 0.00351917, 0.00351916, 1)
-boot_splash/fullsize=false
+boot_splash/stretch_mode=0
 boot_splash/image="res://icon.png"
 config/icon="res://icon.png"
 
 [autoload]
 
-Storage="*res://addons/thicket_sdk/storage/storage.gd"
-Config="*res://addons/thicket_sdk/config.gd"
-Supabase="*res://addons/thicket_sdk/addons/supabase/Supabase/supabase.gd"
-Service="*res://addons/thicket_sdk/network/service.gd"
+Storage="*uid://hh3waxmt3qh7"
+Config="*uid://b4uvdk7cixpy3"
+Supabase="*uid://0wjrkpo7l7mq"
+Service="*uid://nu0idl261rtr"
 
 [display]
 
@@ -45,6 +50,13 @@ theme/use_hidpi=true
 ui_fullscreen={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194342,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+Start={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":6,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":5,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
 

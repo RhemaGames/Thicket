@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=30 format=3 uid="uid://ciadmdwxb2f1e"]
+[gd_resource type="VisualShader" format=3 uid="uid://ciadmdwxb2f1e"]
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_osudk"]
 source = 5
@@ -105,110 +105,6 @@ default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
 op_type = 0
 
 [resource]
-code = "shader_type canvas_item;
-render_mode blend_mix;
-
-uniform float Speed : hint_range(0.0, 10.0, 1.0) = 2.0;
-uniform sampler2D Layer2 : hint_default_transparent, repeat_enable;
-uniform sampler2D Layer1 : hint_default_transparent, filter_nearest, repeat_enable;
-uniform sampler2D Layer3 : hint_default_transparent, filter_nearest, repeat_enable;
-
-
-
-void vertex() {
-// Input:10
-	vec2 n_out10p0 = VERTEX;
-
-
-// Output:0
-	VERTEX = n_out10p0;
-
-
-}
-
-void fragment() {
-// Input:2
-	float n_out2p0 = TIME;
-
-
-// FloatParameter:7
-	float n_out7p0 = Speed;
-
-
-// FloatOp:6
-	float n_out6p0 = n_out2p0 * n_out7p0;
-
-
-// UVFunc:8
-	vec2 n_in8p1 = vec2(1.00000, 0.00000);
-	vec2 n_out8p0 = vec2(n_out6p0) * n_in8p1 + UV;
-
-
-	vec4 n_out9p0;
-// Texture2D:9
-	n_out9p0 = texture(Layer2, n_out8p0);
-
-
-// FloatConstant:16
-	float n_out16p0 = 0.050000;
-
-
-// FloatOp:17
-	float n_out17p0 = n_out16p0 * n_out7p0;
-
-
-// FloatOp:14
-	float n_out14p0 = n_out2p0 * n_out17p0;
-
-
-// UVFunc:15
-	vec2 n_in15p1 = vec2(1.00000, 0.00000);
-	vec2 n_out15p0 = vec2(n_out14p0) * n_in15p1 + UV;
-
-
-	vec4 n_out10p0;
-// Texture2D:10
-	n_out10p0 = texture(Layer1, n_out15p0);
-
-
-// Mix:11
-	vec3 n_in11p2 = vec3(0.50000, 0.50000, 0.50000);
-	vec3 n_out11p0 = mix(vec3(n_out9p0.xyz), vec3(n_out10p0.xyz), n_in11p2);
-
-
-// FloatConstant:19
-	float n_out19p0 = 0.010000;
-
-
-// FloatOp:20
-	float n_out20p0 = n_out19p0 * n_out7p0;
-
-
-// FloatOp:21
-	float n_out21p0 = n_out2p0 * n_out20p0;
-
-
-// UVFunc:22
-	vec2 n_in22p1 = vec2(1.00000, 0.00000);
-	vec2 n_out22p0 = vec2(n_out21p0) * n_in22p1 + UV;
-
-
-	vec4 n_out23p0;
-// Texture2D:23
-	n_out23p0 = texture(Layer3, n_out22p0);
-
-
-// Mix:24
-	vec3 n_in24p2 = vec3(0.50000, 0.50000, 0.50000);
-	vec3 n_out24p0 = mix(n_out11p0, vec3(n_out23p0.xyz), n_in24p2);
-
-
-// Output:0
-	COLOR.rgb = n_out24p0;
-
-
-}
-"
 mode = 1
 flags/light_only = false
 nodes/vertex/0/position = Vector2(800, -120)

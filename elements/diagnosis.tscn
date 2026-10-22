@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bw5k01dheu84l"]
+[gd_scene format=3 uid="uid://bw5k01dheu84l"]
 
 [ext_resource type="Script" uid="uid://c1x2k5rw72vc6" path="res://elements/Diagnosis/diagnosis.gd" id="1_p46ci"]
 [ext_resource type="Script" uid="uid://bkjfn82i3w4xq" path="res://elements/Diagnosis/system.gd" id="1_qedim"]
@@ -7,105 +7,105 @@
 [ext_resource type="Texture2D" uid="uid://klxh4lw5s62b" path="res://Img/circle_mask.png" id="3_hw45w"]
 [ext_resource type="Script" uid="uid://ufkbudthrirq" path="res://elements/Diagnosis/input.gd" id="6_8bl81"]
 
-[node name="Diagnosis" type="Node2D"]
+[node name="Diagnosis" type="Node2D" unique_id=1580187534]
 script = ExtResource("1_p46ci")
 
-[node name="System" type="Node2D" parent="."]
+[node name="System" type="Node2D" parent="." unique_id=81176808]
 modulate = Color(1, 1, 1, 0.709804)
 script = ExtResource("1_qedim")
 
-[node name="Storage" type="Sprite2D" parent="System"]
+[node name="Storage" type="Sprite2D" parent="System" unique_id=1422788354]
 texture = ExtResource("2_duad1")
 
-[node name="Pivot" type="Marker2D" parent="System/Storage"]
+[node name="Pivot" type="Marker2D" parent="System/Storage" unique_id=507900671]
 
-[node name="Memory" type="Sprite2D" parent="System"]
+[node name="Memory" type="Sprite2D" parent="System" unique_id=1658145601]
 scale = Vector2(0.817, 0.817)
 texture = ExtResource("1_r84er")
 
-[node name="Pivot" type="Marker2D" parent="System/Memory"]
+[node name="Pivot" type="Marker2D" parent="System/Memory" unique_id=690055425]
 
-[node name="Hardware" type="Node2D" parent="."]
+[node name="Hardware" type="Node2D" parent="." unique_id=632008816]
 modulate = Color(1, 1, 1, 0.670588)
 
-[node name="Network" type="Marker2D" parent="Hardware"]
+[node name="Network" type="Marker2D" parent="Hardware" unique_id=624504016]
 rotation = 0.698132
 
-[node name="img" type="Sprite2D" parent="Hardware/Network"]
+[node name="img" type="Sprite2D" parent="Hardware/Network" unique_id=1134967584]
 position = Vector2(-300, 0)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_hw45w")
 
-[node name="GPU" type="Marker2D" parent="Hardware"]
+[node name="GPU" type="Marker2D" parent="Hardware" unique_id=293648976]
 rotation = 0.349066
 
-[node name="img" type="Sprite2D" parent="Hardware/GPU"]
+[node name="img" type="Sprite2D" parent="Hardware/GPU" unique_id=1005451364]
 position = Vector2(-300, 0)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_hw45w")
 
-[node name="Sound" type="Marker2D" parent="Hardware"]
+[node name="Sound" type="Marker2D" parent="Hardware" unique_id=77017971]
 
-[node name="img" type="Sprite2D" parent="Hardware/Sound"]
+[node name="img" type="Sprite2D" parent="Hardware/Sound" unique_id=787762626]
 position = Vector2(-300, 0)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_hw45w")
 
-[node name="Input" type="Node2D" parent="."]
+[node name="Input" type="Node2D" parent="." unique_id=1101935292]
 script = ExtResource("6_8bl81")
 
-[node name="Controllers" type="Node2D" parent="Input"]
+[node name="Controllers" type="Node2D" parent="Input" unique_id=894486782]
 
-[node name="controller" type="Sprite2D" parent="Input/Controllers"]
+[node name="controller" type="Sprite2D" parent="Input/Controllers" unique_id=387425613]
 self_modulate = Color(1, 1, 1, 0.196078)
 scale = Vector2(1.143, 1.143)
 texture = ExtResource("1_r84er")
 
-[node name="Pivot" type="Marker2D" parent="Input/Controllers/controller"]
+[node name="Pivot" type="Marker2D" parent="Input/Controllers/controller" unique_id=1851317810]
 
-[node name="controller2" type="Sprite2D" parent="Input/Controllers"]
+[node name="controller2" type="Sprite2D" parent="Input/Controllers" unique_id=1389652917]
 self_modulate = Color(1, 1, 1, 0.196078)
 rotation = 1.5708
 scale = Vector2(1.143, 1.143)
 texture = ExtResource("1_r84er")
 
-[node name="Pivot" type="Marker2D" parent="Input/Controllers/controller2"]
+[node name="Pivot" type="Marker2D" parent="Input/Controllers/controller2" unique_id=1837981064]
 
-[node name="controller3" type="Sprite2D" parent="Input/Controllers"]
+[node name="controller3" type="Sprite2D" parent="Input/Controllers" unique_id=81618643]
 self_modulate = Color(1, 1, 1, 0.196078)
 rotation = 3.14159
 scale = Vector2(1.143, 1.143)
 texture = ExtResource("1_r84er")
 
-[node name="Pivot" type="Marker2D" parent="Input/Controllers/controller3"]
+[node name="Pivot" type="Marker2D" parent="Input/Controllers/controller3" unique_id=1493147548]
 
-[node name="controller4" type="Sprite2D" parent="Input/Controllers"]
+[node name="controller4" type="Sprite2D" parent="Input/Controllers" unique_id=676415212]
 self_modulate = Color(1, 1, 1, 0.196078)
 rotation = 4.71239
 scale = Vector2(1.143, 1.143)
 texture = ExtResource("1_r84er")
 
-[node name="Pivot" type="Marker2D" parent="Input/Controllers/controller4"]
+[node name="Pivot" type="Marker2D" parent="Input/Controllers/controller4" unique_id=1039317892]
 
-[node name="Rhema" type="Node2D" parent="Input"]
+[node name="Rhema" type="Node2D" parent="Input" unique_id=1574305147]
 
-[node name="Joystick3" type="Node2D" parent="Input/Rhema"]
+[node name="Joystick3" type="Node2D" parent="Input/Rhema" unique_id=1541020501]
 
-[node name="Joystick2" type="Node2D" parent="Input/Rhema"]
+[node name="Joystick2" type="Node2D" parent="Input/Rhema" unique_id=1357408577]
 
-[node name="Driving" type="Node2D" parent="Input/Rhema"]
+[node name="Driving" type="Node2D" parent="Input/Rhema" unique_id=1838207740]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1764907644]
 ignore_rotation = false
 enabled = false
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=351274877]
 wait_time = 15.0
 autostart = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1228201093]
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1725097178]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -113,40 +113,40 @@ offset_top = -97.0
 offset_right = 145.0
 grow_vertical = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer" unique_id=216510668]
 layout_mode = 2
 
-[node name="M" type="HBoxContainer" parent="CanvasLayer/PanelContainer/VBoxContainer"]
+[node name="M" type="HBoxContainer" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=1858258609]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer/M"]
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer/M" unique_id=703800571]
 layout_mode = 2
 text = "Memory:"
 
-[node name="Memory" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer/M"]
+[node name="Memory" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer/M" unique_id=828281257]
 layout_mode = 2
 text = "N/A"
 
-[node name="S" type="HBoxContainer" parent="CanvasLayer/PanelContainer/VBoxContainer"]
+[node name="S" type="HBoxContainer" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=1056342840]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer/S"]
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer/S" unique_id=1543072663]
 layout_mode = 2
 text = "Storage:"
 
-[node name="Storage" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer/S"]
+[node name="Storage" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer/S" unique_id=87684424]
 layout_mode = 2
 text = "N/A"
 
-[node name="C" type="HBoxContainer" parent="CanvasLayer/PanelContainer/VBoxContainer"]
+[node name="C" type="HBoxContainer" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=2002408696]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer/C"]
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer/C" unique_id=482802493]
 layout_mode = 2
 text = "CPU"
 horizontal_alignment = 2
 
-[node name="CPU" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer/C"]
+[node name="CPU" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer/C" unique_id=694000350]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "N/A"

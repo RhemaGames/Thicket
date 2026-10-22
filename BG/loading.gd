@@ -10,7 +10,10 @@ func _ready() -> void:
 	Config.connect("from_config",Callable(self,"_from_config"))
 	get_window().size_changed.connect(screen_resize)
 	initial_window_size = get_window().size
-
+	if get_window().mode == 3:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -33,6 +36,9 @@ func _input(event):
 			get_tree().root.mode = 3
 		else:
 			get_tree().root.mode = 0
+	if event.is_action_pressed("Start"):
+		print("Pressed Start")
+		OS.execute("../Games/Discourse.sh",[])
 
 func change_background():
 	var data = Config.data["shared"]["Background"]["Image"]["data"]
@@ -59,3 +65,5 @@ func screen_resize():
 		$Diagnosis.scale = Vector2(y,y) * 0.6
 	else:
 		$Diagnosis.scale = Vector2(x,x) * 0.6
+
+	
