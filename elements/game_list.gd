@@ -21,8 +21,8 @@ func _ready() -> void:
 	panel.add_child(scroll)
 	add_child(panel)
 	Service.from_peer.connect(_on_from_peer)
-	Service.local_service_connected.connect(func(up):
-		if up:
+	Service.connection_state.connect(func(st):
+		if st.state == "connected":
 			Service.request_games())
 
 func toggle() -> void:
